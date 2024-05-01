@@ -4,7 +4,6 @@ import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,9 +19,11 @@ public class Country {
     private List<City> cities;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Region region;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private Continent continent;
 
     @Column
