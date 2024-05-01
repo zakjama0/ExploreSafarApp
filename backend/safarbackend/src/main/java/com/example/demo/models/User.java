@@ -22,8 +22,11 @@ public class User {
     @Column(name = "passwords")
     private String password;
 
-    @Column(name = "itineraries")
+    @OneToMany(mappedBy = "user")
     private List<Itinerary> itineraries;
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
 
     public User() {
 
