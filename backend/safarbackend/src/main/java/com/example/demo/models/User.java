@@ -25,7 +25,6 @@ public class User {
     @Column(name = "itineraries")
     private List<Itinerary> itineraries;
 
-
     public User() {
 
     }

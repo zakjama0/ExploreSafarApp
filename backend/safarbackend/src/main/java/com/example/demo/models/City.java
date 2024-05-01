@@ -2,6 +2,9 @@ package com.example.demo.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="cities")
 public class City {
@@ -15,10 +18,14 @@ public class City {
     @JoinColumn(name = "country_id")
     private Country country;
 
+    @OneToMany(mappedBy = "city")
+    private List<Attraction> attractions;
+
     public City(long id, String name, Country country) {
         this.id = id;
         this.name = name;
         this.country = country;
+        this.attractions = new ArrayList<>();
     }
 
     public City() {
@@ -46,5 +53,13 @@ public class City {
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public List<Attraction> getAttractions() {
+        return attractions;
+    }
+
+    public void setAttractions(List<Attraction> attractions) {
+        this.attractions = attractions;
     }
 }
