@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity(name="duas")
 public class Dua {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -16,12 +15,16 @@ public class Dua {
 
     @Column
     private String arabic;
+
     @Column
     private String translation;
+
     @Column
     private String transliteration;
+
     @Column
     private String explanation;
+
     @Column
     private String source;
 

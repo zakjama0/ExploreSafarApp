@@ -51,6 +51,14 @@ public class PlannedAttraction {
         this.itinerary = itinerary;
     }
 
+    public Attraction getAttraction() {
+        return attraction;
+    }
+
+    public void setAttraction(Attraction attraction) {
+        this.attraction = attraction;
+    }
+
     public LocalDate getStartDate() {
         return startDate;
     }

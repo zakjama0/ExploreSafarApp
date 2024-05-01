@@ -19,10 +19,6 @@ public class Country {
     @JsonIgnore
     private List<City> cities;
 
-    @OneToMany(mappedBy = "country")
-    @JsonIgnore
-    private List<Attraction> attractions;
-
     @Column
     private Region region;
     @Column

@@ -24,8 +24,6 @@ public class Itinerary {
     @OneToMany(mappedBy = "itinerary")
     private List<PlannedAttraction> plannedAttractions;
 
-
-
     public Itinerary(){
     }
 
