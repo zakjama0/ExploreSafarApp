@@ -20,11 +20,9 @@ public class Country {
     private List<City> cities;
 
     @Column
-    @Enumerated(EnumType.STRING)
     private Region region;
 
     @Column
-    @Enumerated(EnumType.STRING)
     private Continent continent;
 
     @Column
