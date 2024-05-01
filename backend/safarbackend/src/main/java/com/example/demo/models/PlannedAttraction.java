@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "planned_attraction")
 public class PlannedAttraction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
