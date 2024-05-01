@@ -21,15 +21,19 @@ public class Country {
 
     @Column
     private Region region;
+
     @Column
     private Continent continent;
 
-    public Country(long id, List<City> cities, List<Attraction> attractions, Region region, Continent continent) {
+    @Column
+    private String image;
+
+    public Country(long id, List<City> cities, Region region, Continent continent, String image) {
         this.id = id;
         this.cities = cities;
-        this.attractions = attractions;
         this.region = region;
         this.continent = continent;
+        this.image = image;
     }
 
     public Country() {
@@ -59,19 +63,19 @@ public class Country {
         this.region = region;
     }
 
-    public List<Attraction> getAttractions() {
-        return attractions;
-    }
-
-    public void setAttractions(List<Attraction> attractions) {
-        this.attractions = attractions;
-    }
-
     public Continent getContinent() {
         return continent;
     }
 
     public void setContinent(Continent continent) {
         this.continent = continent;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
