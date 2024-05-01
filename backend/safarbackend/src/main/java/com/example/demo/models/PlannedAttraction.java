@@ -24,9 +24,10 @@ public class PlannedAttraction {
     @Column
     private LocalDate endDate;
 
-    public PlannedAttraction(long id, Itinerary itinerary, LocalDate startDate, LocalDate endDate) {
+    public PlannedAttraction(long id, Itinerary itinerary, Attraction attraction, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.itinerary = itinerary;
+        this.attraction = attraction;
         this.startDate = startDate;
         this.endDate = endDate;
     }

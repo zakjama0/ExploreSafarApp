@@ -27,10 +27,6 @@ public class Review {
     @JoinColumn(name = "attraction_id")
     private Attraction attraction;
 
-    @OneToMany
-
-    private List<Itinerary> itineraries;
-
     public Review() {
 
     }
@@ -65,5 +61,21 @@ public class Review {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Attraction getAttraction() {
+        return attraction;
+    }
+
+    public void setAttraction(Attraction attraction) {
+        this.attraction = attraction;
     }
 }
