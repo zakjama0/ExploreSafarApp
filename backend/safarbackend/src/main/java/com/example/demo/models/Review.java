@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity
-@Table(name = "reviews")
+@Entity(name = "reviews")
 public class Review {
 
     @Id
@@ -28,11 +27,9 @@ public class Review {
     private Attraction attraction;
 
     public Review() {
-
     }
 
-    public Review(Long id, int rating, String comment, User user, Attraction attraction) {
-        this.id = id;
+    public Review(int rating, String comment, User user, Attraction attraction) {
         this.rating = rating;
         this.comment = comment;
         this.user = user;

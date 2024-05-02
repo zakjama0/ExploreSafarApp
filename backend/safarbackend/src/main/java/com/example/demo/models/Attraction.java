@@ -6,8 +6,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name="attractions")
+@Entity(name = "attractions")
 public class Attraction {
 
     @Id
@@ -37,8 +36,7 @@ public class Attraction {
 
     }
 
-    public Attraction(long id, City city, String description, String image) {
-        this.id = id;
+    public Attraction(City city, String description, String image) {
         this.city = city;
         this.description = description;
         this.image = image;

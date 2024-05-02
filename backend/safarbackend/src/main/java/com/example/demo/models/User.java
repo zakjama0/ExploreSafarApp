@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-
-@Table
 @Entity(name = "users")
 public class User {
 
@@ -32,8 +30,7 @@ public class User {
 
     }
 
-    public User(Long id, String name, String email, String password, List<Itinerary> itineraries) {
-    this.id = id;
+    public User(String name, String email, String password, List<Itinerary> itineraries) {
     this.name = name;
     this.email = email;
     this.password = password;

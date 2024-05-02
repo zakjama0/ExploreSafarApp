@@ -6,8 +6,7 @@ import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
 import java.util.List;
 
-@Entity
-@Table(name = "countries")
+@Entity(name = "countries")
 public class Country {
 
     @Id
@@ -19,25 +18,23 @@ public class Country {
     private List<City> cities;
 
     @Column
-    @Enumerated(EnumType.STRING)
     private Region region;
 
     @Column
-    @Enumerated(EnumType.STRING)
     private Continent continent;
 
     @Column
     private String image;
 
-    public Country(long id, List<City> cities, Region region, Continent continent, String image) {
-        this.id = id;
+    public Country() {
+
+    }
+
+    public Country(List<City> cities, Region region, Continent continent, String image) {
         this.cities = cities;
         this.region = region;
         this.continent = continent;
         this.image = image;
-    }
-
-    public Country() {
     }
 
     public long getId() {

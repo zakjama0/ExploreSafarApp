@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name="cities")
+@Entity(name = "cities")
 public class City {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -15,14 +14,14 @@ public class City {
     @Column
     private String name;
 
+    @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
 
     @OneToMany(mappedBy = "city")
     private List<Attraction> attractions;
 
-    public City(long id, String name, Country country) {
-        this.id = id;
+    public City(String name, Country country) {
         this.name = name;
         this.country = country;
         this.attractions = new ArrayList<>();

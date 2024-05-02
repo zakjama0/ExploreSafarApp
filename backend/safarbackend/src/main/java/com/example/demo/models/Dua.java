@@ -2,7 +2,7 @@ package com.example.demo.models;
 
 import jakarta.persistence.*;
 
-@Entity(name="duas")
+@Entity(name = "duas")
 public class Dua {
 
     @Id
@@ -28,8 +28,7 @@ public class Dua {
     @Column
     private String source;
 
-    public Dua(long id, String name, String arabic, String translation, String transliteration, String explanation, String source) {
-        this.id = id;
+    public Dua(String name, String arabic, String translation, String transliteration, String explanation, String source) {
         this.name = name;
         this.arabic = arabic;
         this.translation = translation;

@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "planned_attraction")
+@Entity(name = "planned_attraction")
 public class PlannedAttraction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +25,7 @@ public class PlannedAttraction {
     @Column
     private LocalDate endDate;
 
-    public PlannedAttraction(long id, Itinerary itinerary, Attraction attraction, LocalDate startDate, LocalDate endDate) {
-        this.id = id;
+    public PlannedAttraction(Itinerary itinerary, Attraction attraction, LocalDate startDate, LocalDate endDate) {
         this.itinerary = itinerary;
         this.attraction = attraction;
         this.startDate = startDate;
