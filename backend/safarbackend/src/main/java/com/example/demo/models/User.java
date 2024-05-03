@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.example.demo.encryptor.StringCryptoConverter;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -13,12 +14,15 @@ public class User {
     private Long id;
 
     @Column(name = "name")
+    @Convert(converter = StringCryptoConverter.class)
     private String name;
 
     @Column(name = "emails")
+    @Convert(converter = StringCryptoConverter.class)
     private String email;
 
     @Column(name = "passwords")
+    @Convert(converter = StringCryptoConverter.class)
     private String password;
 
     @OneToMany(mappedBy = "user")
