@@ -26,13 +26,7 @@ public class AttractionController {
         return new ResponseEntity<>(attractions, HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Attraction>> getAllAttractionsByCountry(@PathVariable Long id){
-        List<Attraction> attractions = attractionService.getAttractionsByCountryId(id);
-        return new ResponseEntity<>(attractions, HttpStatus.OK);
-    }
-
-    @GetMapping
+    @GetMapping(value = "/{id}")
     public ResponseEntity<List<Attraction>> getAllAttractionsByCity(@PathVariable Long id){
         List<Attraction> attractions = attractionService.getAttractionsByCityId(id);
         return new ResponseEntity<>(attractions, HttpStatus.OK);
