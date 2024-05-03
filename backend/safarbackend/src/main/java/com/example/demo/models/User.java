@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "users")
@@ -30,11 +31,11 @@ public class User {
 
     }
 
-    public User(String name, String email, String password, List<Itinerary> itineraries) {
+    public User(String name, String email, String password) {
     this.name = name;
     this.email = email;
     this.password = password;
-    this.itineraries = itineraries;
+    this.itineraries = new ArrayList<>();
     }
 
     public Long getId() {
