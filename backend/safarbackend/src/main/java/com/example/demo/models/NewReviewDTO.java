@@ -2,9 +2,9 @@ package com.example.demo.models;
 
 public class NewReviewDTO {
 
-    private Long itemId;
+    private Long attractionId;
 
-    private Long customerId;
+    private Long userId;
 
     private int rating;
 
@@ -13,27 +13,27 @@ public class NewReviewDTO {
     public NewReviewDTO() {
     }
 
-    public NewReviewDTO(Long itemId, Long customerId, int rating, String comment) {
-        this.itemId = itemId;
-        this.customerId = customerId;
+    public NewReviewDTO(Long attractionId, Long userId, int rating, String comment) {
+        this.attractionId = attractionId;
+        this.userId = userId;
         this.rating = rating;
         this.comment = comment;
     }
 
     public Long getAttractionId() {
-        return itemId;
+        return attractionId;
     }
 
-    public void setAttractionId(Long itemId) {
-        this.itemId = itemId;
+    public void setAttractionId(Long attractionId) {
+        this.attractionId = attractionId;
     }
 
     public Long getUserId() {
-        return customerId;
+        return userId;
     }
 
-    public void setUserId(Long customerId) {
-        this.customerId = customerId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public int getRating() {
