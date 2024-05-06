@@ -17,11 +17,11 @@ public class User {
     @Convert(converter = StringCryptoConverter.class)
     private String name;
 
-    @Column(name = "emails")
+    @Column(name = "email")
     @Convert(converter = StringCryptoConverter.class)
     private String email;
 
-    @Column(name = "passwords")
+    @Column(name = "password")
     @Convert(converter = StringCryptoConverter.class)
     private String password;
 

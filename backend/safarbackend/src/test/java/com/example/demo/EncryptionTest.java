@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
@@ -40,5 +39,25 @@ public class EncryptionTest {
         assertThat(user.getName()).isEqualTo(NAME);
         assertThat(user.getEmail()).isEqualTo(EMAIL);
         assertThat(user.getPassword()).isEqualTo(PASSWORD);
+    }
+
+    @Test
+    public void testUserDetailsAreEncryptedCorrectly(){
+
+        User user = jdbcTemplate.queryForObject(
+                "SELECT * FROM users WHERE id = ?",
+                (resultSet, i) -> {
+                    User result = new User();
+                    result.setId(resultSet.getLong("id"));
+                    result.setName(resultSet.getString("name"));
+                    result.setEmail(resultSet.getString("email"));
+                    return result;
+                },
+                userId
+        );
+
+        assert user != null;
+        assertThat(user.getName()).isNotEqualTo(NAME);
+        assertThat(user.getEmail()).isNotEqualTo(EMAIL);
     }
 }
