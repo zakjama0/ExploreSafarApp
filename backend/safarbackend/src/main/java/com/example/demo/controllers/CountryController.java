@@ -23,14 +23,14 @@ public class CountryController {
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping(value = "/{region}")
     public ResponseEntity<List<Country>> getCountriesByRegion(@RequestParam(required = false, name = "region") Region region
     ){
         List<Country> countries = countryService.getCountriesByRegion(region);
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping(value = "/continent/{id}")
     public ResponseEntity<List<Country>> getCountriesByContinent(@PathVariable Continent continent){
         List<Country> countries = countryService.getCountriesByContinent(continent);
         return new ResponseEntity<>(countries, HttpStatus.OK);
