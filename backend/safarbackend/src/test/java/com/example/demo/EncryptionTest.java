@@ -22,6 +22,11 @@ public class EncryptionTest {
     private static final String NAME = "John";
     private static final String EMAIL = "john@example.com";
     private static final String PASSWORD = "password";
+
+    private static final String NEW_NAME = "Steve";
+    private static final String NEW_EMAIL = "steve@example.com";
+    private static final String NEW_PASSWORD = "newpassword";
+
     private long userId;
 
     @BeforeEach
@@ -51,6 +56,7 @@ public class EncryptionTest {
                     result.setId(resultSet.getLong("id"));
                     result.setName(resultSet.getString("name"));
                     result.setEmail(resultSet.getString("email"));
+                    result.setPassword(resultSet.getString("password"));
                     return result;
                 },
                 userId
@@ -59,5 +65,48 @@ public class EncryptionTest {
         assert user != null;
         assertThat(user.getName()).isNotEqualTo(NAME);
         assertThat(user.getEmail()).isNotEqualTo(EMAIL);
+        assertThat(user.getPassword()).isNotEqualTo(PASSWORD);
+    }
+
+    @Test
+    public void testEditedUsersDetailsAreDecryptedCorrectly(){
+
+        User userToEdit = userRepository.findById(userId).orElseThrow();
+        userToEdit.setName(NEW_NAME);
+        userToEdit.setEmail(NEW_EMAIL);
+        userToEdit.setPassword(NEW_PASSWORD);
+        userRepository.save(userToEdit);
+
+        User editedUser = userRepository.findById(userId).orElseThrow();
+        assertThat(editedUser.getName()).isEqualTo(NEW_NAME);
+        assertThat(editedUser.getEmail()).isEqualTo(NEW_EMAIL);
+        assertThat(editedUser.getPassword()).isEqualTo(NEW_PASSWORD);
+    }
+
+    @Test
+    public void testEditedUsersDetailsAreEncryptedCorrectly(){
+
+        User userToEdit = userRepository.findById(userId).orElseThrow();
+        userToEdit.setName(NEW_NAME);
+        userToEdit.setEmail(NEW_EMAIL);
+        userToEdit.setPassword(NEW_PASSWORD);
+        userRepository.save(userToEdit);
+
+        User editedUser = jdbcTemplate.queryForObject(
+                "SELECT * FROM users WHERE id = ?",
+                (resultSet, i) -> {
+                    User result = new User();
+                    result.setId(resultSet.getLong("id"));
+                    result.setName(resultSet.getString("name"));
+                    result.setEmail(resultSet.getString("email"));
+                    return result;
+                },
+                userId
+        );
+
+        assert editedUser != null;
+        assertThat(editedUser.getName()).isNotEqualTo(NAME);
+        assertThat(editedUser.getEmail()).isNotEqualTo(EMAIL);
+        assertThat(editedUser.getPassword()).isNotEqualTo(PASSWORD);
     }
 }
