@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.example.demo.enums.Category;
 import jakarta.persistence.*;
 
 @Entity(name = "duas")
@@ -28,13 +29,17 @@ public class Dua {
     @Column
     private String source;
 
-    public Dua(String name, String arabic, String translation, String transliteration, String explanation, String source) {
+    @Column
+    private Category category;
+
+    public Dua(String name, String arabic, String translation, String transliteration, String explanation, String source, Category category) {
         this.name = name;
         this.arabic = arabic;
         this.translation = translation;
         this.transliteration = transliteration;
         this.explanation = explanation;
         this.source = source;
+        this.category = category;
     }
 
     public long getId() {
@@ -91,5 +96,13 @@ public class Dua {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

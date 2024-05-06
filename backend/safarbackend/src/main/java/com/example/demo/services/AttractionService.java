@@ -19,8 +19,7 @@ public class AttractionService {
         return attractionRepository.findByCityId(cityId);
     }
 
-//    GETBYAVGRATING
-
-
-
+    public List<Attraction> getAttractionsByCountryId(Long countryId){
+        return attractionRepository.findByCountryId(countryId);
+    }
 }
