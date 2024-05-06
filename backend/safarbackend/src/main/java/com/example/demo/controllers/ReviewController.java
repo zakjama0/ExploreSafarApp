@@ -50,9 +50,9 @@ public class ReviewController {
 
         if (avgRating != null) {
             return new ResponseEntity<>(avgRating, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     @PostMapping
     public ResponseEntity<Review> addReview (@RequestBody NewReviewDTO newReviewDTO){

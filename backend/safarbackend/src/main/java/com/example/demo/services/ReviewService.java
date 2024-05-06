@@ -62,8 +62,11 @@ public class ReviewService {
         reviewRepository.deleteById(id);
     }
 
-    public Double getAvgRatingByAttractionId (Long itemId) {
-        return reviewRepository.findAvgRatingByAttractionId(itemId);
+    public Double getAvgRatingByAttractionId (Long attractionId) {
+        if(attractionRepository.findById(attractionId).isPresent()) {
+            return reviewRepository.findAvgRatingByAttractionId(attractionId);
+        }
+        return null;
     }
 
 }

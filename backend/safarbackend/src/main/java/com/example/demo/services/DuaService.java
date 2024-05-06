@@ -18,6 +18,7 @@ public class DuaService {
     public List<Dua> getAllDuas(){
         return duaRepository.findAll();
     }
+
     public Optional<Dua> getDuaById(Long id) {
         return duaRepository.findById(id);
     }
