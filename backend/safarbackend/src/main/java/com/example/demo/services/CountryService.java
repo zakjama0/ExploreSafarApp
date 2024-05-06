@@ -18,11 +18,11 @@ public class CountryService {
     }
 
     public List<Country> getCountriesByRegion(Region region){
-        return countryRepository.findByCountriesByRegion(region);
+        return countryRepository.findByRegion(region);
     }
 
     public List<Country> getCountriesByContinent(Long continentId){
-        return countryRepository.findByCountriesByContinentId(continentId);
+        return countryRepository.findByContinentId(continentId);
     }
 
 }

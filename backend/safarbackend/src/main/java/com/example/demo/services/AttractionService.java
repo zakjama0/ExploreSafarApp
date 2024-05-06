@@ -16,10 +16,10 @@ public class AttractionService {
     }
 
     public List<Attraction> getAttractionsByCountryId(Long countryId){
-        return attractionRepository.getAttractionsByCountryId(countryId);
+        return attractionRepository.findByCountryId(countryId);
     }
     public List<Attraction> getAttractionsByCityId(Long cityId){
-        return attractionRepository.getAttractionsByCityId(cityId);
+        return attractionRepository.findByCityId(cityId);
     }
 
 //    GETBYAVGRATING
