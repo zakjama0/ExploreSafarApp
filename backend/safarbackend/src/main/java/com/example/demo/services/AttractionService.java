@@ -15,15 +15,11 @@ public class AttractionService {
         return attractionRepository.findAll();
     }
 
-    public List<Attraction> getAttractionsByCountryId(Long countryId){
-        return attractionRepository.findByCountryId(countryId);
-    }
     public List<Attraction> getAttractionsByCityId(Long cityId){
         return attractionRepository.findByCityId(cityId);
     }
 
-//    GETBYAVGRATING
-
-
-
+    public List<Attraction> getAttractionsByCountryId(Long countryId){
+        return attractionRepository.findByCountryId(countryId);
+    }
 }
