@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
 import com.example.demo.models.Country;
 import com.example.demo.repositories.CountryRepository;
@@ -21,8 +22,8 @@ public class CountryService {
         return countryRepository.findByRegion(region);
     }
 
-    public List<Country> getCountriesByContinent(Long continentId){
-        return countryRepository.findByContinentId(continentId);
+    public List<Country> getCountriesByContinent(Continent continent){
+        return countryRepository.findByContinent(continent);
     }
 
 }

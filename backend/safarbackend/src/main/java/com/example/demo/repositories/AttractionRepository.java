@@ -10,6 +10,6 @@ import java.util.List;
 public interface AttractionRepository extends JpaRepository<Attraction, Long> {
     List<Attraction> findByCityId(long cityId);
 
-    @Query("SELECT a FROM Country c JOIN c.cities ci JOIN ci.attractions a WHERE c.id = :countryId")
+    @Query("SELECT a FROM attractions a JOIN a.city ci JOIN ci.country c WHERE c.id = :countryId")
     List<Attraction> findByCountryId(@Param("countryId") Long countryId);
 }

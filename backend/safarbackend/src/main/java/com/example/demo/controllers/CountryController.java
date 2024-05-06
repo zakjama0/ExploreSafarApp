@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
 import com.example.demo.models.Country;
 import com.example.demo.services.CountryService;
@@ -30,8 +31,8 @@ public class CountryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Country>> getCountriesByContinent(@PathVariable Long id){
-        List<Country> countries = countryService.getCountriesByContinent(id);
+    public ResponseEntity<List<Country>> getCountriesByContinent(@PathVariable Continent continent){
+        List<Country> countries = countryService.getCountriesByContinent(continent);
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
 }
