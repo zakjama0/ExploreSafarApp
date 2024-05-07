@@ -32,7 +32,7 @@ public class PlannedAttractionController {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
-    @GetMapping
+    @GetMapping(value = "/attraction/{id}")
     public ResponseEntity<List<PlannedAttraction>> getPlannedAttractionsByItinerary(@PathVariable Long itineraryid){
         List<PlannedAttraction> plannedAttractions = plannedAttractionService.getPlannedAttractionsByItinerary(itineraryid);
         if(plannedAttractions.isEmpty()){
