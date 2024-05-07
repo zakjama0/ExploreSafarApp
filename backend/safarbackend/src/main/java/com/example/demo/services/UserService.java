@@ -5,6 +5,7 @@ import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +26,9 @@ public class UserService {
     }
 
     public User saveUser (User user){
-        User newUser = new User(user.getName(), user.getEmail(),user.getPassword());
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        User newUser = new User(user.getName(), user.getEmail(), user.getPassword());
         return userRepository.save(newUser);
     }
 
