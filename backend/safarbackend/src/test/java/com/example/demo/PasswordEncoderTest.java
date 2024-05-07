@@ -1,21 +1,16 @@
 package com.example.demo;
 
 import com.example.demo.models.User;
-import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
 public class PasswordEncoderTest {
-
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     UserService userService;
