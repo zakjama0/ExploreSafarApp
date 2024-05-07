@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 
+import com.example.demo.encryptor.StringCryptoConverter;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.UserRepository;
@@ -17,6 +18,9 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    StringCryptoConverter stringCryptoConverter
+
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
@@ -26,7 +30,7 @@ public class UserService {
     }
 
     public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.findByEmail(stringCryptoConverter.convertToDatabaseColumn(email));
     }
 
     public User saveUser(User user){
