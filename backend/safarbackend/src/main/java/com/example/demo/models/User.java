@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import com.example.demo.encryptor.StringCryptoConverter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -17,12 +18,12 @@ public class User {
     @Convert(converter = StringCryptoConverter.class)
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     @Convert(converter = StringCryptoConverter.class)
     private String email;
 
+    @JsonIgnore
     @Column(name = "password")
-    @Convert(converter = StringCryptoConverter.class)
     private String password;
 
     @OneToMany(mappedBy = "user")
@@ -39,6 +40,7 @@ public class User {
     this.name = name;
     this.email = email;
     this.password = password;
+    this.reviews = new ArrayList<>();
     this.itineraries = new ArrayList<>();
     }
 
@@ -72,6 +74,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public List<Itinerary> getItineraries() {

@@ -5,6 +5,7 @@ import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +14,14 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Autowired
-    UserRepository userRepository;
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    }
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -24,8 +31,19 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User saveUser (User user){
-        User newUser = new User(user.getName(), user.getEmail(),user.getPassword());
+    public User getUserByEmail(String email) {
+        List<User> users = getAllUsers();
+        for(User user : users){
+            if(user.getEmail().equals(email)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public User saveUser(User user){
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        User newUser = new User(user.getName(), user.getEmail(), user.getPassword());
         return userRepository.save(newUser);
     }
 
