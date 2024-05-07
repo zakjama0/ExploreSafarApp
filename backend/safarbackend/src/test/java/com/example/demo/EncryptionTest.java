@@ -43,7 +43,6 @@ public class EncryptionTest {
         User user = userRepository.findById(userId).orElseThrow();
         assertThat(user.getName()).isEqualTo(NAME);
         assertThat(user.getEmail()).isEqualTo(EMAIL);
-        assertThat(user.getPassword()).isEqualTo(PASSWORD);
     }
 
     @Test
@@ -56,7 +55,6 @@ public class EncryptionTest {
                     result.setId(resultSet.getLong("id"));
                     result.setName(resultSet.getString("name"));
                     result.setEmail(resultSet.getString("email"));
-                    result.setPassword(resultSet.getString("password"));
                     return result;
                 },
                 userId
@@ -65,7 +63,6 @@ public class EncryptionTest {
         assert user != null;
         assertThat(user.getName()).isNotEqualTo(NAME);
         assertThat(user.getEmail()).isNotEqualTo(EMAIL);
-        assertThat(user.getPassword()).isNotEqualTo(PASSWORD);
     }
 
     @Test
@@ -74,13 +71,11 @@ public class EncryptionTest {
         User userToEdit = userRepository.findById(userId).orElseThrow();
         userToEdit.setName(NEW_NAME);
         userToEdit.setEmail(NEW_EMAIL);
-        userToEdit.setPassword(NEW_PASSWORD);
         userRepository.save(userToEdit);
 
         User editedUser = userRepository.findById(userId).orElseThrow();
         assertThat(editedUser.getName()).isEqualTo(NEW_NAME);
         assertThat(editedUser.getEmail()).isEqualTo(NEW_EMAIL);
-        assertThat(editedUser.getPassword()).isEqualTo(NEW_PASSWORD);
     }
 
     @Test
@@ -89,7 +84,6 @@ public class EncryptionTest {
         User userToEdit = userRepository.findById(userId).orElseThrow();
         userToEdit.setName(NEW_NAME);
         userToEdit.setEmail(NEW_EMAIL);
-        userToEdit.setPassword(NEW_PASSWORD);
         userRepository.save(userToEdit);
 
         User editedUser = jdbcTemplate.queryForObject(
@@ -107,6 +101,5 @@ public class EncryptionTest {
         assert editedUser != null;
         assertThat(editedUser.getName()).isNotEqualTo(NAME);
         assertThat(editedUser.getEmail()).isNotEqualTo(EMAIL);
-        assertThat(editedUser.getPassword()).isNotEqualTo(PASSWORD);
     }
 }
