@@ -25,7 +25,11 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User saveUser (User user){
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public User saveUser(User user){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         User newUser = new User(user.getName(), user.getEmail(), user.getPassword());

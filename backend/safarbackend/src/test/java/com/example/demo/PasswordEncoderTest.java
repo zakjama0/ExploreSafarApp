@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 @SpringBootTest
 public class PasswordEncoderTest {
 
@@ -25,9 +27,6 @@ public class PasswordEncoderTest {
     private static final String EMAIL = "john@example.com";
     private static final String PASSWORD = "password";
 
-    private static final String NEW_NAME = "Steve";
-    private static final String NEW_EMAIL = "steve@example.com";
-
     private long userId;
 
     @BeforeEach
@@ -37,9 +36,11 @@ public class PasswordEncoderTest {
         user.setEmail(EMAIL);
         user.setPassword(PASSWORD);
         userService.saveUser(user);
-//        userId = userRepository.findByEmail(EMAIL)
     }
 
-//    @Test
-//    public void testPasswordHasBeenHashed
+    @Test
+    public void testPasswordHasBeenCorrectlyHashed() {
+        User user = userService.getUserByEmail(EMAIL).orElseThrow();
+        assertThat(user.getPassword()).isNotEqualTo(PASSWORD);
+    }
 }
