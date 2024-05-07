@@ -4,6 +4,8 @@ import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "countries")
@@ -25,16 +27,19 @@ public class Country {
 
     @Column
     private String image;
+    @Column
+    private String name;
 
     public Country() {
 
     }
 
-    public Country(List<City> cities, Region region, Continent continent, String image) {
-        this.cities = cities;
+    public Country( Region region, Continent continent, String image, String name) {
+        this.cities = new ArrayList<>();
         this.region = region;
         this.continent = continent;
         this.image = image;
+        this.name = name;
     }
 
     public long getId() {
@@ -75,5 +80,13 @@ public class Country {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

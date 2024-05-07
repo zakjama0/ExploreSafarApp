@@ -24,6 +24,8 @@ public class Attraction {
 
     @Column
     private String image;
+    @Column
+    private String name;
 
     @JsonIgnoreProperties({"attraction"})
     @OneToMany(mappedBy = "attraction")
@@ -36,7 +38,7 @@ public class Attraction {
 
     }
 
-    public Attraction(City city, String description, String image) {
+    public Attraction(String name, City city, String description, String image) {
         this.city = city;
         this.description = description;
         this.image = image;
