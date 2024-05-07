@@ -4,10 +4,12 @@ import com.example.demo.models.Itinerary;
 import com.example.demo.models.UpdateItineraryDTO;
 import com.example.demo.repositories.ItineraryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ItineraryService {
 
     private final ItineraryRepository itineraryRepository;
