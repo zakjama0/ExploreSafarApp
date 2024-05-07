@@ -22,7 +22,6 @@ public class User {
     private String email;
 
     @Column(name = "password")
-    @Convert(converter = StringCryptoConverter.class)
     private String password;
 
     @OneToMany(mappedBy = "user")
