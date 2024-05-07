@@ -58,10 +58,10 @@ public class LogicTest {
         city = new City("Giza", country);
         cityRepository.save(city);
 
-        attraction = new Attraction(city, "Great Pyramids of Giza", "Big Pyramids", "no img sorry");
+        attraction = new Attraction("Great Pyramids of Giza", city, "Big Pyramids", "no img sorry");
         attractionRepository.save(attraction);
 
-        attraction1 = new Attraction(city, "Great Sphinx of Giza", "Big Lion", "Think cat");
+        attraction1 = new Attraction("Great Sphinx of Giza", city, "Big Lion", "Think cat");
         attractionRepository.save(attraction1);
     }
 

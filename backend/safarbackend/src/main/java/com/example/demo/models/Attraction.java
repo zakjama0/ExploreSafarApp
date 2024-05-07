@@ -27,8 +27,6 @@ public class Attraction {
 
     @Column
     private String image;
-    @Column
-    private String name;
 
     @JsonIgnoreProperties({"attraction"})
     @OneToMany(mappedBy = "attraction")
