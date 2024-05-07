@@ -25,7 +25,6 @@ public class EncryptionTest {
 
     private static final String NEW_NAME = "Steve";
     private static final String NEW_EMAIL = "steve@example.com";
-    private static final String NEW_PASSWORD = "newpassword";
 
     private long userId;
 

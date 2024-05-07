@@ -18,7 +18,7 @@ public class User {
     @Convert(converter = StringCryptoConverter.class)
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     @Convert(converter = StringCryptoConverter.class)
     private String email;
 
