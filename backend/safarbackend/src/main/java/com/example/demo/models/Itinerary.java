@@ -12,6 +12,8 @@ public class Itinerary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private long id;
+    @Column
+    private String name;
 
     @JoinColumn(name = "user_id")
     @ManyToOne
@@ -26,8 +28,9 @@ public class Itinerary {
     public Itinerary(){
     }
 
-    public Itinerary(User user, String image) {
+    public Itinerary(User user, String name, String image) {
         this.user = user;
+        this.name = name;
         this.image = image;
         this.plannedAttractions = new ArrayList<>();
     }
@@ -62,5 +65,13 @@ public class Itinerary {
 
     public void setPlannedAttractions(List<PlannedAttraction> plannedAttractions) {
         this.plannedAttractions = plannedAttractions;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
