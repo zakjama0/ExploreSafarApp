@@ -6,6 +6,7 @@ import com.example.demo.models.*;
 import com.example.demo.repositories.*;
 import com.example.demo.services.ItineraryService;
 import com.example.demo.services.PlannedAttractionService;
+import com.example.demo.services.ReviewService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,17 @@ public class LogicTest {
 
     private final PlannedAttractionService plannedAttractionService;
     private final ItineraryService itineraryService;
+    private final ReviewService reviewService;
     private final UserRepository userRepository;
     private final AttractionRepository attractionRepository;
     private final CountryRepository countryRepository;
     private final CityRepository cityRepository;
 
     @Autowired
-    public LogicTest(PlannedAttractionService plannedAttractionService, ItineraryService itineraryService, UserRepository userRepository, AttractionRepository attractionRepository, CountryRepository countryRepository, CityRepository cityRepository) {
+    public LogicTest(PlannedAttractionService plannedAttractionService, ItineraryService itineraryService, ReviewService reviewService, UserRepository userRepository, AttractionRepository attractionRepository, CountryRepository countryRepository, CityRepository cityRepository) {
         this.plannedAttractionService = plannedAttractionService;
         this.itineraryService = itineraryService;
+        this.reviewService = reviewService;
         this.userRepository = userRepository;
         this.attractionRepository = attractionRepository;
         this.countryRepository = countryRepository;
@@ -90,5 +93,31 @@ public class LogicTest {
 
         Itinerary updatedItinerary = itineraryService.getById(plannedAttraction1.getItinerary().getId()).get();
         assertThat(updatedItinerary.getPlannedAttractions().size()).isEqualTo(2);
+    }
+
+    @Test
+    public void testAddReview() {
+        int reviewCountBeforeAdding = reviewService.getAllReviews().size();
+        NewReviewDTO newReviewDTO = new NewReviewDTO(attraction.getId(), user.getId(), 5, "Warra attraction!");
+        Review review = reviewService.saveReview(newReviewDTO);
+        int reviewCountAfterAdding = reviewService.getAllReviews().size();
+
+        assertThat(reviewCountBeforeAdding + 1).isEqualTo(reviewCountAfterAdding);
+        assertThat(review.getUser().getId()).isEqualTo(user.getId());
+        assertThat(review.getComment()).isEqualTo(newReviewDTO.getComment());
+        assertThat(review.getRating()).isEqualTo(newReviewDTO.getRating());
+    }
+
+    @Test
+    public void testEditReview() {
+        NewReviewDTO newReviewDTO = new NewReviewDTO(attraction.getId(), user.getId(), 5, "Warra attraction!");
+        Review review = reviewService.saveReview(newReviewDTO);
+
+        UpdateReviewDTO updateReviewDTO = new UpdateReviewDTO(4, "Not as good as I though!");
+        Review editedReview = reviewService.updateReview(review.getId(), updateReviewDTO).get();
+
+        assertThat(editedReview.getUser().getId()).isEqualTo(user.getId());
+        assertThat(editedReview.getComment()).isEqualTo(updateReviewDTO.getComment());
+        assertThat(editedReview.getRating()).isEqualTo(updateReviewDTO.getRating());
     }
 }
