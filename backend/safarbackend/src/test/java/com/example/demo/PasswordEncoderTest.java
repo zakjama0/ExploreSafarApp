@@ -20,9 +20,6 @@ public class PasswordEncoderTest {
     @Autowired
     UserService userService;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
     private static final String NAME = "John";
     private static final String EMAIL = "john@example.com";
     private static final String PASSWORD = "password";
@@ -40,7 +37,7 @@ public class PasswordEncoderTest {
 
     @Test
     public void testPasswordHasBeenCorrectlyHashed() {
-        User user = userService.getUserByEmail(EMAIL).orElseThrow();
+        User user = userService.getUserByEmail(EMAIL);
         assertThat(user.getPassword()).isNotEqualTo(PASSWORD);
     }
 }

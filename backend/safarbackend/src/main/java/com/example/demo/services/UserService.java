@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 
-import com.example.demo.encryptor.StringCryptoConverter;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.UserRepository;
@@ -15,11 +14,14 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    StringCryptoConverter stringCryptoConverter
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
+        this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    }
 
     public List<User> getAllUsers(){
         return userRepository.findAll();
@@ -29,13 +31,18 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(stringCryptoConverter.convertToDatabaseColumn(email));
+    public User getUserByEmail(String email) {
+        List<User> users = getAllUsers();
+        for(User user : users){
+            if(user.getEmail().equals(email)){
+                return user;
+            }
+        }
+        return null;
     }
 
     public User saveUser(User user){
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         User newUser = new User(user.getName(), user.getEmail(), user.getPassword());
         return userRepository.save(newUser);
     }
