@@ -42,6 +42,7 @@ public class LogicTest {
 
     private User user;
     private Attraction attraction;
+    private Attraction attraction1;
     private City city;
     private Country country;
 
@@ -59,10 +60,13 @@ public class LogicTest {
 
         attraction = new Attraction(city, "Great Pyramids of Giza", "Big Pyramids", "no img sorry");
         attractionRepository.save(attraction);
+
+        attraction1 = new Attraction(city, "Great Sphinx of Giza", "Big Lion", "Think cat");
+        attractionRepository.save(attraction1);
     }
 
     @Test
-    public void testAddPlannedAttractionWithNoItinerary(){
+    public void testAddPlannedAttractionWithNoItinerary() {
         int itineraryCountBeforeAdding = itineraryService.getAllItineraries().size();
         PlannedAttractionDTO plannedAttractionDTO = new PlannedAttractionDTO(attraction.getId(), LocalDate.now(), LocalDate.of(2024, 8, 7), user.getId(), "Egypt Trip");
         PlannedAttraction plannedAttraction = plannedAttractionService.savePlannedAttraction(plannedAttractionDTO);
@@ -74,5 +78,17 @@ public class LogicTest {
         assertThat(itineraryCountBeforeAdding + 1).isEqualTo(itineraryCountAfterAdding);
     }
 
+    @Test
+    public void testAddPlannedAttractionToExistingItinerary() {
 
+        PlannedAttractionDTO plannedAttractionDTO = new PlannedAttractionDTO(attraction.getId(), LocalDate.now(), LocalDate.of(2024, 8, 7), user.getId(), "Egypt Trip");
+        PlannedAttraction plannedAttraction = plannedAttractionService.savePlannedAttraction(plannedAttractionDTO);
+        Itinerary itinerary = itineraryService.getById(plannedAttraction.getId()).get();
+
+        PlannedAttractionDTO plannedAttractionDTO1 = new PlannedAttractionDTO(itinerary.getId(), attraction1.getId(), LocalDate.now(), LocalDate.of(2024, 8, 7), user.getId());
+        PlannedAttraction plannedAttraction1 = plannedAttractionService.savePlannedAttraction(plannedAttractionDTO1);
+
+        Itinerary updatedItinerary = itineraryService.getById(plannedAttraction1.getItinerary().getId()).get();
+        assertThat(updatedItinerary.getPlannedAttractions().size()).isEqualTo(2);
+    }
 }
