@@ -13,6 +13,9 @@ public class Itinerary {
     @Column
     private long id;
 
+    @Column
+    private String name;
+
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
@@ -26,12 +29,19 @@ public class Itinerary {
     public Itinerary(){
     }
 
-    public Itinerary(User user, String image) {
+    public Itinerary(User user, String name, String image) {
         this.user = user;
+        this.name = name;
         this.image = image;
         this.plannedAttractions = new ArrayList<>();
     }
 
+    // Methods
+    public void addPlannedAttraction(PlannedAttraction plannedAttraction) {
+        this.plannedAttractions.add(plannedAttraction);
+    }
+
+    // Getters and Setters
     public long getId() {
         return id;
     }
@@ -62,5 +72,13 @@ public class Itinerary {
 
     public void setPlannedAttractions(List<PlannedAttraction> plannedAttractions) {
         this.plannedAttractions = plannedAttractions;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
