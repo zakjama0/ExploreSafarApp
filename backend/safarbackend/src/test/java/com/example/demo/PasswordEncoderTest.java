@@ -28,7 +28,7 @@ public class PasswordEncoderTest {
     private static final String NEW_NAME = "Steve";
     private static final String NEW_EMAIL = "steve@example.com";
 
-    private long userId = 1;
+    private long userId;
 
     @BeforeEach
     public void setUp() {
@@ -37,6 +37,7 @@ public class PasswordEncoderTest {
         user.setEmail(EMAIL);
         user.setPassword(PASSWORD);
         userService.saveUser(user);
+//        userId = userRepository.findByEmail(EMAIL)
     }
 
 //    @Test
