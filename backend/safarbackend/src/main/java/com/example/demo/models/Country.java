@@ -27,6 +27,7 @@ public class Country {
 
     @Column
     private String image;
+
     @Column
     private String name;
 
@@ -34,7 +35,7 @@ public class Country {
 
     }
 
-    public Country( Region region, Continent continent, String image, String name) {
+    public Country(Region region, Continent continent, String image, String name) {
         this.cities = new ArrayList<>();
         this.region = region;
         this.continent = continent;

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.security;
 
 import com.example.demo.models.User;
 import com.example.demo.repositories.UserRepository;
@@ -13,11 +13,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest
 public class EncryptionTest {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public EncryptionTest(UserRepository userRepository, JdbcTemplate jdbcTemplate){
+        this.userRepository = userRepository;
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     private static final String NAME = "John";
     private static final String EMAIL = "john@example.com";

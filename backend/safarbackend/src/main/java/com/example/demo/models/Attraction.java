@@ -20,6 +20,9 @@ public class Attraction {
     private City city;
 
     @Column
+    private String name;
+
+    @Column
     private String description;
 
     @Column
@@ -40,6 +43,7 @@ public class Attraction {
 
     public Attraction(String name, City city, String description, String image) {
         this.city = city;
+        this.name = name;
         this.description = description;
         this.image = image;
         this.reviews = new ArrayList<>();
