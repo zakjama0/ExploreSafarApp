@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.models.NewUserDTO;
 import com.example.demo.models.User;
 import com.example.demo.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,11 +24,8 @@ public class PasswordEncoderTest {
 
     @BeforeEach
     public void setUp() {
-        User user = new User();
-        user.setName(NAME);
-        user.setEmail(EMAIL);
-        user.setPassword(PASSWORD);
-        userService.saveUser(user);
+        NewUserDTO newUser = new NewUserDTO(NAME, EMAIL, PASSWORD);
+        userService.saveUser(newUser);
     }
 
     @Test

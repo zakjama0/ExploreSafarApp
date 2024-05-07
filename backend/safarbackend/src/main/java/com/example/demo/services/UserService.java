@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 
+import com.example.demo.models.NewUserDTO;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.UserRepository;
@@ -41,9 +42,9 @@ public class UserService {
         return null;
     }
 
-    public User saveUser(User user){
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        User newUser = new User(user.getName(), user.getEmail(), user.getPassword());
+    public User saveUser(NewUserDTO newUserDTO){
+        newUserDTO.setPassword(bCryptPasswordEncoder.encode(newUserDTO.getPassword()));
+        User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(), newUserDTO.getPassword());
         return userRepository.save(newUser);
     }
 

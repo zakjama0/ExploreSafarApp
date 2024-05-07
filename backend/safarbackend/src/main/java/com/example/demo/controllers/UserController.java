@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.models.NewUserDTO;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.services.UserService;
@@ -33,8 +34,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> addCustomer(@RequestBody User User){
-        User newCustomer = userService.saveUser(User);
+    public ResponseEntity<User> addCustomer(@RequestBody NewUserDTO newUserDTO){
+        User newCustomer = userService.saveUser(newUserDTO);
         return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);
     }
 
