@@ -12,6 +12,7 @@ public class Itinerary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private long id;
+
     @Column
     private String name;
 
@@ -35,6 +36,12 @@ public class Itinerary {
         this.plannedAttractions = new ArrayList<>();
     }
 
+    // Methods
+    public void addPlannedAttraction(PlannedAttraction plannedAttraction) {
+        this.plannedAttractions.add(plannedAttraction);
+    }
+
+    // Getters and Setters
     public long getId() {
         return id;
     }
