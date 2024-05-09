@@ -10,8 +10,13 @@ import java.util.Optional;
 
 @Service
 public class AttractionService {
+
+    private final AttractionRepository attractionRepository;
+
     @Autowired
-    AttractionRepository attractionRepository;
+    public AttractionService(AttractionRepository attractionRepository) {
+        this.attractionRepository = attractionRepository;
+    }
 
     public List<Attraction> getAllAttractions(){
         return attractionRepository.findAll();
