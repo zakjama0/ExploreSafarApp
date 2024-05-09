@@ -152,6 +152,6 @@ public class LogicTest {
         duaRepository.save(newDua);
         int countOfDuaAfterAdding = duaService.getAllDuas().size();
 
-        assertThat(duaService.getDuaByCategory(Category.EVENING).size()).isEqualTo(1);
+        assertThat(countOfDuaBeforeAdding + 1).isEqualTo(countOfDuaAfterAdding);
     }
 }
