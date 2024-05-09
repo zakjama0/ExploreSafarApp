@@ -14,12 +14,17 @@ import java.util.Optional;
 @Service
 public class CountryService {
 
+   private final CountryRepository countryRepository;
+
     @Autowired
-    CountryRepository countryRepository;
+    private CountryService(CountryRepository countryRepository){
+        this.countryRepository = countryRepository;
+    }
 
     public List<Country> getAllCountries(){
        return countryRepository.findAll();
     }
+
     public Optional<Country> getCountryById(long id){
         return countryRepository.findById(id);
     }

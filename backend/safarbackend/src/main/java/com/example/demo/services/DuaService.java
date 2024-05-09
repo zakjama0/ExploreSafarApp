@@ -12,8 +12,13 @@ import java.util.Optional;
 
 @Service
 public class DuaService {
+
+    private final DuaRepository duaRepository;
+
     @Autowired
-    DuaRepository duaRepository;
+    public DuaService(DuaRepository duaRepository) {
+        this.duaRepository = duaRepository;
+    }
 
     public List<Dua> getAllDuas(){
         return duaRepository.findAll();

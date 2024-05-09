@@ -23,6 +23,17 @@ public class PlannedAttractionService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    public PlannedAttractionService(PlannedAttractionRepository plannedAttractionRepository,
+                                    ItineraryRepository itineraryRepository,
+                                    AttractionRepository attractionRepository,
+                                    UserRepository userRepository) {
+        this.plannedAttractionRepository = plannedAttractionRepository;
+        this.itineraryRepository = itineraryRepository;
+        this.attractionRepository = attractionRepository;
+        this.userRepository = userRepository;
+    }
+
 
     public List<PlannedAttraction> getAllPlannedAttractions(){
         return plannedAttractionRepository.findAll();
