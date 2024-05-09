@@ -12,14 +12,19 @@ import java.util.Optional;
 
 @Service
 public class ReviewService {
-    @Autowired
-    ReviewRepository reviewRepository;
+
+    private final ReviewRepository reviewRepository;
+    private final UserRepository userRepository;
+    private final AttractionRepository attractionRepository;
 
     @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    AttractionRepository attractionRepository;
+    public ReviewService(ReviewRepository reviewRepository,
+                         UserRepository userRepository,
+                         AttractionRepository attractionRepository) {
+        this.reviewRepository = reviewRepository;
+        this.userRepository = userRepository;
+        this.attractionRepository = attractionRepository;
+    }
 
     public List<Review> getAllReviews(){
         return reviewRepository.findAll();
