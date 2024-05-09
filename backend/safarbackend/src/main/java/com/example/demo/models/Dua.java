@@ -32,6 +32,10 @@ public class Dua {
     @Column
     private Category category;
 
+    public Dua() {
+
+    }
+
     public Dua(String name, String arabic, String translation, String transliteration, String explanation, String source, Category category) {
         this.name = name;
         this.arabic = arabic;

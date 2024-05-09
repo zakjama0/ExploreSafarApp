@@ -1,9 +1,11 @@
 package com.example.demo;
 
+import com.example.demo.enums.Category;
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
 import com.example.demo.models.*;
 import com.example.demo.repositories.*;
+import com.example.demo.services.DuaService;
 import com.example.demo.services.ItineraryService;
 import com.example.demo.services.PlannedAttractionService;
 import com.example.demo.services.ReviewService;
@@ -22,13 +24,19 @@ public class LogicTest {
     private final PlannedAttractionService plannedAttractionService;
     private final ItineraryService itineraryService;
     private final ReviewService reviewService;
+    private final DuaService duaService;
     private final UserRepository userRepository;
     private final AttractionRepository attractionRepository;
     private final CountryRepository countryRepository;
     private final CityRepository cityRepository;
+    private final DuaRepository duaRepository;
 
     @Autowired
-    public LogicTest(PlannedAttractionService plannedAttractionService, ItineraryService itineraryService, ReviewService reviewService, UserRepository userRepository, AttractionRepository attractionRepository, CountryRepository countryRepository, CityRepository cityRepository) {
+    public LogicTest(PlannedAttractionService plannedAttractionService, ItineraryService itineraryService,
+                     ReviewService reviewService, UserRepository userRepository,
+                     AttractionRepository attractionRepository, CountryRepository countryRepository,
+                     CityRepository cityRepository, DuaService duaService,
+                     DuaRepository duaRepository) {
         this.plannedAttractionService = plannedAttractionService;
         this.itineraryService = itineraryService;
         this.reviewService = reviewService;
@@ -36,6 +44,8 @@ public class LogicTest {
         this.attractionRepository = attractionRepository;
         this.countryRepository = countryRepository;
         this.cityRepository = cityRepository;
+        this.duaService = duaService;
+        this.duaRepository = duaRepository;
     }
 
 
@@ -48,6 +58,7 @@ public class LogicTest {
     private Attraction attraction1;
     private City city;
     private Country country;
+    private Dua dua;
 
     @BeforeEach
     public void setUp(){
@@ -66,6 +77,9 @@ public class LogicTest {
 
         attraction1 = new Attraction("Great Sphinx of Giza", city, "Big Lion", "Think cat");
         attractionRepository.save(attraction1);
+
+        dua = new Dua("", "", "", "", "", "", Category.MORNING);
+        duaRepository.save(dua);
     }
 
     @Test
@@ -119,5 +133,25 @@ public class LogicTest {
         assertThat(editedReview.getUser().getId()).isEqualTo(user.getId());
         assertThat(editedReview.getComment()).isEqualTo(updateReviewDTO.getComment());
         assertThat(editedReview.getRating()).isEqualTo(updateReviewDTO.getRating());
+    }
+
+    @Test
+    public void testGetDuas() {
+        int countOfDuaBeforeAdding = duaService.getAllDuas().size();
+        Dua newDua = new Dua("", "", "", "", "", "", Category.EVENING);
+        duaRepository.save(newDua);
+        int countOfDuaAfterAdding = duaService.getAllDuas().size();
+
+        assertThat(countOfDuaBeforeAdding + 1).isEqualTo(countOfDuaAfterAdding);
+    }
+
+    @Test
+    public void testGetDuasByCategory() {
+        int countOfDuaBeforeAdding = duaService.getAllDuas().size();
+        Dua newDua = new Dua("", "", "", "", "", "", Category.EVENING);
+        duaRepository.save(newDua);
+        int countOfDuaAfterAdding = duaService.getAllDuas().size();
+
+        assertThat(duaService.getDuaByCategory(Category.EVENING).size()).isEqualTo(1);
     }
 }
