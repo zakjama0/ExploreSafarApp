@@ -22,7 +22,7 @@ public class Attraction {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 65535)
     private String description;
 
     @Column

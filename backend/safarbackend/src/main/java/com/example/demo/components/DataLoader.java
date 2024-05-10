@@ -158,6 +158,8 @@ public class DataLoader implements ApplicationRunner {
         countryRepository.save(vietnam);
         countryRepository.save(iran);
         countryRepository.save(turkey);
+        countryRepository.save(kyrgyzstan);
+        countryRepository.save(australia);
 
         countryRepository.save(egypt);
         countryRepository.save(portugal);
