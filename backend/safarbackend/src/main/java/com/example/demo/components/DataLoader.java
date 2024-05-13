@@ -378,7 +378,7 @@ public class DataLoader implements ApplicationRunner {
         City chiangMai = new City("Ciang Mai", thailand);
         City phuket = new City("Phuket", thailand);
         City pattaya = new City("Pattaya", thailand);
-        City Nonthaburi = new City("Nonthaburi", thailand);
+        City nonthaburi = new City("Nonthaburi", thailand);
 
 // Top 5 cities in Malaysia
         City kualaLumpur = new City("Kuala Lumpar", malaysia);
@@ -386,7 +386,6 @@ public class DataLoader implements ApplicationRunner {
         City joharBahru = new City("Johar Bahru", malaysia);
         City ipoh = new City("Ipoh", malaysia);
         City kuching = new City("Kuching", malaysia);
-
 
 // Save cities for Vietnam
         cityRepository.save(hanoi);
@@ -442,10 +441,33 @@ public class DataLoader implements ApplicationRunner {
         cityRepository.save(medina);
         cityRepository.save(dammam);
 
+        // Save Cities for Oman
         cityRepository.save(muscat);
 
+        // Save Cities for Qatar
         cityRepository.save(doha);
         cityRepository.save(lusail);
+
+        // Save Cities for South Korea
+        cityRepository.save(seoul);
+        cityRepository.save(daegu);
+        cityRepository.save(incheon);
+        cityRepository.save(daejeon);
+        cityRepository.save(busan);
+
+        // Save Cities for Thailand
+        cityRepository.save(bangkok);
+        cityRepository.save(phuket);
+        cityRepository.save(pattaya);
+        cityRepository.save(nonthaburi);
+        cityRepository.save(chiangMai);
+
+        // Save Cities for Malaysia
+        cityRepository.save(kualaLumpur);
+        cityRepository.save(georgeTown);
+        cityRepository.save(joharBahru);
+        cityRepository.save(ipoh);
+        cityRepository.save(kuching);
 
 // ATTRACTIONS
 //Europe
