@@ -968,5 +968,20 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(changdeokgungPalace);
         attractionRepository.save(nSeoulTower);
         attractionRepository.save(insadong);
+
+// Top Attractions for Busan
+        Attraction haeundaeBeach = new Attraction("Haeundae Beach", busan, "One of South Korea's most famous beaches, Haeundae Beach offers golden sands, clear waters, and a vibrant atmosphere. Visitors can enjoy sunbathing, swimming, and water sports during the day, and explore nearby cafes, restaurants, and bars along the bustling beachfront promenade. As night falls, the beach transforms into a lively hub of activity, with concerts, festivals, and fireworks lighting up the night sky.", "");
+        Attraction gamcheonCultureVillage = new Attraction("Gamcheon Culture Village", busan, "Known as the 'Santorini of the East', Gamcheon Culture Village is a colorful hillside neighborhood in Busan, South Korea. Visitors can wander through its narrow alleys adorned with vibrant murals, art installations, and quirky sculptures, while enjoying panoramic views of the city and sea. The village is also home to galleries, cafes, and handicraft shops, offering a unique blend of art, culture, and community.", "");
+        Attraction jagalchiFishMarket = new Attraction("Jagalchi Fish Market", busan, "Jagalchi Fish Market is South Korea's largest seafood market, located in the heart of Busan's coastal district. Visitors can explore its bustling indoor and outdoor stalls, brimming with a dizzying array of fresh seafood, from fish and shellfish to squid and octopus. The market also features seafood restaurants where visitors can enjoy delicious seafood dishes prepared on the spot, as well as cooking demonstrations and cultural performances showcasing Busan's maritime heritage.", "");
+        Attraction busanTower = new Attraction("Busan Tower", busan, "Perched atop Yongdusan Park, Busan Tower is a symbol of the city's skyline and offers panoramic views of Busan's harbor and downtown area. Visitors can take an elevator to the observation deck, where they can enjoy breathtaking vistas of the city and sea, as well as visit the tower's museum and souvenir shop. At night, the tower is illuminated, creating a romantic atmosphere for couples and a captivating sight for visitors.", "");
+        Attraction gwangaliBeach = new Attraction("Gwangali Beach", busan, "A coastal gem nestled in the vibrant city of Busan, invites visitors to bask in its sun-kissed shores and captivating views. Stretching along the Gwangan Bridge, this sandy expanse offers a picturesque backdrop of shimmering waters and towering skyscrapers. Whether strolling along the palm-lined promenade, taking a dip in the refreshing sea, or indulging in fresh seafood delicacies at nearby cafes, Gwangalli Beach promises endless opportunities for relaxation and enjoyment. As day turns to night, the beach comes alive with vibrant lights and energetic nightlife, with bars and restaurants offering a lively atmosphere against the backdrop of the illuminated bridge. Gwangalli Beach embodies the essence of coastal charm and urban allure, making it a beloved destination for locals and tourists alike.", "");
+
+        attractionRepository.save(haeundaeBeach);
+        attractionRepository.save(gamcheonCultureVillage);
+        attractionRepository.save(jagalchiFishMarket);
+        attractionRepository.save(busanTower);
+        attractionRepository.save(gwangaliBeach);
+
+
     }
 }
