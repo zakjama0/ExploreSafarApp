@@ -36,17 +36,17 @@ public class DataLoader implements ApplicationRunner {
     AttractionRepository attractionRepository;
 
     @Override
-    public void run(ApplicationArguments arguments) throws Exception{
-        User user1 = new User("Zakaria", "zak@safar.com","password");
-        User user2 = new User("Tadiwa","tadiwa@safar.com","password");
-        User user3 = new User("Marvellous", "marv@safar.com","password");
-        User user4 = new User("Mohammed", "sharif@safar.com","password");
+    public void run(ApplicationArguments arguments) throws Exception {
+        User user1 = new User("Zakaria", "zak@safar.com", "password");
+        User user2 = new User("Tadiwa", "tadiwa@safar.com", "password");
+        User user3 = new User("Marvellous", "marv@safar.com", "password");
+        User user4 = new User("Mohammed", "sharif@safar.com", "password");
 
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);
         userRepository.save(user4);
-        
+
         //Asia Continent
         Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "", "China");
         Country india = new Country(Region.SOUTH_ASIA, Continent.ASIA, "", "India");
@@ -59,9 +59,9 @@ public class DataLoader implements ApplicationRunner {
         Country kyrgyzstan = new Country(Region.CENTRAL_ASIA, Continent.ASIA, "", "Kyrgyzstan");
         Country australia = new Country(Region.OCEANIA, Continent.ASIA, "", "Australia");
         Country saudi = new Country(Region.MIDDLE_EAST, Continent.ASIA, "", "Saudi Arabia");
-        Country southKorea = new Country(Region.EAST_ASIA, Continent.ASIA, "",  "South Korea");
-        Country thailand = new Country(Region.EAST_ASIA, Continent.ASIA, "",  "Thailand");
-        Country phillipinnes = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Phillipinnes"  );
+        Country southKorea = new Country(Region.EAST_ASIA, Continent.ASIA, "", "South Korea");
+        Country thailand = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Thailand");
+        Country phillipinnes = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Phillipinnes");
         Country malaysia = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Malaysia");
         Country oman = new Country(Region.MIDDLE_EAST, Continent.ASIA, "", "Oman");
         Country qatar = new Country(Region.MIDDLE_EAST, Continent.ASIA, "", "Qatar");
@@ -81,9 +81,9 @@ public class DataLoader implements ApplicationRunner {
         Country switzerland = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Switzerland");
         Country netherlands = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Netherlands");
         Country belgium = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Belgium");
-        Country iceland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "","Iceland");
+        Country iceland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "", "Iceland");
         Country finland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "", "Finland");
-       // Featured Europe Countries: Turkey, Switzerland, Austria, Italy, Spain, France, Greece, Portuga
+        // Featured Europe Countries: Turkey, Switzerland, Austria, Italy, Spain, France, Greece, Portuga
 
         countryRepository.save(china);
         countryRepository.save(india);
@@ -313,7 +313,7 @@ public class DataLoader implements ApplicationRunner {
         City haiPhong = new City("Hai Phong", vietnam);
         City canTho = new City("Can Tho", vietnam);
         City hoiAn = new City("HoiAn", vietnam);
-        City nhaTrang = new City ("nhaTrang", vietnam);
+        City nhaTrang = new City("nhaTrang", vietnam);
 
 // Top 5 cities in Indonesia
         City jakarta = new City("Jakarta", indonesia);
@@ -367,26 +367,25 @@ public class DataLoader implements ApplicationRunner {
         City doha = new City("Doha", qatar);
         City lusail = new City("Lusail", qatar);
 // Top 5 cities in southKorea
-        City seoul = new City( "Seoul", southKorea);
-        City busan = new City( "Busan", southKorea);
-        City incheon = new City( "Incheon", southKorea);
-        City daegu = new City( "Daegu", southKorea);
-        City daejeon = new City( "Daejeon", southKorea);
-        
+        City seoul = new City("Seoul", southKorea);
+        City busan = new City("Busan", southKorea);
+        City incheon = new City("Incheon", southKorea);
+        City daegu = new City("Daegu", southKorea);
+        City daejeon = new City("Daejeon", southKorea);
+
 // Top 5 cities in thailiand
         City bangkok = new City("Bangokok", thailand);
-        City chiangMai = new City( "Ciang Mai" , thailand);
-        City phuket = new City( "Phuket", thailand);
-        City pattaya = new City( "Pattaya", thailand);
-        City Nonthaburi = new City( "Nonthaburi", thailand);
+        City chiangMai = new City("Ciang Mai", thailand);
+        City phuket = new City("Phuket", thailand);
+        City pattaya = new City("Pattaya", thailand);
+        City Nonthaburi = new City("Nonthaburi", thailand);
 
 // Top 5 cities in Malaysia
-        City kualaLumpur = new City( "Kuala Lumpar", malaysia);
-        City georgeTown = new City( "George Town", malaysia);
-        City joharBahru = new City( "Johar Bahru", malaysia);
-        City ipoh = new City( "Ipoh", malaysia);
-        City kuching = new City( "Kuching", malaysia);
-
+        City kualaLumpur = new City("Kuala Lumpar", malaysia);
+        City georgeTown = new City("George Town", malaysia);
+        City joharBahru = new City("Johar Bahru", malaysia);
+        City ipoh = new City("Ipoh", malaysia);
+        City kuching = new City("Kuching", malaysia);
 
 
 // Save cities for Vietnam
@@ -955,9 +954,19 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(chiangMaiElephantNaturePark);
 
 
-
 // Top Attractions for Seoul
-        Attraction gyeongbokgungPalace = new Attraction( "Gyeongbokgung Palace", seoul, "This historic palace is the largest of the Five Grand Palaces built during the Joseon Dynasty. Visitors can explore its impressive architecture, beautiful gardens, and learn about Korean royal history.", "" );
-        Attraction myeongdongShoppingStreet = new Attraction( "MyeongdongShoppingStreet", seoul, "","");
+        Attraction gyeongbokgungPalace = new Attraction("Gyeongbokgung Palace", seoul, "This historic palace is the largest of the Five Grand Palaces built during the Joseon Dynasty. Visitors can explore its impressive architecture, beautiful gardens, and learn about Korean royal history.", "");
+        Attraction myeongdongShoppingStreet = new Attraction("MyeongdongShoppingStreet", seoul, "A bustling district renowned for its vibrant blend of modernity and tradition. Lined with skyscrapers and neon signs, the narrow streets offer a sensory explosion of sizzling street food aromas and tantalizing Korean delicacies. It's a haven for fashion enthusiasts, with a maze of boutiques and international brands, alongside a paradise for beauty aficionados, boasting an array of cosmetics shops. Amidst the hustle, traditional hanok houses peek out, offering a glimpse into Seoul's rich heritage. As night falls, Myeongdong transforms into a pulsating hub of nightlife, with street performances and bustling night markets, making it an exhilarating destination for immersive cultural experiences.", "");
+        Attraction nationalMuseumOfKorea = new Attraction("National Museum of Korea", seoul, "A cultural gem renowned for its vast collection spanning centuries of Korean history and art. Set against a backdrop of modern architecture, the museum offers a journey through the nation's rich heritage, from ancient artifacts to contemporary masterpieces. Visitors are immersed in a treasure trove of exhibits showcasing traditional ceramics, exquisite paintings, and archaeological wonders. The museum's sprawling grounds also feature tranquil gardens, providing a serene escape amidst the bustling city. With its comprehensive displays and immersive experiences, the National Museum of Korea stands as a beacon of cultural preservation and exploration.", "");
+        Attraction changdeokgungPalace = new Attraction("Changdeokgung Palace", seoul, "A testament to Korea's majestic royal history. Surrounded by lush gardens and centuries-old trees, the palace exudes an aura of tranquility and grandeur. Its meticulously preserved architecture, characterized by intricate wooden structures and colorful painted details, offers visitors a glimpse into the opulent lifestyle of Korean royalty. As you wander through its graceful courtyards and ornate halls, you're transported back in time to a bygone era of splendor and tradition. Changdeokgung Palace, a UNESCO World Heritage site, stands as a timeless symbol of Korea's cultural heritage and architectural brilliance.", "");
+        Attraction nSeoulTower = new Attraction("N Seoul Tower", seoul, "An iconic landmark perched atop Namsan Mountain in the heart of Seoul, offers panoramic views and cultural experiences that captivate visitors. Rising majestically above the city skyline, the tower's observation decks provide breathtaking vistas of Seoul's sprawling urban landscape and surrounding mountains. Beyond its awe-inspiring views, N Seoul Tower boasts an array of attractions, including restaurants, exhibitions, and even a digital art gallery, offering visitors a diverse range of experiences. Whether you're admiring the city lights at night or enjoying a leisurely stroll through the adjacent Namsan Park, N Seoul Tower stands as a symbol of Seoul's vibrant spirit and a must-visit destination for locals and tourists alike.", "");
+        Attraction insadong = new Attraction("Insadong", seoul, "A cultural enclave nestled in the heart of Seoul, enchants visitors with its charming blend of tradition and modernity. Lined with quaint alleyways and historic storefronts, this bustling neighborhood is a treasure trove of Korean art, crafts, and cuisine. Meandering through its lively streets, visitors encounter a vibrant tapestry of galleries, teahouses, and souvenir shops, showcasing everything from traditional hanbok attire to contemporary artwork. Amidst the hustle and bustle, ancient temples and tranquil gardens provide serene retreats from the urban landscape, offering a glimpse into Seoul's rich cultural heritage. Whether savoring a cup of aromatic green tea or exploring the latest in Korean crafts, Insadong captivates with its timeless charm and vibrant energy.", "");
+
+        attractionRepository.save(gyeongbokgungPalace);
+        attractionRepository.save(myeongdongShoppingStreet);
+        attractionRepository.save(nationalMuseumOfKorea);
+        attractionRepository.save(changdeokgungPalace);
+        attractionRepository.save(nSeoulTower);
+        attractionRepository.save(insadong);
     }
 }
