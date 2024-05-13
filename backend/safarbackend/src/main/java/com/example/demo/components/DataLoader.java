@@ -1004,6 +1004,16 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(kohKretIsland);
         attractionRepository.save(muangBoranAncientCity);
 
+// Top Attractions for Kuala Lumpur
+        Attraction petronasTwinTowers = new Attraction("Petronas Twin Towers", kualaLumpur, "The Petronas Twin Towers are an iconic landmark and symbol of Kuala Lumpur, Malaysia. Standing at 451.9 meters tall, they were once the tallest buildings in the world. Visitors can admire the towers' impressive architecture, take a guided tour to learn about their construction and history, and enjoy panoramic views of the city skyline from the observation deck on the 86th floor. The towers are also surrounded by a beautifully landscaped park with fountains and walking paths, making them a must-visit attraction for tourists.", "");
+        Attraction kualaLumpurTower = new Attraction("Kuala Lumpur Tower", kualaLumpur, "The Kuala Lumpur Tower, also known as Menara KL, is a telecommunications tower and iconic landmark in Kuala Lumpur, Malaysia. Standing at 421 meters tall, it offers panoramic views of the city skyline from its observation deck and revolving restaurant. Visitors can take high-speed elevators to the top, where they can enjoy breathtaking views of Kuala Lumpur and its surrounding landscapes. The tower also features a variety of attractions, including a cultural village, souvenir shops, and an amphitheater, making it a popular destination for tourists and locals alike.", "");
+        Attraction centralMarket = new Attraction("Central Market", kualaLumpur, "Central Market is a cultural and heritage landmark located in the heart of Kuala Lumpur, Malaysia. Built-in 1928, it is one of the city's oldest markets and a popular destination for arts, crafts, and Malaysian souvenirs. Visitors can explore the market's bustling stalls, which offer a wide range of items, including batik fabrics, traditional handicrafts, and local snacks. The market also hosts cultural performances, art exhibitions, and workshops, providing visitors with opportunities to learn about Malaysian culture and traditions.", "");
+        Attraction kualaLumpurBirdPark = new Attraction("Kuala Lumpur Bird Park", kualaLumpur, "The Kuala Lumpur Bird Park is the largest covered bird park in the world and a popular tourist attraction in Kuala Lumpur, Malaysia. Spanning 20.9 acres, it is home to over 3,000 birds from more than 200 species, including rare and endangered birds. Visitors can explore the park's aviaries, walk-through exhibits, and landscaped gardens, where they can observe birds in their natural habitats and participate in feeding sessions and bird shows. The park also offers educational programs and guided tours, making it a fun and educational experience for visitors of all ages.", "");
+
+        attractionRepository.save(petronasTwinTowers);
+        attractionRepository.save(kualaLumpurTower);
+        attractionRepository.save(centralMarket);
+        attractionRepository.save(kualaLumpurBirdPark);
 
 // Top Attractions for Seoul
         Attraction gyeongbokgungPalace = new Attraction("Gyeongbokgung Palace", seoul, "This historic palace is the largest of the Five Grand Palaces built during the Joseon Dynasty. Visitors can explore its impressive architecture, beautiful gardens, and learn about Korean royal history.", "");
