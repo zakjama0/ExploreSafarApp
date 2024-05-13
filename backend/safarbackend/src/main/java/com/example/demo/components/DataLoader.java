@@ -997,6 +997,13 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(pattayaFloatingMarket);
         attractionRepository.save(artInParadise);
 
+// Top Attractions for Nonthaburi
+        Attraction kohKretIsland = new Attraction("Koh Kret Island", nonthaburi, "Koh Kret is a man-made island located in the Chao Phraya River, near Nonthaburi, Thailand. Known for its traditional Mon culture, pottery villages, and scenic landscapes, the island offers visitors a unique cultural experience away from the hustle and bustle of Bangkok. Visitors can explore the island's markets, artisan workshops, and sample local delicacies. Koh Kret is also a popular destination for cycling, boat tours, and relaxing riverside picnics, making it a peaceful retreat for travelers seeking authentic Thai culture and natural beauty.", "");
+        Attraction muangBoranAncientCity = new Attraction("Muang Boran (Ancient City)", nonthaburi, "Muang Boran, also known as Ancient City, is a cultural park located in Samut Prakan Province, near Nonthaburi, Thailand. The park features replicas of Thailand's most famous landmarks, temples, and historical sites, showcasing the country's rich cultural heritage and architectural diversity. Visitors can explore the park by foot, bicycle, or tram, marveling at the intricate details and craftsmanship of the ancient structures. Muang Boran offers a fascinating journey through Thailand's history and culture, providing visitors with insights into the kingdom's past and present.", "");
+
+        attractionRepository.save(kohKretIsland);
+        attractionRepository.save(muangBoranAncientCity);
+
 
 // Top Attractions for Seoul
         Attraction gyeongbokgungPalace = new Attraction("Gyeongbokgung Palace", seoul, "This historic palace is the largest of the Five Grand Palaces built during the Joseon Dynasty. Visitors can explore its impressive architecture, beautiful gardens, and learn about Korean royal history.", "");
