@@ -208,35 +208,19 @@ public class DataLoader implements ApplicationRunner {
         cityRepository.save(vienna);
         cityRepository.save(salzburg);
         cityRepository.save(innsbruck);
-// Top 5 Greek islands
-        City athens = new City("Athens", greece);
-        City crete = new City("Crete", greece);
-        City rhodes = new City("Rhodes", greece);
-        City santorini = new City("Santorini", greece);
-        City mykonos = new City("Mykonos", greece);
-        City corfu = new City("Corfu", greece);
 
-// Save Greek islands as cities
-        cityRepository.save(crete);
-        cityRepository.save(athens);
-        cityRepository.save(rhodes);
-        cityRepository.save(santorini);
-        cityRepository.save(mykonos);
-        cityRepository.save(corfu);
 
 // Top 5 cities in Switzerland
         City zurich = new City("Zurich", switzerland);
         City geneva = new City("Geneva", switzerland);
         City basel = new City("Basel", switzerland);
-        City bern = new City("Bern", switzerland);
-        City lucerne = new City("Lucerne", switzerland);
+
 
 // Save cities for Switzerland
         cityRepository.save(zurich);
         cityRepository.save(geneva);
         cityRepository.save(basel);
-        cityRepository.save(bern);
-        cityRepository.save(lucerne);
+
 // Top 5 destinations in Iceland
         City reykjavik = new City("Reykjavik", iceland);
 
@@ -695,23 +679,33 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(oldTown);
         attractionRepository.save(konyaaltiBeach);
 
+// Attractions for Vienna
 
 
+        Attraction hallstattDayTrip = new Attraction("Hallstatt Day Trip from Vienna", vienna, "Embark on a scenic day trip from Vienna to the picturesque village of Hallstatt, nestled in the Austrian Alps. Situated on the shores of Lake Hallstatt and surrounded by towering mountains, Hallstatt is renowned for its breathtaking natural beauty, charming architecture, and rich cultural heritage. The journey from Vienna to Hallstatt takes approximately 3-4 hours by train or car, passing through stunning alpine landscapes along the way. Once in Hallstatt, visitors can explore the village's historic streets, visit the iconic Hallstatt Skywalk for panoramic views of the lake and mountains, and learn about the region's salt mining history at the Salt Mine Museum. With its idyllic setting and old-world charm, Hallstatt is a must-visit destination for travelers seeking a day of exploration and relaxation amidst stunning alpine scenery.", "");
+        Attraction schonbrunnAttraction = new Attraction("Schönbrunn Palace", vienna, "Schönbrunn Palace is a UNESCO World Heritage Site and one of Vienna's most iconic landmarks. This Baroque palace served as the summer residence of the Habsburg monarchs and is renowned for its stunning architecture, extensive gardens, and rich history. Visitors can explore the opulent rooms of the palace, stroll through the meticulously landscaped gardens, and enjoy panoramic views of the city from the Gloriette. Schönbrunn Palace offers a fascinating glimpse into the grandeur and splendor of Austria's imperial past.", "");
+        Attraction danubeValleyAttraction = new Attraction("Danube Valley", vienna, "The Danube Valley, or Donauvalley, is a scenic region along the Danube River known for its stunning landscapes, charming villages, and historic landmarks. Stretching from the Wachau Valley to the Iron Gate, the Danube Valley offers a wealth of outdoor activities and cultural attractions for visitors to enjoy. Highlights of the region include the medieval town of Dürnstein, famous for its hilltop castle and vineyards; the baroque abbey of Melk, a UNESCO World Heritage Site; and the picturesque village of Grein, home to Austria's oldest theater. Visitors can explore the Danube Valley by boat, bike, or car, stopping to admire the breathtaking scenery, visit charming villages, and sample regional cuisine along the way.", "");
+// Save attraction in the database
+        attractionRepository.save(danubeValleyAttraction);
+        attractionRepository.save(schonbrunnAttraction);
+        attractionRepository.save(hallstattDayTrip);
 
+//        Attraction for Innsbruck
 
-        
+        Attraction nordketteMountains = new Attraction("Nordkette Mountain Range", innsbruck, "The Nordkette is a dramatic mountain range located just north of Innsbruck, Austria. It is part of the larger Karwendel Nature Park and offers spectacular alpine scenery and outdoor recreational opportunities year-round. Visitors can take the Nordkette Cable Car (Hungerburgbahn) from the city center to the Seegrube and Hafelekar stations, where they can enjoy panoramic views of the surrounding mountains and valleys. The Nordkette is a popular destination for hiking, mountain biking, skiing, and snowboarding, with trails and slopes suitable for all skill levels. Whether you're seeking adventure or simply want to admire the natural beauty of the Austrian Alps, the Nordkette Mountain Range has something for everyone.", "");
+        Attraction swarovskiCrystalWorlds = new Attraction("Swarovski Crystal Worlds", innsbruck, "Swarovski Crystal Worlds, or Kristallwelten, is an enchanting art installation and museum located in Wattens, near Innsbruck, Austria. Created by the renowned crystal manufacturer Swarovski, the attraction features stunning crystal artworks, interactive exhibits, and beautifully landscaped gardens. Visitors can explore the Crystal Worlds Chamber of Wonder, a subterranean space filled with dazzling crystal creations by international artists, as well as outdoor installations such as the Crystal Cloud and the Giant's Garden. Swarovski Crystal Worlds offers a magical experience for visitors of all ages, blending art, design, and nature in a unique and immersive setting.", "");
+// Save attraction in the database
+        attractionRepository.save(swarovskiCrystalWorlds);
+        attractionRepository.save(nordketteMountains);
+
         // Attractions for cities in Belgium
 
  //Brussels
 
         Attraction grandPlace = new Attraction("Grand Place", brussels, "The Grand Place is a UNESCO World Heritage Site and the central square of Brussels. It is surrounded by opulent guildhalls and the stunning Brussels City Hall. The square is a hub of activity, hosting events, markets, and festivals throughout the year. Visitors can admire the magnificent architecture, enjoy a Belgian waffle from one of the nearby vendors, or simply soak in the vibrant atmosphere.", "");
-
         Attraction atomium = new Attraction("Atomium", brussels, "The Atomium is an iconic symbol of Brussels, representing an iron crystal magnified 165 billion times. It was originally built for the 1958 Brussels World's Fair and has since become a major tourist attraction. Visitors can explore the spheres, which house exhibitions on science, technology, and design, and enjoy panoramic views of the city from the top sphere.", "");
-
         Attraction royalPalace = new Attraction("Royal Palace of Brussels", brussels, "The Royal Palace of Brussels serves as the official residence of the King and Queen of the Belgians, although it is only used for state ceremonies and official receptions. Visitors can tour the palace during the summer months when it is open to the public. The interior is adorned with magnificent decorations, exquisite furnishings, and works of art, offering a glimpse into Belgium's royal heritage.", "");
-
         Attraction miniEurope = new Attraction("Mini-Europe", brussels, "Mini-Europe is a miniature park located at the foot of the Atomium, featuring replicas of famous landmarks from across Europe at a scale of 1:25. Visitors can wander through the park and marvel at miniature versions of the Eiffel Tower, the Colosseum, and other iconic sites. Interactive exhibits provide insight into the history and culture of each destination.", "");
-
         Attraction autoWorld = new Attraction("Auto World", brussels, "Auto World is a fascinating museum dedicated to the history of automobiles, located in the beautiful Cinquantenaire Park. The museum boasts an extensive collection of vintage cars, ranging from early horseless carriages to classic sports cars and luxury vehicles. Visitors can explore the evolution of automotive design and technology through interactive exhibits, multimedia displays, and meticulously restored automobiles. Whether you're a car enthusiast or simply curious about the history of transportation, Auto World offers a captivating journey through the world of automobiles.", "");
 
 
@@ -727,13 +721,9 @@ public class DataLoader implements ApplicationRunner {
 
 
         Attraction antwerpCentralStation = new Attraction("Antwerp Central Station", antwerp, "Antwerp Central Station is often referred to as the 'Railway Cathedral' due to its stunning architecture and grandeur. It is one of the most beautiful train stations in the world, featuring a blend of Art Nouveau and Neo-Gothic styles. Visitors can admire the impressive dome, intricate detailing, and spacious concourse, or simply marvel at the bustling activity of trains and passengers.", "");
-
         Attraction antwerpZoo = new Attraction("Antwerp Zoo", antwerp, "Antwerp Zoo is one of the oldest and largest zoos in the world, dating back to 1843. It is home to a diverse collection of animals, including elephants, giraffes, lions, and penguins. Visitors can explore various habitats, attend animal feedings and demonstrations, or relax in the tranquil surroundings of the zoo's botanical garden.", "");
-
         Attraction diamondDistrict = new Attraction("Antwerp Diamond District", antwerp, "The Antwerp Diamond District is renowned as the diamond capital of the world, with approximately 80% of the world's rough diamonds and 50% of cut diamonds passing through its streets. Visitors can stroll through the district's diamond shops, learn about the diamond trade's history and significance, and even purchase their own precious gemstones.", "");
-
         Attraction masMuseum = new Attraction("Museum aan de Stroom (MAS)", antwerp, "The Museum aan de Stroom, or MAS, is a striking museum located on the banks of the River Scheldt. It showcases the city's rich cultural heritage and maritime history through a diverse collection of artifacts, artworks, and interactive exhibits. Visitors can enjoy panoramic views of Antwerp from the museum's rooftop terrace or explore its engaging displays on topics ranging from global trade to local traditions.", "");
-
         Attraction rubensHouse = new Attraction("Rubenshuis (Rubens' House)", antwerp, "Rubenshuis, or Rubens' House, is the former residence and studio of the renowned Flemish Baroque painter Peter Paul Rubens. It now operates as a museum dedicated to his life and work. Visitors can explore the beautifully preserved rooms, admire Rubens' masterpieces, and learn about his artistic techniques and influences. The museum also features a garden designed in the style of Rubens' era, providing a tranquil retreat in the heart of Antwerp.", "");
 
 
@@ -749,11 +739,8 @@ public class DataLoader implements ApplicationRunner {
 
 
         Attraction gravensteenCastle = new Attraction("Gravensteen Castle", ghent, "Gravensteen Castle, also known as the Castle of the Counts, is a medieval fortress located in the heart of Ghent. It dates back to the 12th century and offers visitors a glimpse into the city's rich history. Explore the castle's imposing walls, towers, and dungeons, and learn about its role in medieval life through interactive exhibits and guided tours.", "");
-
         Attraction ghentAltarpiece = new Attraction("Ghent Altarpiece", ghent, "The Ghent Altarpiece, also known as the Adoration of the Mystic Lamb, is a renowned masterpiece of Renaissance art created by the Van Eyck brothers. It is housed in Saint Bavo's Cathedral and is considered one of the most important works of Western art. Visitors can admire the altarpiece's intricate panels, rich symbolism, and exceptional craftsmanship.", "");
-
         Attraction ghentCanals = new Attraction("Ghent Canals", ghent, "Ghent's picturesque canals offer visitors a scenic way to explore the city's historic center. Take a boat tour along the waterways, passing by charming medieval buildings, picturesque bridges, and waterfront cafés. Learn about Ghent's maritime history and architectural landmarks while enjoying a leisurely cruise through the heart of the city.", "");
-
         Attraction stBavosAbbey = new Attraction("St. Bavo's Abbey", ghent, "St. Bavo's Abbey is a historic abbey located on the outskirts of Ghent. Founded in the 7th century, it played a significant role in the religious and cultural life of the region. Visitors can explore the abbey's tranquil grounds, visit its museum and art gallery, and learn about its fascinating history through exhibitions and guided tours.", "");
 
 // Save attraction in database
@@ -804,13 +791,9 @@ public class DataLoader implements ApplicationRunner {
 
 
         Attraction vanGoghMuseum = new Attraction("Van Gogh Museum", amsterdam, "The Van Gogh Museum is dedicated to the life and work of the Dutch artist Vincent van Gogh. It houses the largest collection of his paintings and drawings in the world, including iconic masterpieces such as 'Sunflowers' and 'The Bedroom.' Visitors can explore van Gogh's artistic evolution, learn about his turbulent life, and appreciate his contributions to the art world.", "");
-
         Attraction anneFrankHouse = new Attraction("Anne Frank House", amsterdam, "The Anne Frank House is a museum dedicated to the Jewish wartime diarist Anne Frank, who hid from Nazi persecution with her family during World War II. The museum is located in the actual house where the Frank family lived in hiding for over two years. Visitors can tour the secret annex, see Anne's original diary, and learn about the Holocaust and its impact on Anne's life and legacy.", "");
-
         Attraction rijksmuseum = new Attraction("Rijksmuseum", amsterdam, "The Rijksmuseum is the national museum of the Netherlands, showcasing Dutch art and history from the Middle Ages to the present day. It houses a vast collection of masterpieces, including works by Rembrandt, Vermeer, and Van Gogh. Visitors can admire paintings, sculptures, decorative arts, and historical artifacts, providing insights into Dutch culture and heritage.", "");
-
         Attraction canalCruise = new Attraction("Canal Cruise", amsterdam, "A canal cruise is a popular way to explore Amsterdam's picturesque waterways and historic landmarks. Visitors can hop aboard a boat and enjoy a leisurely tour of the city's canals, passing by iconic sights such as the Anne Frank House, Westerkerk, and Skinny Bridge. Along the way, you'll learn about Amsterdam's rich history, architecture, and culture from informative guides.", "");
-
         Attraction vondelpark = new Attraction("Vondelpark", amsterdam, "Vondelpark is Amsterdam's most famous park, spanning over 47 hectares of greenery in the heart of the city. It offers a peaceful retreat from the hustle and bustle of urban life, with winding paths, ponds, gardens, and open lawns. Visitors can enjoy leisurely walks, picnics, cycling, or simply relax and soak up the natural beauty of this beloved Amsterdam landmark.", "");
 
 
@@ -827,13 +810,9 @@ public class DataLoader implements ApplicationRunner {
 
 
         Attraction rotterdamMarkthal = new Attraction("Rotterdam Markthal", rotterdam, "The Rotterdam Markthal is a modern indoor market located in the heart of the city. It is known for its striking horseshoe-shaped architecture and vibrant atmosphere. Visitors can explore a wide variety of food stalls, selling fresh produce, gourmet delicacies, and international cuisine. The ceiling of the Markthal is adorned with a colorful mural, making it a feast for the eyes as well as the palate.", "");
-
         Attraction ssRotterdam = new Attraction("SS Rotterdam", rotterdam, "The SS Rotterdam is a former ocean liner and cruise ship, now permanently moored in Rotterdam as a hotel and museum. Visitors can tour the ship's decks, cabins, and public areas, learning about its history and maritime heritage. The SS Rotterdam offers a unique glimpse into the golden age of ocean travel, with exhibits, artifacts, and interactive displays showcasing life onboard a luxury liner.", "");
-
         Attraction euromast = new Attraction("Euromast", rotterdam, "The Euromast is an iconic observation tower in Rotterdam, offering panoramic views of the city and its surroundings from a height of 185 meters. Visitors can ride the elevator to the top of the tower and enjoy breathtaking vistas of Rotterdam's skyline, the Port of Rotterdam, and the Dutch countryside beyond. The Euromast also features a restaurant and brasserie, where guests can dine while taking in the view.", "");
-
         Attraction cubeHouses = new Attraction("Cube Houses", rotterdam, "The Cube Houses, or Kubuswoningen, are a unique architectural landmark in Rotterdam. Designed by architect Piet Blom, these innovative residential buildings are tilted at an angle of 45 degrees, creating a striking visual spectacle. Visitors can explore the interior of one of the Cube Houses, known as the Kijk-Kubus, to experience firsthand what it's like to live in these unconventional homes.", "");
-
         Attraction delfshaven = new Attraction("Delfshaven", rotterdam, "Delfshaven is a historic neighborhood in Rotterdam, known for its picturesque canals, 17th-century houses, and maritime heritage. Visitors can stroll along the quayside, admire the traditional Dutch architecture, and visit landmarks such as the Pilgrim Fathers' Church and the historic Delfshaven Harbor. Delfshaven offers a charming contrast to Rotterdam's modern skyline, providing a glimpse into the city's rich history and culture.", "");
 
         // Save attraction in database
@@ -851,13 +830,9 @@ public class DataLoader implements ApplicationRunner {
 
 
         Attraction redSquare = new Attraction("Red Square", moscow, "Red Square is Moscow's most famous square and a UNESCO World Heritage Site. It is surrounded by iconic landmarks such as the Kremlin, St. Basil's Cathedral, and the State Historical Museum. Visitors can explore the square's historic architecture, enjoy cultural events and festivals, or simply take in the bustling atmosphere of this vibrant public space.", "");
-
         Attraction kremlin = new Attraction("Kremlin", moscow, "The Moscow Kremlin is a historic fortified complex located at the heart of the city. It serves as the official residence of the President of Russia and is home to numerous palaces, cathedrals, and museums. Visitors can tour the Kremlin's grounds, explore its architectural treasures, and learn about its rich history and cultural significance.", "");
-
         Attraction bolshoiTheatre = new Attraction("Bolshoi Theatre", moscow, "The Bolshoi Theatre is one of the most renowned opera and ballet theaters in the world. It is known for its grand architecture, opulent interiors, and world-class performances. Visitors can attend ballets, operas, and concerts at the Bolshoi Theatre, or take a guided tour to learn about its history and backstage operations.", "");
-
         Attraction gorkyPark = new Attraction("Gorky Park", moscow, "Gorky Park is a vast recreational area in central Moscow, offering a wide range of activities for visitors of all ages. It features scenic walking paths, landscaped gardens, playgrounds, and sports facilities. Visitors can rent bikes, boats, or rollerblades, attend outdoor concerts and festivals, or simply relax and enjoy the natural beauty of this urban oasis.", "");
-
         Attraction tretyakovGallery = new Attraction("Tretyakov Gallery", moscow, "The Tretyakov Gallery is Russia's foremost museum of Russian art, housing an extensive collection of paintings, sculptures, and icons from the 11th to the 20th century. It features masterpieces by renowned artists such as Ivan Aivazovsky, Mikhail Vrubel, and Ivan Shishkin. Visitors can admire works of art spanning various styles and periods, providing insights into Russia's rich cultural heritage.", "");
 
 
@@ -874,13 +849,9 @@ public class DataLoader implements ApplicationRunner {
 
 
         Attraction hermitageMuseum = new Attraction("Hermitage Museum", saintPetersburg, "The Hermitage Museum is one of the largest and most prestigious art museums in the world, housed in the magnificent Winter Palace. It boasts a vast collection of artworks, including paintings, sculptures, and decorative arts from various periods and cultures. Visitors can admire masterpieces by artists such as Leonardo da Vinci, Rembrandt, and Michelangelo, and explore the opulent interiors of the palace itself.", "");
-
         Attraction peterhofPalace = new Attraction("Peterhof Palace", saintPetersburg, "Peterhof Palace, also known as the 'Russian Versailles,' is a grand imperial palace located on the Gulf of Finland. It is renowned for its stunning gardens, elaborate fountains, and opulent interiors. Visitors can tour the palace's lavish rooms, stroll through the landscaped grounds, and marvel at the engineering marvels of the cascading fountains.", "");
-
         Attraction mariinskyTheatre = new Attraction("Mariinsky Theatre", saintPetersburg, "The Mariinsky Theatre is one of Russia's most famous opera and ballet houses, known for its world-class performances and historic significance. It has hosted premieres of works by renowned composers such as Tchaikovsky, Rachmaninoff, and Stravinsky. Visitors can attend ballets, operas, and concerts at the Mariinsky Theatre, or take a guided tour to learn about its illustrious history and backstage operations.", "");
-
         Attraction nevskyProspect = new Attraction("Nevsky Prospect", saintPetersburg, "Nevsky Prospect is the main thoroughfare of Saint Petersburg, lined with historic buildings, shops, restaurants, and cultural institutions. It is a bustling hub of activity, offering visitors a glimpse into the city's vibrant life and dynamic atmosphere. Visitors can explore Nevsky Prospect on foot or by taking a leisurely stroll along its sidewalks, stopping to admire architectural landmarks and sample local cuisine.", "");
-
         Attraction peterAndPaulFortress = new Attraction("Peter and Paul Fortress", saintPetersburg, "The Peter and Paul Fortress is a historic citadel located on Hare Island in the Neva River. It was founded by Peter the Great in 1703 and served as the original citadel of Saint Petersburg. Visitors can explore the fortress's bastions, ramparts, and cathedral, which houses the tombs of Russian tsars and emperors. The fortress also offers panoramic views of the city skyline and the surrounding river.", "");
 
         // Save attraction in database
@@ -896,13 +867,9 @@ public class DataLoader implements ApplicationRunner {
     //Attractions in iceland
 
         Attraction hallgrimskirkjaChurch = new Attraction("Hallgrimskirkja Church", reykjavik, "Hallgrimskirkja Church is a stunning Lutheran parish church and one of Reykjavik's most iconic landmarks. It is known for its distinctive modernist architecture, inspired by Iceland's natural landscapes. Visitors can admire panoramic views of the city from the church's observation tower, explore its minimalist interior, and view the striking sculpture of Leif Erikson outside.", "");
-
         Attraction blueLagoon = new Attraction("Blue Lagoon", reykjavik, "The Blue Lagoon is a geothermal spa located in a lava field in Grindavik, southwest Iceland. It is renowned for its milky-blue waters, rich in minerals like silica and sulfur, which are believed to have healing properties. Visitors can soak in the lagoon's warm waters, indulge in spa treatments, and enjoy stunning views of the surrounding volcanic landscape.", "");
-
         Attraction goldenCircle = new Attraction("Golden Circle", reykjavik, "The Golden Circle is a popular tourist route in southwest Iceland, known for its breathtaking natural attractions. It includes three primary stops: Thingvellir National Park, where visitors can walk between the North American and Eurasian tectonic plates; the Geysir Geothermal Area, home to the erupting geyser Strokkur; and Gullfoss Waterfall, one of Iceland's most majestic cascades.", "");
-
         Attraction harpaConcertHall = new Attraction("Harpa Concert Hall", reykjavik, "Harpa Concert Hall is a striking contemporary concert hall and conference center located on the waterfront in Reykjavik. It is known for its innovative glass facade, designed by artist Olafur Eliasson, which reflects Iceland's natural light and landscapes. Visitors can attend performances ranging from classical concerts to contemporary theater productions, or simply admire the building's architectural beauty.", "");
-
         Attraction perlan = new Attraction("Perlan", reykjavik, "Perlan, or 'The Pearl,' is a landmark building in Reykjavik situated on Oskjuhlid Hill. It is known for its distinctive dome-shaped structure and rotating glass dome, which offers panoramic views of the city and surrounding landscapes. Visitors can explore the building's exhibition space, dine in its revolving restaurant, or enjoy a walk in the surrounding gardens.", "");
 
 
@@ -919,7 +886,59 @@ public class DataLoader implements ApplicationRunner {
     //Attraction for cities in switzerland
         // zurich
 
-        
+
+
+        Attraction lakeZurich = new Attraction("Lake Zurich", zurich, "Lake Zurich is a scenic lake situated in the heart of the city. It offers stunning views of the surrounding mountains and is a popular destination for recreational activities such as swimming, boating, and picnicking. Visitors can take a leisurely stroll along the lake promenade, rent a paddleboat, or simply relax on the shores and enjoy the serene atmosphere.", "");
+        Attraction swissNationalMuseum = new Attraction("Swiss National Museum", zurich, "The Swiss National Museum is the largest cultural history museum in Switzerland, showcasing the country's rich cultural heritage from prehistoric times to the present day. Housed in a historic castle-like building, the museum features a vast collection of artifacts, including ancient artifacts, medieval art, traditional costumes, and decorative arts. Visitors can explore exhibits on Swiss history, culture, and folklore, providing insights into the nation's diverse heritage.", "");
+        Attraction zurichOldTown = new Attraction("Old Town (Altstadt)", zurich, "Zurich's Old Town, or Altstadt, is a charming historic district known for its medieval buildings, cobblestone streets, and lively atmosphere. Visitors can wander through narrow alleyways, discover quaint shops, cafes, and galleries, and admire architectural landmarks such as the Grossmünster and Fraumünster churches. The Old Town is also home to the vibrant Niederdorf district, where visitors can enjoy shopping, dining, and nightlife.", "");
+        Attraction uetlibergMountain = new Attraction("Uetliberg Mountain", zurich, "Uetliberg Mountain is Zurich's local mountain, offering panoramic views of the city, Lake Zurich, and the Swiss Alps. Visitors can hike or take the train to the summit, where they'll find observation towers, scenic viewpoints, and hiking trails. Uetliberg is a popular destination for outdoor activities such as hiking, mountain biking, and paragliding, as well as picnicking and enjoying the natural beauty of the Swiss countryside.", "");
+        Attraction kunsthausZurich = new Attraction("Kunsthaus Zurich", zurich, "Kunsthaus Zurich is one of Switzerland's most important art museums, housing a vast collection of European art from the Middle Ages to the present day. It features works by renowned artists such as Rembrandt, Monet, Picasso, and Munch, as well as Swiss artists like Hodler and Giacometti. The museum also hosts temporary exhibitions, lectures, and events, providing visitors with a comprehensive overview of European art history.", "");
+
+
+    //save attraction in database
+
+        attractionRepository.save(lakeZurich);
+        attractionRepository.save(swissNationalMuseum);
+        attractionRepository.save(zurichOldTown);
+        attractionRepository.save(uetlibergMountain);
+        attractionRepository.save(kunsthausZurich);
+
+
+        //geneva
+
+        Attraction lakeGeneva = new Attraction("Lake Geneva", geneva, "Lake Geneva is one of the largest lakes in Europe and a defining feature of the city. It offers scenic views of the surrounding Alps and Jura mountains and is a popular destination for water sports, boat cruises, and lakeside picnics. Visitors can stroll along the lake promenade, visit parks and gardens along its shores, or take a relaxing boat ride to explore nearby towns and attractions.", "");
+        Attraction jetDEau = new Attraction("Jet d'Eau", geneva, "Jet d'Eau is one of Geneva's most famous landmarks, a towering fountain located on Lake Geneva's waterfront. It shoots water up to 140 meters into the air, creating an impressive spectacle visible from miles around. Visitors can admire the fountain's beauty from the shore or take a boat cruise for a closer view. Jet d'Eau is particularly stunning at night when illuminated by lights.", "");
+        Attraction unitedNationsHeadquarters = new Attraction("United Nations Headquarters", geneva, "The United Nations Headquarters in Geneva is one of the largest UN centers in the world and a hub for international diplomacy and cooperation. Visitors can take guided tours of the Palais des Nations, where they'll learn about the UN's work in peace and security, human rights, and humanitarian affairs. The complex also houses a museum and exhibits on global issues and challenges.", "");
+        Attraction vieilleVille = new Attraction("Vieille Ville (Old Town)", geneva, "Geneva's Vieille Ville, or Old Town, is a charming historic district known for its narrow streets, medieval buildings, and historic landmarks. Visitors can wander through cobblestone alleys, discover hidden squares, and admire architectural gems such as the Maison Tavel and St. Peter's Cathedral. The Old Town is also home to boutique shops, cafes, and restaurants, making it a delightful area to explore on foot.", "");
+        Attraction parcDesBastions = new Attraction("Parc des Bastions", geneva, "Parc des Bastions is a picturesque park located in the heart of Geneva's Old Town. It features lush greenery, tree-lined pathways, and historic monuments, including the Reformation Wall and the University of Geneva. Visitors can relax on benches, play chess on giant boards, or enjoy a leisurely stroll through the park's tranquil surroundings. Parc des Bastions is a peaceful oasis in the heart of the city.", "");
+
+
+    //save attraction in database
+
+        attractionRepository.save(lakeGeneva);
+        attractionRepository.save(jetDEau);
+        attractionRepository.save(unitedNationsHeadquarters);
+        attractionRepository.save(vieilleVille);
+        attractionRepository.save(parcDesBastions);
+
+    //basel
+
+        Attraction baselArtMuseum = new Attraction("Basel Art Museum", basel, "The Basel Art Museum, also known as Kunstmuseum Basel, is one of the oldest and most renowned art museums in Switzerland. It houses a vast collection of artworks from the medieval period to contemporary art, including pieces by renowned artists such as Holbein, Picasso, and Monet. Visitors can explore the museum's permanent collections and rotating exhibitions, providing insights into the history and development of European art.", "");
+        Attraction baselZoo = new Attraction("Basel Zoo", basel, "Basel Zoo is one of the oldest and largest zoos in Switzerland, home to over 6,000 animals from around the world. It features a wide variety of species, including mammals, birds, reptiles, and amphibians, housed in naturalistic habitats. Visitors can observe animals such as elephants, giraffes, penguins, and lions, participate in feeding sessions and animal encounters, and learn about wildlife conservation efforts.", "");
+        Attraction rheinRiverCruise = new Attraction("Rhine River Cruise", basel, "A Rhine River cruise is a popular way to explore Basel's picturesque waterfront and scenic surroundings. Visitors can embark on a leisurely boat ride along the Rhine River, passing by historic landmarks, charming villages, and lush vineyards. Guided cruises offer informative commentary on the region's history, culture, and natural beauty, making it an enjoyable and educational experience for all ages.", "");
+        Attraction baselHistoricalMuseum = new Attraction("Basel Historical Museum", basel, "The Basel Historical Museum, or Historisches Museum Basel, is dedicated to the history and culture of the Basel region. It features permanent exhibitions on topics such as archaeology, medieval history, and everyday life in Basel. Visitors can explore artifacts, documents, and multimedia displays, providing insights into the city's past and its role in Swiss history.", "");
+        Attraction baselBotanicalGarden = new Attraction("Basel Botanical Garden", basel, "The Basel Botanical Garden, or Botanischer Garten Basel, is a peaceful oasis in the heart of the city, showcasing a diverse collection of plants from around the world. It features themed gardens, greenhouses, and outdoor exhibits, including alpine plants, tropical flora, and medicinal herbs. Visitors can enjoy leisurely walks, educational tours, and seasonal events, surrounded by the beauty and tranquility of nature.", "");
+
+
+    //save attraction in dat
+
+        attractionRepository.save(baselArtMuseum);
+        attractionRepository.save(baselZoo);
+        attractionRepository.save(rheinRiverCruise);
+        attractionRepository.save(rheinRiverCruise);
+        attractionRepository.save(baselBotanicalGarden);
+
+
 
 
 
