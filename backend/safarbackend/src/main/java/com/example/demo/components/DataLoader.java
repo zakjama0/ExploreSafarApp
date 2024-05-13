@@ -141,54 +141,42 @@ public class DataLoader implements ApplicationRunner {
         City rome = new City("Rome", italy);
         City milan = new City("Milan", italy);
         City naples = new City("Naples", italy);
-        City turin = new City("Turin", italy);
-        City palermo = new City("Palermo", italy);
 
 // Save cities in Italy
         cityRepository.save(rome);
         cityRepository.save(milan);
         cityRepository.save(naples);
-        cityRepository.save(turin);
-        cityRepository.save(palermo);
 // Top 5 cities in Portugal
         City lisbon = new City("Lisbon", portugal);
         City porto = new City("Porto", portugal);
-        City braga = new City("Braga", portugal);
-        City coimbra = new City("Coimbra", portugal);
-        City faro = new City("Faro", portugal);
+        City azores = new City("Azores", portugal);
+        City madeira = new City("Madeira", portugal);
 
 // Save cities in Portugal
         cityRepository.save(lisbon);
         cityRepository.save(porto);
-        cityRepository.save(braga);
-        cityRepository.save(coimbra);
-        cityRepository.save(faro);
+        cityRepository.save(azores);
+        cityRepository.save(madeira);
 // Top 5 cities in Spain
         City madrid = new City("Madrid", spain);
         City barcelona = new City("Barcelona", spain);
         City valencia = new City("Valencia", spain);
-        City seville = new City("Seville", spain);
         City malaga = new City("Malaga", spain);
 
 // Save cities in Spain
         cityRepository.save(madrid);
         cityRepository.save(barcelona);
         cityRepository.save(valencia);
-        cityRepository.save(seville);
         cityRepository.save(malaga);
 // Top 5 cities in Germany
         City berlin = new City("Berlin", germany);
-        City hamburg = new City("Hamburg", germany);
         City munich = new City("Munich", germany);
         City cologne = new City("Cologne", germany);
-        City frankfurt = new City("Frankfurt", germany);
 
 // Save cities in Germany
         cityRepository.save(berlin);
-        cityRepository.save(hamburg);
         cityRepository.save(munich);
         cityRepository.save(cologne);
-        cityRepository.save(frankfurt);
 // Top 5 cities in the United Kingdom
         City london = new City("London", unitedKingdom);
         City manchester = new City("Manchester", unitedKingdom);
@@ -204,28 +192,20 @@ public class DataLoader implements ApplicationRunner {
         cityRepository.save(bristol);
 // Top 5 cities in Turkey
         City istanbul = new City("Istanbul", turkey);
-        City ankara = new City("Ankara", turkey);
         City cappadocia = new City("Cappadocia", turkey);
-        City bursa = new City("Bursa", turkey);
         City antalya = new City("Antalya", turkey);
 
 // Save cities in Turkey
         cityRepository.save(istanbul);
-        cityRepository.save(ankara);
         cityRepository.save(cappadocia);
-        cityRepository.save(bursa);
         cityRepository.save(antalya);
 // Top 5 cities in Austria
         City vienna = new City("Vienna", austria);
-        City graz = new City("Graz", austria);
-        City linz = new City("Linz", austria);
         City salzburg = new City("Salzburg", austria);
         City innsbruck = new City("Innsbruck", austria);
 
 // Save cities in Austria
         cityRepository.save(vienna);
-        cityRepository.save(graz);
-        cityRepository.save(linz);
         cityRepository.save(salzburg);
         cityRepository.save(innsbruck);
 // Top 5 Greek islands
@@ -259,17 +239,10 @@ public class DataLoader implements ApplicationRunner {
         cityRepository.save(lucerne);
 // Top 5 destinations in Iceland
         City reykjavik = new City("Reykjavik", iceland);
-        City akureyri = new City("Akureyri", iceland);
-        City vik = new City("Vik", iceland);
-        City thingvellir = new City("Thingvellir", iceland);
-        City gullfoss = new City("Gullfoss", iceland);
 
 // Save Icelandic destinations as cities
         cityRepository.save(reykjavik);
-        cityRepository.save(akureyri);
-        cityRepository.save(vik);
-        cityRepository.save(thingvellir);
-        cityRepository.save(gullfoss);
+
 // Top 5 cities in Russia
         City moscow = new City("Moscow", russia);
         City saintPetersburg = new City("Saint Petersburg", russia);
@@ -282,16 +255,11 @@ public class DataLoader implements ApplicationRunner {
         // Top 5 cities in the Netherlands
         City amsterdam = new City("Amsterdam", netherlands);
         City rotterdam = new City("Rotterdam", netherlands);
-        City theHague = new City("The Hague", netherlands);
-        City utrecht = new City("Utrecht", netherlands);
-        City eindhoven = new City("Eindhoven", netherlands);
+
 
 // Save cities in the Netherlands
         cityRepository.save(amsterdam);
         cityRepository.save(rotterdam);
-        cityRepository.save(theHague);
-        cityRepository.save(utrecht);
-        cityRepository.save(eindhoven);
 // Top 5 cities in Belgium
         City brussels = new City("Brussels", belgium);
         City antwerp = new City("Antwerp", belgium);
@@ -512,7 +480,7 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(parcDeLaTeteDor);
         attractionRepository.save(croixRousse);
 // Create Attraction objects for top 5 attractions in Toulouse
-        Attraction capitole = new Attraction("Capitole de Toulouse (Capitolium of Toulouse)", toulouse, "The Capitole de Toulouse is the city hall of Toulouse and a symbol of its civic pride. Located on the Place du Capitole, it is an impressive neoclassical building with a pink-marble facade, columned portico, and grand staircase. Visitors can explore its interior adorned with paintings, sculptures, and ornate decorations, and stroll through the square's bustling markets and cafes.", "");
+        Attraction capitole = new Attraction("Capitole de Toulouse (Capitolium of Toulouse)", toulouse, "The Capitole de Toulouse is the city hall of Toulouse and a symbol of its civic pride. Located on the Place du Capitole, it is an impressive neoclassical building with a pink-marble facade, columned portico, and grand staircase. Visitors can explore its interior adorned with paintings and ornate decorations, and stroll through the square's bustling markets and cafes.", "");
         Attraction citeDeLEspace = new Attraction("Cité de l'Espace (City of Space)", toulouse, "The Cité de l'Espace is a space-themed amusement park and museum in Toulouse, dedicated to space exploration and astronomy. It features interactive exhibits, educational displays, and full-scale replicas of spacecraft and satellites. Visitors can experience simulated space missions, explore the cosmos in the planetarium, and learn about the history and future of space travel.", "");
         Attraction jardinDesPlantes = new Attraction("Jardin des Plantes (Garden of Plants)", toulouse, "The Jardin des Plantes is a botanical garden and park in Toulouse, known for its diverse plant collections, scenic landscapes, and historic buildings. It offers a peaceful retreat in the heart of the city, with walking paths, ponds, and greenhouses. Visitors can admire exotic plants, enjoy picnics, or attend events and exhibitions throughout the year.", "");
         Attraction pontNeuf = new Attraction("Pont Neuf", toulouse, "Pont Neuf is the oldest bridge in Toulouse and a historic landmark spanning the Garonne River. Built in the 16th and 17th centuries, it features elegant arches, stone balustrades, and ornate sculptures. Visitors can stroll across the bridge, admire views of the river and city skyline, or relax on its shady benches.", "");
@@ -522,13 +490,448 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(citeDeLEspace);
         attractionRepository.save(jardinDesPlantes);
         attractionRepository.save(pontNeuf);
+//        Attractions for Nice
 
-//        Top Attractions for Hanoi
+        Attraction verdonGorge = new Attraction("Verdon Gorge", nice, "Verdon Gorge, also known as the Grand Canyon of Verdon, is a breathtaking natural wonder located in southeastern France. Carved by the Verdon River, the gorge boasts stunning turquoise waters, towering limestone cliffs, and dramatic landscapes. Visitors can explore the gorge by hiking along its scenic trails, kayaking or canoeing in its emerald waters, or simply admiring its beauty from viewpoints such as Point Sublime and Route des Crêtes.", "");
+        Attraction ezeVillage = new Attraction("Eze Village", nice, "Eze Village is a charming medieval hilltop village located near Nice, France. Perched high above the Mediterranean Sea, it offers stunning panoramic views of the French Riviera coastline. Visitors can wander through narrow cobblestone streets, explore ancient stone buildings, and discover artisan shops, art galleries, and cafes nestled within the village walls.", "");
+        Attraction antibesOldTown = new Attraction("Antibes Old Town", nice, "Antibes Old Town, also known as Vieil Antibes, is a historic district located along the French Riviera, between Cannes and Nice. Enclosed by ancient ramparts, it is characterized by narrow cobblestone streets, colorful buildings, and bustling markets. Visitors can explore its medieval architecture, visit landmarks such as the 16th-century Fort Carré and Picasso Museum, and stroll along the charming waterfront promenade.", "");
+        Attraction islamicCulturalCenter = new Attraction("Islamic Cultural Center of Nice (Centre Culturel Islamique de Nice)", null, "The Islamic Cultural Center of Nice, also known as Centre Culturel Islamique de Nice, is a cultural and educational institution serving the Muslim community in Nice. It offers religious services, Islamic education programs, and cultural events aimed at promoting interfaith dialogue and understanding.", "");
+        Attraction openSkyNice = new Attraction("Open Sky Area in Nice", nice, "The Open Sky Area in Nice is a unique public space located along the Promenade des Anglais, offering stunning views of the Mediterranean Sea and the city's iconic coastline. This expansive open-air area provides a picturesque setting for leisurely strolls, picnics, and outdoor activities. Visitors can relax on sun-drenched benches, soak in the sea breeze, and admire the vibrant colors of the sky as the sun sets over the horizon. The Open Sky Area in Nice is a popular gathering spot for locals and tourists alike, providing a perfect blend of natural beauty and urban charm.", "");
+
+// Save attraction in the database
+        attractionRepository.save(openSkyNice);
+        attractionRepository.save(ezeVillage);
+        attractionRepository.save(verdonGorge);
+        attractionRepository.save(antibesOldTown);
+        attractionRepository.save(islamicCulturalCenter);
+
+//        Attractions for Rome
+        Attraction colosseum = new Attraction("Colosseum (Colosseo)", rome, "The Colosseum, also known as the Flavian Amphitheatre, is an ancient Roman landmark located in the heart of Rome. Built in the 1st century AD, it is the largest amphitheater ever built and is considered one of the greatest works of Roman architecture. Visitors can explore its ruins, learn about its history as a venue for gladiatorial contests and public spectacles, and admire its iconic architecture.", "");
+        Attraction piazzaVittorioEmanuele = new Attraction("Piazza Vittorio Emanuele II", rome, "Piazza Vittorio Emanuele II is a lively square located in the Esquilino district of Rome. It is home to a diverse community, including a significant Muslim population. Visitors can explore the multicultural atmosphere of the square, visit halal shops and eateries, and experience the vibrant street life of this cosmopolitan neighborhood.", "");
+// Save attraction in the database
+        attractionRepository.save(piazzaVittorioEmanuele);
+        attractionRepository.save(colosseum);
+
+//        Attractions for Milan
+        Attraction parcoDelleCave = new Attraction("Parco delle Cave", milan, "Parco delle Cave is a public park located in the southern outskirts of Milan. It offers a peaceful retreat from the city center and features walking trails, picnic areas, and scenic views of the surrounding nature. Muslim visitors can enjoy leisurely walks, outdoor activities, and serene moments of reflection in this natural setting.", "");
+        Attraction sanSiroStadium = new Attraction("San Siro Stadium (Stadio Giuseppe Meazza)", milan, "San Siro Stadium, officially known as Stadio Giuseppe Meazza, is a world-renowned football stadium located in Milan. It is home to two of Italy's most successful football clubs, AC Milan and Inter Milan. The stadium has a rich history and has hosted numerous international football matches, including UEFA Champions League finals and FIFA World Cup games. Visitors can take guided tours of the stadium, explore its facilities, and learn about the illustrious footballing legacy of San Siro.", "");
+        Attraction sforzaCastle = new Attraction("Sforza Castle (Castello Sforzesco)", milan, "Sforza Castle, also known as Castello Sforzesco, is a historic fortress located in the center of Milan. It was built in the 15th century by the Duke of Milan and later served as a residence for various rulers. Today, it houses several museums and art collections, including the Museum of Ancient Art, the Museum of Musical Instruments, and the Egyptian Museum.", "");
+        Attraction galleriaVittorioEmanuele = new Attraction("Galleria Vittorio Emanuele II", milan, "Galleria Vittorio Emanuele II is a historic shopping arcade and one of the oldest shopping malls in the world. Located next to the Milan Cathedral, it is renowned for its stunning architecture, including glass-vaulted ceilings and ornate decorations. Visitors can shop at luxury boutiques, dine at elegant cafes, and admire the grandeur of the arcade.", "");
+        Attraction dolomiteMountains = new Attraction("Dolomite Mountains (Dolomiti)", milan, "The Dolomite Mountains, or Dolomiti in Italian, are a UNESCO World Heritage site and one of the most stunning natural landscapes in Italy. Located in the northeastern part of the country, the Dolomites are known for their dramatic peaks, rugged cliffs, and picturesque valleys. Visitors can enjoy a range of outdoor activities, including hiking, skiing, rock climbing, and mountain biking. The Dolomites offer breathtaking views and unforgettable experiences for nature lovers and outdoor enthusiasts.", "");
+        Attraction lakeComo = new Attraction("Lake Como (Lago di Como)", milan, "Lake Como, or Lago di Como in Italian, is a breathtaking lake located in the Lombardy region of northern Italy. Surrounded by majestic mountains and verdant hillsides, Lake Como is famous for its stunning scenery, elegant villas, and charming lakeside towns. Visitors can take boat cruises across the lake, explore picturesque villages like Bellagio, Varenna, and Menaggio, and enjoy leisurely walks along the scenic waterfront promenades. With its natural beauty and serene atmosphere, Lake Como is a must-visit destination for travelers seeking relaxation and romance.", "");
+
+// Save attraction in the database
+        attractionRepository.save(lakeComo);
+        attractionRepository.save(dolomiteMountains);
+        attractionRepository.save(galleriaVittorioEmanuele);
+        attractionRepository.save(sforzaCastle);
+        attractionRepository.save(sanSiroStadium);
+        attractionRepository.save(parcoDelleCave);
+
+//Naples
+
+        Attraction mountVesuvius = new Attraction("Mount Vesuvius (Monte Vesuvio)", naples, "Mount Vesuvius is one of the most famous volcanoes in the world, known for its eruption in 79 AD that buried the ancient cities of Pompeii and Herculaneum. Today, it is a popular tourist destination, offering hiking trails to the crater rim and breathtaking views of the Bay of Naples. Visitors can learn about the volcano's geology, history, and impact on the surrounding landscape.", "");
+        Attraction pompeiiArchaeologicalPark = new Attraction("Pompeii Archaeological Park (Parco Archeologico di Pompei)", naples, "The Pompeii Archaeological Park is a UNESCO World Heritage site that preserves the ancient Roman city of Pompeii, which was buried under volcanic ash during the eruption of Mount Vesuvius in 79 AD. Visitors can explore the remarkably well-preserved ruins of Pompeii, including streets, houses, and public buildings, and learn about daily life in ancient Rome.", "");
+        Attraction capriIsland = new Attraction("Capri Island (Isola di Capri)", naples, "Capri is a picturesque island located in the Bay of Naples, known for its stunning natural beauty, rugged coastline, and luxury resorts. Visitors can explore the charming town of Capri, take boat tours to iconic landmarks such as the Blue Grotto and the Faraglioni rock formations, and enjoy leisurely walks along scenic hiking trails. Capri offers a perfect blend of relaxation and adventure in a breathtaking Mediterranean setting.", "");
+        Attraction amalfiCoast = new Attraction("Amalfi Coast (Costiera Amalfitana)", naples, "The Amalfi Coast is a stunning stretch of coastline in southern Italy, known for its dramatic cliffs, colorful fishing villages, and picturesque towns. Visitors can drive along the scenic coastal road, stopping in charming villages such as Positano, Amalfi, and Ravello, each offering breathtaking views of the Mediterranean Sea. The Amalfi Coast is also famous for its delicious cuisine, lemon groves, and historic landmarks, making it a must-visit destination for travelers seeking natural beauty and cultural experiences.", "");
+        Attraction positano = new Attraction("Positano", naples, "Positano is a charming coastal town located on the Amalfi Coast in southern Italy. Known for its colorful cliffside houses, narrow streets, and stunning views of the Tyrrhenian Sea, Positano is a popular destination for travelers seeking romance and relaxation. Visitors can explore its picturesque beaches, shop for local ceramics and fashion, and dine at seaside restaurants serving fresh seafood and regional specialties. With its unique beauty and laid-back atmosphere, Positano offers a memorable experience for visitors exploring the Amalfi Coast.", "");
+
+// Save attraction in the database
+        attractionRepository.save(positano);
+        attractionRepository.save(amalfiCoast);
+        attractionRepository.save(capriIsland);
+        attractionRepository.save(mountVesuvius);
+        attractionRepository.save(pompeiiArchaeologicalPark);
+
+// Attractions for Lisbon
+        // Create Attraction object for Belém Tower
+        Attraction belemTower = new Attraction("Belém Tower (Torre de Belém)", lisbon, "The Belém Tower, or Torre de Belém in Portuguese, is an iconic fortress located on the banks of the Tagus River in Lisbon. Built in the 16th century during the Age of Discovery, it served as a defensive structure and ceremonial gateway to the city. Today, it is a UNESCO World Heritage site and one of Lisbon's most recognizable landmarks. Visitors can explore its impressive architecture, climb to the top for panoramic views of the river and city, and learn about Portugal's maritime history.", "");
+        Attraction sintra = new Attraction("Sintra", lisbon, "Sintra is a charming town located just outside of Lisbon, nestled amidst the lush hills of the Serra de Sintra. It is renowned for its fairy-tale palaces, enchanting gardens, and romantic atmosphere. Visitors can explore iconic landmarks such as the colorful Pena Palace, the mysterious Quinta da Regaleira, and the historic Moorish Castle. Sintra's magical ambiance and architectural wonders make it a popular day trip destination from Lisbon.", "");
+        Attraction cascais = new Attraction("Cascais", lisbon, "Cascais is a charming coastal town located just west of Lisbon, Portugal. Once a sleepy fishing village, it has transformed into a popular resort destination known for its beautiful beaches, historic architecture, and vibrant atmosphere. Visitors can stroll along the scenic waterfront promenade, relax on sandy beaches like Praia da Rainha and Praia do Guincho, and explore attractions such as the Cascais Citadel and the Museum of the Sea. Cascais offers a perfect blend of relaxation and culture, making it a delightful day trip from Lisbon.", "");
+        Attraction oceanarioDeLisboa = new Attraction("Oceanário de Lisboa", lisbon, "Oceanário de Lisboa is the largest indoor aquarium in Europe and one of the most popular attractions in Lisbon, Portugal. Located in the Parque das Nações district, it showcases a diverse range of marine life from various ecosystems around the world. Visitors can explore different themed exhibits, including the Atlantic Ocean tank, the Indian Ocean tank, and the Pacific Ocean tank, home to a wide variety of fish, sharks, rays, and other aquatic species. Oceanário de Lisboa offers a fascinating and educational experience for visitors of all ages, making it a must-visit destination in Lisbon.", "");
+        Attraction pracaDoComercio = new Attraction("Praça do Comércio (Terreiro do Paço)", lisbon, "Praça do Comércio, also known as Terreiro do Paço, is one of the most iconic squares in Lisbon, Portugal. Situated along the Tagus River in the historic Baixa district, it is characterized by its grand arcades, colorful buildings, and monumental equestrian statue of King José I. Praça do Comércio has served as the commercial and political center of Lisbon for centuries and is surrounded by important landmarks such as the Rua Augusta Arch and the Lisbon City Hall. Visitors can enjoy leisurely walks, outdoor dining, and stunning views of the river and surrounding area from the square.", "");
+        Attraction miradouroSenhoraDoMonte = new Attraction("Miradouro da Senhora do Monte", lisbon, "Miradouro da Senhora do Monte is one of the highest viewpoints in Lisbon, offering panoramic views of the city and the Tagus River. Located in the Graça neighborhood, it is named after the Chapel of Our Lady of the Mount (Capela de Nossa Senhora do Monte), which sits adjacent to the viewpoint. Visitors can enjoy breathtaking vistas of Lisbon's historic center, including landmarks such as the São Jorge Castle, the Alfama district, and the Ponte 25 de Abril bridge. Miradouro da Senhora do Monte is a popular spot for sunset viewing and photography, providing a peaceful retreat from the bustling streets below.", "");
+
+// Save attraction in the database
+        attractionRepository.save(miradouroSenhoraDoMonte);
+        attractionRepository.save(pracaDoComercio);
+        attractionRepository.save(oceanarioDeLisboa);
+        attractionRepository.save(cascais);
+        attractionRepository.save(sintra);
+        attractionRepository.save(belemTower);
+
+// Attractions in Azores
+
+        Attraction seteCidades = new Attraction("Sete Cidades", azores, "Sete Cidades is a breathtaking volcanic crater located on the island of São Miguel in the Azores archipelago. Known for its stunning twin lakes, one blue and one green, Sete Cidades offers mesmerizing views of the surrounding landscape. Visitors can hike along the crater rim, explore scenic viewpoints, and enjoy outdoor activities such as kayaking and paddleboarding on the lakes. Sete Cidades is a natural wonder and a must-visit destination for travelers exploring São Miguel.", "");
+        Attraction lagoaDoFogo = new Attraction("Lagoa do Fogo", azores, "Lagoa do Fogo, or Lake of Fire, is a stunning crater lake situated in the center of São Miguel island in the Azores. Surrounded by lush vegetation and volcanic landscapes, the lake is known for its crystal-clear waters and scenic beauty. Visitors can hike along the trails surrounding the lake, swim in its pristine waters, and marvel at the panoramic views from the viewpoints along the way. Lagoa do Fogo is a natural paradise and a must-visit destination for nature lovers and outdoor enthusiasts.", "");
+        Attraction furnas = new Attraction("Furnas", azores, "Furnas is a picturesque town located on the island of São Miguel in the Azores archipelago. Famous for its geothermal hot springs, lush botanical gardens, and volcanic landscapes, Furnas is a popular destination for relaxation and rejuvenation. Visitors can soak in the warm mineral-rich waters of the hot springs, explore the scenic Terra Nostra Botanical Garden, and witness the geothermal activity at the fumaroles and geysers scattered throughout the town. Furnas offers a unique blend of natural beauty and wellness experiences.", "");
+        Attraction caldeiraVelha = new Attraction("Caldeira Velha", azores, "Caldeira Velha is a natural thermal park located on the island of São Miguel in the Azores archipelago. Nestled amidst lush rainforest vegetation, the park features hot springs, cascading waterfalls, and natural pools filled with warm mineral-rich waters. Visitors can relax in the therapeutic waters, take a dip in the refreshing waterfall pools, and enjoy the tranquil ambiance of the surrounding forest. Caldeira Velha is a hidden gem and a perfect retreat for relaxation and immersion in nature.", "");
+        Attraction picoMountain = new Attraction("Pico Mountain (Montanha do Pico)", azores, "Pico Mountain, or Montanha do Pico in Portuguese, is the highest peak in Portugal and a UNESCO World Heritage site located on the island of Pico in the Azores archipelago. Rising 2,351 meters above sea level, the mountain offers breathtaking panoramic views of the surrounding islands and the Atlantic Ocean. Visitors can hike to the summit, traverse rugged volcanic landscapes, and explore the unique flora and fauna of the mountain's slopes. Pico Mountain is a paradise for hikers and adventurers seeking epic outdoor experiences.", "");
+        Attraction algarDoCarvao = new Attraction("Algar do Carvão", azores, "Algar do Carvão is a fascinating volcanic cave located on the island of Terceira in the Azores archipelago. Formed by ancient volcanic activity, the cave features stunning geological formations, including stalactites, stalagmites, and lava tubes. Visitors can descend into the depths of the cave and explore its otherworldly interior, marveling at the natural beauty and unique rock formations. Algar do Carvão is a geological marvel and a must-visit destination for travelers seeking adventure and exploration in the Azores.", "");
+
+// Save attraction in the database
+        attractionRepository.save(algarDoCarvao);
+        attractionRepository.save(picoMountain);
+        attractionRepository.save(furnas);
+        attractionRepository.save(caldeiraVelha);
+        attractionRepository.save(lagoaDoFogo);
+        attractionRepository.save(seteCidades);
+
+//        Attractions in Madeira
+
+        Attraction picoDoArieiro = new Attraction("Pico do Arieiro", madeira, "Pico do Arieiro is the third-highest peak on the island of Madeira, offering stunning panoramic views of the surrounding mountains and coastline. Visitors can reach the summit by car or hiking along well-marked trails, enjoying breathtaking vistas along the way. At the top, there is a viewing platform where travelers can admire the rugged landscape and take in the beauty of the island's rugged terrain. Pico do Arieiro is a popular destination for outdoor enthusiasts and photographers seeking spectacular vistas in Madeira.", "");
+        Attraction levadaWalks = new Attraction("Levada Walks", madeira, "Madeira is famous for its levadas, irrigation channels that crisscross the island and provide access to some of its most scenic spots. Levada walks offer a unique way to explore Madeira's diverse landscapes, from lush forests to rugged coastlines. Visitors can choose from a variety of trails, ranging from easy strolls to challenging hikes, and discover hidden waterfalls, pristine valleys, and panoramic viewpoints along the way. Levada walks are a must-do activity for nature lovers and outdoor enthusiasts visiting Madeira.", "");
+        Attraction caboGirao = new Attraction("Cabo Girão", madeira, "Cabo Girão is a spectacular sea cliff located on the southern coast of Madeira, offering breathtaking views of the Atlantic Ocean and the surrounding coastline. Rising 580 meters above sea level, it is one of the highest sea cliffs in Europe. Visitors can walk along a glass-floored viewing platform suspended over the edge of the cliff, providing a thrilling experience and panoramic vistas of the ocean below. Cabo Girão is a popular destination for sightseeing and photography, offering unforgettable views of Madeira's dramatic landscape.", "");
+        Attraction montePalaceGarden = new Attraction("Monte Palace Tropical Garden (Jardim Tropical Monte Palace)", madeira, "Monte Palace Tropical Garden is a botanical garden located in the hills above Funchal, Madeira's capital city. Spread over 70,000 square meters, it features a diverse collection of exotic plants, tranquil ponds, and striking sculptures from around the world. Visitors can explore themed gardens inspired by different cultures, including Japanese, African, and Madeiran, and enjoy panoramic views of Funchal and the surrounding landscape. Monte Palace Tropical Garden is a serene oasis of beauty and tranquility in Madeira.", "");
+        Attraction kayakPortoSanto = new Attraction("Kayaking in Porto Santo", madeira, "Kayaking in Porto Santo offers a unique way to explore the stunning coastline and crystal-clear waters of this beautiful island. Visitors can rent kayaks from local outfitters and embark on guided tours or self-guided excursions to discover hidden coves, sea caves, and secluded beaches along the island's shoreline. With its calm seas and gentle currents, Porto Santo provides ideal conditions for kayaking adventures for both beginners and experienced paddlers. Whether paddling solo or with a group, kayaking in Porto Santo promises unforgettable experiences and breathtaking views of the island's natural beauty.", "");
+        Attraction scubaDivingFunchal = new Attraction("Scuba Diving in Funchal", madeira, "Scuba diving in Funchal offers an exhilarating opportunity to explore the vibrant underwater world of Madeira's coastline. With its clear waters, abundant marine life, and fascinating rock formations, Funchal is a prime destination for divers of all levels. Visitors can dive along colorful reefs, underwater caves, and shipwrecks, encountering a diverse array of marine species such as colorful fish, octopuses, and moray eels. Guided dives and certification courses are available for beginners, while experienced divers can enjoy deeper dives and more challenging sites. Scuba diving in Funchal promises unforgettable underwater adventures and opportunities for discovery.", "");
+
+// Save attraction in the database
+        attractionRepository.save(scubaDivingFunchal);
+        attractionRepository.save(montePalaceGarden);
+        attractionRepository.save(caboGirao);
+        attractionRepository.save(levadaWalks);
+        attractionRepository.save(picoDoArieiro);
+        attractionRepository.save(kayakPortoSanto);
+
+//        Attractions for Madrid
+        Attraction pradoMuseum = new Attraction("Prado Museum (Museo del Prado)", madrid, "The Prado Museum, or Museo del Prado in Spanish, is one of the most important art museums in the world, located in Madrid, Spain. It houses an extensive collection of European art from the 12th to the early 20th century, including works by renowned artists such as Velázquez, Goya, and El Greco. Visitors can admire masterpieces like Velázquez's 'Las Meninas' and Goya's 'The Third of May 1808,' as well as works by other Spanish and European artists. The Prado Museum is a cultural treasure trove and a must-visit destination for art lovers and history enthusiasts.", "");
+        Attraction retiroPark = new Attraction("Retiro Park (Parque del Retiro)", madrid, "Retiro Park, or Parque del Retiro in Spanish, is a sprawling green oasis located in the heart of Madrid. Covering 125 hectares, it is one of the city's largest and most popular parks, offering lush gardens, scenic pathways, and recreational areas. Visitors can stroll along tree-lined avenues, rent rowboats on the park's central lake, and relax amidst the park's iconic landmarks, including the Crystal Palace and the Fountain of the Fallen Angel. Retiro Park is a beloved gathering place for locals and tourists alike, providing a tranquil escape from the hustle and bustle of the city.", "");
+        Attraction royalPalaceMadrid = new Attraction("Royal Palace of Madrid (Palacio Real de Madrid)", madrid, "The Royal Palace of Madrid, or Palacio Real de Madrid in Spanish, is the official residence of the Spanish royal family, located in the heart of Madrid. With its grand architecture, opulent interiors, and extensive art collection, it is one of the most impressive palaces in Europe. Visitors can tour the palace's lavishly decorated rooms, including the Throne Room, the Hall of Mirrors, and the Royal Armoury, and admire artworks by renowned artists such as Velázquez, Goya, and Caravaggio. The Royal Palace of Madrid is a symbol of Spain's rich cultural heritage and a must-visit attraction for history buffs and architecture enthusiasts.", "");
+        Attraction bernabeuStadium = new Attraction("Santiago Bernabéu Stadium", madrid, "The Santiago Bernabéu Stadium is one of the most iconic football stadiums in the world, located in Madrid, Spain. Home to the renowned football club Real Madrid, the stadium has a rich history and has hosted numerous memorable matches and events. Visitors can take guided tours of the stadium, exploring its impressive facilities, including the player locker rooms, trophy room, and presidential box. They can also walk through the tunnel onto the pitch, experiencing the stadium from the perspective of the players. The Santiago Bernabéu Stadium is a must-visit destination for football fans, offering an immersive experience into the world of one of the most prestigious football clubs in history.", "");
+        Attraction segoviaHotAirBalloon = new Attraction("Hot Air Balloon Rides in Segovia", madrid, "Hot air balloon rides in Segovia offer a breathtaking way to experience the beauty of this historic Spanish city and its surroundings from a unique perspective. Visitors can soar high above Segovia's iconic landmarks, including the majestic Alcázar fortress and the ancient Roman aqueduct, while enjoying panoramic views of the picturesque countryside and distant mountains. Guided by experienced pilots, hot air balloon flights provide a serene and exhilarating adventure, allowing passengers to float effortlessly through the sky and witness the changing landscapes below. Whether at sunrise or sunset, hot air balloon rides in Segovia promise unforgettable moments and unparalleled vistas of this enchanting region.", "");
+
+// Save attraction in the database
+        attractionRepository.save(segoviaHotAirBalloon);
+        attractionRepository.save(bernabeuStadium);
+        attractionRepository.save(royalPalaceMadrid);
+        attractionRepository.save(retiroPark);
+        attractionRepository.save(pradoMuseum);
+
+//        Attractions for Barca
+        // Create Attraction object for Coastal Path (Camí de Ronda)
+        Attraction coastalPath = new Attraction("Coastal Path (Camí de Ronda)", barcelona, "The Coastal Path, or Camí de Ronda, is a scenic hiking trail that stretches along the rugged coastline of Costa Brava, Catalonia. Offering breathtaking views of the Mediterranean Sea, hidden coves, and picturesque fishing villages, the Coastal Path is a paradise for nature lovers and outdoor enthusiasts. Visitors can explore the trail on foot or by bike, winding their way through pine forests, rocky cliffs, and sandy beaches. Along the way, they can discover secluded coves for swimming, enjoy fresh seafood at beachside restaurants, and immerse themselves in the natural beauty of the Mediterranean coast. The Coastal Path is a tranquil escape from the hustle and bustle of city life, providing a rejuvenating experience amidst stunning coastal landscapes.", "");
+        Attraction casaBatllo = new Attraction("Casa Batlló", barcelona, "Casa Batlló is a renowned Modernist building located in the heart of Barcelona's Eixample district. Designed by the architect Antoni Gaudí, the building is known for its striking facade, organic shapes, and colorful mosaic tiles. Visitors can take guided tours of the building, exploring its unique interiors, including the Noble Floor, the Loft, and the Roof Terrace, which offers panoramic views of the city. Casa Batlló is a masterpiece of Catalan Modernism and a testament to Gaudí's innovative architectural vision.", "");
+        Attraction montserratMonastery = new Attraction("Montserrat Monastery", barcelona, "The Montserrat Monastery is a Benedictine abbey located in the Montserrat mountain range near Barcelona, Catalonia. Perched atop a rocky cliff at an altitude of over 700 meters, the monastery is renowned for its stunning natural setting, religious significance, and cultural heritage. Visitors can take a scenic cable car or rack railway to reach the monastery, where they can explore its historic buildings, including the basilica, chapels, and museums. The monastery is also home to the famous statue of the Black Madonna, a revered religious icon believed to have miraculous powers. Surrounding the monastery, the Montserrat mountain range offers opportunities for hiking, rock climbing, and enjoying panoramic views of the Catalan countryside. Montserrat Monastery is a spiritual sanctuary and a symbol of Catalonia's religious and cultural identity.", "");
+        Attraction parkGuell = new Attraction("Park Güell", barcelona, "Park Güell is a public park located on Carmel Hill in Barcelona, Catalonia. Designed by the renowned architect Antoni Gaudí, the park was originally conceived as a residential housing development but was later transformed into a municipal garden. Park Güell is famous for its colorful mosaic sculptures, whimsical architecture, and stunning panoramic views of the city. Visitors can explore the park's winding pathways, admire the vibrant mosaic designs of the iconic lizard statue and the serpentine bench, and enjoy the tranquility of the surrounding nature. Park Güell is a UNESCO World Heritage Site and one of Barcelona's most popular attractions, attracting millions of visitors each year with its unique blend of art, architecture, and natural beauty.", "");
+// Save attraction in the database
+        attractionRepository.save(parkGuell);
+        attractionRepository.save(montserratMonastery);
+        attractionRepository.save(casaBatllo);
+        attractionRepository.save(coastalPath);
+// Attraction for Malaga
+
+        Attraction caminitoDelRey = new Attraction("Caminito del Rey", malaga, "Caminito del Rey, also known as the King's Little Pathway, is a famous hiking trail located in the province of Malaga, Andalusia. This breathtaking path runs along the steep walls of a narrow gorge carved by the Guadalhorce River, offering stunning views of the surrounding landscape. Originally constructed in the early 20th century as a service route for hydroelectric power plants, Caminito del Rey has since been restored and reopened as a thrilling adventure for hikers and nature enthusiasts. Visitors can traverse the narrow walkways and suspension bridges suspended high above the river, experiencing the thrill of walking through rugged terrain while admiring the natural beauty of the gorge below. Caminito del Rey is a must-visit destination for anyone seeking an unforgettable outdoor adventure in Andalusia.", "");
+        Attraction nerja = new Attraction("Nerja", malaga, "Nerja is a charming coastal town located in the province of Malaga, Andalusia. Famous for its picturesque beaches, crystal-clear waters, and scenic cliffs, Nerja is a popular destination for beach lovers and outdoor enthusiasts. Visitors can relax on the sandy shores of beaches such as Playa Burriana and Playa de la Calahonda, or explore the stunning sea caves of Nerja, including the famous Cuevas de Nerja. The town's historic center is dotted with whitewashed buildings, narrow streets, and quaint squares, offering a glimpse into traditional Andalusian life. Nerja also boasts a vibrant culinary scene, with numerous restaurants serving fresh seafood and traditional Spanish dishes. Whether it's soaking up the sun on the beach, exploring the town's cultural attractions, or enjoying outdoor activities such as hiking and diving, Nerja has something for everyone to enjoy.", "");
+        Attraction alhambraGranada = new Attraction("Alhambra, Granada", malaga, "The Alhambra is a magnificent palace and fortress complex located in Granada, Andalusia. Built during the Moorish rule of Al-Andalus, the Alhambra is renowned for its stunning Islamic architecture, intricate tilework, and lush gardens. Visitors can explore the Nasrid Palaces, the Generalife Gardens, and the Alcazaba fortress, marveling at the beauty and craftsmanship of the Moorish art and design. The Alhambra is a UNESCO World Heritage Site and one of Spain's most iconic cultural landmarks, attracting millions of visitors from around the world each year.", "");
+        Attraction alcazabaMalaga = new Attraction("Alcazaba of Malaga", malaga, "The Alcazaba of Malaga is a historic Moorish fortress located in the heart of Malaga, Spain. Built in the 11th century during the Moorish rule of Al-Andalus, the Alcazaba is renowned for its impressive architecture, picturesque gardens, and commanding views of the city and the Mediterranean Sea. Visitors can explore the fortress's well-preserved ramparts, towers, and courtyards, as well as its archaeological museum, which showcases artifacts from the Islamic period. The Alcazaba of Malaga is a cultural landmark that offers insight into the region's rich history and architectural heritage.", "");
+        Attraction alcazabaAlmeria = new Attraction("Alcazaba of Almería", malaga, "The Alcazaba of Almería is a fortified complex located in the city of Almería, Andalusia. Built in the 10th century by the Moorish rulers of Al-Andalus, the Alcazaba is one of the largest and best-preserved Muslim fortresses in Spain. Visitors can explore the fortress's imposing walls, towers, and courtyards, as well as its archaeological museum, which showcases artifacts from the Islamic period. The Alcazaba of Almería offers panoramic views of the city and the Mediterranean Sea, making it a popular destination for history buffs and photography enthusiasts alike.", "");
+// Save attraction in the database
+        attractionRepository.save(alcazabaAlmeria);
+        attractionRepository.save(alcazabaMalaga);
+        attractionRepository.save(alhambraGranada);
+        attractionRepository.save(nerja);
+        attractionRepository.save(caminitoDelRey);
+
+
+//        Attractions in Berlin
+        // Create Attraction object for Brandenburg Gate
+        Attraction brandenburgGate = new Attraction("Brandenburg Gate", berlin, "The Brandenburg Gate is an iconic neoclassical monument located in the heart of Berlin, Germany. Built in the late 18th century, the gate has come to symbolize both the division and reunification of Germany. With its impressive columns, grand Doric architecture, and Quadriga sculpture atop, the Brandenburg Gate is a must-visit landmark and a symbol of peace and unity. Visitors can stroll through Pariser Platz, admire the gate from various angles, and learn about its rich history at the nearby information center. The Brandenburg Gate is also a popular venue for cultural events and celebrations throughout the year.", "");
+        Attraction museumIsland = new Attraction("Museum Island", berlin, "Museum Island is a UNESCO World Heritage Site located on the northern half of the Spree Island in Berlin. It is home to a complex of five world-renowned museums, including the Altes Museum, the Neues Museum, the Alte Nationalgalerie, the Bode Museum, and the Pergamon Museum. Each museum offers a unique collection of art, artifacts, and historical treasures spanning thousands of years of human history and culture. Visitors can explore ancient Egyptian artifacts, Greek and Roman sculptures, Islamic art, European paintings, and much more. Museum Island is a cultural treasure trove that attracts art lovers, history enthusiasts, and scholars from around the world.", "");
+        Attraction reichstagBuilding = new Attraction("Reichstag Building", berlin, "The Reichstag Building is the seat of the German Bundestag (parliament) and one of Berlin's most iconic landmarks. With its distinctive glass dome and neoclassical facade, the Reichstag is a symbol of democracy and national identity. Visitors can take guided tours of the building, learn about its history and architecture, and climb to the top of the dome for panoramic views of the city. The Reichstag also features exhibitions on German history, politics, and democracy, making it a fascinating destination for visitors interested in government and governance.", "");
+
+        // Save attraction in the database
+        attractionRepository.save(museumIsland);
+        attractionRepository.save(reichstagBuilding);
+        attractionRepository.save(brandenburgGate);
+
+
+//        Attractions for Munich
+        Attraction zugspitzeMountain = new Attraction("Zugspitze Mountain", munich, "The Zugspitze is the highest peak in Germany, located in the Bavarian Alps near the town of Garmisch-Partenkirchen. Standing at 2,962 meters above sea level, it offers breathtaking panoramic views of the surrounding alpine landscape and beyond. Visitors can reach the summit by taking the Zugspitze Railway, Germany's highest cogwheel railway, or by hiking one of the mountain trails. At the summit, there are observation platforms, restaurants, and even a glacier for skiing and snowboarding year-round. The Zugspitze offers outdoor enthusiasts the opportunity to experience the beauty and majesty of the Alps in both summer and winter.", "");
+        Attraction englishGarden = new Attraction("English Garden", munich, "The English Garden is a vast public park in the heart of Munich, Germany, spanning over 900 acres. Designed in the style of an English landscape garden, it offers scenic walking and cycling paths, lush greenery, and serene lakes and streams. Visitors can relax in the shade of centuries-old trees, enjoy a picnic by the water, or watch surfers riding the standing wave on the Eisbach River. The English Garden is also home to beer gardens, outdoor cafes, and traditional Bavarian beer halls, providing plenty of opportunities to unwind and enjoy the outdoors.", "");
+        Attraction nymphenburgPalace = new Attraction("Nymphenburg Palace", munich, "Nymphenburg Palace is a magnificent Baroque palace located in Munich, Germany. Built as a summer residence for the Bavarian rulers, it boasts stunning architecture, landscaped gardens, and opulent interiors. Visitors can explore the palace's lavish rooms, including the Gallery of Beauties, the Porcelain Cabinet, and the Grand Hall, as well as stroll through the sprawling palace gardens, which feature fountains, sculptures, and a charming pagoda. Nymphenburg Palace is a cultural treasure that offers a glimpse into Bavaria's royal past and is a must-visit attraction in Munich.", "");
+
+        // Save attraction in the database
+        attractionRepository.save(nymphenburgPalace);
+        attractionRepository.save(englishGarden);
+        attractionRepository.save(zugspitzeMountain);
+
+
+//        Attractions in Istanbul
+
+        Attraction grandBazaar = new Attraction("Grand Bazaar (Kapalı Çarşı)", istanbul, "The Grand Bazaar, or Kapalı Çarşı, is one of the world's largest and oldest covered markets, with over 4,000 shops spread across 61 streets. Dating back to the 15th century, it is a vibrant hub of commerce and culture, where visitors can find everything from jewelry and textiles to spices and souvenirs. Navigating the maze-like bazaar is an experience in itself, with its bustling alleys, colorful displays, and friendly vendors. Whether you're shopping for gifts or simply soaking up the atmosphere, the Grand Bazaar is a must-visit destination in Istanbul.", "");
+        Attraction bosphorusCruise = new Attraction("Bosphorus Cruise", istanbul, "A Bosphorus Cruise is a scenic boat tour along the Bosphorus Strait, which divides the city of Istanbul into two continents, Europe and Asia. It offers breathtaking views of the city's skyline, historic landmarks, and waterfront mansions, as well as an opportunity to see the iconic bridges that span the strait. Visitors can choose from a variety of cruise options, including daytime sightseeing tours, sunset cruises, and dinner cruises with live entertainment. A Bosphorus Cruise provides a unique perspective of Istanbul and is a memorable way to experience the beauty of the city.", "");
+        Attraction buyukada = new Attraction("Büyükada (Princess Island)", istanbul, "Büyükada, also known as Princess Island, is the largest of the Princes' Islands in the Sea of Marmara, just off the coast of Istanbul. Renowned for its tranquil atmosphere, scenic landscapes, and charming Victorian-era architecture, Büyükada offers a peaceful retreat from the hustle and bustle of city life. Visitors can explore the island's picturesque streets by horse-drawn carriage or bicycle, visit historic landmarks such as the Aya Yorgi Church and Monastery, and relax on its pristine beaches. Büyükada is a popular day trip destination for locals and tourists alike, offering a perfect blend of natural beauty and old-world charm.", "");
+        Attraction sapancaLake = new Attraction("Sapanca Lake", istanbul, "Sapanca Lake is a serene freshwater lake located in the Sakarya Province of Turkey, near the town of Sapanca. Surrounded by lush greenery and rolling hills, the lake offers breathtaking views and a tranquil atmosphere, making it a popular destination for nature lovers and outdoor enthusiasts. Visitors can enjoy a variety of activities on and around the lake, including boating, fishing, picnicking, and hiking along scenic trails. The area is also home to charming villages, boutique hotels, and cozy cafes, providing plenty of opportunities for relaxation and exploration. Whether you're seeking adventure or simply want to unwind amidst natural beauty, Sapanca Lake offers an idyllic escape from the hustle and bustle of city life.", "");
+// Save attraction in the database
+        attractionRepository.save(sapancaLake);
+        attractionRepository.save(buyukada);
+        attractionRepository.save(bosphorusCruise);
+        attractionRepository.save(grandBazaar);
+
+//        Attractions in Cappadocia
+        // Create Attraction object for Göreme Open-Air Museum
+        Attraction goremeMuseum = new Attraction("Göreme Open-Air Museum", cappadocia, "The Göreme Open-Air Museum is a UNESCO World Heritage Site located in the town of Göreme, Cappadocia. It features a complex of rock-cut churches and monasteries dating back to the Byzantine period. Visitors can explore the intricately decorated interiors of these ancient cave dwellings, which contain stunning frescoes depicting scenes from the life of Jesus Christ and other biblical figures. The museum offers a fascinating glimpse into the region's rich religious and cultural history, making it a must-visit attraction for anyone exploring Cappadocia.", "");
+        Attraction hotAirBalloon = new Attraction("Hot Air Balloon Ride", cappadocia, "A hot air balloon ride over the surreal landscapes of Cappadocia is a once-in-a-lifetime experience. Visitors can soar above the fairy chimney rock formations, valleys, and vineyards as the sun rises, providing breathtaking panoramic views of the region's unique terrain. Many tour operators offer hot air balloon flights, allowing travelers to witness the stunning beauty of Cappadocia from above and create unforgettable memories.", "");
+        Attraction quadBiking = new Attraction("Sunset Quad Biking in Cappadocia", cappadocia, "Sunset quad biking in Cappadocia offers an exhilarating way to explore the region's stunning landscapes and fairy chimney formations. Visitors can embark on guided quad biking tours that traverse rugged trails, ancient valleys, and scenic viewpoints, all while enjoying the breathtaking colors of the sunset casting a golden glow over the surreal terrain. With the wind in your hair and the sun setting on the horizon, sunset quad biking in Cappadocia promises an unforgettable adventure and unparalleled views of one of Turkey's most iconic destinations.", "");
+        // Save attraction in the database
+        attractionRepository.save(hotAirBalloon);
+        attractionRepository.save(goremeMuseum);
+        attractionRepository.save(quadBiking);
+
+//Attractions in Antalya
+        // Create Attraction object for Konyaaltı Beach
+        Attraction konyaaltiBeach = new Attraction("Konyaaltı Beach", antalya, "Konyaaltı Beach is a popular seaside destination located west of Antalya's city center. Stretching for several kilometers along the Mediterranean coastline, it features pristine sandy shores, turquoise waters, and stunning views of the surrounding mountains. Visitors can relax on the beach, swim in the crystal-clear sea, or participate in water sports such as snorkeling, jet skiing, and parasailing. The beach is also lined with cafes, restaurants, and bars, offering a variety of dining and entertainment options. Whether you're seeking sun and relaxation or adventure and excitement, Konyaaltı Beach has something for everyone.", "");
+        Attraction oldTown = new Attraction("Antalya Old Town (Kaleiçi)", antalya, "Antalya Old Town, also known as Kaleiçi, is a charming historic district located within the ancient city walls of Antalya. It is characterized by narrow cobblestone streets, Ottoman-era architecture, and picturesque harbor views. Visitors can wander through the maze-like alleys, explore ancient landmarks such as Hadrian's Gate and the Yivli Minare Mosque, and browse boutique shops selling traditional handicrafts and souvenirs. Kaleiçi is also home to a vibrant dining scene, with cozy cafes, rooftop restaurants, and waterfront tavernas serving delicious Turkish cuisine. Exploring Antalya Old Town is like stepping back in time, offering a glimpse into the city's rich history and cultural heritage.", "");
+        Attraction landOfLegends = new Attraction("The Land of Legends Theme Park", antalya, "The Land of Legends Theme Park is a world-class entertainment complex located in Belek, near Antalya. It offers a wide range of attractions and activities for visitors of all ages, including thrilling rides, water slides, and interactive experiences. The park features themed zones such as Adventure, Waterfront Kingdom, and Legends Avenue, as well as a shopping and dining district. Highlights include the Typhoon Coaster, the Deep Dive immersive aquarium, and the Mythical Creatures Island. The Land of Legends Theme Park promises an unforgettable day of fun and excitement for the whole family.", "");
+        Attraction horseRiding = new Attraction("Horse Riding Adventure", antalya, "Experience the beauty of Antalya's countryside on a thrilling horse riding adventure. Guided tours are available for riders of all skill levels, allowing you to explore scenic trails, lush forests, and picturesque valleys on horseback. Whether you're a beginner or an experienced rider, horse riding in Antalya offers a unique and memorable way to connect with nature and enjoy the tranquility of the Turkish countryside.", "");
+        Attraction jetSkiing = new Attraction("Jet Skiing Adventure", antalya, "Experience the thrill of jet skiing on the crystal-clear waters of the Mediterranean Sea in Antalya. Jet ski rentals are available at various beaches and marinas along the coast, allowing you to explore the coastline at your own pace and enjoy the freedom of riding the waves. Whether you're a beginner or an experienced jet skier, Antalya offers ideal conditions for an exhilarating aquatic adventure.", "");
+        Attraction kursunluPark = new Attraction("Kurşunlu Waterfall Nature Park", antalya, "Kurşunlu Waterfall Nature Park is a tranquil oasis located approximately 19 kilometers northeast of Antalya city center. It is characterized by lush greenery, meandering streams, and a series of cascading waterfalls. Visitors can follow scenic walking trails through the park, passing by dense forests, rock formations, and picnic areas along the way. The highlight of the park is the stunning Kurşunlu Waterfall, which plunges into a natural pool surrounded by ferns and moss-covered rocks. Kurşunlu Waterfall Nature Park is a peaceful retreat where visitors can reconnect with nature and enjoy the sights and sounds of the Turkish countryside.", "");
+// Save attraction in the database
+        attractionRepository.save(kursunluPark);
+        attractionRepository.save(jetSkiing);
+        attractionRepository.save(horseRiding);
+        attractionRepository.save(landOfLegends);
+        attractionRepository.save(oldTown);
+        attractionRepository.save(konyaaltiBeach);
+
+
+
+
+
+        
+        // Attractions for cities in Belgium
+
+ //Brussels
+
+        Attraction grandPlace = new Attraction("Grand Place", brussels, "The Grand Place is a UNESCO World Heritage Site and the central square of Brussels. It is surrounded by opulent guildhalls and the stunning Brussels City Hall. The square is a hub of activity, hosting events, markets, and festivals throughout the year. Visitors can admire the magnificent architecture, enjoy a Belgian waffle from one of the nearby vendors, or simply soak in the vibrant atmosphere.", "");
+
+        Attraction atomium = new Attraction("Atomium", brussels, "The Atomium is an iconic symbol of Brussels, representing an iron crystal magnified 165 billion times. It was originally built for the 1958 Brussels World's Fair and has since become a major tourist attraction. Visitors can explore the spheres, which house exhibitions on science, technology, and design, and enjoy panoramic views of the city from the top sphere.", "");
+
+        Attraction royalPalace = new Attraction("Royal Palace of Brussels", brussels, "The Royal Palace of Brussels serves as the official residence of the King and Queen of the Belgians, although it is only used for state ceremonies and official receptions. Visitors can tour the palace during the summer months when it is open to the public. The interior is adorned with magnificent decorations, exquisite furnishings, and works of art, offering a glimpse into Belgium's royal heritage.", "");
+
+        Attraction miniEurope = new Attraction("Mini-Europe", brussels, "Mini-Europe is a miniature park located at the foot of the Atomium, featuring replicas of famous landmarks from across Europe at a scale of 1:25. Visitors can wander through the park and marvel at miniature versions of the Eiffel Tower, the Colosseum, and other iconic sites. Interactive exhibits provide insight into the history and culture of each destination.", "");
+
+        Attraction autoWorld = new Attraction("Auto World", brussels, "Auto World is a fascinating museum dedicated to the history of automobiles, located in the beautiful Cinquantenaire Park. The museum boasts an extensive collection of vintage cars, ranging from early horseless carriages to classic sports cars and luxury vehicles. Visitors can explore the evolution of automotive design and technology through interactive exhibits, multimedia displays, and meticulously restored automobiles. Whether you're a car enthusiast or simply curious about the history of transportation, Auto World offers a captivating journey through the world of automobiles.", "");
+
+
+// Save attraction in the database
+        attractionRepository.save(grandPlace);
+        attractionRepository.save(atomium);
+        attractionRepository.save(royalPalace);
+        attractionRepository.save(miniEurope);
+        attractionRepository.save(autoWorld);
+
+
+//Antwerp
+
+
+        Attraction antwerpCentralStation = new Attraction("Antwerp Central Station", antwerp, "Antwerp Central Station is often referred to as the 'Railway Cathedral' due to its stunning architecture and grandeur. It is one of the most beautiful train stations in the world, featuring a blend of Art Nouveau and Neo-Gothic styles. Visitors can admire the impressive dome, intricate detailing, and spacious concourse, or simply marvel at the bustling activity of trains and passengers.", "");
+
+        Attraction antwerpZoo = new Attraction("Antwerp Zoo", antwerp, "Antwerp Zoo is one of the oldest and largest zoos in the world, dating back to 1843. It is home to a diverse collection of animals, including elephants, giraffes, lions, and penguins. Visitors can explore various habitats, attend animal feedings and demonstrations, or relax in the tranquil surroundings of the zoo's botanical garden.", "");
+
+        Attraction diamondDistrict = new Attraction("Antwerp Diamond District", antwerp, "The Antwerp Diamond District is renowned as the diamond capital of the world, with approximately 80% of the world's rough diamonds and 50% of cut diamonds passing through its streets. Visitors can stroll through the district's diamond shops, learn about the diamond trade's history and significance, and even purchase their own precious gemstones.", "");
+
+        Attraction masMuseum = new Attraction("Museum aan de Stroom (MAS)", antwerp, "The Museum aan de Stroom, or MAS, is a striking museum located on the banks of the River Scheldt. It showcases the city's rich cultural heritage and maritime history through a diverse collection of artifacts, artworks, and interactive exhibits. Visitors can enjoy panoramic views of Antwerp from the museum's rooftop terrace or explore its engaging displays on topics ranging from global trade to local traditions.", "");
+
+        Attraction rubensHouse = new Attraction("Rubenshuis (Rubens' House)", antwerp, "Rubenshuis, or Rubens' House, is the former residence and studio of the renowned Flemish Baroque painter Peter Paul Rubens. It now operates as a museum dedicated to his life and work. Visitors can explore the beautifully preserved rooms, admire Rubens' masterpieces, and learn about his artistic techniques and influences. The museum also features a garden designed in the style of Rubens' era, providing a tranquil retreat in the heart of Antwerp.", "");
+
+
+// Save attraction in the database
+        attractionRepository.save(antwerpCentralStation);
+        attractionRepository.save(antwerpZoo);
+        attractionRepository.save(diamondDistrict);
+        attractionRepository.save(masMuseum);
+        attractionRepository.save(rubensHouse);
+
+
+//Ghent
+
+
+        Attraction gravensteenCastle = new Attraction("Gravensteen Castle", ghent, "Gravensteen Castle, also known as the Castle of the Counts, is a medieval fortress located in the heart of Ghent. It dates back to the 12th century and offers visitors a glimpse into the city's rich history. Explore the castle's imposing walls, towers, and dungeons, and learn about its role in medieval life through interactive exhibits and guided tours.", "");
+
+        Attraction ghentAltarpiece = new Attraction("Ghent Altarpiece", ghent, "The Ghent Altarpiece, also known as the Adoration of the Mystic Lamb, is a renowned masterpiece of Renaissance art created by the Van Eyck brothers. It is housed in Saint Bavo's Cathedral and is considered one of the most important works of Western art. Visitors can admire the altarpiece's intricate panels, rich symbolism, and exceptional craftsmanship.", "");
+
+        Attraction ghentCanals = new Attraction("Ghent Canals", ghent, "Ghent's picturesque canals offer visitors a scenic way to explore the city's historic center. Take a boat tour along the waterways, passing by charming medieval buildings, picturesque bridges, and waterfront cafés. Learn about Ghent's maritime history and architectural landmarks while enjoying a leisurely cruise through the heart of the city.", "");
+
+        Attraction stBavosAbbey = new Attraction("St. Bavo's Abbey", ghent, "St. Bavo's Abbey is a historic abbey located on the outskirts of Ghent. Founded in the 7th century, it played a significant role in the religious and cultural life of the region. Visitors can explore the abbey's tranquil grounds, visit its museum and art gallery, and learn about its fascinating history through exhibitions and guided tours.", "");
+
+// Save attraction in database
+
+        attractionRepository.save(gravensteenCastle);
+        attractionRepository.save(ghentAltarpiece);
+        attractionRepository.save(ghentCanals);
+        attractionRepository.save(stBavosAbbey);
+
+
+//brugges
+
+
+        Attraction belfryOfBruges = new Attraction("Belfry of Bruges", bruges, "The Belfry of Bruges is a medieval bell tower located in the heart of the city. It offers panoramic views of Bruges and the surrounding area from its 83-meter-high tower. Visitors can climb the 366 steps to the top for breathtaking vistas of the city's historic center and picturesque landscape.", "");
+        Attraction minnewaterPark = new Attraction("Minnewater Park", bruges, "Minnewater Park, also known as the 'Lake of Love,' is a tranquil oasis located in the southern part of Bruges. It features a picturesque lake surrounded by trees, walking paths, and gardens. Visitors can enjoy a leisurely stroll, relax by the water's edge, or feed the swans that inhabit the area.", "");
+        Attraction begijnhof = new Attraction("Begijnhof", bruges, "The Begijnhof is a tranquil enclave in the heart of Bruges, originally founded in the 13th century as a religious community for laywomen. It consists of quaint white houses, a central green courtyard, and a small chapel. Visitors can explore the peaceful surroundings, learn about the history of the Beguines, and admire the well-preserved architecture.", "");
+        Attraction brugesCanals = new Attraction("Bruges Canals", bruges, "The canals of Bruges are a network of waterways that wind their way through the city's medieval streets and historic landmarks. Visitors can take a boat tour along the canals to discover Bruges from a unique perspective, passing by charming bridges, old warehouses, and picturesque gabled houses.", "");
+        Attraction chocolaterieDepla = new Attraction("Chocolaterie Depla", bruges, "Chocolaterie Depla is a family-owned chocolate shop located in the heart of Bruges. It offers a wide range of handmade chocolates, pralines, and truffles, crafted using traditional Belgian techniques and high-quality ingredients. Visitors can take a guided tour of the chocolate-making process, sample delicious treats, and purchase souvenirs to take home.", "");
+
+        attractionRepository.save(belfryOfBruges);
+        attractionRepository.save(minnewaterPark);
+        attractionRepository.save(begijnhof);
+        attractionRepository.save(brugesCanals);
+        attractionRepository.save(chocolaterieDepla);
+
+//liege
+
+
+
+        Attraction citadelOfLiege = new Attraction("Citadel of Liège", liege, "The Citadel of Liège is a historic fortress located on a hill overlooking the city. It dates back to the 10th century and has played a significant role in the defense of Liège over the centuries. Visitors can explore the fortress's ramparts, bastions, and underground tunnels, and enjoy panoramic views of the city and surrounding landscape.", "");
+        Attraction laBoverie = new Attraction("La Boverie", liege, "La Boverie is an art museum located in a beautiful 19th-century building on the banks of the River Meuse. It houses a diverse collection of artworks, ranging from Old Masters to contemporary pieces. Visitors can admire paintings, sculptures, and decorative arts from various periods and styles, and explore temporary exhibitions highlighting different aspects of the art world.", "");
+        Attraction montagneDeBueren = new Attraction("Montagne de Bueren", liege, "Montagne de Bueren is a famous staircase in Liège, consisting of 374 steps that ascend a steep hillside. It is one of the city's most iconic landmarks and offers a challenging yet rewarding climb for visitors. At the top, you'll be rewarded with stunning views of Liège and the surrounding area, making it a popular spot for photographers and fitness enthusiasts alike.", "");
+        Attraction curtiusMuseum = new Attraction("Curtius Museum", liege, "The Curtius Museum is a fascinating museum housed in a series of historic buildings along the River Meuse. It showcases the art and history of Liège, with collections ranging from ancient artifacts to decorative arts and fine arts. Visitors can explore exhibits on archaeology, medieval life, and the industrial revolution, providing insights into the city's rich cultural heritage.", "");
+        Attraction parcDeLaBoverie = new Attraction("Parc de la Boverie", liege, "Parc de la Boverie is a beautiful park located on an island in the River Meuse, adjacent to the La Boverie museum. It features lush greenery, scenic walking paths, and picturesque views of the river. Visitors can enjoy leisurely strolls, picnics by the water, or simply relax in the peaceful surroundings of this urban oasis.", "");
+
+        // Save attraction in database
+
+        attractionRepository.save(citadelOfLiege);
+        attractionRepository.save(laBoverie);
+        attractionRepository.save(montagneDeBueren);
+        attractionRepository.save(curtiusMuseum);
+        attractionRepository.save(parcDeLaBoverie);
+
+
+        //Attractions for cities in Netherlands
+
+        //amsterdam
+
+
+        Attraction vanGoghMuseum = new Attraction("Van Gogh Museum", amsterdam, "The Van Gogh Museum is dedicated to the life and work of the Dutch artist Vincent van Gogh. It houses the largest collection of his paintings and drawings in the world, including iconic masterpieces such as 'Sunflowers' and 'The Bedroom.' Visitors can explore van Gogh's artistic evolution, learn about his turbulent life, and appreciate his contributions to the art world.", "");
+
+        Attraction anneFrankHouse = new Attraction("Anne Frank House", amsterdam, "The Anne Frank House is a museum dedicated to the Jewish wartime diarist Anne Frank, who hid from Nazi persecution with her family during World War II. The museum is located in the actual house where the Frank family lived in hiding for over two years. Visitors can tour the secret annex, see Anne's original diary, and learn about the Holocaust and its impact on Anne's life and legacy.", "");
+
+        Attraction rijksmuseum = new Attraction("Rijksmuseum", amsterdam, "The Rijksmuseum is the national museum of the Netherlands, showcasing Dutch art and history from the Middle Ages to the present day. It houses a vast collection of masterpieces, including works by Rembrandt, Vermeer, and Van Gogh. Visitors can admire paintings, sculptures, decorative arts, and historical artifacts, providing insights into Dutch culture and heritage.", "");
+
+        Attraction canalCruise = new Attraction("Canal Cruise", amsterdam, "A canal cruise is a popular way to explore Amsterdam's picturesque waterways and historic landmarks. Visitors can hop aboard a boat and enjoy a leisurely tour of the city's canals, passing by iconic sights such as the Anne Frank House, Westerkerk, and Skinny Bridge. Along the way, you'll learn about Amsterdam's rich history, architecture, and culture from informative guides.", "");
+
+        Attraction vondelpark = new Attraction("Vondelpark", amsterdam, "Vondelpark is Amsterdam's most famous park, spanning over 47 hectares of greenery in the heart of the city. It offers a peaceful retreat from the hustle and bustle of urban life, with winding paths, ponds, gardens, and open lawns. Visitors can enjoy leisurely walks, picnics, cycling, or simply relax and soak up the natural beauty of this beloved Amsterdam landmark.", "");
+
+
+        // Save attraction in database
+
+        attractionRepository.save(vanGoghMuseum);
+        attractionRepository.save(anneFrankHouse);
+        attractionRepository.save(rijksmuseum);
+        attractionRepository.save(canalCruise);
+        attractionRepository.save(vondelpark);
+
+        //rotterdam
+
+
+
+        Attraction rotterdamMarkthal = new Attraction("Rotterdam Markthal", rotterdam, "The Rotterdam Markthal is a modern indoor market located in the heart of the city. It is known for its striking horseshoe-shaped architecture and vibrant atmosphere. Visitors can explore a wide variety of food stalls, selling fresh produce, gourmet delicacies, and international cuisine. The ceiling of the Markthal is adorned with a colorful mural, making it a feast for the eyes as well as the palate.", "");
+
+        Attraction ssRotterdam = new Attraction("SS Rotterdam", rotterdam, "The SS Rotterdam is a former ocean liner and cruise ship, now permanently moored in Rotterdam as a hotel and museum. Visitors can tour the ship's decks, cabins, and public areas, learning about its history and maritime heritage. The SS Rotterdam offers a unique glimpse into the golden age of ocean travel, with exhibits, artifacts, and interactive displays showcasing life onboard a luxury liner.", "");
+
+        Attraction euromast = new Attraction("Euromast", rotterdam, "The Euromast is an iconic observation tower in Rotterdam, offering panoramic views of the city and its surroundings from a height of 185 meters. Visitors can ride the elevator to the top of the tower and enjoy breathtaking vistas of Rotterdam's skyline, the Port of Rotterdam, and the Dutch countryside beyond. The Euromast also features a restaurant and brasserie, where guests can dine while taking in the view.", "");
+
+        Attraction cubeHouses = new Attraction("Cube Houses", rotterdam, "The Cube Houses, or Kubuswoningen, are a unique architectural landmark in Rotterdam. Designed by architect Piet Blom, these innovative residential buildings are tilted at an angle of 45 degrees, creating a striking visual spectacle. Visitors can explore the interior of one of the Cube Houses, known as the Kijk-Kubus, to experience firsthand what it's like to live in these unconventional homes.", "");
+
+        Attraction delfshaven = new Attraction("Delfshaven", rotterdam, "Delfshaven is a historic neighborhood in Rotterdam, known for its picturesque canals, 17th-century houses, and maritime heritage. Visitors can stroll along the quayside, admire the traditional Dutch architecture, and visit landmarks such as the Pilgrim Fathers' Church and the historic Delfshaven Harbor. Delfshaven offers a charming contrast to Rotterdam's modern skyline, providing a glimpse into the city's rich history and culture.", "");
+
+        // Save attraction in database
+
+        attractionRepository.save(rotterdamMarkthal);
+        attractionRepository.save(ssRotterdam);
+        attractionRepository.save(euromast);
+        attractionRepository.save(cubeHouses);
+        attractionRepository.save(delfshaven);
+
+
+        // Attractions for cities in russia
+        //Moscow
+
+
+
+        Attraction redSquare = new Attraction("Red Square", moscow, "Red Square is Moscow's most famous square and a UNESCO World Heritage Site. It is surrounded by iconic landmarks such as the Kremlin, St. Basil's Cathedral, and the State Historical Museum. Visitors can explore the square's historic architecture, enjoy cultural events and festivals, or simply take in the bustling atmosphere of this vibrant public space.", "");
+
+        Attraction kremlin = new Attraction("Kremlin", moscow, "The Moscow Kremlin is a historic fortified complex located at the heart of the city. It serves as the official residence of the President of Russia and is home to numerous palaces, cathedrals, and museums. Visitors can tour the Kremlin's grounds, explore its architectural treasures, and learn about its rich history and cultural significance.", "");
+
+        Attraction bolshoiTheatre = new Attraction("Bolshoi Theatre", moscow, "The Bolshoi Theatre is one of the most renowned opera and ballet theaters in the world. It is known for its grand architecture, opulent interiors, and world-class performances. Visitors can attend ballets, operas, and concerts at the Bolshoi Theatre, or take a guided tour to learn about its history and backstage operations.", "");
+
+        Attraction gorkyPark = new Attraction("Gorky Park", moscow, "Gorky Park is a vast recreational area in central Moscow, offering a wide range of activities for visitors of all ages. It features scenic walking paths, landscaped gardens, playgrounds, and sports facilities. Visitors can rent bikes, boats, or rollerblades, attend outdoor concerts and festivals, or simply relax and enjoy the natural beauty of this urban oasis.", "");
+
+        Attraction tretyakovGallery = new Attraction("Tretyakov Gallery", moscow, "The Tretyakov Gallery is Russia's foremost museum of Russian art, housing an extensive collection of paintings, sculptures, and icons from the 11th to the 20th century. It features masterpieces by renowned artists such as Ivan Aivazovsky, Mikhail Vrubel, and Ivan Shishkin. Visitors can admire works of art spanning various styles and periods, providing insights into Russia's rich cultural heritage.", "");
+
+
+        // Save attraction in database
+
+        attractionRepository.save(redSquare);
+        attractionRepository.save(kremlin);
+        attractionRepository.save(bolshoiTheatre);
+        attractionRepository.save(gorkyPark);
+        attractionRepository.save(tretyakovGallery);
+
+
+        //Saintpetersburg
+
+
+        Attraction hermitageMuseum = new Attraction("Hermitage Museum", saintPetersburg, "The Hermitage Museum is one of the largest and most prestigious art museums in the world, housed in the magnificent Winter Palace. It boasts a vast collection of artworks, including paintings, sculptures, and decorative arts from various periods and cultures. Visitors can admire masterpieces by artists such as Leonardo da Vinci, Rembrandt, and Michelangelo, and explore the opulent interiors of the palace itself.", "");
+
+        Attraction peterhofPalace = new Attraction("Peterhof Palace", saintPetersburg, "Peterhof Palace, also known as the 'Russian Versailles,' is a grand imperial palace located on the Gulf of Finland. It is renowned for its stunning gardens, elaborate fountains, and opulent interiors. Visitors can tour the palace's lavish rooms, stroll through the landscaped grounds, and marvel at the engineering marvels of the cascading fountains.", "");
+
+        Attraction mariinskyTheatre = new Attraction("Mariinsky Theatre", saintPetersburg, "The Mariinsky Theatre is one of Russia's most famous opera and ballet houses, known for its world-class performances and historic significance. It has hosted premieres of works by renowned composers such as Tchaikovsky, Rachmaninoff, and Stravinsky. Visitors can attend ballets, operas, and concerts at the Mariinsky Theatre, or take a guided tour to learn about its illustrious history and backstage operations.", "");
+
+        Attraction nevskyProspect = new Attraction("Nevsky Prospect", saintPetersburg, "Nevsky Prospect is the main thoroughfare of Saint Petersburg, lined with historic buildings, shops, restaurants, and cultural institutions. It is a bustling hub of activity, offering visitors a glimpse into the city's vibrant life and dynamic atmosphere. Visitors can explore Nevsky Prospect on foot or by taking a leisurely stroll along its sidewalks, stopping to admire architectural landmarks and sample local cuisine.", "");
+
+        Attraction peterAndPaulFortress = new Attraction("Peter and Paul Fortress", saintPetersburg, "The Peter and Paul Fortress is a historic citadel located on Hare Island in the Neva River. It was founded by Peter the Great in 1703 and served as the original citadel of Saint Petersburg. Visitors can explore the fortress's bastions, ramparts, and cathedral, which houses the tombs of Russian tsars and emperors. The fortress also offers panoramic views of the city skyline and the surrounding river.", "");
+
+        // Save attraction in database
+
+        attractionRepository.save(hermitageMuseum);
+        attractionRepository.save(peterhofPalace);
+        attractionRepository.save(peterhofPalace);
+        attractionRepository.save(nevskyProspect);
+        attractionRepository.save(peterAndPaulFortress);
+
+
+
+    //Attractions in iceland
+
+        Attraction hallgrimskirkjaChurch = new Attraction("Hallgrimskirkja Church", reykjavik, "Hallgrimskirkja Church is a stunning Lutheran parish church and one of Reykjavik's most iconic landmarks. It is known for its distinctive modernist architecture, inspired by Iceland's natural landscapes. Visitors can admire panoramic views of the city from the church's observation tower, explore its minimalist interior, and view the striking sculpture of Leif Erikson outside.", "");
+
+        Attraction blueLagoon = new Attraction("Blue Lagoon", reykjavik, "The Blue Lagoon is a geothermal spa located in a lava field in Grindavik, southwest Iceland. It is renowned for its milky-blue waters, rich in minerals like silica and sulfur, which are believed to have healing properties. Visitors can soak in the lagoon's warm waters, indulge in spa treatments, and enjoy stunning views of the surrounding volcanic landscape.", "");
+
+        Attraction goldenCircle = new Attraction("Golden Circle", reykjavik, "The Golden Circle is a popular tourist route in southwest Iceland, known for its breathtaking natural attractions. It includes three primary stops: Thingvellir National Park, where visitors can walk between the North American and Eurasian tectonic plates; the Geysir Geothermal Area, home to the erupting geyser Strokkur; and Gullfoss Waterfall, one of Iceland's most majestic cascades.", "");
+
+        Attraction harpaConcertHall = new Attraction("Harpa Concert Hall", reykjavik, "Harpa Concert Hall is a striking contemporary concert hall and conference center located on the waterfront in Reykjavik. It is known for its innovative glass facade, designed by artist Olafur Eliasson, which reflects Iceland's natural light and landscapes. Visitors can attend performances ranging from classical concerts to contemporary theater productions, or simply admire the building's architectural beauty.", "");
+
+        Attraction perlan = new Attraction("Perlan", reykjavik, "Perlan, or 'The Pearl,' is a landmark building in Reykjavik situated on Oskjuhlid Hill. It is known for its distinctive dome-shaped structure and rotating glass dome, which offers panoramic views of the city and surrounding landscapes. Visitors can explore the building's exhibition space, dine in its revolving restaurant, or enjoy a walk in the surrounding gardens.", "");
+
+
+        // Save attraction in database
+
+        attractionRepository.save(hallgrimskirkjaChurch);
+        attractionRepository.save(blueLagoon);
+        attractionRepository.save(goldenCircle);
+        attractionRepository.save(harpaConcertHall);
+        attractionRepository.save(perlan);
+
+
+
+    //Attraction for cities in switzerland
+        // zurich
+
+        
+
+
+
+
+        // Top Attractions for Hanoi
         Attraction islamicArtMuseum = new Attraction("Islamic Art Museum", hanoi, "The Islamic Art Museum in Hanoi is dedicated to showcasing the rich artistic heritage of the Islamic world, with exhibits on calligraphy, ceramics, textiles, and other forms of Islamic art and culture. It features a diverse collection of artifacts from various Muslim civilizations, spanning centuries of history and spanning from the Middle East to Southeast Asia. Visitors can explore the museum's galleries, admire its displays, and learn about the beauty and diversity of Islamic art and craftsmanship.", "");
         Attraction hanoiOldQuarter = new Attraction("Hanoi Old Quarter", hanoi, "The Hanoi Old Quarter is the historic heart of Hanoi, characterized by its narrow streets, ancient buildings, and bustling markets. It is one of the oldest and most vibrant parts of the city, with a history dating back over a thousand years. Visitors can wander through its maze-like alleyways, discover traditional shops and street vendors, and experience the sights, sounds, and flavors of authentic Vietnamese culture.", "");
         Attraction ninhBinhAttraction = new Attraction("Ninh Binh", hanoi, "Ninh Binh is a province in northern Vietnam, known for its stunning natural landscapes, rich cultural heritage, and historical sites. It is often referred to as the 'Halong Bay on land' due to its karst limestone mountains, lush rice paddies, and winding waterways. Ninh Binh is home to attractions such as Tam Coc, Trang An Landscape Complex, and Mua Caves, offering visitors opportunities for boat tours, cave exploration, and cultural immersion.", "");
         Attraction sapaAttraction = new Attraction("Sapa", hanoi, "Sapa is a town in Lao Cai Province, located in the northwest region of Vietnam. It is renowned for its stunning mountain landscapes, terraced rice fields, and vibrant ethnic minority culture. Sapa is a popular destination for trekking, hiking, and cultural tourism, with attractions such as Fansipan Peak, Cat Cat Village, and the Love Waterfall. Visitors can explore the town's markets, interact with local ethnic communities, and enjoy breathtaking views of the Hoang Lien Son mountain range.", "");
         Attraction hoChiMinhMausoleum = new Attraction("Ho Chi Minh Mausoleum", hanoi, "The Ho Chi Minh Mausoleum is a monumental building located in Ba Dinh Square, Hanoi, dedicated to the memory of Vietnamese revolutionary leader Ho Chi Minh. It serves as the final resting place of Ho Chi Minh's embalmed body, which is preserved in a glass sarcophagus within the mausoleum. Visitors can pay their respects to Ho Chi Minh, view his embalmed remains, and learn about his life and legacy through exhibits and displays within the mausoleum.", "");
+
+
         attractionRepository.save(hoChiMinhMausoleum);
         attractionRepository.save(sapaAttraction);
         attractionRepository.save(ninhBinhAttraction);
