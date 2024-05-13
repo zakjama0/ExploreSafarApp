@@ -982,6 +982,17 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(busanTower);
         attractionRepository.save(gwangaliBeach);
 
+// Top Attractions for Incheon
+        Attraction songdoCentralPark = new Attraction("Songdo Central Park", incheon, "As the centerpiece of Songdo International Business District, Songdo Central Park is a green oasis amidst the city's urban landscape. Visitors can stroll along the park's walking paths, admire its scenic waterfront views, and relax in lush greenery. The park features recreational facilities, including playgrounds, cycling trails, and water taxis, making it a popular destination for families, couples, and outdoor enthusiasts.", "");
+        Attraction incheonChinatown = new Attraction("Incheon Chinatown", incheon, "Incheon Chinatown is the largest Chinatown in South Korea, offering a rich tapestry of Chinese culture, history, and cuisine. Visitors can explore its colorful streets lined with traditional Chinese buildings, temples, and shops selling souvenirs and street food. The area is known for its vibrant atmosphere, with lantern festivals, cultural performances, and culinary events celebrating Chinese heritage.", "");
+        Attraction wolmidoIsland = new Attraction("Wolmido Island", incheon, "Wolmido Island is a popular leisure destination in Incheon, offering scenic views, outdoor activities, and entertainment options. Visitors can take a ferry to the island and explore its waterfront promenades, amusement parks, and seafood restaurants. Wolmido also features cultural attractions such as the Incheon Port Lighthouse and Wolmi Theme Park, as well as opportunities for hiking, biking, and enjoying sunset views over the Yellow Sea.", "");
+        Attraction incheonGrandPark = new Attraction("Incheon Grand Park", incheon, "Incheon Grand Park is a sprawling urban park that offers a tranquil retreat from the city's hustle and bustle. Visitors can explore its lush green spaces, scenic walking trails, and botanical gardens, which showcase a diverse range of plant species. The park also features recreational facilities, including picnic areas, playgrounds, and a zoo, making it a popular destination for families, nature lovers, and outdoor enthusiasts.", "");
+        Attraction incheonBridge = new Attraction("Incheon Bridge", incheon, "As one of the longest cable-stayed bridges in the world, Incheon Bridge is an iconic landmark that connects the mainland of Incheon to Yeongjong Island. Visitors can admire the bridge's sleek design and engineering marvels from various vantage points along the coast. The bridge is especially enchanting at night when it is illuminated by colorful lights, creating a stunning spectacle against the backdrop of the night sky.", "");
 
+        attractionRepository.save(songdoCentralPark);
+        attractionRepository.save(incheonChinatown);
+        attractionRepository.save(wolmidoIsland);
+        attractionRepository.save(incheonGrandPark);
+        attractionRepository.save(incheonBridge);
     }
 }
