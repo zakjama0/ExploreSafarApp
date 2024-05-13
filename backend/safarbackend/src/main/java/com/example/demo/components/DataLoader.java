@@ -994,5 +994,18 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(wolmidoIsland);
         attractionRepository.save(incheonGrandPark);
         attractionRepository.save(incheonBridge);
+
+// Top Attractions for Daegu
+        Attraction daeguEworld = new Attraction("Daegu E-world", daegu, "Daegu E-world is a major amusement park and entertainment complex in Daegu, South Korea. It features thrilling rides, family-friendly attractions, and entertainment shows, making it a popular destination for visitors of all ages. The park also includes shopping malls, restaurants, and a water park, providing a full day of fun and excitement for visitors.", "");
+        Attraction seomunMarket = new Attraction("Seomun Market", daegu, "Seomun Market is one of the largest traditional markets in South Korea, located in the heart of Daegu. It offers a wide variety of goods, including clothing, accessories, food, and household items, at affordable prices. Visitors can explore its bustling alleyways, sample local delicacies, and experience the vibrant atmosphere of traditional Korean market culture.", "");
+        Attraction daeguNationalMuseum = new Attraction("Daegu National Museum", daegu, "Daegu National Museum is a cultural institution that showcases the history and heritage of Daegu and its surrounding regions. It features a diverse collection of artifacts, artworks, and archaeological finds, spanning thousands of years of Korean history. Visitors can learn about Daegu's cultural heritage, traditional crafts, and archaeological discoveries through interactive exhibits and educational programs.", "");
+        Attraction apsanPark = new Attraction("Apsan Park", daegu, "Apsan Park is a scenic mountain park located in the heart of Daegu, offering stunning views of the city and surrounding countryside. Visitors can hike along its trails, explore historic sites such as Apsan Observatory and Donghwasa Temple, and enjoy recreational activities such as picnicking and birdwatching. Apsan Park is also home to Apsan Park Ropeway, which offers a convenient way to reach the mountain's summit and enjoy panoramic vistas of Daegu and beyond.", "");
+        Attraction daeguPalgongsan = new Attraction("Daegu Palgongsan", daegu, "Daegu Palgongsan is a scenic mountain range located northeast of Daegu city, offering breathtaking natural beauty and cultural attractions. Visitors can explore its lush forests, tranquil temples, and picturesque hiking trails, which provide stunning views of the surrounding landscape. Palgongsan is home to several notable temples, including Donghwasa and Pagyesa, which are popular pilgrimage sites and offer opportunities for spiritual reflection and cultural immersion.", "");
+
+        attractionRepository.save(daeguEworld);
+        attractionRepository.save(seomunMarket);
+        attractionRepository.save(daeguNationalMuseum);
+        attractionRepository.save(apsanPark);
+        attractionRepository.save(daeguPalgongsan);
     }
 }
