@@ -1,10 +1,10 @@
 import LabelBottomNavigation from "../components/LabelBottomNavigation";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/ResponsiveAppBar";
 
 const HomeContainer = () => {
     return (  <>
-    <Navigation />
-    <LabelBottomNavigation/>
+    <h1>This is the Home Container</h1>
+    
     </>);
 }
  
