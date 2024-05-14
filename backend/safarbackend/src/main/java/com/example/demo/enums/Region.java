@@ -21,7 +21,9 @@ public enum Region {
     WEST_COAST("West Coast"),
     EAST_COAST("East Coast"),
     CARIBBEAN("Caribbean"),
-    CENTRAL_AMERICA("Central America");
+    CENTRAL_AMERICA("Central America"),
+    NORTHERN_AMERICA("North America");
+
 
     final String displayName;
 
