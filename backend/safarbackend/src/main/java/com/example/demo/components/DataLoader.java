@@ -827,19 +827,12 @@ public class DataLoader implements ApplicationRunner {
         // Attractions for cities in russia
         //Moscow
 
-
-
-        Attraction redSquare = new Attraction("Red Square", moscow, "Red Square is Moscow's most famous square and a UNESCO World Heritage Site. It is surrounded by iconic landmarks such as the Kremlin, St. Basil's Cathedral, and the State Historical Museum. Visitors can explore the square's historic architecture, enjoy cultural events and festivals, or simply take in the bustling atmosphere of this vibrant public space.", "");
-        Attraction kremlin = new Attraction("Kremlin", moscow, "The Moscow Kremlin is a historic fortified complex located at the heart of the city. It serves as the official residence of the President of Russia and is home to numerous palaces, cathedrals, and museums. Visitors can tour the Kremlin's grounds, explore its architectural treasures, and learn about its rich history and cultural significance.", "");
         Attraction bolshoiTheatre = new Attraction("Bolshoi Theatre", moscow, "The Bolshoi Theatre is one of the most renowned opera and ballet theaters in the world. It is known for its grand architecture, opulent interiors, and world-class performances. Visitors can attend ballets, operas, and concerts at the Bolshoi Theatre, or take a guided tour to learn about its history and backstage operations.", "");
         Attraction gorkyPark = new Attraction("Gorky Park", moscow, "Gorky Park is a vast recreational area in central Moscow, offering a wide range of activities for visitors of all ages. It features scenic walking paths, landscaped gardens, playgrounds, and sports facilities. Visitors can rent bikes, boats, or rollerblades, attend outdoor concerts and festivals, or simply relax and enjoy the natural beauty of this urban oasis.", "");
         Attraction tretyakovGallery = new Attraction("Tretyakov Gallery", moscow, "The Tretyakov Gallery is Russia's foremost museum of Russian art, housing an extensive collection of paintings, sculptures, and icons from the 11th to the 20th century. It features masterpieces by renowned artists such as Ivan Aivazovsky, Mikhail Vrubel, and Ivan Shishkin. Visitors can admire works of art spanning various styles and periods, providing insights into Russia's rich cultural heritage.", "");
 
 
         // Save attraction in database
-
-        attractionRepository.save(redSquare);
-        attractionRepository.save(kremlin);
         attractionRepository.save(bolshoiTheatre);
         attractionRepository.save(gorkyPark);
         attractionRepository.save(tretyakovGallery);
@@ -858,7 +851,7 @@ public class DataLoader implements ApplicationRunner {
 
         attractionRepository.save(hermitageMuseum);
         attractionRepository.save(peterhofPalace);
-        attractionRepository.save(peterhofPalace);
+        attractionRepository.save(mariinskyTheatre);
         attractionRepository.save(nevskyProspect);
         attractionRepository.save(peterAndPaulFortress);
 
@@ -866,19 +859,14 @@ public class DataLoader implements ApplicationRunner {
 
     //Attractions in iceland
 
-        Attraction hallgrimskirkjaChurch = new Attraction("Hallgrimskirkja Church", reykjavik, "Hallgrimskirkja Church is a stunning Lutheran parish church and one of Reykjavik's most iconic landmarks. It is known for its distinctive modernist architecture, inspired by Iceland's natural landscapes. Visitors can admire panoramic views of the city from the church's observation tower, explore its minimalist interior, and view the striking sculpture of Leif Erikson outside.", "");
-        Attraction blueLagoon = new Attraction("Blue Lagoon", reykjavik, "The Blue Lagoon is a geothermal spa located in a lava field in Grindavik, southwest Iceland. It is renowned for its milky-blue waters, rich in minerals like silica and sulfur, which are believed to have healing properties. Visitors can soak in the lagoon's warm waters, indulge in spa treatments, and enjoy stunning views of the surrounding volcanic landscape.", "");
+       Attraction blueLagoon = new Attraction("Blue Lagoon", reykjavik, "The Blue Lagoon is a geothermal spa located in a lava field in Grindavik, southwest Iceland. It is renowned for its milky-blue waters, rich in minerals like silica and sulfur, which are believed to have healing properties. Visitors can soak in the lagoon's warm waters, indulge in spa treatments, and enjoy stunning views of the surrounding volcanic landscape.", "");
         Attraction goldenCircle = new Attraction("Golden Circle", reykjavik, "The Golden Circle is a popular tourist route in southwest Iceland, known for its breathtaking natural attractions. It includes three primary stops: Thingvellir National Park, where visitors can walk between the North American and Eurasian tectonic plates; the Geysir Geothermal Area, home to the erupting geyser Strokkur; and Gullfoss Waterfall, one of Iceland's most majestic cascades.", "");
-        Attraction harpaConcertHall = new Attraction("Harpa Concert Hall", reykjavik, "Harpa Concert Hall is a striking contemporary concert hall and conference center located on the waterfront in Reykjavik. It is known for its innovative glass facade, designed by artist Olafur Eliasson, which reflects Iceland's natural light and landscapes. Visitors can attend performances ranging from classical concerts to contemporary theater productions, or simply admire the building's architectural beauty.", "");
         Attraction perlan = new Attraction("Perlan", reykjavik, "Perlan, or 'The Pearl,' is a landmark building in Reykjavik situated on Oskjuhlid Hill. It is known for its distinctive dome-shaped structure and rotating glass dome, which offers panoramic views of the city and surrounding landscapes. Visitors can explore the building's exhibition space, dine in its revolving restaurant, or enjoy a walk in the surrounding gardens.", "");
 
 
         // Save attraction in database
-
-        attractionRepository.save(hallgrimskirkjaChurch);
         attractionRepository.save(blueLagoon);
         attractionRepository.save(goldenCircle);
-        attractionRepository.save(harpaConcertHall);
         attractionRepository.save(perlan);
 
 
@@ -937,11 +925,6 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(rheinRiverCruise);
         attractionRepository.save(rheinRiverCruise);
         attractionRepository.save(baselBotanicalGarden);
-
-
-
-
-
 
         // Top Attractions for Hanoi
         Attraction islamicArtMuseum = new Attraction("Islamic Art Museum", hanoi, "The Islamic Art Museum in Hanoi is dedicated to showcasing the rich artistic heritage of the Islamic world, with exhibits on calligraphy, ceramics, textiles, and other forms of Islamic art and culture. It features a diverse collection of artifacts from various Muslim civilizations, spanning centuries of history and spanning from the Middle East to Southeast Asia. Visitors can explore the museum's galleries, admire its displays, and learn about the beauty and diversity of Islamic art and craftsmanship.", "");
