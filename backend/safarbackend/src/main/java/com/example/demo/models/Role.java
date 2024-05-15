@@ -14,6 +14,9 @@ public class Role {
     @Enumerated(EnumType.STRING)
     private RoleEnum name;
 
+    @Column(nullable = false)
+    private String description;
+
     public Role() {
     }
 
@@ -36,5 +39,13 @@ public class Role {
 
     public void setName(RoleEnum name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
