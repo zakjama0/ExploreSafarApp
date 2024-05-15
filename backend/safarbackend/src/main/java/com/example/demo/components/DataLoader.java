@@ -37,15 +37,15 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
-        User user1 = new User("Zakaria", "zak@safar.com", "password");
-        User user2 = new User("Tadiwa", "tadiwa@safar.com", "password");
-        User user3 = new User("Marvellous", "marv@safar.com", "password");
-        User user4 = new User("Mohammed", "sharif@safar.com", "password");
+//        User user1 = new User("Zakaria", "zak@safar.com", "password");
+//        User user2 = new User("Tadiwa", "tadiwa@safar.com", "password");
+//        User user3 = new User("Marvellous", "marv@safar.com", "password");
+//        User user4 = new User("Mohammed", "sharif@safar.com", "password");
 
-        userRepository.save(user1);
-        userRepository.save(user2);
-        userRepository.save(user3);
-        userRepository.save(user4);
+//        userRepository.save(user1);
+//        userRepository.save(user2);
+//        userRepository.save(user3);
+//        userRepository.save(user4);
 
         //Asia Continent
         Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "", "China");
