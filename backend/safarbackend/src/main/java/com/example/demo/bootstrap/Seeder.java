@@ -2,9 +2,12 @@ package com.example.demo.bootstrap;
 
 import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.Role;
+import com.example.demo.models.User;
 import com.example.demo.repositories.RoleRepository;
+import com.example.demo.repositories.UserRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -12,17 +15,30 @@ import java.util.Map;
 import java.util.Optional;
 
 @Component
-public class RoleSeeder implements ApplicationListener<ContextRefreshedEvent> {
+public class Seeder implements ApplicationListener<ContextRefreshedEvent> {
 
-    private final RoleRepository roleRepository;
+    public final UserRepository userRepository;
+    public final RoleRepository roleRepository;
+    public final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public RoleSeeder(RoleRepository roleRepository) {
+    public Seeder(
+            UserRepository userRepository,
+            RoleRepository roleRepository,
+            BCryptPasswordEncoder bCryptPasswordEncoder
+    ) {
+        this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        this.loadData();
+    }
+
+    public void loadData() {
         this.loadRoles();
+        this.createSuperAdministrator();
     }
 
     private void loadRoles() {
@@ -45,5 +61,23 @@ public class RoleSeeder implements ApplicationListener<ContextRefreshedEvent> {
                 roleRepository.save(roleToCreate);
             });
         });
+    }
+
+    private void createSuperAdministrator() {
+
+        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.SUPER_ADMIN);
+
+        if(optionalRole.isEmpty()) {
+            return;
+        }
+
+        User user = new User(
+                "Tadiwanashe Dzvoti",
+                "tadiwa@exploesafar.com",
+                bCryptPasswordEncoder.encode("password"),
+                optionalRole.get()
+        );
+
+        userRepository.save(user);
     }
 }
