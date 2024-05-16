@@ -3,6 +3,7 @@ package com.example.demo.services;
 
 import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.NewUserDTO;
+import com.example.demo.models.Role;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.RoleRepository;
@@ -64,5 +65,20 @@ public class UserService {
         }
 
         return userToUpdate;
+    }
+
+    public User createAdministrator(NewUserDTO newUserDTO) {
+        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.ADMIN);
+
+        if (optionalRole.isEmpty()) {
+            return null;
+        }
+
+        User newAdmin = new User(newUserDTO.getName(),
+                                 newUserDTO.getEmail(),
+                                 newUserDTO.getPassword(),
+                                 optionalRole.get());
+
+        return userRepository.save(newAdmin);
     }
 }
