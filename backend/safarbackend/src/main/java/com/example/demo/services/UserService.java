@@ -37,14 +37,8 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User getUserByEmail(String email) {
-        List<User> users = getAllUsers();
-        for(User user : users){
-            if(user.getEmail().equals(email)){
-                return user;
-            }
-        }
-        return null;
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public Optional<User> saveUser(NewUserDTO newUserDTO){

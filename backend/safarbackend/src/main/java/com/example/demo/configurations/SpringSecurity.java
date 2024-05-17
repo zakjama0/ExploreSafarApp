@@ -1,9 +1,12 @@
 package com.example.demo.configurations;
 
+import com.example.demo.repositories.UserRepository;
+import com.example.demo.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,22 +29,32 @@ public class SpringSecurity {
     }
 
     @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeHttpRequests(authorize ->
                         authorize.requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/users").permitAll()
-                ).formLogin(
-                        form -> form
-                                .loginPage("/login")
-                                .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
-                                .permitAll()
-                ).logout(
-                        logout -> logout
-                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                                .permitAll()
-                );
+                                .requestMatchers("/users").permitAll());
+//                ).formLogin(
+//                        form -> form
+//                                .loginPage("/login")
+//                                .loginProcessingUrl("/login")
+//                                .defaultSuccessUrl("/users")
+//                                .permitAll()
+//                ).logout(
+//                        logout -> logout
+//                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//                                .permitAll()
+//                );
+        httpSecurity.authenticationProvider(authenticationProvider());
+
         return httpSecurity.build();
     }
 

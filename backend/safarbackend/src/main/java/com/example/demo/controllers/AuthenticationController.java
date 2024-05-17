@@ -1,7 +1,10 @@
 package com.example.demo.controllers;
 
+import ch.qos.logback.core.model.Model;
+import com.example.demo.models.LoginUserDTO;
 import com.example.demo.models.NewUserDTO;
 import com.example.demo.models.User;
+import com.example.demo.models.UserDTO;
 import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/auth")
+@RequestMapping
 public class AuthenticationController {
 
     @Autowired
@@ -26,8 +29,13 @@ public class AuthenticationController {
         return new ResponseEntity<>(user.get(), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/login")
+    @GetMapping("/login")
     public String login(){
         return "login";
+    }
+
+    @GetMapping("/index")
+    public String home(){
+        return "index";
     }
 }
