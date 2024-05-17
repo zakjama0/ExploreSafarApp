@@ -48,6 +48,10 @@ public class UserService {
     }
 
     public User saveUser(NewUserDTO newUserDTO){
+        Optional<User> user = userRepository.findByEmail(newUserDTO.getEmail());
+        if(user.isPresent()) {
+            return null;
+        }
         newUserDTO.setPassword(bCryptPasswordEncoder.encode(newUserDTO.getPassword()));
         User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(), newUserDTO.getPassword(), roleRepository.findByName(RoleEnum.USER).get());
         return userRepository.save(newUser);
