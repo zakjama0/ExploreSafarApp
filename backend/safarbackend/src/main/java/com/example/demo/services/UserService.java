@@ -47,14 +47,14 @@ public class UserService {
         return null;
     }
 
-    public User saveUser(NewUserDTO newUserDTO){
+    public Optional<User> saveUser(NewUserDTO newUserDTO){
         Optional<User> user = userRepository.findByEmail(newUserDTO.getEmail());
         if(user.isPresent()) {
-            return null;
+            return Optional.empty();
         }
         newUserDTO.setPassword(bCryptPasswordEncoder.encode(newUserDTO.getPassword()));
         User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(), newUserDTO.getPassword(), roleRepository.findByName(RoleEnum.USER).get());
-        return userRepository.save(newUser);
+        return Optional.of(userRepository.save(newUser));
     }
 
     public Optional<User> updateUser(Long id, UserDTO userDTO){
