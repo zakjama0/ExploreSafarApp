@@ -2,6 +2,7 @@ package com.example.demo.components;
 
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
+import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.Attraction;
 import com.example.demo.models.City;
 import com.example.demo.models.Country;
@@ -34,19 +35,11 @@ public class DataLoader implements ApplicationRunner {
     UserRepository userRepository;
     @Autowired
     AttractionRepository attractionRepository;
+    @Autowired
+    RoleRepository roleRepository;
 
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
-        User user1 = new User("Zakaria", "zak@safar.com", "password");
-        User user2 = new User("Tadiwa", "tadiwa@safar.com", "password");
-        User user3 = new User("Marvellous", "marv@safar.com", "password");
-        User user4 = new User("Mohammed", "sharif@safar.com", "password");
-
-        userRepository.save(user1);
-        userRepository.save(user2);
-        userRepository.save(user3);
-        userRepository.save(user4);
-
         //Asia Continent
         Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "", "China");
         Country india = new Country(Region.SOUTH_ASIA, Continent.ASIA, "", "India");

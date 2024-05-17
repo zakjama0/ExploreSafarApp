@@ -1,9 +1,12 @@
 package com.example.demo.services;
 
 
+import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.NewUserDTO;
+import com.example.demo.models.Role;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
+import com.example.demo.repositories.RoleRepository;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,11 +19,13 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepository userRepository, RoleRepository roleRepository){
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
     }
 
@@ -44,7 +49,7 @@ public class UserService {
 
     public User saveUser(NewUserDTO newUserDTO){
         newUserDTO.setPassword(bCryptPasswordEncoder.encode(newUserDTO.getPassword()));
-        User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(), newUserDTO.getPassword());
+        User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(), newUserDTO.getPassword(), roleRepository.findByName(RoleEnum.USER).get());
         return userRepository.save(newUser);
     }
 
@@ -60,5 +65,20 @@ public class UserService {
         }
 
         return userToUpdate;
+    }
+
+    public User createAdministrator(NewUserDTO newUserDTO) {
+        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.ADMIN);
+
+        if (optionalRole.isEmpty()) {
+            return null;
+        }
+
+        User newAdmin = new User(newUserDTO.getName(),
+                                 newUserDTO.getEmail(),
+                                 newUserDTO.getPassword(),
+                                 optionalRole.get());
+
+        return userRepository.save(newAdmin);
     }
 }

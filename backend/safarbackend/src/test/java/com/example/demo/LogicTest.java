@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.enums.Category;
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
+import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.*;
 import com.example.demo.repositories.*;
 import com.example.demo.services.DuaService;
@@ -30,13 +31,14 @@ public class LogicTest {
     private final CountryRepository countryRepository;
     private final CityRepository cityRepository;
     private final DuaRepository duaRepository;
+    private final RoleRepository roleRepository;
 
     @Autowired
     public LogicTest(PlannedAttractionService plannedAttractionService, ItineraryService itineraryService,
                      ReviewService reviewService, UserRepository userRepository,
                      AttractionRepository attractionRepository, CountryRepository countryRepository,
                      CityRepository cityRepository, DuaService duaService,
-                     DuaRepository duaRepository) {
+                     DuaRepository duaRepository, RoleRepository roleRepository) {
         this.plannedAttractionService = plannedAttractionService;
         this.itineraryService = itineraryService;
         this.reviewService = reviewService;
@@ -46,6 +48,7 @@ public class LogicTest {
         this.cityRepository = cityRepository;
         this.duaService = duaService;
         this.duaRepository = duaRepository;
+        this.roleRepository = roleRepository;
     }
 
 
@@ -63,7 +66,7 @@ public class LogicTest {
     @BeforeEach
     public void setUp(){
 
-        user = new User(NAME, EMAIL, PASSWORD);
+        user = new User(NAME, EMAIL, PASSWORD, roleRepository.findByName(RoleEnum.USER).get());
         userRepository.save(user);
 
         country = new Country(Region.NORTHERN_AFRICA, Continent.AFRICA, "empty", "Egypt");
