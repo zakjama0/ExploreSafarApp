@@ -3,7 +3,6 @@ package com.example.demo.services;
 
 import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.NewUserDTO;
-import com.example.demo.models.Role;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.RoleRepository;

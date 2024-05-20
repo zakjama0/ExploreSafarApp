@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import com.example.demo.encryptor.StringCryptoConverter;
+import com.example.demo.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import jakarta.persistence.*;
@@ -31,8 +32,7 @@ public class User implements UserDetails {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
+    @Column(name = "role")
     private Role role;
 
     @OneToMany(mappedBy = "user")
