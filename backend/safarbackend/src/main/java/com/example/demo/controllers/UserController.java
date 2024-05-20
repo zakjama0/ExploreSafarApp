@@ -35,11 +35,6 @@ public class UserController {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping
-    public ResponseEntity<User> addUser(@RequestBody NewUserDTO newUserDTO){
-        User newUser = userService.saveUser(newUserDTO);
-        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
-    }
 
     @PatchMapping(value = "/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO){

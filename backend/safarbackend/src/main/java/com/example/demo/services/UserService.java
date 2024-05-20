@@ -36,20 +36,18 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public User getUserByEmail(String email) {
-        List<User> users = getAllUsers();
-        for(User user : users){
-            if(user.getEmail().equals(email)){
-                return user;
-            }
-        }
-        return null;
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
-    public User saveUser(NewUserDTO newUserDTO){
+    public Optional<User> saveUser(NewUserDTO newUserDTO){
+        Optional<User> user = userRepository.findByEmail(newUserDTO.getEmail());
+        if(user.isPresent()) {
+            return Optional.empty();
+        }
         newUserDTO.setPassword(bCryptPasswordEncoder.encode(newUserDTO.getPassword()));
         User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(), newUserDTO.getPassword(), roleRepository.findByName(RoleEnum.USER).get());
-        return userRepository.save(newUser);
+        return Optional.of(userRepository.save(newUser));
     }
 
     public Optional<User> updateUser(Long id, UserDTO userDTO){
