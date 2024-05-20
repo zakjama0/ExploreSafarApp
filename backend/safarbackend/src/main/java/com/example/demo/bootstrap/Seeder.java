@@ -2,7 +2,6 @@ package com.example.demo.bootstrap;
 
 import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.Role;
-import com.example.demo.repositories.RoleRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
