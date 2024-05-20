@@ -1,13 +1,17 @@
 package com.example.demo.services;
 
 
+import com.example.demo.models.ChangePasswordDTO;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
 import com.example.demo.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +20,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
 
     public List<User> getAllUsers(){
@@ -30,16 +34,6 @@ public class UserService {
     public Optional<User> getUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
-
-//    public Optional<User> saveUser(NewUserDTO newUserDTO){
-//        Optional<User> user = userRepository.findByEmail(newUserDTO.getEmail());
-//        if(user.isPresent()) {
-//            return Optional.empty();
-//        }
-//        newUserDTO.setPassword(bCryptPasswordEncoder.encode(newUserDTO.getPassword()));
-//        User newUser = new User(newUserDTO.getName(), newUserDTO.getEmail(), newUserDTO.getPassword(), roleRepository.findByName(RoleEnum.USER).get());
-//        return Optional.of(userRepository.save(newUser));
-//    }
 
     public Optional<User> updateUser(Long id, UserDTO userDTO){
 
@@ -55,18 +49,23 @@ public class UserService {
         return userToUpdate;
     }
 
-//    public User createAdministrator(NewUserDTO newUserDTO) {
-//        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.ADMIN);
-//
-//        if (optionalRole.isEmpty()) {
-//            return null;
-//        }
-//
-//        User newAdmin = new User(newUserDTO.getName(),
-//                                 newUserDTO.getEmail(),
-//                                 newUserDTO.getPassword(),
-//                                 optionalRole.get());
-//
-//        return userRepository.save(newAdmin);
-//    }
+    public void changePassword(ChangePasswordDTO request, Principal connectedUser) {
+
+        var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
+
+        // check if the current password is correct
+        if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPassword())) {
+            throw new IllegalStateException("Wrong password");
+        }
+        // check if the two new passwords are the same
+        if (!request.getNewPassword().equals(request.getConfirmationPassword())) {
+            throw new IllegalStateException("Password are not the same");
+        }
+
+        // update the password
+        user.setPassword(passwordEncoder.encode(request.getNewPassword()));
+
+        // save the new password
+        userRepository.save(user);
+    }
 }

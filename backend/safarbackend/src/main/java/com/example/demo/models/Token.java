@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.core.OAuth2AccessToken;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "tokens")
 public class Token {
 
     @Id
