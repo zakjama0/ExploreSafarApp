@@ -5,7 +5,9 @@ import com.example.demo.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +17,8 @@ import java.util.Collection;
 import java.util.List;
 
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "users")
 public class User implements UserDetails {
 
@@ -43,19 +47,6 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user")
     private List<Review> reviews;
-
-    public User() {
-
-    }
-
-    public User(String name, String email, String password, Role role) {
-    this.name = name;
-    this.email = email;
-    this.password = password;
-    this.role = role;
-    this.reviews = new ArrayList<>();
-    this.itineraries = new ArrayList<>();
-    }
 
     // UserDetails methods
 
