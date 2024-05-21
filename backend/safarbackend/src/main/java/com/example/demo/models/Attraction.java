@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -14,7 +15,8 @@ public class Attraction {
     @Column
     private long id;
 
-    @JsonIgnoreProperties({"attractions"})
+//    @JsonIgnoreProperties({"attractions"})
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
@@ -32,6 +34,7 @@ public class Attraction {
     @OneToMany(mappedBy = "attraction")
     private List<Review> reviews;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "attraction")
     private List<PlannedAttraction> plannedAttractions;
 
