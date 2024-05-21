@@ -38,9 +38,15 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" >
-        <Toolbar disableGutters>
+    <AppBar position="static" >
+      <Container 
+      maxWidth="xl"
+      disableElevation 
+      sx={{
+      bgcolor: '#a4c3b2',
+      fontFamily: 'Montserrat',
+        }} >
+        <Toolbar disableGutters >
           <Typography
             variant="h6"
             noWrap
@@ -49,8 +55,8 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 700,
+              fontFamily: 'Montserrat',
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -59,7 +65,7 @@ function ResponsiveAppBar() {
           <img src={Logo} width={150} style={{ display: { xs: 'flex', md: 'none', }, mr: 1 }} />
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, fontFamily: 'Montserrat' }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -86,11 +92,13 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
+                fontFamily: 'Montserrat',
+                
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{fontFamily: 'Montserrat'}} >
+                  <Typography textAlign="center" >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
