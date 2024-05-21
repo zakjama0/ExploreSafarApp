@@ -27,7 +27,12 @@ import static org.springframework.http.HttpMethod.*;
 public class SecurityConfig {
 
     private static final String[] WHITE_LIST_URL = {
-            "/api/v1/auth/**"
+            "/api/v1/auth/**",
+            "/attractions/**",
+            "/cities/**",
+            "/countries/**",
+            "/duas/**",
+            "/reviews/**",
     };
 
     private final JwtAuthenticationFilter jwtAuthFilter;
