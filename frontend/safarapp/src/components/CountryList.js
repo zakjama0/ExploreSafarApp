@@ -34,7 +34,7 @@ const CountryList = ({countries}) => {
 
 
     return ( <>
-    <div>
+    <div className='my-20'>
     <Carousel responsive={responsive}>
              {listCountries}
      </Carousel>
