@@ -1,11 +1,11 @@
 import Morocco from '../assests/Morocco.jpeg'
-const Card = ({name, picture}) => {
+const Card = ({name, image}) => {
     return ( <>
     
 
 <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow mx-20">
     <a href="#">
-        <img class="rounded-t-lg" src={picture} alt="" />
+        <img class="rounded-t-lg w-full h-60" src={image} alt="" />
     </a>
     <div class="p-5">
         <a href="#">
