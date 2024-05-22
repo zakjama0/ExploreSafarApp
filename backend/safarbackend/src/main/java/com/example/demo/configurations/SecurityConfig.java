@@ -38,7 +38,7 @@ public class SecurityConfig {
             "/cities/**",
             "/countries/**",
             "/duas/**",
-            "/reviews/**",
+            "/reviews/**"
     };
 
     @Value("${frontend-origin}")

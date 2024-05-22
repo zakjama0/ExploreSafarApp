@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
 
@@ -16,7 +17,7 @@ public class Country {
     private long id;
 
     @OneToMany(mappedBy = "country")
-    @JsonIgnore
+    @JsonIgnoreProperties({"country"})
     private List<City> cities;
 
     @Column
