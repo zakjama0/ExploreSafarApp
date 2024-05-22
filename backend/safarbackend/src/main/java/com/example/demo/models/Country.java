@@ -17,7 +17,7 @@ public class Country {
     private long id;
 
     @OneToMany(mappedBy = "country")
-    @JsonIgnoreProperties({"country"})
+    @JsonIgnoreProperties({"country", "attractions"})
     private List<City> cities;
 
     @Column
