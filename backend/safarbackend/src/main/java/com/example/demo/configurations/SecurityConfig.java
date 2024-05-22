@@ -36,8 +36,8 @@ public class SecurityConfig {
             "/api/v1/auth/**",
             "/attractions/**",
             "/cities/**",
-            "/duas/**",
             "/countries/**",
+            "/duas/**",
             "/reviews/**"
     };
 
