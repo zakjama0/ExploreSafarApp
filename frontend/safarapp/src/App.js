@@ -7,7 +7,7 @@ import ResponsiveAppBar from './components/ResponsiveAppBar';
 
 function App() {
   return (
-    <div style={{backgroundColor: '#a4c3b2'}}>
+    <div>
     <ResponsiveAppBar />
     <HomeContainer />
     <LabelBottomNavigation/>

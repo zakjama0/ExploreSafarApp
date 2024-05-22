@@ -12,6 +12,7 @@ const ItineraryContainer = ({ countries }) => {
     return ( <>
     <Card picture={Morocco} name = "Morocco" />
     <CountryList countries={filteredCountries} />
+    <CountryList countries={filteredCountries} />
         
 
     </> );
