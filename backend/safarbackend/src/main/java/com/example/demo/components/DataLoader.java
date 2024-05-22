@@ -57,11 +57,11 @@ public class DataLoader implements ApplicationRunner {
 
         //FEATURED ASIA COUNTRY: Vietnam, Indoneisa, Japan, China, Kygryzstan, Austalia, South Korea, Thailand, Phillipinnes, Malaysia, Oman, Qatar, Saudi
 //        Europe
-        Country france = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "France");
-        Country spain = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Spain");
-        Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Italy");
-        Country germany = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Germany");
-        Country unitedKingdom = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "United Kingdom");
+        Country france = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://s.abcnews.com/images/Travel/gty_eiffel_tower_kb_150612_16x9_992.jpg?w=1600", "France");
+        Country spain = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://static.independent.co.uk/2023/02/20/12/iStock-1016528726.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp", "Spain");
+        Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://static.independent.co.uk/2023/02/20/12/iStock-1016528726.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp", "Italy");
+        Country germany = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.planetware.com/photos-large/D/germany-brandenburg-gate.jpg", "Germany");
+        Country unitedKingdom = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg", "United Kingdom");
         Country turkey = new Country(Region.MIDDLE_EAST, Continent.EUROPE, "", "Turkey");
         Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "", "Austria");
         Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Greece");
