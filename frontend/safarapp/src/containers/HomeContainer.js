@@ -11,6 +11,8 @@ const HomeContainer = () => {
         const data = await response.json();
         setCountries(data);
     }
+    
+    
 
     useEffect(() =>{
         fetchCountries();

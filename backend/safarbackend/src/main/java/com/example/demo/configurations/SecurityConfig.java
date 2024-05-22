@@ -36,9 +36,9 @@ public class SecurityConfig {
             "/api/v1/auth/**",
             "/attractions/**",
             "/cities/**",
-            "/countries/**",
             "/duas/**",
-            "/reviews/**",
+            "/countries/**",
+            "/reviews/**"
     };
 
     @Value("${frontend-origin}")
