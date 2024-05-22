@@ -2,6 +2,7 @@ import Card from '../components/Card';
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import carousel from '../styles/carousel.css';
 const CountryList = ({countries}) => {
 
     const listCountries = countries.map(country => (
@@ -35,7 +36,7 @@ const CountryList = ({countries}) => {
 
     return ( <>
     <div className='my-20'>
-    <Carousel responsive={responsive}>
+    <Carousel itemClass={carousel.carouselItem} partialVisbile={false} responsive={responsive}>
              {listCountries}
      </Carousel>
             
