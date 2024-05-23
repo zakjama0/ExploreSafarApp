@@ -63,8 +63,8 @@ const ItineraryContainer = ({ countries }) => {
 
     const filteredCountries = countries.filter(country => continent == country.continent);
     
-    return ( <>
-    <Box sx={{ width: '100%',  }}>
+    return ( <div className='dark:bg-slate-800 w-full'>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider',zIndex:5 }}>
         <Tabs value={value} onChange={handleChange}  aria-label="basic tabs example">
           <Tab label="Europe" {...a11yProps(0)}/>
@@ -85,7 +85,7 @@ const ItineraryContainer = ({ countries }) => {
       </CustomTabPanel>
     </Box>
 
-    </> );
+    </div> );
 }
 
         
