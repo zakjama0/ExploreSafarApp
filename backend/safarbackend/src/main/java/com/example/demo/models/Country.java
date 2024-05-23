@@ -38,7 +38,7 @@ public class Country {
 
     public Country(Region region, Continent continent, String image, String name) {
         this.cities = new ArrayList<>();
-        this.region = region.name();
+        this.region = Region.valueOfDisplayName(region.name());
         this.continent = continent;
         this.image = image;
         this.name = name;
