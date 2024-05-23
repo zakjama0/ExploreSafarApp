@@ -1,7 +1,5 @@
-import Morocco from '../assests/Morocco.jpeg'
 import React from 'react';
 import { useState } from 'react';
-import Card from '../components/Card';
 import CountryList from '../components/CountryList';
 
 
@@ -34,7 +32,7 @@ function CustomTabPanel(props) {
   CustomTabPanel.propTypes = {
     children: PropTypes.node,
     index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
+    // value: PropTypes.number.isRequired,
   };
   
   function a11yProps(index) {
@@ -45,12 +43,23 @@ function CustomTabPanel(props) {
   }
 const ItineraryContainer = ({ countries }) => {
     const [value, setValue] = React.useState(0);
+    const [continent, setContinent] = useState("EUROPE"); // Set as Europe for testing purposes
+
+    const valueToContinent = {
+      0: "EUROPE",
+      1: "ASIA",
+      2: "AFRICA",
+      3: "NORTH AMERICA",
+      4: "SOUTH AMERICA"
+    }
 
     const handleChange = (event, newValue) => {
       setValue(newValue);
+      setContinent(valueToContinent[newValue]);
     };
 
-    const [continent, setContinent] = useState("EUROPE"); // Set as Europe for testing purposes
+    console.log(value);
+    console.log(continent);
 
     const filteredCountries = countries.filter(country => continent == country.continent);
     
