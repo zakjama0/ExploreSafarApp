@@ -54,7 +54,6 @@ const HomeContainer = () => {
     }, [])
 
     return (  <>
-    <h1>This is the Home Container</h1>
     <ItineraryContainer countries={countries}/>
     </>);
 }

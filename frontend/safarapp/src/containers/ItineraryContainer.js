@@ -55,7 +55,6 @@ const ItineraryContainer = ({ countries }) => {
     const filteredCountries = countries.filter(country => continent == country.continent);
     
     return ( <>
-    <Card picture={Morocco} name = "Morocco" />
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}  aria-label="basic tabs example">
