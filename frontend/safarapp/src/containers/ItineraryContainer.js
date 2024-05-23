@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import CountryList from '../components/CountryList';
 
@@ -46,6 +46,16 @@ const ItineraryContainer = ({ countries }) => {
     const [continent, setContinent] = useState("EUROPE");
     const [regions, setRegions] = useState([]);
 
+    const getRegions = () => {
+      const uniqueRegions = new Set();
+      filteredCountries.forEach(country => uniqueRegions.add(country.region));
+      return Array.from(uniqueRegions);
+    }
+
+    useEffect(() => {
+      setRegions(getRegions())
+    }, []);
+
     const valueToContinent = {
       0: "EUROPE",
       1: "ASIA",
@@ -54,17 +64,13 @@ const ItineraryContainer = ({ countries }) => {
       4: "SOUTH AMERICA"
     }
 
+    const filteredCountries = countries.filter(country => continent == country.continent);
+
     const handleChange = (event, newValue) => {
       setValue(newValue);
       setContinent(valueToContinent[newValue]);
+      setRegions(getRegions());
     };
-
-    const filteredCountries = countries.filter(country => continent == country.continent);
-    console.log(filteredCountries);
-    const getRegions = () => {
-      const uniqueRegions = new Set();
-      filteredCountries.forEach(country => uniqueRegions.add(country.region))
-    }
     
     return ( <>
     <Box sx={{ width: '100%' }}>
