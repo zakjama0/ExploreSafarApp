@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-const CountryList = ({countries}) => {
+const CountryList = ({countries, regions}) => {
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 

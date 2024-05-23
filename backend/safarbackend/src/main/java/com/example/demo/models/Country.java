@@ -21,7 +21,7 @@ public class Country {
     private List<City> cities;
 
     @Column
-    private Region region;
+    private String region;
 
     @Column
     private Continent continent;
@@ -38,7 +38,7 @@ public class Country {
 
     public Country(Region region, Continent continent, String image, String name) {
         this.cities = new ArrayList<>();
-        this.region = region;
+        this.region = region.name();
         this.continent = continent;
         this.image = image;
         this.name = name;
@@ -60,12 +60,12 @@ public class Country {
         this.cities = cities;
     }
 
-    public Region getRegion() {
+    public String getRegion() {
         return region;
     }
 
     public void setRegion(Region region) {
-        this.region = region;
+        this.region = region.name();
     }
 
     public Continent getContinent() {
