@@ -44,7 +44,7 @@ const CountryList = ({countries}) => {
      {isMobile?
      (<div>{listCountries} </div>)
      :
-    (<div className='my-20 w-5/6'>
+    (<div className='my-20 w-5/6 absolute left-1/2 transform -translate-x-1/2'>
     <Carousel responsive={responsive}>
              {listCountries}
     </Carousel>
