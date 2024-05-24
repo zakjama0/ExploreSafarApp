@@ -62,11 +62,11 @@ public class DataLoader implements ApplicationRunner {
         Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://static.independent.co.uk/2023/02/20/12/iStock-1016528726.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp", "Italy");
         Country germany = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.planetware.com/photos-large/D/germany-brandenburg-gate.jpg", "Germany");
         Country unitedKingdom = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg", "United Kingdom");
-        Country turkey = new Country(Region.MIDDLE_EAST, Continent.EUROPE, "", "Turkey");
+        Country turkey = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Turkey");
         Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "", "Austria");
         Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Greece");
         Country russia = new Country(Region.EASTERN_EUROPE, Continent.EUROPE, "", "Russia");
-        Country portugal = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Portugal");
+        Country portugal = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Portugal");
         Country switzerland = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Switzerland");
         Country netherlands = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Netherlands");
         Country belgium = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Belgium");
