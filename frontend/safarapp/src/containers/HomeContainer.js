@@ -4,6 +4,7 @@ import Navigation from "../components/ResponsiveAppBar";
 import Card from "../components/Card";
 import ItineraryContainer from "./ItineraryContainer";
 import CountryList from "../components/CountryList";
+import BentoGrid from "../components/BentoGrid";
 
 const HomeContainer = () => {
 
@@ -54,6 +55,7 @@ const HomeContainer = () => {
     }, [])
 
     return (  <>
+    <BentoGrid/>
     <ItineraryContainer countries={countries}/>
     </>);
 }
