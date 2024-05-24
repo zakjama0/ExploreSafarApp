@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import LabelBottomNavigation from "../components/LabelBottomNavigation";
 import Navigation from "../components/ResponsiveAppBar";
+import Card from "../components/Card";
+import ItineraryContainer from "./ItineraryContainer";
+import CountryList from "../components/CountryList";
 
 const HomeContainer = () => {
 
@@ -51,8 +54,7 @@ const HomeContainer = () => {
     }, [])
 
     return (  <>
-    <h1>This is the Home Container</h1>
-    
+    <ItineraryContainer countries={countries}/>
     </>);
 }
  

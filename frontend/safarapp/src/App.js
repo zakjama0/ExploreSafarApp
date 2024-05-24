@@ -1,15 +1,15 @@
 import logo from './logo.svg';
-import './App.css';
 import HomeContainer from './containers/HomeContainer';
 import LabelBottomNavigation from "./components/LabelBottomNavigation";
 import ResponsiveAppBar from './components/ResponsiveAppBar';
+import NavBar from './components/NavBar';
 
 
 
 function App() {
   return (
-    <div style={{backgroundColor: '#a4c3b2'}}>
-    <ResponsiveAppBar />
+    <div>
+    <NavBar />
     <HomeContainer />
     <LabelBottomNavigation/>
     </div>

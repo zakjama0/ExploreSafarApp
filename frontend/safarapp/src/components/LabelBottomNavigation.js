@@ -18,7 +18,7 @@ export default function LabelBottomNavigation() {
   };
 
   return (
-    <BottomNavigation sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none'}, bottom: 0, }} value={value} onChange={handleChange}>
+    <BottomNavigation sx={{ bgcolor: '#a4c3b2',flexGrow: 1, display: { xs: 'flex', md: 'none'}, bottom: 0, }} value={value} onChange={handleChange}>
       
       <BottomNavigationAction
         label="Favorites"
