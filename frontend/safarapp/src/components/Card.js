@@ -1,4 +1,3 @@
-import Morocco from '../assests/Morocco.jpeg'
 const Card = ({name, image}) => {
     return ( <>
     
@@ -18,5 +17,5 @@ const Card = ({name, image}) => {
     
     </> );
 }
- // dark:bg-gray-800 dark:border-gray-700 dark:text-white
+
 export default Card;

@@ -7,10 +7,41 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 
-// function CustomTab(props) {
-
-// }
+const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
+  textTransform: 'none',
+  minWidth: 0,
+  [theme.breakpoints.up('sm')]: {
+    minWidth: 0,
+  },
+  fontWeight: theme.typography.fontWeightRegular,
+  marginRight: theme.spacing(1),
+  color: 'rgba(0, 0, 0, 0.85)',
+  fontFamily: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(','),
+  '&:hover': {
+    color: '#40a9ff',
+    opacity: 1,
+  },
+  '&.Mui-selected': {
+    color: '#1890ff',
+    fontWeight: theme.typography.fontWeightMedium,
+  },
+  '&.Mui-focusVisible': {
+    backgroundColor: '#d1eaff',
+  },
+}));
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -35,7 +66,7 @@ function CustomTabPanel(props) {
 CustomTabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
-  // value: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 function a11yProps(index) {
@@ -67,11 +98,11 @@ const ItineraryContainer = ({ countries }) => {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider', zIndex: 5 }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Europe" {...a11yProps(0)} />
-          <Tab label="Asia" {...a11yProps(1)} />
-          <Tab label="Africa" {...a11yProps(2)} disabled />
-          <Tab label="North America" {...a11yProps(2)} disabled />
-          <Tab label="South America" {...a11yProps(2)} disabled />
+          <CustomTab label="Europe" {...a11yProps(0)} />
+          <CustomTab label="Asia" {...a11yProps(1)} />
+          <CustomTab label="Africa" {...a11yProps(2)} disabled />
+          <CustomTab label="North America" {...a11yProps(2)} disabled />
+          <CustomTab label="South America" {...a11yProps(2)} disabled />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0} >
