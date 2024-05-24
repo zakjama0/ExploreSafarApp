@@ -1,4 +1,4 @@
-import{Menu, X} from 'lucide-react';
+import{Menu, X, Sun, Moon} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import React from 'react'
 import Logo from '../assests/logoname.png'
@@ -36,6 +36,7 @@ const NavBar = () => {
                 </ul>
                 <div className="hidden lg:flex justify-center space-x-12 items-center" >
                     <a href='/' className='bg-gradient-to-r from-orange-500 to-orange-800 py-2 px-3 rounded-md'>Create an account</a>
+                    {darkMode?<Moon onClick={toggleDark} className='cursor-pointer'/> : <Sun onClick={toggleDark} className='cursor-pointer'/>  }
                 </div>
                 <div className='lg:hidden md:flex flex-col justify-end'>
                     <button onClick={toggleNavBar}>
@@ -53,9 +54,7 @@ const NavBar = () => {
                     <div className ="flex space-x-6">
                         <a href='/' className='py-2 px-3 border rounded-md'>Sign in</a>
                         <a href='/' className='py-2 px-3 border rounded-md bg-gradient-to-r from-orange-500 to-orange-800'>Create account</a>
-                        <button onClick={toggleDark} className='absolute w-16 h-16 bg-neutral-900 dark:bg-slate-500 rounded-full text-white dark:text-black'>
-                            {darkMode ? "LHT": "DRK"}
-                            </button>
+                        {darkMode?<Moon onClick={toggleDark} className='cursor-pointer '/> : <Sun onClick={toggleDark} className='cursor-pointer'/>  }
                     </div>   
                 </div>
                     
