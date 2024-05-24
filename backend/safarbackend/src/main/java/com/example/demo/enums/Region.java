@@ -33,7 +33,7 @@ public enum Region {
 
     public static String valueOfDisplayName(String regionName) {
         for(Region regionEnum : Region.values()){
-            if(regionEnum.displayName.equals(regionName)) {
+            if(regionEnum.name().equals(regionName)) {
                 return regionEnum.displayName;
             }
         }

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/countries")
@@ -23,7 +24,16 @@ public class CountryController {
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{region}")
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Country> getCountryById(@PathVariable Long id){
+        Optional<Country> country = countryService.getCountryById(id);
+        if(country.isEmpty()){
+            return ResponseEntity.of(country);
+        }
+        return ResponseEntity.ok(country.get());
+    }
+
+    @GetMapping(value = "/region/{region}")
     public ResponseEntity<List<Country>> getCountriesByRegion(@RequestParam(required = false, name = "region") Region region
     ){
         List<Country> countries = countryService.getCountriesByRegion(region);

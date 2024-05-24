@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import CountryList from '../components/CountryList';
 
@@ -42,8 +41,10 @@ function CustomTabPanel(props) {
     };
   }
 const ItineraryContainer = ({ countries }) => {
-    const [value, setValue] = React.useState(0);
-    const [continent, setContinent] = useState("EUROPE"); // Set as Europe for testing purposes
+    const [value, setValue] = useState(0);
+    const [continent, setContinent] = useState("EUROPE");
+
+    const filteredCountries = countries.filter(country => continent == country.continent);
 
     const valueToContinent = {
       0: "EUROPE",
@@ -57,11 +58,6 @@ const ItineraryContainer = ({ countries }) => {
       setValue(newValue);
       setContinent(valueToContinent[newValue]);
     };
-
-    console.log(value);
-    console.log(continent);
-
-    const filteredCountries = countries.filter(country => continent == country.continent);
     
     return ( <div className='dark:bg-slate-800 w-full'>
     <Box sx={{ width: '100%' }}>
@@ -75,10 +71,10 @@ const ItineraryContainer = ({ countries }) => {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0} >
-      <CountryList countries={filteredCountries} />
+        <CountryList countries={filteredCountries} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-      <CountryList countries={filteredCountries} />
+        <CountryList countries={filteredCountries} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         Item Three

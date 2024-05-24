@@ -58,21 +58,20 @@ public class DataLoader implements ApplicationRunner {
         //FEATURED ASIA COUNTRY: Vietnam, Indoneisa, Japan, China, Kygryzstan, Austalia, South Korea, Thailand, Phillipinnes, Malaysia, Oman, Qatar, Saudi
 //        Europe
         Country france = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://s.abcnews.com/images/Travel/gty_eiffel_tower_kb_150612_16x9_992.jpg?w=1600", "France");
-        Country spain = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://lp-cms-production.imgix.net/2023-07/shutterstockRF582611728.jpg", "Spain");
-        Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://thetravelmum.com/content/uploads/2023/08/lake-como.webp", "Italy");
+        Country spain = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://static.independent.co.uk/2023/02/20/12/iStock-1016528726.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp", "Spain");
+        Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://static.independent.co.uk/2023/02/20/12/iStock-1016528726.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp", "Italy");
         Country germany = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.planetware.com/photos-large/D/germany-brandenburg-gate.jpg", "Germany");
         Country unitedKingdom = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg", "United Kingdom");
-
-        Country turkey = new Country(Region.MIDDLE_EAST, Continent.EUROPE, "https://cdn.kimkim.com/files/a/images/7f60455b2302182e8f62b0a25c97dfb6ef4a8c38/big-3aa2ec570920b07c1521217f315e9adb.jpg", "Turkey");
-        Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "https://ychef.files.bbci.co.uk/1280x720/p08fq4z7.jpg", "Austria");
-        Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "https://www.moon.com/wp-content/uploads/2020/03/Santorini.png", "Greece");
-        Country russia = new Country(Region.EASTERN_EUROPE, Continent.EUROPE, "https://mf.b37mrtl.ru/rbthmedia/images/2018.12/original/5c1565a585600a097840f3a7.jpg", "Russia");
-        Country portugal = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "https://ik.imgkit.net/3vlqs5axxjf/TAW/ik-seo/uploadedImages/All_Gateways/Europe/Features/madeiradestinationguidelbeach/madeiraislandportugalvisit.jpg?tr=w-1008%2Ch-567%2Cfo-auto", "Portugal");
-        Country switzerland = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://cdn.britannica.com/65/162465-050-9CDA9BC9/Alps-Switzerland.jpg", "Switzerland");
-        Country netherlands = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.telegraph.co.uk/content/dam/Travel/Spark/tui-2020/amsterdam-getty.jpg?imwidth=680", "Netherlands");
-        Country belgium = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.nationsonline.org/gallery/Belgium/Royal-Palace-in-Brussels.jpg", "Belgium");
-        Country iceland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "https://cdn.britannica.com/06/171306-050-C88DD752/Aurora-borealis-peninsula-Snaefellsnes-Iceland-March-2013.jpg", "Iceland");
-        Country finland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "https://londonsouthendairport.com/wp-content/uploads/2023/08/magical-lapland.png", "Finland");
+        Country turkey = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Turkey");
+        Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "", "Austria");
+        Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Greece");
+        Country russia = new Country(Region.EASTERN_EUROPE, Continent.EUROPE, "", "Russia");
+        Country portugal = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Portugal");
+        Country switzerland = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Switzerland");
+        Country netherlands = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Netherlands");
+        Country belgium = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Belgium");
+        Country iceland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "", "Iceland");
+        Country finland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "", "Finland");
         // Featured Europe Countries: Turkey, Switzerland, Austria, Italy, Spain, France, Greece, Portuga
 
         countryRepository.save(china);
