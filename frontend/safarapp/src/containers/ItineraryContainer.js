@@ -44,17 +44,13 @@ function CustomTabPanel(props) {
 const ItineraryContainer = ({ countries }) => {
     const [value, setValue] = React.useState(0);
     const [continent, setContinent] = useState("EUROPE");
-    const [regions, setRegions] = useState([]);
 
-    const getRegions = () => {
+    const filteredCountries = countries.filter(country => continent == country.continent);
+    const regions = () => {
       const uniqueRegions = new Set();
       filteredCountries.forEach(country => uniqueRegions.add(country.region));
       return Array.from(uniqueRegions);
     }
-
-    useEffect(() => {
-      setRegions(getRegions())
-    }, []);
 
     const valueToContinent = {
       0: "EUROPE",
@@ -64,12 +60,9 @@ const ItineraryContainer = ({ countries }) => {
       4: "SOUTH AMERICA"
     }
 
-    const filteredCountries = countries.filter(country => continent == country.continent);
-
     const handleChange = (event, newValue) => {
       setValue(newValue);
       setContinent(valueToContinent[newValue]);
-      setRegions(getRegions());
     };
     
     return ( <>
@@ -84,10 +77,10 @@ const ItineraryContainer = ({ countries }) => {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0} >
-        <CountryList countries={filteredCountries} regions={continent} />
+        <CountryList countries={filteredCountries} regions={regions()} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <CountryList countries={filteredCountries} regions={continent}/>
+        <CountryList countries={filteredCountries} regions={regions()}/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         Item Three
