@@ -59,9 +59,9 @@ const ItineraryContainer = ({ countries }) => {
       setContinent(valueToContinent[newValue]);
     };
     
-    return ( <>
+    return ( <div className='dark:bg-slate-800 w-full'>
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider',zIndex:5 }}>
         <Tabs value={value} onChange={handleChange}  aria-label="basic tabs example">
           <Tab label="Europe" {...a11yProps(0)}/>
           <Tab label="Asia" {...a11yProps(1)} />
@@ -81,7 +81,7 @@ const ItineraryContainer = ({ countries }) => {
       </CustomTabPanel>
     </Box>
 
-    </> );
+    </div> );
 }
 
         
