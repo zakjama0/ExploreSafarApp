@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
-const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
+const CustomTab = styled((props) => <Tab disableRipple {...props}/>)(({ theme }) => ({
   textTransform: 'none',
   minWidth: 0,
   [theme.breakpoints.up('sm')]: {
@@ -85,16 +85,15 @@ const ItineraryContainer = ({ countries }) => {
     setValue(newValue);
     setContinent(valueToContinent[newValue]);
   };
-
-  return (<div className='dark:bg-slate-800 w-full'>
+  return (<div className='dark:bg-slate-800 dark:text-white w-full'>
     <Box sx={{ width: '100%' }}>
-      <Box >
+      <Box>
         <Tabs className='mx-auto'centered sx={{ width: 4 / 5 }} value={value} onChange={handleChange} variant='fullWidth' aria-label="basic tabs example">
-          <CustomTab label="Europe" {...a11yProps(0)}/>
-          <CustomTab label="Asia" {...a11yProps(1)} />
-          <CustomTab label="Africa" {...a11yProps(2)} disabled />
-          <CustomTab label="North America" {...a11yProps(2)} disabled />
-          <CustomTab label="South America" {...a11yProps(2)} disabled />
+          <CustomTab label="Europe" {...a11yProps(0)} className='dark:text-white'/>
+          <CustomTab label="Asia" {...a11yProps(1)} className='dark:text-white'/>
+          <CustomTab label="Africa" {...a11yProps(2)} disabled className='dark:text-white'/>
+          <CustomTab label="North America" {...a11yProps(2)} disabled className='dark:text-white'/>
+          <CustomTab label="South America" {...a11yProps(2)} disabled className='dark:text-white'/>
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0} >
