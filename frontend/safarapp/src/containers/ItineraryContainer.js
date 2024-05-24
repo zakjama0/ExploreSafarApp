@@ -19,16 +19,8 @@ const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }
   marginRight: theme.spacing(1),
   color: 'rgba(0, 0, 0, 0.85)',
   fontFamily: [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    '"Segoe UI"',
-    'Roboto',
-    '"Helvetica Neue"',
-    'Arial',
+    "Montserrat",
     'sans-serif',
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"',
   ].join(','),
   '&:hover': {
     color: '#40a9ff',
