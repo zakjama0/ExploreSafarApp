@@ -89,8 +89,8 @@ const ItineraryContainer = ({ countries }) => {
   return (<div className='dark:bg-slate-800 w-full'>
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider', zIndex: 5 }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <CustomTab label="Europe" {...a11yProps(0)} />
+        <Tabs className='mx-auto'centered sx={{ width: 4 / 5 }} value={value} onChange={handleChange} variant='fullWidth' aria-label="basic tabs example">
+          <CustomTab label="Europe" {...a11yProps(0)}/>
           <CustomTab label="Asia" {...a11yProps(1)} />
           <CustomTab label="Africa" {...a11yProps(2)} disabled />
           <CustomTab label="North America" {...a11yProps(2)} disabled />
