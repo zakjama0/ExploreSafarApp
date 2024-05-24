@@ -44,7 +44,7 @@ const ItineraryContainer = ({ countries }) => {
     const [value, setValue] = useState(0);
     const [continent, setContinent] = useState("EUROPE");
 
-    const filteredCountries = countries.filter(country => continent == country.continent);
+    const filteredCountries = countries.filter(country => continent === country.continent);
 
     const valueToContinent = {
       0: "EUROPE",
