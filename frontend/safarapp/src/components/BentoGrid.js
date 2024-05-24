@@ -7,6 +7,7 @@ import {SiInstagram, SiTiktok, SiTwitter, SiYoutube} from 'react-icons/si'
 const BentoGrid = () => {
   return (
     <div className='min-h-screen bg-zinc-900 px-4 py-12 text-zinc-50'>
+        <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-purple-500 to-purple-600 ">Welcome to the future of Travelling</h1>
         <div className='mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4'>
             <BentoItem className='col-span-12 row-span-2 md:col-span-6' >
                 <h2 className='mb-12 text-xl font-medium leading-tight'>Lorem Ipsum. {" "} <span className='text-zinc-400'> is simply dummy text of the printing and typesetting industry.</span></h2>

@@ -7,3 +7,11 @@
   font-family:"Montserrat", sans-serif;
   color: dark;
 }
+
+@layer utilities{
+  .text-gradient{
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+  }
+  
+}
