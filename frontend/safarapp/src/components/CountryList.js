@@ -68,7 +68,7 @@ const CountryList = ({ countries }) => {
       )
         :
         (
-          <div className="my-20 w-5/6">
+          <div className="w-5/6">
             {Object.keys(regions).map((region) => (
               <div key={region}>
                 <h2>{region}</h2>
