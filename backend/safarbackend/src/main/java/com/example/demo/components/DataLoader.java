@@ -62,6 +62,7 @@ public class DataLoader implements ApplicationRunner {
         Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://thetravelmum.com/content/uploads/2023/08/lake-como.webp", "Italy");
         Country germany = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.planetware.com/photos-large/D/germany-brandenburg-gate.jpg", "Germany");
         Country unitedKingdom = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg", "United Kingdom");
+
         Country turkey = new Country(Region.MIDDLE_EAST, Continent.EUROPE, "https://cdn.kimkim.com/files/a/images/7f60455b2302182e8f62b0a25c97dfb6ef4a8c38/big-3aa2ec570920b07c1521217f315e9adb.jpg", "Turkey");
         Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "https://ychef.files.bbci.co.uk/1280x720/p08fq4z7.jpg", "Austria");
         Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "https://www.moon.com/wp-content/uploads/2020/03/Santorini.png", "Greece");
