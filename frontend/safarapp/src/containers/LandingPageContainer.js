@@ -6,114 +6,24 @@ import { PiForkKnifeBold } from "react-icons/pi";
 import { SlGlobe } from "react-icons/sl";
 import { LuHelpingHand } from "react-icons/lu";
 import Logo from '../assests/logoname.png'
+import SafarAnimation from '../components/SafarAnimation';
+import BentoGrid from '../components/BentoGrid';
 
 
-const iconsLeft = [
-    { component: MdOutlineMosque, key: 'Masjid' },
-    { component: PiForkKnifeBold, key: 'Food' },
 
-  ];
-  
-const iconsRight =[
-    { component: LuHelpingHand, key: 'Dua' },
-    { component: MdOutlineReviews, key: 'Dua' },
-]
-  const iconVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
-  const textVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -50 }
-  };
 
 
 const LandingPageContainer = () => {
-
-    const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 5000); // Time in milliseconds after which icons will disappear
-
-    return () => clearTimeout(timer);
-  }, []);
   return (
     
-    <div className=' dark:bg-slate-800 w-full h-screen'>
-         <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-800 ">Welcome to the future of Travelling</h1>
-         <AnimatePresence>
-        <div className="flex justify-around space-between">
-            <motion.div
-                  className="m-4 flex-row items-center justify-center"
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.7, delay: 3  }}
-                variants={iconVariants}
-            >
-                <MdOutlineReviews className="mx-2 text-6xl text-blue-500" />
-                <motion.h2 className='text-zinc-500 text-xl'
-                 initial="hidden"
-                 animate="visible"
-                 transition={{ duration: 0.7, delay: 4  }}
-                 variants={textVariants}>Reviews</motion.h2>
-            </motion.div>
-        
-            <motion.div
-                className="m-4 flex-row items-center justify-center"
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.7, delay: 2  }}
-                variants={iconVariants}
-            >
-                <MdOutlineMosque className="mx-2 text-6xl text-blue-500" />
-                <motion.h2  initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.7, delay: 4  }}
-                variants={textVariants} className='text-zinc-500 text-xl'>Masjids</motion.h2>
-            </motion.div>
-            <motion.div
-                className="m-4 flex-row items-center justify-center"
-                initial="hidden"
-                animate="visible"
-                variants={iconVariants}
-            >
-                <SlGlobe className="mx-14 text-6xl text-blue-500" />
-                <img className='w-40' alt='Safar Logo' src={Logo}/>
-            </motion.div>
-            <motion.div
-                className="m-4 flex-row items-center justify-center"
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.7, delay: 2  }}
-                variants={iconVariants}
-            >
-                <LuHelpingHand className="text-6xl text-blue-500" />
-                <motion.h2 className='text-zinc-500 text-xl'
-                 initial="hidden"
-                 animate="visible"
-                 transition={{ duration: 0.7, delay: 4  }}
-                 variants={textVariants}>Dhikr</motion.h2>
-            </motion.div>
-            <motion.div
-                className="m-4 flex-row items-center justify-center"
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.7, delay: 3  }}
-                variants={iconVariants}
-            >
-                <PiForkKnifeBold className=" text-6xl text-blue-500" />
-                <motion.h2 className='mx-2 text-zinc-500 text-xl'
-                initial="hidden"
-                animate="visible"
-                exit='exit'
-                transition={{ duration: 0.7, delay: 4  }}
-                variants={textVariants}>Food</motion.h2>
-            </motion.div>
-        </div>
-        </AnimatePresence>
+    <div className=' dark:bg-slate-800 w-full h-full'>
+        <div className=' flex-row items-center justify-center mb-28'>
+          <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-800 ">Welcome to the future of Travelling</h1>
+          <h2 className='text-center mx-16 md:mx-32 dark:text-white'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h2>
+          <a href='/' className='bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Create an account</a>
+        </div> 
+        <SafarAnimation />
+        <BentoGrid/>
     </div>
     
   )
