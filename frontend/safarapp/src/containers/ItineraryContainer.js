@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CountryList from '../components/CountryList';
 
 
@@ -73,9 +73,16 @@ const ItineraryContainer = ({ countries }) => {
   const [continent, setContinent] = useState("EUROPE");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedCountries, setSearchedCountries] = useState([]);
-  const [userSearching, setUserSearching] = useState(false);
 
   const filteredCountries = countries.filter(country => continent === country.continent);
+
+  const search = (searchQuery => {
+    return countries.filter(country => country.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  });
+
+  useEffect(() => {
+    setSearchedCountries(search(searchQuery));
+  }, [searchQuery])
 
   const valueToContinent = {
     0: "EUROPE",
@@ -85,7 +92,7 @@ const ItineraryContainer = ({ countries }) => {
     4: "SOUTH AMERICA"
   }
 
-  const handleChange = (event, newValue) => {
+  const handleTabChange = (event, newValue) => {
     setValue(newValue);
     setContinent(valueToContinent[newValue]);
   };
@@ -95,30 +102,33 @@ const ItineraryContainer = ({ countries }) => {
         id="outlined-basic"
         label="Search Countries"
         variant="outlined"
-        onInput={e => {
+        onChange={e => {
           setSearchQuery(e.target.value);
         }} />
-      <Box>
-        <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleChange} variant='fullWidth' aria-label="basic tabs example">
-          <CustomTab label="Europe" {...a11yProps(0)} className='dark:text-white' />
-          <CustomTab label="Asia" {...a11yProps(1)} className='dark:text-white' />
-          <CustomTab label="Africa" {...a11yProps(2)} disabled className='dark:text-white' />
-          <CustomTab label="North America" {...a11yProps(2)} disabled className='dark:text-white' />
-          <CustomTab label="South America" {...a11yProps(2)} disabled className='dark:text-white' />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0} >
-        <CountryList countries={filteredCountries} />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <CountryList countries={filteredCountries} />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel>
+      {searchQuery === "" ?
+        <div>
+          <Box>
+            <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleTabChange} variant='fullWidth' aria-label="basic tabs example">
+              <CustomTab label="Europe" {...a11yProps(0)} className='dark:text-white' />
+              <CustomTab label="Asia" {...a11yProps(1)} className='dark:text-white' />
+              <CustomTab label="Africa" {...a11yProps(2)} disabled className='dark:text-white' />
+              <CustomTab label="North America" {...a11yProps(2)} disabled className='dark:text-white' />
+              <CustomTab label="South America" {...a11yProps(2)} disabled className='dark:text-white' />
+            </Tabs>
+          </Box>
+          <CustomTabPanel value={value} index={0} >
+            <CountryList countries={filteredCountries} />
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={1}>
+            <CountryList countries={filteredCountries} />
+          </CustomTabPanel>
+        </div>
+        :
+        <CountryList countries={searchedCountries} />
+      }
     </Box>
-
-  </div>);
+  </div>
+  );
 }
 
 
