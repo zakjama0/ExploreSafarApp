@@ -98,6 +98,7 @@ const ItineraryContainer = ({ countries }) => {
   };
   return (<div className='dark:bg-slate-800 dark:text-white w-full'>
     <Box sx={{ width: '100%' }}>
+      <div className='flex justify-center pt-5'>
       <TextField className="mx-auto"
         id="outlined-basic"
         label="Search Countries"
@@ -105,7 +106,8 @@ const ItineraryContainer = ({ countries }) => {
         onChange={e => {
           setSearchQuery(e.target.value);
         }} />
-      {searchQuery === "" ?
+        </div>
+      {searchQuery.trim() === "" ?
         <div>
           <Box>
             <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleTabChange} variant='fullWidth' aria-label="basic tabs example">
