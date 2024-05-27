@@ -3,6 +3,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import HomeContainer from "./HomeContainer";
+import Country from "@/components/Country";
 
 const MainContainer = () => {
 
@@ -52,6 +53,12 @@ const MainContainer = () => {
         fetchReviews();
     }, []);
 
+    const countryLoader = ({ params }) => {
+        return countries.find(country => {
+            return country.id === parseInt(params.itemId);
+        });
+    }
+
     const router = createBrowserRouter([
         {
             path: "/",
@@ -64,8 +71,12 @@ const MainContainer = () => {
                 {
                     path: "/itineraries",
                     element: <ItineraryContainer countries={countries} />
+                },
+                {
+                    path: "/countries/:countryId",
+                    loader: countryLoader,
+                    element: <Country />
                 }
-
             ]
         }
     ]);
