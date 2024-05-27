@@ -16,7 +16,7 @@ const FeaturedAttractionList = ({ attractions }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const attractionsCards = attractions.map(attraction => {
+    const attractionsCardsDesktop = attractions.map(attraction => {
         return (
             <Grid item>
                 <Link to={`/attractions/${attraction.id}`}>
@@ -24,21 +24,33 @@ const FeaturedAttractionList = ({ attractions }) => {
                 </Link>
             </Grid>
         );
-    })
+    });
+
+    const attractionsCardsMobile = attractions.map(attraction => {
+        return (
+            <Grid item>
+                <Link to={`/attractions/${attraction.id}`}>
+                    <Card name={attraction.name} image={attraction.image} />
+                </Link>
+            </Grid>
+        );
+    });
 
     return (
         <>
             <div>
                 {isMobile ? (
                     <div>
-
+                        <Grid className="flex justify-center" container rowSpacing={8} columns={1}>
+                            {attractionsCardsMobile}
+                        </Grid>
                     </div>
                 )
                     :
                     (
                         <div>
                             <Grid className="flex justify-center" container spacing={8}>
-                                {attractionsCards}
+                                {attractionsCardsDesktop}
                             </Grid>
                         </div>
                     )
