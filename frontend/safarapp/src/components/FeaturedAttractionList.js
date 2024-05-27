@@ -18,7 +18,7 @@ const FeaturedAttractionList = ({ attractions }) => {
 
     const attractionsCardsDesktop = attractions.map(attraction => {
         return (
-            <Grid item>
+            <Grid key={attraction.id} item>
                 <Link to={`/attractions/${attraction.id}`}>
                     <Card name={attraction.name} image={attraction.image} />
                 </Link>
@@ -28,7 +28,7 @@ const FeaturedAttractionList = ({ attractions }) => {
 
     const attractionsCardsMobile = attractions.map(attraction => {
         return (
-            <Grid item>
+            <Grid key={attraction.id} item>
                 <Link to={`/attractions/${attraction.id}`}>
                     <Card name={attraction.name} image={attraction.image} />
                 </Link>

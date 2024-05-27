@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Card from "./Card";
 import { useEffect, useState } from "react";
 import FeaturedAttractionList from "./FeaturedAttractionList";
+import AttractionList from "./AttractionList";
 
 const Country = ({ cities }) => {
 
@@ -20,18 +21,6 @@ const Country = ({ cities }) => {
         fetchAttractionsByCountry(country.id);
     }, []);
 
-
-    // const cityAttractionComponents = cities.map(city => {
-    //     // const citiesAttractions = attractions.filter(attraction => attraction.)
-    //     return (
-    //         <div>
-    //             <Card name={city.name} image={}/>
-    //         </div>
-    //     );
-    // });
-
-    console.log(filteredCities);
-
     return (
         <>
             <Box sx={{ width: '100%' }}>
@@ -44,7 +33,7 @@ const Country = ({ cities }) => {
                 <FeaturedAttractionList attractions={attractions.slice(0, 3)} />
             </Box>
             <Box>
-
+                <AttractionList cities={filteredCities}/>
             </Box>
         </>
     );
