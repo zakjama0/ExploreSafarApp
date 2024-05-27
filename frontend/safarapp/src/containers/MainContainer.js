@@ -3,7 +3,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import HomeContainer from "./HomeContainer";
-import Country from "@/components/Country";
+import Country from "../components/Country";
 
 const MainContainer = () => {
 
@@ -54,8 +54,9 @@ const MainContainer = () => {
     }, []);
 
     const countryLoader = ({ params }) => {
+        console.log(params);
         return countries.find(country => {
-            return country.id === parseInt(params.itemId);
+            return country.id === parseInt(params.countryId);
         });
     }
 

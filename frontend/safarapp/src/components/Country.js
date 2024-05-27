@@ -1,11 +1,15 @@
+import { Box } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 
 const Country = ({}) => {
 
     const country = useLoaderData();
-    console.log(country);
+
     return(
     <>
+    <Box>
+        
+    </Box>
     </>
     );
 }
