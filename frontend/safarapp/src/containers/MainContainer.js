@@ -75,7 +75,7 @@ const MainContainer = () => {
                 {
                     path: "/countries/:countryId",
                     loader: countryLoader,
-                    element: <Country />
+                    element: <Country cities={cities}/>
                 }
             ]
         }
