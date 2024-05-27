@@ -4,6 +4,7 @@ import React from 'react'
 import Logo from '../assests/logoname.png'
 import Popup from 'reactjs-popup';
 import LoginContainer from '../containers/LogInContainer';
+import RegistrationForm from './RegistrationForm';
 
 const NavBar = () => {
     const [mobileDrawerOpen , setMobileDrawerOpen] = useState(false);
@@ -80,7 +81,27 @@ const NavBar = () => {
                                 )
                             }
                         </Popup>
-                        <a href='/' className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</a>
+                        <Popup trigger=
+                            {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button>}
+                            modal nested>
+                            {
+                                close => (
+                                    <div className='modal'>
+                                        <div className='review-form'>
+                                            <RegistrationForm/>
+                                        </div>
+                                        <div className='flex justify-center items-center'>
+                                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
+                                        onClick=
+                                        {() => close()} >
+                                            Close
+                                        </button>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        </Popup>
+                      
                         {darkMode?<Moon onClick={toggleDark} className='cursor-pointer '/> : <Sun onClick={toggleDark} className='cursor-pointer'/>  }
                     </div>   
                 </div>
