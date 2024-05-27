@@ -2,6 +2,7 @@ import Card from '../components/Card';
 import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Link } from 'react-router-dom';
 
 const CountryList = ({ countries }) => {
 
@@ -31,11 +32,13 @@ const CountryList = ({ countries }) => {
 
   const listCountries = (region) => {
     return regions[region].map((country) => (
-      <Card
-        key={country.id}
-        name={country.name}
-        image={country.image}
-      />
+      <Link to={`/countries/${country.id}`}>
+        <Card
+          key={country.id}
+          name={country.name}
+          image={country.image}
+        />
+      </Link>
     ));
   };
 
