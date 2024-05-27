@@ -18,32 +18,32 @@ export default function LabelBottomNavigation() {
   };
 
   return (
-    <BottomNavigation sx={{ bgcolor: '#a4c3b2',flexGrow: 1, display: { xs: 'flex', md: 'none'}, bottom: 0, }} value={value} onChange={handleChange}>
+    <BottomNavigation sx={{ bgcolor: '#1E293B',flexGrow: 1, display: { xs: 'flex', md: 'none'}, bottom: 0, position:'fixed', width:'100%'}} value={value} onChange={handleChange}>
       
       <BottomNavigationAction
         label="Favorites"
         value="favorites"
-        icon={<FavoriteIcon />}
+        icon={<FavoriteIcon className='text-white' />}
       />
       <BottomNavigationAction
         label="Duas"
         value="duas"
-        icon={<LocalLibraryIcon />}
+        icon={<LocalLibraryIcon className='text-white' />}
       />
       <BottomNavigationAction
         label="Itinerary"
         value="itinerary"
-        icon={<LanguageIcon />}
+        icon={<LanguageIcon className='text-white'/>}
       />
       <BottomNavigationAction 
       label="Mosque" 
       value="mosque" 
-      icon={<MosqueIcon />} />
+      icon={<MosqueIcon  className='text-white'/>} />
 
     <BottomNavigationAction
         label="Food"
         value="food"
-        icon={<RestaurantMenuIcon />}
+        icon={<RestaurantMenuIcon className='text-white' />}
       />
     </BottomNavigation>
   );

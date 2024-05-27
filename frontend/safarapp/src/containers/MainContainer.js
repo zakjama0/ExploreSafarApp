@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
+import {  RouterProvider, createBrowserRouter } from "react-router-dom";
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
-import HomeContainer from "./HomeContainer";
 import Country from "../components/Country";
+import LandingPageContainer from "./LandingPageContainer";
 
 const MainContainer = () => {
 
@@ -66,7 +66,7 @@ const MainContainer = () => {
             children: [
                 {
                     path: "/",
-                    element: <HomeContainer />
+                    element: <LandingPageContainer />
                 },
                 {
                     path: "/itineraries",
