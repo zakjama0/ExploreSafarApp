@@ -56,35 +56,34 @@ const CountryList = ({ countries }) => {
   };
 
 
-  return (<>
-
-    <div>
-      {isMobile ? (
-        <div>
-          {Object.keys(regions).map((region) => (
-            <div key={region}>
-              <h2>{region}</h2>
-              <div>{listCountries(region)}</div>
-            </div>
-          ))}
-        </div>
-      )
-        :
-        (
-          <div className="w-5/6">
+  return (
+    <>
+      <div>
+        {isMobile ? (
+          <div>
             {Object.keys(regions).map((region) => (
               <div key={region}>
                 <h2>{region}</h2>
-                <Carousel responsive={responsive}>{listCountries(region)}</Carousel>
+                <div>{listCountries(region)}</div>
               </div>
             ))}
           </div>
         )
-      }
-    </div>
-
-
-  </>);
+          :
+          (
+            <div className="w-5/6">
+              {Object.keys(regions).map((region) => (
+                <div key={region}>
+                  <h2>{region}</h2>
+                  <Carousel responsive={responsive}>{listCountries(region)}</Carousel>
+                </div>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </>
+  );
 }
 
 export default CountryList;

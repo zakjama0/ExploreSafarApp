@@ -54,7 +54,6 @@ const MainContainer = () => {
     }, []);
 
     const countryLoader = ({ params }) => {
-        console.log(params);
         return countries.find(country => {
             return country.id === parseInt(params.countryId);
         });
