@@ -7,7 +7,13 @@ import DhikrBlack from '../assests/DhikrBlack.png'
 import { ArrowRight } from 'lucide-react';
 import {SiInstagram, SiTiktok, SiTwitter, SiYoutube} from 'react-icons/si'
 const BentoGrid = () => {
- 
+    const [isDark, setIsDark] = useState(true);
+
+    useEffect(() => {
+      const htmlElement = document.documentElement;
+      const isDarkMode = htmlElement.classList.contains('dark');
+      setIsDark(isDarkMode);
+    }, []);
   return (
     <div className='min-h-screen bg-white dark:bg-slate-800 w-full px-4 py-12 text-zinc-50'>
         <div className='mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4'>
@@ -41,8 +47,8 @@ const BentoGrid = () => {
             </BentoItem>
             <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
             <h2 className='mb-12 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Duas & Dhikr. {" "}</h2>
-                <img src={DhikrWhite} className='hidden dark:absolute bottom-0 right-0 w-24 h-24'/>
-                <img src={DhikrBlack} className='absolute bottom-0 right-0 w-24 h-24 dark:hidden '/>
+                <img src={DhikrBlack} className='absolute bottom-0 right-0 w-24 h-24 dark:hidden'/>
+                <img src={DhikrWhite} className='hidden dark:block   dark:absolute dark:bottom-0 dark:right-0 dark:w-24 dark:h-24 z-10 '/>
             </BentoItem>
             <BentoItem className="md:col-span-3 col-span-12 row-span-10 flex flex-row justify-between">
             <h2 className='mb-12 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Lorem Ipsum. {" "}</h2>
