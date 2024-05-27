@@ -16,7 +16,6 @@ public class City {
 
     @ManyToOne
     @JoinColumn(name = "country_id")
-
     private Country country;
 
     @OneToMany(mappedBy = "city")

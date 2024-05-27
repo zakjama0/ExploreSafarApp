@@ -15,7 +15,6 @@ public class Attraction {
     @Column
     private long id;
 
-//    @JsonIgnoreProperties({"attractions"})
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "city_id")
@@ -57,6 +56,14 @@ public class Attraction {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public City getCity() {
