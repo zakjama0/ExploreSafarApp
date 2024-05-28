@@ -14,11 +14,13 @@ const BentoGrid = () => {
       const isDarkMode = htmlElement.classList.contains('dark');
       setIsDark(isDarkMode);
     }, []);
+
+    
   return (
     <div className='min-h-screen bg-white dark:bg-slate-800 w-full px-4 py-12 text-zinc-50'>
         <div className='mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4'>
             <BentoItem className='col-span-12 row-span-2 md:col-span-6 relative p-4' >
-                <h2 className='mb-12 text-xl font-medium leading-tight'>Introducing the beta version of our app: your ultimate companion for seamless, Muslim-friendly travel experiences!</h2>
+                <h2 className='mb-12 text-xl font-medium leading-tight text-black dark:text-white'>Introducing the beta version of our app: your ultimate companion for seamless, Muslim-friendly travel experiences!</h2>
                 <img src={GlobeLanding} className='absolute bottom-0 right-0 w-32 h-32'/>
                 <a href='/' className='flex items-center gap-1 text-red-300 hover:underline'>Try <ArrowRight/> </a>
             </BentoItem>
@@ -57,7 +59,7 @@ const BentoGrid = () => {
                 <img src={DhikrWhite} className='hidden dark:block   dark:absolute dark:bottom-0 dark:right-0 dark:w-24 dark:h-24 z-10 '/>
             </BentoItem>
             <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
-            <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Have your say. {" "}</h2>
+            <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Masjids and Food {" "}</h2>
             <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Designed to be a community first application, share your favoruite activities below. </h3>
             <a href='https://forms.gle/aAUjgemrFXHwqM2Y8' className='md:hidden text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
                 className='text-sm'

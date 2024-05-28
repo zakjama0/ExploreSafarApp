@@ -20,7 +20,7 @@ import Logo from '../assests/logoname.png'
 
 const SafarAnimation = () => {
   return (
-    <div className=" hidden md:flex md:justify-around md:space-between  ">
+    <div className=" hidden h-80 md:flex md:justify-around md:space-between  ">
     <motion.div
           className="m-4 flex-row items-center justify-center"
         initial="hidden"
