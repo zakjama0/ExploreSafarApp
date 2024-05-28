@@ -4,6 +4,7 @@ import GlobeLanding from '../assests/cornerglobe.png'
 import DhikrWhite from '../assests/DhikrWhite.png'
 import DhikrBlack from '../assests/DhikrBlack.png'
 import { ArrowRight } from 'lucide-react';
+import { HiArrowNarrowRight } from 'react-icons/hi';
 
 const BentoGrid = () => {
     const [isDark, setIsDark] = useState(true);
@@ -45,17 +46,37 @@ const BentoGrid = () => {
                 <img src={GlobeLanding} className='absolute bottom-0 right-0 w-28 h-28'/>
             </BentoItem>
             <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
-            <h2 className='mb-12 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Duas & Dhikr. {" "}</h2>
+            <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Duas and Dhikr. {" "}</h2>
+            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Designed to be a community first application, share your favoruite activities below. </h3>
+            <a href='https://forms.gle/aAUjgemrFXHwqM2Y8' className='text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
+                className='text-sm'
+                    >
+                <HiArrowNarrowRight className="" />
+             </button></a>
                 <img src={DhikrBlack} className='absolute bottom-0 right-0 w-24 h-24 dark:hidden'/>
                 <img src={DhikrWhite} className='hidden dark:block   dark:absolute dark:bottom-0 dark:right-0 dark:w-24 dark:h-24 z-10 '/>
             </BentoItem>
-            <BentoItem className="md:col-span-3 col-span-12 row-span-10 flex flex-row justify-between">
-            <h2 className='mb-12 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Lorem Ipsum. {" "}</h2>
-                <img src={DhikrWhite} className='w-24 h-24 bottom-0 left-0'/>
+            <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
+            <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Have your say. {" "}</h2>
+            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Designed to be a community first application, share your favoruite activities below. </h3>
+            <a href='https://forms.gle/aAUjgemrFXHwqM2Y8' className='md:hidden text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
+                className='text-sm'
+                    >
+                <HiArrowNarrowRight className="" />
+             </button></a>
+                <img src={DhikrBlack} className='absolute bottom-0 right-0 w-24 h-24 dark:hidden'/>
+                <img src={DhikrWhite} className='hidden dark:block   dark:absolute dark:bottom-0 dark:right-0 dark:w-24 dark:h-24 z-10 '/>
             </BentoItem>
-            <BentoItem className="md:col-span-3 col-span-12 row-span-10 flex flex-row justify-between">
-            <h2 className='mb-12 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Lorem Ipsum. {" "}</h2>
-                <img src={DhikrWhite} className='w-24 h-24 bottom-0 left-0'/>
+            <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
+            <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Have your say. {" "}</h2>
+            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Designed to be a community first application, share your favoruite activities below. </h3>
+            <a href='https://forms.gle/aAUjgemrFXHwqM2Y8' className='md:hidden before:text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
+                className='text-sm'
+                    >
+                <HiArrowNarrowRight className="" />
+             </button></a>
+                <img src={DhikrBlack} className='absolute bottom-0 right-0 w-24 h-24 dark:hidden'/>
+                <img src={DhikrWhite} className='hidden dark:block   dark:absolute dark:bottom-0 dark:right-0 dark:w-24 dark:h-24 z-10 '/>
             </BentoItem>
         </div>
     </div>
