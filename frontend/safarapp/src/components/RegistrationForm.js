@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
 const RegistrationForm = ({ postUser }) => {
 
@@ -11,40 +10,26 @@ const RegistrationForm = ({ postUser }) => {
     event.preventDefault();
     if (handleValidation()) {
 
-      const newCustomer = {
+      const newUser = {
         name,
         email,
         password
       }
 
-      setActiveCustomer(newCustomer);
-      postCustomer(newCustomer);
-
-      navigate("/login");
-      return;
+      postUser(newUser);
     }
   }
 
   const handleValidation = () => {
-    let validation = true;
-
-
-    if (customers.find(customer => customer.name === name)) {
-      alert("User already exists");
-      validation = false;
-    }
-
-    if (customers.find(customer => customer.email === email)) {
-      alert("Email already exists");
-      validation = false;
-    }
 
     if (name === "" || email === "" || password === "") {
       alert("Please fill in all fields")
-      validation = false;
+      return false;
     }
-    return validation;
+    return true;
   }
+
+  console.log(name + ' ' + email + ' ' + password);
 
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
@@ -60,6 +45,8 @@ const RegistrationForm = ({ postUser }) => {
                   type="text"
                   name="name"
                   placeholder="Enter name"
+                  value={name}
+                  onChange={event => setName(event.target.value)}
                 />
               </div>
               <div className="input-box relative w-11/12 mb-6">
@@ -69,6 +56,8 @@ const RegistrationForm = ({ postUser }) => {
                   type="email"
                   name="email"
                   placeholder="Enter email address"
+                  value={email}
+                  onChange={event => setEmail(event.target.value)}
                 />
               </div>
               <div className="input-box relative w-11/12 mb-6">
@@ -78,6 +67,8 @@ const RegistrationForm = ({ postUser }) => {
                   type="password"
                   name="password"
                   placeholder="Enter password"
+                  value={password}
+                  onChange={event => setPassword(event.target.value)}
                 />
               </div>
               <div className="register-link text-center mb-4">
