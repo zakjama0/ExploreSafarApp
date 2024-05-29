@@ -43,9 +43,9 @@ const NavBar = () => {
                             </ul>
                         </div>
                         <ul className='hidden lg:flex ml-14 space-x-12'>
-                            <li><Link to="/itineraries">Itineraries</Link></li>
-                            <li> <a href={'/'}>Test 2</a> </li>
-                            <li> <a href={'/'}>Test 3</a> </li>
+                            <li><Link className='text-black dark:text-white' to="/itineraries">Itineraries</Link></li>
+                            <li className=' text-black dark:text-white'> <a href={'/'}>Maps</a> </li>
+                                    <li className=' text-black dark:text-white'> <a href={'/'}>Duas</a> </li>
                         </ul>
                         <div className="hidden lg:flex justify-center space-x-12 items-center" >
                         <Popup trigger=
@@ -69,7 +69,7 @@ const NavBar = () => {
                                         }
                                     </Popup>
                             <Popup trigger=
-                                        {<button className='py-2 px-3 border rounded-md'>Sign in</button>}
+                                        {<button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button>}
                                         modal nested>
                                         {
                                             close => (
