@@ -1,39 +1,72 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ postUser }) => {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (handleValidation()) {
+
+      const newUser = {
+        name,
+        email,
+        password
+      }
+
+      postUser(newUser);
+    }
+  }
+
+  const handleValidation = () => {
+
+    if (name === "" || email === "" || password === "") {
+      alert("Please fill in all fields")
+      return false;
+    }
+    return true;
+  }
+
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
       <div className="main-login flex flex-col items-center">
         <div className="wrapper">
           <div className="registration w-[500px] bg-gradient-to-b from-yellow-500 via-orange-500 to-red-600 border-2 border-yellow-400 backdrop-blur-sm shadow-lg text-white rounded-lg p-8">
-            <form>
+            <form onSubmit={handleSubmit}>
               <h1 className="text-4xl text-center mb-6">Sign Up!</h1>
               <div className="input-box relative w-11/12 mb-6">
                 <label htmlFor="name" className="block mb-2">Name:</label>
                 <input
-                  className="name w-full p-2 rounded"
+                  className="name w-full p-2 rounded text-black"
                   type="text"
                   name="name"
                   placeholder="Enter name"
+                  value={name}
+                  onChange={event => setName(event.target.value)}
                 />
               </div>
               <div className="input-box relative w-11/12 mb-6">
                 <label htmlFor="email" className="block mb-2">Email:</label>
                 <input
-                  className="email w-full p-2 rounded"
+                  className="email w-full p-2 rounded text-black"
                   type="email"
                   name="email"
                   placeholder="Enter email address"
+                  value={email}
+                  onChange={event => setEmail(event.target.value)}
                 />
               </div>
               <div className="input-box relative w-11/12 mb-6">
                 <label htmlFor="password" className="block mb-2">Password:</label>
                 <input
-                  className="password w-full p-2 rounded"
+                  className="password w-full p-2 rounded text-black"
                   type="password"
                   name="password"
                   placeholder="Enter password"
+                  value={password}
+                  onChange={event => setPassword(event.target.value)}
                 />
               </div>
               <div className="register-link text-center mb-4">

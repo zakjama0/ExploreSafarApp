@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import {  RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import Country from "../components/Country";
 import LandingPageContainer from "./LandingPageContainer";
+const apiUrl = "localhost:8080";
 
 const MainContainer = () => {
 
@@ -14,36 +15,59 @@ const MainContainer = () => {
     const [reviews, setReviews] = useState([]);
 
     const fetchAttractions = async () => {
-        const response = await fetch(`http://localhost:8080/attractions`);
+        const response = await fetch(`http://${apiUrl}/attractions`);
         const data = await response.json();
         setAttractions(data);
     }
 
     const fetchCities = async () => {
-        const response = await fetch(`http://localhost:8080/cities`);
+        const response = await fetch(`http://${apiUrl}/cities`);
         const data = await response.json();
         setCities(data);
     }
 
     const fetchCountries = async () => {
-        const response = await fetch(`http://localhost:8080/countries`);
+        const response = await fetch(`http://${apiUrl}/countries`);
         const data = await response.json();
         setCountries(data);
     }
 
     const fetchDuas = async () => {
-        const response = await fetch(`http://localhost:8080/duas`);
+        const response = await fetch(`http://${apiUrl}/duas`);
         const data = await response.json();
         setDuas(data);
     }
 
     const fetchReviews = async () => {
-        const response = await fetch(`http://localhost:8080/reviews`);
+        const response = await fetch(`http://${apiUrl}/reviews`);
         const data = await response.json();
         setReviews(data);
     }
 
+    const postUser = async (newUser) => {
+        try {
+            const response = await fetch(`http://${apiUrl}/api/v1/auth/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newUser)
+            });
 
+            if (!response.ok) {
+                if (response.status === 409) {
+                    alert("A user with this email address already exists.");
+                } else {
+                    throw new Error("An unexpected error occurred.");
+                }
+            }
+
+            const data = await response.json();
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    };
 
     useEffect(() => {
         fetchAttractions();
@@ -62,7 +86,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Navigation />,
+            element: <Navigation postUser={postUser} />,
             children: [
                 {
                     path: "/",
@@ -75,7 +99,7 @@ const MainContainer = () => {
                 {
                     path: "/countries/:countryId",
                     loader: countryLoader,
-                    element: <Country cities={cities}/>
+                    element: <Country cities={cities} />
                 }
             ]
         }

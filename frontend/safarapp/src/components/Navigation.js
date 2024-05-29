@@ -7,7 +7,7 @@ import Popup from 'reactjs-popup';
 import LoginContainer from './LogInForm';
 import RegistrationForm from './RegistrationForm';
 
-const NavBar = () => {
+const NavBar = ({ postUser }) => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -55,7 +55,7 @@ const NavBar = () => {
                                             close => (
                                                 <div className='modal'>
                                                     <div className='review-form'>
-                                                        <RegistrationForm />
+                                                        <RegistrationForm postUser={postUser}/>
                                                     </div>
                                                     <div className='flex justify-center items-center'>
                                                         <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
