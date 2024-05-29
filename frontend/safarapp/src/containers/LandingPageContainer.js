@@ -27,17 +27,10 @@ const LandingPageContainer = () => {
   
   return (
     <div   className=' dark:bg-slate-800 w-full h-full'>
-        <div className=' flex-row items-center justify-center mb-40'>
-          <motion.h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-800 "
-           variants={{
-            hidden:{opacity:0 , y:75},
-            visible:{opacity:1 , y:0}
-          }}
-          initial="hidden"
-          animate="visible"
-          transition={{duration:1, delay:0.25}}
-          >Welcome to the future of travelling</motion.h1>
-          <h2 className='text-center mx-16 md:mx-32 dark:text-white'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, it makes journeys both enjoyable and spiritually fulfilling</h2>
+        <div className=' flex-row items-center justify-center mb-20'>
+          <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-800 "
+          >Welcome to the future of travelling</h1>
+          <h2 className='text-center mx-16 md:mx-32 dark:text-white'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, in which we make journeys both enjoyable and spiritually fulfilling</h2>
           <div className="flex items-center justify-center mt-3">
           <a href='/' className='text-lg bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Get started {" "}<motion.button
           className='text-sm'
@@ -49,8 +42,7 @@ const LandingPageContainer = () => {
       </motion.button></a>
             </div>
         </div > 
-        <SafarAnimation />
-        <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Our App</h1>
+        <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Our App</h1>
         <motion.div
         ref={ref}
         variants={{
@@ -63,7 +55,7 @@ const LandingPageContainer = () => {
         >
         <BentoGrid />
         </motion.div>
-        <div className="min-h-screen bg-white dark:bg-slate-800 w-full px-4 py-12 text-zinc-50">
+        <div className="min-h-screen bg-white dark:bg-slate-800 w-full px-4 py-5 text-zinc-50">
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-8">
     <div className="flex flex-col items-center">
       <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800">Our Story</h1>

@@ -5,6 +5,7 @@ import Navigation from "../components/Navigation";
 import Country from "../components/Country";
 import LandingPageContainer from "./LandingPageContainer";
 import DuasContainer from "./DuasContainer";
+import SafarAnimation from "../components/SafarAnimation";
 
 const MainContainer = () => {
 
@@ -13,6 +14,7 @@ const MainContainer = () => {
     const [countries, setCountries] = useState([]);
     const [duas, setDuas] = useState([]);
     const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] =useState(false)
 
     const fetchAttractions = async () => {
         const response = await fetch(`http://localhost:8080/attractions`);
@@ -52,6 +54,10 @@ const MainContainer = () => {
         fetchCountries();
         fetchDuas();
         fetchReviews();
+        setLoading(true)
+        setTimeout(() =>{
+            setLoading(false)
+        },5500)
     }, []);
 
     const countryLoader = ({ params }) => {
@@ -88,7 +94,13 @@ const MainContainer = () => {
 
     return (
         <>
+        {
+            loading ?
+            <SafarAnimation />
+            :
             <RouterProvider router={router} />
+        }
+            
         </>
     );
 }

@@ -20,7 +20,7 @@ import Logo from '../assests/logoname.png'
 
 const SafarAnimation = () => {
   return (
-    <div className=" hidden h-80 md:flex md:justify-around md:space-between  ">
+    <div className="h-screen flex items-center justify-around space-between  ">
     <motion.div
           className="m-4 flex-row items-center justify-center"
         initial="hidden"
@@ -28,8 +28,8 @@ const SafarAnimation = () => {
         transition={{ duration: 0.7, delay: 2  }}
         variants={iconVariants}
     >
-        <MdOutlineReviews className="mx-2 text-4xl md:text-6xl text-zinc-500" />
-        <motion.h2 className='text-zinc-500 text-md md:text-xl'
+        <MdOutlineReviews className="mx-2 text-4xl md:text-6xl text-blue-500" />
+        <motion.h2 className='text-black text-md md:text-xl'
          initial="hidden"
          animate="visible"
          transition={{ duration: 0.7, delay: 2.5  }}
@@ -47,7 +47,7 @@ const SafarAnimation = () => {
         <motion.h2  initial="hidden"
         animate="visible"
         transition={{ duration: 0.7, delay: 2.5  }}
-        variants={textVariants} className='text-zinc-500 text-md md:text-xl'>Masjids</motion.h2>
+        variants={textVariants} className='text-black text-md md:text-xl'>Masjids</motion.h2>
     </motion.div>
     <motion.div
         className="m-4 flex-row items-center justify-center"
@@ -71,7 +71,7 @@ const SafarAnimation = () => {
         variants={iconVariants}
     >
         <LuHelpingHand className="text-4xl md:text-6xl text-blue-500" />
-        <motion.h2 className='text-zinc-500 text-md md:text-xl'
+        <motion.h2 className='text-black text-md md:text-xl'
          initial="hidden"
          animate="visible"
          transition={{ duration: 0.7, delay: 2.5  }}
@@ -85,7 +85,7 @@ const SafarAnimation = () => {
         variants={iconVariants}
     >
         <PiForkKnifeBold className=" text-4xl md:text-6xl text-blue-500" />
-        <motion.h2 className='mx-2 text-zinc-500 text-md md:text-xl'
+        <motion.h2 className='mx-2 text-black text-md md:text-xl'
         initial="hidden"
         animate="visible"
         transition={{ duration: 0.7, delay: 2.5  }}

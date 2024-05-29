@@ -99,7 +99,7 @@ const DuasContainer = ({duas}) => {
     <div className='flex-row justify-center items-center'>
     <h1 className="py-5  mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Duas & Dhikr</h1>
     {/* <h1 className='mb-5 mx-5 md:mx-20 text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'> قُلْ سِيرُوا۟ فِى ٱلْأَرْضِ فَٱنظُرُوا۟ كَيْفَ بَدَأَ ٱلْخَلْقَ ۚ ثُمَّ ٱللَّهُ يُنشِئُ ٱلنَّشْأَةَ ٱلْـَٔاخِرَةَ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ </h1> */}
-    <h1 className='mb-5 mx-5 md:mx-20 text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'> Say (O Muhammad): ‘Travel throughout the land and see how He originated the creation, then Allah will bring it into being one more time. Surely Allah is Most Capable of everything.’</h1>
+    <h1 className='mb-5 mx-5 md:mx-20 md:text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'> Say (O Muhammad): ‘Travel throughout the land and see how He originated the creation, then Allah will bring it into being one more time. Surely Allah is Most Capable of everything.’</h1>
     <h1 className='mb-5 text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'>(Surah Al-Ankabut, 29:20)</h1>
     <Box sx={{ width: '100%' }}>
       <div className='flex justify-center pt-5'>
