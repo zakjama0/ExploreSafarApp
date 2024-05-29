@@ -29,8 +29,6 @@ const RegistrationForm = ({ postUser }) => {
     return true;
   }
 
-  console.log(name + ' ' + email + ' ' + password);
-
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
       <div className="main-login flex flex-col items-center">
@@ -41,7 +39,7 @@ const RegistrationForm = ({ postUser }) => {
               <div className="input-box relative w-11/12 mb-6">
                 <label htmlFor="name" className="block mb-2">Name:</label>
                 <input
-                  className="name w-full p-2 rounded"
+                  className="name w-full p-2 rounded text-black"
                   type="text"
                   name="name"
                   placeholder="Enter name"
@@ -52,7 +50,7 @@ const RegistrationForm = ({ postUser }) => {
               <div className="input-box relative w-11/12 mb-6">
                 <label htmlFor="email" className="block mb-2">Email:</label>
                 <input
-                  className="email w-full p-2 rounded"
+                  className="email w-full p-2 rounded text-black"
                   type="email"
                   name="email"
                   placeholder="Enter email address"
@@ -63,7 +61,7 @@ const RegistrationForm = ({ postUser }) => {
               <div className="input-box relative w-11/12 mb-6">
                 <label htmlFor="password" className="block mb-2">Password:</label>
                 <input
-                  className="password w-full p-2 rounded"
+                  className="password w-full p-2 rounded text-black"
                   type="password"
                   name="password"
                   placeholder="Enter password"

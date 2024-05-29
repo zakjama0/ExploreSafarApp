@@ -17,7 +17,7 @@ const LoginForm = () => {
             <div className="input-box relative w-11/12 mb-6">
               <label htmlFor="email" className="block mb-2">Email:</label>
               <input
-                className="email w-full p-2 rounded"
+                className="email w-full p-2 rounded text-black"
                 type="email"
                 name="email"
                 placeholder="Enter email address"
@@ -26,7 +26,7 @@ const LoginForm = () => {
             <div className="input-box relative w-11/12 mb-6">
               <label htmlFor="password" className="block mb-2">Password:</label>
               <input
-                className="password w-full p-2 rounded"
+                className="password w-full p-2 rounded text-black"
                 type="password"
                 name="password"
                 placeholder="Enter password"

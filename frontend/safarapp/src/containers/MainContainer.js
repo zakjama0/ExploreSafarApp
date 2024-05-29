@@ -45,7 +45,6 @@ const MainContainer = () => {
     }
 
     const postUser = async (newUser) => {
-        console.log(newUser);
         const response = await fetch(`http://${apiUrl}/api/v1/auth/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
