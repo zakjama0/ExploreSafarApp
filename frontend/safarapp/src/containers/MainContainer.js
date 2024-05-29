@@ -45,12 +45,28 @@ const MainContainer = () => {
     }
 
     const postUser = async (newUser) => {
-        const response = await fetch(`http://${apiUrl}/api/v1/auth/register`, {
+        try {
+          const response = await fetch(`http://${apiUrl}/api/v1/auth/register`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newUser)
-        });
-    }
+          });
+      
+          if (!response.ok) {
+            if (response.status === 409) {
+              alert("A user with this email address already exists.");
+            } else {
+              throw new Error("An unexpected error occurred.");
+            }
+          }
+      
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error(error);
+          throw error;
+        }
+      };
 
     useEffect(() => {
         fetchAttractions();

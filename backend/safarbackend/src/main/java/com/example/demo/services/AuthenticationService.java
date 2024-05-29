@@ -5,6 +5,7 @@ import com.example.demo.auth.AuthenticationResponse;
 import com.example.demo.auth.RegisterRequest;
 import com.example.demo.enums.Role;
 import com.example.demo.enums.TokenType;
+import com.example.demo.exceptions.UserAlreadyExistsException;
 import com.example.demo.models.Token;
 import com.example.demo.models.User;
 import com.example.demo.repositories.TokenRepository;
@@ -20,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +34,11 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse registerUser(RegisterRequest request) {
+        Optional<User> existingUser = userRepository.findByEmail(request.getEmail());
+        if (existingUser.isPresent()) {
+            throw new UserAlreadyExistsException("A user with this email address already exists.");
+        }
+
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
