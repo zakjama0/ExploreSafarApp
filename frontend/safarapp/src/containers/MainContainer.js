@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import Country from "../components/Country";
 import LandingPageContainer from "./LandingPageContainer";
+
 const apiUrl = "localhost:8080";
 
 const MainContainer = () => {
@@ -61,13 +62,61 @@ const MainContainer = () => {
             }
 
             const data = await response.json();
-            console.log(data);
+            const { access_token, refresh_token } = data;
+
+            localStorage.setItem("access_token", access_token);
+            localStorage.setItem("refresh_token", refresh_token);
+
+            console.log(localStorage);
             return data;
         } catch (error) {
             console.error(error);
             throw error;
         }
     };
+
+    const getUser = async (email) => {
+        const access_token = localStorage.getItem("access_token");
+        const response = await fetch(`http://${apiUrl}/users/${email}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${access_token}`,
+              },
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+
+    const login = async (userCredentials) => {
+        try {
+            const response = await fetch(`http://${apiUrl}/api/v1/auth/authenticate`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userCredentials)
+            });
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                  throw new Error("Email address or password is incorrect.");
+                } else {
+                  throw new Error("An unexpected error occurred.");
+                }
+              }
+
+            const data = await response.json();
+            const { access_token, refresh_token } = data;
+
+            localStorage.setItem("access_token", access_token);
+            localStorage.setItem("refresh_token", refresh_token);
+
+            getUser(userCredentials.email);
+            return data;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
 
     useEffect(() => {
         fetchAttractions();
@@ -86,7 +135,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Navigation postUser={postUser} />,
+            element: <Navigation postUser={postUser} login={login}/>,
             children: [
                 {
                     path: "/",
