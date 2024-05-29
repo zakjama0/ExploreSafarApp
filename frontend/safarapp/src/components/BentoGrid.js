@@ -44,13 +44,15 @@ const BentoGrid = () => {
             <h2 className='mb-12 text-xl text-center dark:text-white text-black font-medium leading-tight grid h-full place-content-center'>Introducing the beta version of our app: your ultimate companion for seamless, Muslim-friendly travel experiences!</h2>
             </BentoItem>
             <BentoItem className="md:col-span-3 row-span-10 relative p-4 col-span-12">
-            <h2 className='mb-12 text-xl text-zinc-900 font-medium leading-tight dark:text-white'>Lorem Ipsum. {" "}</h2>
+            <h2 className='mb-3 text-xl text-zinc-900 font-medium leading-tight dark:text-white'>Itineraries. {" "}</h2>
+            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Use our in app itinerary builder that p </h3>
+
                 <img src={GlobeLanding} className='absolute bottom-0 right-0 w-28 h-28'/>
             </BentoItem>
             <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
             <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Duas and Dhikr. {" "}</h2>
-            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Designed to be a community first application, share your favoruite activities below. </h3>
-            <a href='https://forms.gle/aAUjgemrFXHwqM2Y8' className='text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
+            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Enhance your travels with blessings by remembering the Creator of the heavens and the earth. </h3>
+            <a href='https://forms.gle/aAUjgemrFXHwqM2Y8' className='md:hidden text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
                 className='text-sm'
                     >
                 <HiArrowNarrowRight className="" />
@@ -60,7 +62,7 @@ const BentoGrid = () => {
             </BentoItem>
             <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
             <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Masjids and Food {" "}</h2>
-            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Designed to be a community first application, share your favoruite activities below. </h3>
+            <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Discover nearby halal food and mosques with our interactive map. </h3>
             <a href='https://forms.gle/aAUjgemrFXHwqM2Y8' className='md:hidden text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
                 className='text-sm'
                     >

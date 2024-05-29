@@ -9,6 +9,8 @@ import LanguageIcon from '@mui/icons-material/Language';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import MosqueIcon from '@mui/icons-material/Mosque';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
+import { Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function LabelBottomNavigation() {
   const [value, setValue] = React.useState('recents');
@@ -21,9 +23,10 @@ export default function LabelBottomNavigation() {
     <BottomNavigation sx={{ bgcolor: '#1E293B',flexGrow: 1, display: { xs: 'flex', md: 'none'}, bottom: 0, position:'fixed', width:'100%'}} value={value} onChange={handleChange}>
       
       <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<FavoriteIcon className='text-white' />}
+        label="Home"
+        value="home"
+        icon={<Home className='text-white' 
+        href='/itineraries'/>}
       />
       <BottomNavigationAction
         label="Duas"
