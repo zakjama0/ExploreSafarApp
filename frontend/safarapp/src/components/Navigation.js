@@ -44,8 +44,8 @@ const NavBar = () => {
                         </div>
                         <ul className='hidden lg:flex ml-14 space-x-12'>
                             <li><Link className='text-black dark:text-white' to="/itineraries">Itineraries</Link></li>
-                            <li className=' text-black dark:text-white'> <a href={'/'}>Maps</a> </li>
-                                    <li className=' text-black dark:text-white'> <a href={'/'}>Duas</a> </li>
+                            <li className=' text-black dark:text-white'> <Link to='/duas'>Duas</Link> </li>
+                            <li className=' text-black dark:text-white'> <Link to='/'>Maps</Link>  </li>
                         </ul>
                         <div className="hidden lg:flex justify-center space-x-12 items-center" >
                         <Popup trigger=
@@ -99,8 +99,8 @@ const NavBar = () => {
                             <div className='fixed right-0 z-50 bg-slate-200/80 w-full mt-96 p-12 py-16 flex flex-col justify-center items-center border-b rounded-lg border-neutral-700/80 dark:bg-gray-800/80 lg:hidden'>
                                 <ul className='flex-col items-center'>
                                 <li className='py-4 text-black dark:text-white text-center'><Link to="/itineraries">Itineraries</Link></li>
-                                    <li className='py-4 text-black dark:text-white'> <a href={'/'}>Maps</a> </li>
-                                    <li className='py-4 text-black dark:text-white'> <a href={'/'}>Duas</a> </li>
+                                <li className='py-4 text-black dark:text-white'> <Link to='/duas'>Duas</Link> </li>
+                                <li className='py-4 text-black dark:text-white'> <Link to='/'>Maps</Link>  </li>
                                 </ul>
                                 <div className={isPopupOpen ? 'blurred-background flex space-x-6' : 'flex space-x-6'}>
                                     <Popup trigger=

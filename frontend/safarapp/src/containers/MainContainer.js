@@ -4,6 +4,7 @@ import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import Country from "../components/Country";
 import LandingPageContainer from "./LandingPageContainer";
+import DuasContainer from "./DuasContainer";
 
 const MainContainer = () => {
 
@@ -76,7 +77,11 @@ const MainContainer = () => {
                     path: "/countries/:countryId",
                     loader: countryLoader,
                     element: <Country cities={cities}/>
-                }
+                },
+                {
+                    path: "/duas",
+                    element: <DuasContainer duas={duas} />
+                },
             ]
         }
     ]);
