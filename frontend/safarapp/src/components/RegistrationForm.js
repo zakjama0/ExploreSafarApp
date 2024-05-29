@@ -1,13 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ postUser }) => {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (handleValidation()) {
+
+      const newCustomer = {
+        name,
+        email,
+        password
+      }
+
+      setActiveCustomer(newCustomer);
+      postCustomer(newCustomer);
+
+      navigate("/login");
+      return;
+    }
+  }
+
+  const handleValidation = () => {
+    let validation = true;
+
+
+    if (customers.find(customer => customer.name === name)) {
+      alert("User already exists");
+      validation = false;
+    }
+
+    if (customers.find(customer => customer.email === email)) {
+      alert("Email already exists");
+      validation = false;
+    }
+
+    if (name === "" || email === "" || password === "") {
+      alert("Please fill in all fields")
+      validation = false;
+    }
+    return validation;
+  }
+
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
       <div className="main-login flex flex-col items-center">
         <div className="wrapper">
           <div className="registration w-[500px] bg-gradient-to-b from-yellow-500 via-orange-500 to-red-600 border-2 border-yellow-400 backdrop-blur-sm shadow-lg text-white rounded-lg p-8">
-            <form>
+            <form onSubmit={handleSubmit}>
               <h1 className="text-4xl text-center mb-6">Sign Up!</h1>
               <div className="input-box relative w-11/12 mb-6">
                 <label htmlFor="name" className="block mb-2">Name:</label>
