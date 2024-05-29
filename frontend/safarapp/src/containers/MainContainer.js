@@ -54,7 +54,7 @@ const MainContainer = () => {
             });
 
             if (!response.ok) {
-                if (response.status === 409) {
+                if (response.status === 403) {
                     alert("A user with this email address already exists.");
                 } else {
                     throw new Error("An unexpected error occurred.");
@@ -98,7 +98,7 @@ const MainContainer = () => {
 
             if (!response.ok) {
                 if (response.status === 401) {
-                  throw new Error("Email address or password is incorrect.");
+                  alert("Email address or password is incorrect.");
                 } else {
                   throw new Error("An unexpected error occurred.");
                 }
