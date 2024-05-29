@@ -66,7 +66,7 @@ const LoginForm = ({ login }) => {
                 <input
                   className="register-btn w-40 h-12 bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-lg text-orange-500 font-semibold text-center"
                   type="submit"
-                  value="Sign Up"
+                  value="Login"
                 />
               </div>
             </form>
