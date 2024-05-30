@@ -41,6 +41,14 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        logoutService.logout(request, response, authentication);
+        return ResponseEntity.ok("Logged out successfully");
+    }
+
     @PostMapping("/refresh-token")
     public void refreshToken(
             HttpServletRequest request,
