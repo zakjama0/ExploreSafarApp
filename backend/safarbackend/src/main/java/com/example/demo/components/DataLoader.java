@@ -1,10 +1,12 @@
 package com.example.demo.components;
 
+import com.example.demo.enums.Category;
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
 import com.example.demo.models.Attraction;
 import com.example.demo.models.City;
 import com.example.demo.models.Country;
+import com.example.demo.models.Dua;
 import com.example.demo.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -36,6 +38,42 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
+//        Dua
+        Dua startJourney = new Dua("Starting the journey","بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ","In the name of Allah, I trust in Allah; there is no might and no power but in Allah" ,"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah", "For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him.”" ,"Grade: Sahih (Al-Albani)\n" +
+                "Reference: Sunan Abi Dawud 5095\n" +
+                "In-book reference: Book 43, Hadith 323", Category.TRAVEL_DUA);
+
+        Dua hardshipOfTravel = new Dua("Seeking refuge with Allah from the hardships of travelling", " اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمُنْقَلَبِ وَالْحَوْرِ بَعْدَ الْكَوْرِ وَدَعْوَةِ الْمَظْلُومِ وَسُوءِ الْمَنْظَرِ فِي الأَهْلِ وَالْمَالِ", "O Allah, I seek refuge with You from the hardships of travel and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and seeing some calamity befall my family or wealth.", "Allahumma inni a'udhu bika min wa'tha'is-safari, wa kabatil-munqalabi, wal-hawri ba'dal-kawri, wa da'watil-mazlumi, wa suw'il-munzari fil-ahli wal-mal", "It was narrated that 'Abdullah bin Sarjis said:\n" +
+                "\"When the Prophet [SAW] traveled, he would seek refuge with Allah from the hardships of travel, and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and from seeing some calamity befall.\"", "Grade:\t Sahih (Darussalam) Reference\t : Sunan an-Nasa'i 5500\n" +
+                "In-book reference\t : Book 50, Hadith 73", Category.TRAVEL_DUA);
+
+        Dua threeAccepted = new Dua("", "", "", "", "","", Category.TRAVEL_VIRTUES);
+
+
+        Dua timeOfDepature = new Dua("Supplication at the time of Riding",
+                "سبحان الذي سخر لنا هذا وما كنا له مقرنين، وإنا إلي ربنا لمنقلبون\u200F.\u200F اللهم إنا نسألك في سفرنا هذا البر والتقوى، ومن العمل ما ترضي\u200F.\u200F اللهم هون علينا سفرنا هذا واطو عنا بعده\u200F.\u200F اللهم أنت الصاحب في السفر والخليفة في الأهل\u200F.\u200F اللهم إني أعوذ بك من وعثاء السفر وكآبة المنظر وسوء المنقلب في الأهل والمال والولد\u200F\"\u200F وإذا رجع قالهن وزاد فيهن\u200F:\u200F \u200F\"\u200Fآيبون تائبون عابدون لربنا حامدون\u200F",
+                "Far removed from imperfection is the One Who has made this subservient to us, for we have no power to subjugate it, and certainly to our Rubb shall we return. O Allah, we ask You during this journey of ours for righteousness, piety and such deeds as are pleasing to You. O Allah, make easy for us this journey of ours and make the distance short for us. O Allah, You are our Companion during the journey and the Guardian of the family and the property in our absence. O Allah, I seek refuge in You from the hardships of travelling, unhappiness connected with ghastly scenes and evil turns in property and family)",
+                "Subhanal-ladhi sakh-khara lana hadha, wa ma kunna lahu muqrinin, wa inna ila Rabbina lamunqalibun. Allahumma inna nas'aluka fi safarina hadh al-birra wat-taqwa, wa minal-'amali ma tarda. Allahumma hawwin 'alaina safarana hadha, watwi 'anna bu'dahu. Allahumma Antas-Sahibu fissafari, wal-Khalifatu fil- ahli. Allahumma inni a'udhu bika min wa'ta'is-safari, wa kaabatil- manzari, wa su'il-munqalabi fil-mali wal-ahli wal-waladi",
+                "",
+                "",
+                Category.TRAVEL_VIRTUES);
+        Dua threeAccepted = new Dua("",
+                "",
+                "",
+                "",
+                "",
+                "",
+                Category.TRAVEL_VIRTUES);
+
+
+        Dua threeAccepted = new Dua("The three that have supplications accepted", " ثَلاَثُ دَعَوَاتٍ مُسْتَجَابَاتٌ لاَ شَكَّ فِيهِنَّ دَعْوَةُ الْمَظْلُومِ وَدَعْوَةُ الْمُسَافِرِ وَدَعْوَةُ الْوَالِدِ عَلَى وَلَدِهِ", "Three supplications are accepted , there is no doubt in them (about them being accepted): The supplication of the oppressed, the supplication of the traveler, and the supplication of his father against his son.", "",
+                "Abu Hurairah [may Allah be pleased with him] narrated :\n" +
+                        "that the Messenger of Allah said: “Three supplications are responded to: The supplication of the oppressed, the supplication of the traveler, and the supplication of the parent against his child.” Ali bin Hujr narrated to us (he said): Ismail bin Ibrahim reported to us from Hisham Ad-Dastawa’i, from Yahya bin Abu Kathir with this chain, narrating similar to it, but he added to it: “responded to, there is no doubt in them.” ","Grade:\t Hasan (Darussalam)\t\t\n" +
+                "Reference\t : Jami` at-Tirmidhi 1905\n" +
+                "In-book reference\t : Book 27, Hadith 11", Category.TRAVEL_VIRTUES);
+
+
+
         //Asia Continent
         Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "", "China");
         Country india = new Country(Region.SOUTH_ASIA, Continent.ASIA, "", "India");

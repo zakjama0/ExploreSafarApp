@@ -5,7 +5,8 @@ public enum Category {
     MORNING("Morning"),
     EVENING("Evening"),
     TRAVEL_ETIQUETTE("Travel Etiquette"),
-    TRAVEL_DUA("Travel Dua");
+    TRAVEL_DUA("Travel Dua"),
+    TRAVEL_VIRTUES("Travel Virtues");
 
     final String displayName;
 
