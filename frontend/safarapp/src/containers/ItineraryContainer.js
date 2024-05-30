@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import CountryList from '../components/CountryList';
 
-
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -87,9 +86,7 @@ const ItineraryContainer = ({ countries }) => {
   const valueToContinent = {
     0: "EUROPE",
     1: "ASIA",
-    2: "AFRICA",
-    3: "NORTH AMERICA",
-    4: "SOUTH AMERICA"
+
   }
 
   const handleTabChange = (event, newValue) => {
@@ -97,6 +94,7 @@ const ItineraryContainer = ({ countries }) => {
     setContinent(valueToContinent[newValue]);
   };
   return (<div className=' h-screen dark:bg-slate-800 dark:text-white w-full'>
+    <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Itineraries</h1>
     <Box sx={{ width: '100%' }}>
       <div className='flex justify-center pt-5'>
       <TextField className="mx-auto"
@@ -113,9 +111,7 @@ const ItineraryContainer = ({ countries }) => {
             <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleTabChange} variant='fullWidth' aria-label="basic tabs example">
               <CustomTab label="Europe" {...a11yProps(0)} className='dark:text-white' />
               <CustomTab label="Asia" {...a11yProps(1)} className='dark:text-white' />
-              <CustomTab label="Africa" {...a11yProps(2)} disabled className='dark:text-white' />
-              <CustomTab label="North America" {...a11yProps(2)} disabled className='dark:text-white' />
-              <CustomTab label="South America" {...a11yProps(2)} disabled className='dark:text-white' />
+              
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0} >
