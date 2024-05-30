@@ -11,6 +11,7 @@ const NavBar = ({ postUser, login }) => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const toggleNavBar = () => {
         setMobileDrawerOpen(!mobileDrawerOpen);
@@ -30,7 +31,13 @@ const NavBar = ({ postUser, login }) => {
         else {
             document.documentElement.classList.remove("dark")
         }
-    }, [darkMode])
+    }, [darkMode]);
+
+    useEffect(() => {
+        if(sessionStorage.getItem("access_token")){
+            setIsLoggedIn(true);
+        }
+    }, [sessionStorage])
 
     return (
         <>
@@ -46,6 +53,12 @@ const NavBar = ({ postUser, login }) => {
                             <li><Link to="/itineraries">Itineraries</Link></li>
                             <li> <a href={'/'}>Test 2</a> </li>
                             <li> <a href={'/'}>Test 3</a> </li>
+                            {/* Testing if user is logged in */}
+                            {isLoggedIn ?
+                                <li><a href='/'>Logged in</a></li>
+                                :
+                                <></>
+                            }
                         </ul>
                         <div className="hidden lg:flex justify-center space-x-12 items-center" >
                             <Popup trigger=
@@ -130,7 +143,7 @@ const NavBar = ({ postUser, login }) => {
                                             close => (
                                                 <div className='modal'>
                                                     <div className='review-form'>
-                                                        <RegistrationForm postUser={postUser}/>
+                                                        <RegistrationForm postUser={postUser} />
                                                     </div>
                                                     <div className='flex justify-center items-center'>
                                                         <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
