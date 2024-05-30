@@ -2,8 +2,7 @@ package com.example.demo.enums;
 
 public enum Category {
 
-    MORNING("Morning"),
-    EVENING("Evening"),
+    DAILY("Daily Duas"),
     TRAVEL_ETIQUETTE("Travel Etiquette"),
     TRAVEL_DUA("Travel Dua"),
     TRAVEL_VIRTUES("Travel Virtues");

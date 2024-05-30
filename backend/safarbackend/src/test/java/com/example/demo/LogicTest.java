@@ -81,7 +81,7 @@ public class LogicTest {
         attraction1 = new Attraction("Great Sphinx of Giza", city, "Big Lion", "Think cat");
         attractionRepository.save(attraction1);
 
-        dua = new Dua("", "", "", "", "", "", Category.MORNING);
+        dua = new Dua("", "", "", "", "", "", Category.DAILY);
         duaRepository.save(dua);
     }
 
