@@ -100,6 +100,7 @@ const MainContainer = () => {
             if (!response.ok) {
                 if (response.status === 401) {
                     alert("Email address or password is incorrect.");
+                    return;
                 } else {
                     throw new Error("An unexpected error occurred.");
                 }
