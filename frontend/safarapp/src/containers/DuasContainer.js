@@ -8,7 +8,78 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { TextField } from '@mui/material';
+import DuaCard from '../components/DuaCard';
 
+
+const travelDuas = [
+        {
+          name: "Starting the journey",
+          arabic:"بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّه",
+          translation:"In the name of Allah, I trust in Allah; there is no might and no power but in Allah",
+          transliteration:"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah",
+          explanation:" For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him. ",
+          source:"Grade: Sahih (Al-Albani), Reference: Sunan Abi Dawud 5095, In-book reference: Book 43, Hadith 323 ",
+          category:"Travel Dua" 
+        }, 
+        {
+            name: "Seeking refuge with Allah from the hardships of travelling",
+            arabic:"اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمُنْقَلَبِ وَالْحَوْرِ بَعْدَ الْكَوْرِ وَدَعْوَةِ الْمَظْلُومِ وَسُوءِ الْمَنْظَرِ فِي الأَهْلِ وَالْمَالِ",
+            translation:" O Allah, I seek refuge with You from the hardships of travel and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and seeing some calamity befall my family or wealth. ",
+            transliteration:"Allahumma inni a'udhu bika min wa'tha'is-safari, wa kabatil-munqalabi, wal-hawri ba'dal-kawri, wa da'watil-mazlumi, wa suw'il-munzari fil-ahli wal-mal",
+            explanation:"It was narrated that 'Abdullah bin Sarjis said: When the Prophet [SAW] traveled, he would seek refuge with Allah from the hardships of travel, and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and from seeing some calamity befall.  ",
+            source:"Grade: Sahih (Darussalam) Reference	 : Sunan an-Nasa'i 5500 In-book Reference: Book 50, Hadith 73",
+            category:"Travel Dua" 
+        },
+        {
+            name: "Supplication at the time of Riding",
+            arabic:" سبحان الذي سخر لنا هذا وما كنا له مقرنين، وإنا إلي ربنا لمنقلبون. اللهم إنا نسألك في سفرنا هذا البر والتقوى، ومن العمل ما ترضي اللهم هون علينا سفرنا هذا واطو عنا بعده اللهم أنت الصاحب في السفر والخليفة في الأهل. اللهم إني أعوذ بك من وعثاء السفر وكآبة المنظر وسوء المنقلب في الأهل والمال والولد وإذا رجع قالهن وزاد فيهن آيبون تائبون عابدون لربنا حامدون ",
+            translation:"Far removed from imperfection is the One Who has made this subservient to us, for we have no power to subjugate it, and certainly to our Rubb shall we return. O Allah, we ask You during this journey of ours for righteousness, piety and such deeds as are pleasing to You. O Allah, make easy for us this journey of ours and make the distance short for us. O Allah, You are our Companion during the journey and the Guardian of the family and the property in our absence. O Allah, I seek refuge in You from the hardships of travelling, unhappiness connected with ghastly scenes and evil turns in property and family)",
+            transliteration:"Subhanal-ladhi sakh-khara lana hadha, wa ma kunna lahu muqrinin, wa inna ila Rabbina lamunqalibun. Allahumma inna nas'aluka fi safarina hadh al-birra wat-taqwa, wa minal-'amali ma tarda. Allahumma hawwin 'alaina safarana hadha, watwi 'anna bu'dahu. Allahumma Antas-Sahibu fissafari, wal-Khalifatu fil- ahli. Allahumma inni a'udhu bika min wa'ta'is-safari, wa kaabatil- manzari, wa su'il-munqalabi fil-mali wal-ahli wal-waladi ",
+            explanation:"This hadith is about the importance of supplicating to Allah before and after travelling. Before setting out on a journey, the Prophet Muhammad would recite Allahu Akbar three times followed by a supplication asking Allah for righteousness, piety and such deeds as are pleasing to Him. He also asked Allah to make the journey easy and short for them. Upon returning from his travels, he would add additional words of praise in his supplication. This hadith teaches us that we should always remember to ask Allah for guidance during our travels so that we may return safely with good deeds done in His pleasure. We should also remember to thank Him upon our return home from our journeys. ",
+            source:"Source: Sahih Muslim    Reference: Riyad as-Salihin 972, In-book reference: Book 7, Hadith 17",
+            category:"Travel Dua" 
+        },
+        
+];
+const travelEtiquette = [
+    {
+      name: "Starting the journey",
+      arabic:"بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّه",
+      translation:"In the name of Allah, I trust in Allah; there is no might and no power but in Allah",
+      transliteration:"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah",
+      explanation:" For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him. ",
+      source:"Grade: Sahih (Al-Albani), Reference: Sunan Abi Dawud 5095, In-book reference: Book 43, Hadith 323 ",
+      category:"Travel Dua" 
+    }, 
+    {
+        name: "Seeking refuge with Allah from the hardships of travelling",
+        arabic:"اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمُنْقَلَبِ وَالْحَوْرِ بَعْدَ الْكَوْرِ وَدَعْوَةِ الْمَظْلُومِ وَسُوءِ الْمَنْظَرِ فِي الأَهْلِ وَالْمَالِ",
+        translation:" O Allah, I seek refuge with You from the hardships of travel and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and seeing some calamity befall my family or wealth. ",
+        transliteration:"Allahumma inni a'udhu bika min wa'tha'is-safari, wa kabatil-munqalabi, wal-hawri ba'dal-kawri, wa da'watil-mazlumi, wa suw'il-munzari fil-ahli wal-mal",
+        explanation:"It was narrated that 'Abdullah bin Sarjis said: When the Prophet [SAW] traveled, he would seek refuge with Allah from the hardships of travel, and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and from seeing some calamity befall.  ",
+        source:"Grade: Sahih (Darussalam) Reference	 : Sunan an-Nasa'i 5500 In-book Reference: Book 50, Hadith 73",
+        category:"Travel Dua" 
+    },
+    {
+        name: "Supplication at the time of Riding",
+        arabic:" سبحان الذي سخر لنا هذا وما كنا له مقرنين، وإنا إلي ربنا لمنقلبون. اللهم إنا نسألك في سفرنا هذا البر والتقوى، ومن العمل ما ترضي اللهم هون علينا سفرنا هذا واطو عنا بعده اللهم أنت الصاحب في السفر والخليفة في الأهل. اللهم إني أعوذ بك من وعثاء السفر وكآبة المنظر وسوء المنقلب في الأهل والمال والولد وإذا رجع قالهن وزاد فيهن آيبون تائبون عابدون لربنا حامدون ",
+        translation:"Far removed from imperfection is the One Who has made this subservient to us, for we have no power to subjugate it, and certainly to our Rubb shall we return. O Allah, we ask You during this journey of ours for righteousness, piety and such deeds as are pleasing to You. O Allah, make easy for us this journey of ours and make the distance short for us. O Allah, You are our Companion during the journey and the Guardian of the family and the property in our absence. O Allah, I seek refuge in You from the hardships of travelling, unhappiness connected with ghastly scenes and evil turns in property and family)",
+        transliteration:"Subhanal-ladhi sakh-khara lana hadha, wa ma kunna lahu muqrinin, wa inna ila Rabbina lamunqalibun. Allahumma inna nas'aluka fi safarina hadh al-birra wat-taqwa, wa minal-'amali ma tarda. Allahumma hawwin 'alaina safarana hadha, watwi 'anna bu'dahu. Allahumma Antas-Sahibu fissafari, wal-Khalifatu fil- ahli. Allahumma inni a'udhu bika min wa'ta'is-safari, wa kaabatil- manzari, wa su'il-munqalabi fil-mali wal-ahli wal-waladi ",
+        explanation:"This hadith is about the importance of supplicating to Allah before and after travelling. Before setting out on a journey, the Prophet Muhammad would recite Allahu Akbar three times followed by a supplication asking Allah for righteousness, piety and such deeds as are pleasing to Him. He also asked Allah to make the journey easy and short for them. Upon returning from his travels, he would add additional words of praise in his supplication. This hadith teaches us that we should always remember to ask Allah for guidance during our travels so that we may return safely with good deeds done in His pleasure. We should also remember to thank Him upon our return home from our journeys. ",
+        source:"Source: Sahih Muslim    Reference: Riyad as-Salihin 972, In-book reference: Book 7, Hadith 17",
+        category:"Travel Dua" 
+    },
+    {
+        name: "Supplication on Alighting at a Halt",
+        arabic:"  أعوذ بكلمات الله التامات من شر ما خلق لم يضره شيء حتي يرتحل من منزله ذلك",
+        translation:"I seek refuge with the Perfect Words of Allah from the evil of what He has created",
+        transliteration:"A'udhu bikalimat-illahit-tammati min sharri ma khalaqa",
+        explanation:"This hadith is about the importance of supplicating to Allah before and after travelling. Before setting out on a journey, the Prophet Muhammad would recite Allahu Akbar three times followed by a supplication asking Allah for righteousness, piety and such deeds as are pleasing to Him. He also asked Allah to make the journey easy and short for them. Upon returning from his travels, he would add additional words of praise in his supplication. This hadith teaches us that we should always remember to ask Allah for guidance during our travels so that we may return safely with good deeds done in His pleasure. We should also remember to thank Him upon our return home from our journeys. ",
+        source:"Source: Sahih Muslim    Reference: Riyad as-Salihin 972, In-book reference: Book 7, Hadith 17",
+        category:"Travel Dua" 
+    },
+    
+];
 
 const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
     textTransform: 'none',
@@ -68,7 +139,7 @@ const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }
     };
   }
 const DuasContainer = ({duas}) => {
-    const [value, setValue] = useState(0);
+const [value, setValue] = useState(0);
   const [category, setCategory] = useState("TRAVEL_DUA");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedDuas, setSearchedDuas] = useState([]);
@@ -123,7 +194,7 @@ const DuasContainer = ({duas}) => {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0} >
-          <h2>Test 1</h2>
+          <DuaCard duas={travelDuas} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
           <h2>Test 2</h2>
