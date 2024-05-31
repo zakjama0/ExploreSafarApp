@@ -16,4 +16,11 @@ public class ExceptionHandlerController {
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new ResponseEntity<>(ex.getMessage(), headers, HttpStatus.CONFLICT);
     }
+
+    @ExceptionHandler
+    public ResponseEntity<Object> handleIncorrectCredentials(UserCredentialsIncorrectException ex) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity<>(ex.getMessage(), headers, HttpStatus.UNAUTHORIZED);
+    }
 }

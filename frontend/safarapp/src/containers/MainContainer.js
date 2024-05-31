@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { jwtDecode } from 'jwt-decode';
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import Country from "../components/Country";
 import LandingPageContainer from "./LandingPageContainer";
+
 const apiUrl = "localhost:8080";
 
 const MainContainer = () => {
@@ -53,15 +55,21 @@ const MainContainer = () => {
             });
 
             if (!response.ok) {
-                if (response.status === 409) {
+                if (response.status === 403) {
                     alert("A user with this email address already exists.");
                 } else {
                     throw new Error("An unexpected error occurred.");
                 }
             }
 
+            alert("User has signed up.");
+
             const data = await response.json();
-            console.log(data);
+            const { access_token, refresh_token } = data;
+
+            sessionStorage.setItem("access_token", access_token);
+            sessionStorage.setItem("refresh_token", refresh_token);
+
             return data;
         } catch (error) {
             console.error(error);
@@ -69,12 +77,84 @@ const MainContainer = () => {
         }
     };
 
+    // const getUser = async (email) => {
+    //     const access_token = sessionStorage.getItem("access_token");
+    //     const response = await fetch(`http://${apiUrl}/users/${email}`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": `Bearer ${access_token}`,
+    //         },
+    //     });
+    //     const data = await response.json();
+    // }
+
+    const login = async (userCredentials) => {
+        try {
+            const response = await fetch(`http://${apiUrl}/api/v1/auth/authenticate`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userCredentials)
+            });
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                    alert("Email address or password is incorrect.");
+                } else {
+                    throw new Error("An unexpected error occurred.");
+                }
+            }
+
+            alert("User has logged in")
+            const data = await response.json();
+            const { access_token, refresh_token } = data;
+
+            sessionStorage.setItem("access_token", access_token);
+            sessionStorage.setItem("refresh_token", refresh_token);
+
+            // getUser(userCredentials.email);
+            return data;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    const logout = async () => {
+        try {
+            const response = await fetch(`http://${apiUrl}/api/v1/auth/logout`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+                }
+            });
+
+            if (!response.ok) {
+                alert("An unexpected error has occured!");
+                return;
+            }
+
+            alert("Log out successful.");
+            sessionStorage.clear();
+        } catch (error) {
+            throw error;
+        }
+    }
+
     useEffect(() => {
         fetchAttractions();
         fetchCities();
         fetchCountries();
         fetchDuas();
         fetchReviews();
+        const token = sessionStorage.getItem("access_token");
+        if (token) {
+            const decoded = jwtDecode(token);
+            const expiry = decoded.exp;
+            if (expiry < Date.now() / 1000) {
+                sessionStorage.removeItem("access_token");
+            }
+        }
     }, []);
 
     const countryLoader = ({ params }) => {
@@ -86,7 +166,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Navigation postUser={postUser} />,
+            element: <Navigation postUser={postUser} login={login} logout={logout}/>,
             children: [
                 {
                     path: "/",
