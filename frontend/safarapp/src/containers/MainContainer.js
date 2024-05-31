@@ -77,17 +77,17 @@ const MainContainer = () => {
         }
     };
 
-    const getUser = async (email) => {
-        const access_token = sessionStorage.getItem("access_token");
-        const response = await fetch(`http://${apiUrl}/users/${email}`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${access_token}`,
-            },
-        });
-        const data = await response.json();
-    }
+    // const getUser = async (email) => {
+    //     const access_token = sessionStorage.getItem("access_token");
+    //     const response = await fetch(`http://${apiUrl}/users/${email}`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Authorization": `Bearer ${access_token}`,
+    //         },
+    //     });
+    //     const data = await response.json();
+    // }
 
     const login = async (userCredentials) => {
         try {
@@ -112,16 +112,33 @@ const MainContainer = () => {
             sessionStorage.setItem("access_token", access_token);
             sessionStorage.setItem("refresh_token", refresh_token);
 
-            getUser(userCredentials.email);
+            // getUser(userCredentials.email);
             return data;
         } catch (error) {
-            console.error(error);
             throw error;
         }
     }
 
     const logout = async () => {
+        try {
+            const response = await fetch(`http://${apiUrl}/api/v1/auth/logout`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+                }
+            });
 
+            if (!response.ok) {
+                alert("An unexpected error has occured!");
+                return;
+            }
+
+            alert("Log out successful.");
+            sessionStorage.clear();
+        } catch (error) {
+            throw error;
+        }
     }
 
     useEffect(() => {
@@ -149,7 +166,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Navigation postUser={postUser} login={login} />,
+            element: <Navigation postUser={postUser} login={login} logout={logout}/>,
             children: [
                 {
                     path: "/",
