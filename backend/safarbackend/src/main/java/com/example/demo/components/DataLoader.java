@@ -1,10 +1,12 @@
 package com.example.demo.components;
 
+import com.example.demo.enums.Category;
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
 import com.example.demo.models.Attraction;
 import com.example.demo.models.City;
 import com.example.demo.models.Country;
+import com.example.demo.models.Dua;
 import com.example.demo.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -36,6 +38,109 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
+//        Dua
+        Dua startJourney = new Dua("Starting the journey","بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ","In the name of Allah, I trust in Allah; there is no might and no power but in Allah" ,"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah", "For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him.”" ,"Grade: Sahih (Al-Albani)\n" +
+                "Reference: Sunan Abi Dawud 5095\n" +
+                "In-book reference: Book 43, Hadith 323", Category.TRAVEL_DUA);
+        duaRepository.save(startJourney);
+        Dua hardshipOfTravel = new Dua("Seeking refuge with Allah from the hardships of travelling", " اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمُنْقَلَبِ وَالْحَوْرِ بَعْدَ الْكَوْرِ وَدَعْوَةِ الْمَظْلُومِ وَسُوءِ الْمَنْظَرِ فِي الأَهْلِ وَالْمَالِ", "O Allah, I seek refuge with You from the hardships of travel and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and seeing some calamity befall my family or wealth.", "Allahumma inni a'udhu bika min wa'tha'is-safari, wa kabatil-munqalabi, wal-hawri ba'dal-kawri, wa da'watil-mazlumi, wa suw'il-munzari fil-ahli wal-mal", "It was narrated that 'Abdullah bin Sarjis said:\n" +
+                "\"When the Prophet [SAW] traveled, he would seek refuge with Allah from the hardships of travel, and the sorrows of return, from loss after plenty, from the supplication of the one who has been wronged, and from seeing some calamity befall.\"", "Grade:\t Sahih (Darussalam) Reference\t : Sunan an-Nasa'i 5500\n" +
+                "In-book reference\t : Book 50, Hadith 73", Category.TRAVEL_DUA);
+        duaRepository.save(hardshipOfTravel);
+        
+
+        Dua timeOfDepature = new Dua("Supplication at the time of Riding",
+                "سبحان الذي سخر لنا هذا وما كنا له مقرنين، وإنا إلي ربنا لمنقلبون. اللهم إنا نسألك في سفرنا هذا البر والتقوى، ومن العمل ما ترضي اللهم هون علينا سفرنا هذا واطو عنا بعده اللهم أنت الصاحب في السفر والخليفة في الأهل. اللهم إني أعوذ بك من وعثاء السفر وكآبة المنظر وسوء المنقلب في الأهل والمال والولد وإذا رجع قالهن وزاد فيهن آيبون تائبون عابدون لربنا حامدون",
+                "Far removed from imperfection is the One Who has made this subservient to us, for we have no power to subjugate it, and certainly to our Rubb shall we return. O Allah, we ask You during this journey of ours for righteousness, piety and such deeds as are pleasing to You. O Allah, make easy for us this journey of ours and make the distance short for us. O Allah, You are our Companion during the journey and the Guardian of the family and the property in our absence. O Allah, I seek refuge in You from the hardships of travelling, unhappiness connected with ghastly scenes and evil turns in property and family)",
+                "Subhanal-ladhi sakh-khara lana hadha, wa ma kunna lahu muqrinin, wa inna ila Rabbina lamunqalibun. Allahumma inna nas'aluka fi safarina hadh al-birra wat-taqwa, wa minal-'amali ma tarda. Allahumma hawwin 'alaina safarana hadha, watwi 'anna bu'dahu. Allahumma Antas-Sahibu fissafari, wal-Khalifatu fil- ahli. Allahumma inni a'udhu bika min wa'ta'is-safari, wa kaabatil- manzari, wa su'il-munqalabi fil-mali wal-ahli wal-waladi",
+                "This hadith is about the importance of supplicating to Allah before and after travelling. Before setting out on a journey, the Prophet Muhammad would recite \"Allahu Akbar\" three times followed by a supplication asking Allah for righteousness, piety and such deeds as are pleasing to Him. He also asked Allah to make the journey easy and short for them. Upon returning from his travels, he would add additional words of praise in his supplication. This hadith teaches us that we should always remember to ask Allah for guidance during our travels so that we may return safely with good deeds done in His pleasure. We should also remember to thank Him upon our return home from our journeys.",
+                "Source: Sahih Muslim" +
+                        "Reference\t : Riyad as-Salihin 972\n" +
+                        "In-book reference\t : Book 7, Hadith 17",
+                Category.TRAVEL_DUA);
+        duaRepository.save(timeOfDepature);
+        Dua combiningPrayer = new Dua("What Has Been Related About Combining Two Prayers",
+                "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا اللَّيْثُ بْنُ سَعْدٍ، عَنْ يَزِيدَ بْنِ أَبِي حَبِيبٍ، عَنْ أَبِي الطُّفَيْلِ، هُوَ عَامِرُ بْنُ وَاثِلَةَ عَنْ مُعَاذِ بْنِ جَبَلٍ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ فِي غَزْوَةِ تَبُوكَ إِذَا ارْتَحَلَ قَبْلَ زَيْغِ الشَّمْسِ أَخَّرَ الظُّهْرَ إِلَى أَنْ يَجْمَعَهَا إِلَى الْعَصْرِ فَيُصَلِّيهِمَا جَمِيعًا وَإِذَا ارْتَحَلَ بَعْدَ زَيْغِ الشَّمْسِ عَجَّلَ الْعَصْرَ إِلَى الظُّهْرِ وَصَلَّى الظُّهْرَ وَالْعَصْرَ جَمِيعًا ثُمَّ سَارَ وَكَانَ إِذَا ارْتَحَلَ قَبْلَ الْمَغْرِبِ أَخَّرَ الْمَغْرِبَ حَتَّى يُصَلِّيَهَا مَعَ الْعِشَاءِ وَإِذَا ارْتَحَلَ بَعْدَ الْمَغْرِبِ عَجَّلَ الْعِشَاءَ فَصَلاَّهَا مَعَ الْمَغْرِبِ \u200F.\u200F قَالَ وَفِي الْبَابِ عَنْ عَلِيٍّ وَابْنِ عُمَرَ وَأَنَسٍ وَعَبْدِ اللَّهِ بْنِ عَمْرٍو وَعَائِشَةَ وَابْنِ عَبَّاسٍ وَأُسَامَةَ بْنِ زَيْدٍ وَجَابِرِ بْنِ عَبْدِ اللَّهِ \u200F.\u200F قَالَ أَبُو عِيسَى وَالصَّحِيحُ عَنْ أُسَامَةَ \u200F.\u200F وَرَوَى عَلِيُّ بْنُ الْمَدِينِيِّ عَنْ أَحْمَدَ بْنِ حَنْبَلٍ عَنْ قُتَيْبَةَ هَذَا الْحَدِيثَ \u200F",
+                "\"While the Prophet as at the Battle of Tabuk, if he wanted to depart before the sun's decline he would delay Zuhr so that he could pray it together with Asr. If he wanted to depart after the sun's decline, he would hasten Asr to Zuhr, and pray Zuhr and Asr together, and then move it. If he wanted to depart before Maghrib he would delay Maghrib until he prayed it with Isha, and if he wanted to depart after Maghrib he would hasten Isha so that he would pray it along with Maghrib.\"",
+                "",
+                "",
+                "Grade:\t Sahih (Darussalam)\t\t\n" +
+                        "Reference\t : Jami` at-Tirmidhi 553\n" +
+                        "In-book reference\t : Book 6, Hadith 10",
+                Category.TRAVEL_VIRTUES);
+        duaRepository.save(combiningPrayer);
+        Dua template = new Dua("",
+                "",
+                "",
+                "",
+                "",
+                "",
+                Category.TRAVEL_VIRTUES);
+
+
+
+
+        Dua travelPrayer = new Dua("Shortening The Prayer During Travels",
+                "حَدَّثَنَا عَبْدُ الْوَهَّابِ بْنُ عَبْدِ الْحَكَمِ الْوَرَّاقُ الْبَغْدَادِيُّ، حَدَّثَنَا يَحْيَى بْنُ سُلَيْمٍ، عَنْ عُبَيْدِ اللَّهِ، عَنْ نَافِعٍ، عَنِ ابْنِ عُمَرَ، قَالَ سَافَرْتُ مَعَ النَّبِيِّ صلى الله عليه وسلم وَأَبِي بَكْرٍ وَعُمَرَ وَعُثْمَانَ فَكَانُوا يُصَلُّونَ الظُّهْرَ وَالْعَصْرَ رَكْعَتَيْنِ رَكْعَتَيْنِ لاَ يُصَلُّونَ قَبْلَهَا وَلاَ بَعْدَهَا \u200F.\u200F وَقَالَ عَبْدُ اللَّهِ لَوْ كُنْتُ مُصَلِّيًا قَبْلَهَا أَوْ بَعْدَهَا لأَتْمَمْتُهَا \u200F.\u200F قَالَ وَفِي الْبَابِ عَنْ عُمَرَ وَعَلِيٍّ وَابْنِ عَبَّاسٍ وَأَنَسٍ وَعِمْرَانَ بْنِ حُصَيْنٍ وَعَائِشَةَ \u200F.\u200F قَالَ أَبُو عِيسَى حَدِيثُ ابْنِ عُمَرَ حَدِيثٌ حَسَنٌ غَرِيبٌ لاَ نَعْرِفُهُ إِلاَّ مِنْ حَدِيثِ يَحْيَى بْنِ سُلَيْمٍ مِثْلَ هَذَا \u200F.\u200F قَالَ مُحَمَّدُ بْنُ إِسْمَاعِيلَ وَقَدْ رُوِيَ هَذَا الْحَدِيثُ عَنْ عُبَيْدِ اللَّهِ بْنِ عُمَرَ عَنْ رَجُلٍ مِنْ آلِ سُرَاقَةَ عَنْ عَبْدِ اللَّهِ بْنِ عُمَرَ \u200F.\u200F قَالَ أَبُو عِيسَى وَقَدْ رُوِيَ عَنْ عَطِيَّةَ الْعَوْفِيِّ عَنِ ابْنِ عُمَرَ أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَتَطَوَّعُ فِي السَّفَرِ قَبْلَ الصَّلاَةِ وَبَعْدَهَا \u200F.\u200F وَقَدْ صَحَّ عَنِ النَّبِيِّ صلى الله عليه وسلم أَنَّهُ كَانَ يَقْصُرُ فِي السَّفَرِ وَأَبُو بَكْرٍ وَعُمَرُ وَعُثْمَانُ صَدْرًا مِنْ خِلاَفَتِهِ \u200F.\u200F وَالْعَمَلُ عَلَى هَذَا عِنْدَ أَكْثَرِ أَهْلِ الْعِلْمِ مِنْ أَصْحَابِ النَّبِيِّ صلى الله عليه وسلم وَغَيْرِهِمْ \u200F.\u200F وَقَدْ رُوِيَ عَنْ عَائِشَةَ أَنَّهَا كَانَتْ تُتِمُّ الصَّلاَةَ فِي السَّفَرِ \u200F.\u200F وَالْعَمَلُ عَلَى مَا رُوِيَ عَنِ النَّبِيِّ صلى الله عليه وسلم وَأَصْحَابِهِ وَهُوَ قَوْلُ الشَّافِعِيِّ وَأَحْمَدَ وَإِسْحَاقَ إِلاَّ أَنَّ الشَّافِعِيَّ يَقُولُ التَّقْصِيرُ رُخْصَةٌ لَهُ فِي السَّفَرِ فَإِنْ أَتَمَّ الصَّلاَةَ أَجْزَأَ عَنْهُ \u200F.\u200F",
+                "Ibn Umar narrated:\n" +
+                        "\"I traveled with the Prophet, Abu Bakr, Umar, and Uthman; they would pray Zuhr and Asr as two Rak'ah and two Rak'ah, not praying before them nor after them.\" And Ibn Umar said: \"If I was going to pray before it or after it then I would pray it complete.\"",
+                "",
+                "",
+                "Grade:\t Hasan (Darussalam)\t\t\n" +
+                        "Reference\t : Jami` at-Tirmidhi 544\n" +
+                        "In-book reference\t : Book 6, Hadith 1",
+                Category.TRAVEL_ETIQUETTE);
+        duaRepository.save(travelPrayer);
+
+        Dua returnPrayer = new Dua("",
+                "عن كعب بن مالك رضي الله عنه أن رسول الله صلى الله عليه وسلم كان إذا قدم من سفر بدأ بالمسجد فركع فيه ركعتين ",
+                "\n" +
+                        "Whenever the Messenger of Allah (ﷺ) returned from a journey, he would proceed straight to the mosque and perform two Rak'ah of (optional) prayer.",
+                "",
+                "",
+                "Source: Sahih Bukhi and Muslim Reference\t : Riyad as-Salihin 988\n" +
+                        "In-book reference\t : Book 7, Hadith 33",
+                Category.TRAVEL_ETIQUETTE);
+        duaRepository.save(returnPrayer);
+        Dua returning = new Dua(" Supplication at the time of returning Home and on seeing one's Hometown",
+                "\u200Fآيبون، تائبون ، عابدون ، لربنا حامدون",
+                "We are returning in safety, turning to our Rubb, worshipping Him and praising Him",
+                "Ayibuna, ta'ibuna, 'abiduna, li-Rabbina hamidun",
+                "We returned with the Prophet (ﷺ) from a journey; and when we entered the suburbs of Al- Madinah, he (ﷺ) said: \"Ayibuna, ta'ibuna, 'abiduna, li-Rabbina hamidun (We are returning in safety, turning to our Rubb, worshipping Him and praising Him).\" He (ﷺ) continued repeating these words till we entered Al-Madinah.\n",
+                "Source: Sahih Muslim Reference\t : Riyad as-Salihin 987\n" +
+                        "In-book reference\t : Book 7, Hadith 32 ",
+                Category.TRAVEL_VIRTUES);
+        duaRepository.save(returning);
+
+        Dua alight = new Dua("Supplication on Alighting at a Halt",
+                "-عن خولة بنت حكيم رضي الله عنها قالت سمعت رسول الله صلى الله عليه وسلم يقول من نزل منزلاً ثم قال أعوذ بكلمات الله التامات من شر ما خلق لم يضره شيء حتي يرتحل من منزله ذلك",
+                "I heard the Messenger of Allah (ﷺ) saying, \"Whosoever alights somewhere and says: 'A'udhu bikalimat-illahit-tammati min sharri ma khalaqa (I seek refuge with the Perfect Words of Allah from the evil of what He has created),' nothing will harm him until he leaves that place.\"\n",
+                "",
+                "",
+                "Source: Sahih Muslim\n "+ "Reference\t : Riyad as-Salihin 982\n" +
+                        "In-book reference\t : Book 7, Hadith 27",
+                Category.TRAVEL_DUA);
+        duaRepository.save(alight);
+
+        Dua Leader = new Dua("Setting a leader",
+                "عن أبي سعيد وأبي هريرة رضي الله عنهما قالا\u200F:\u200F قال رسول الله صلى الله عليه وسلم \u200F:\u200F “إذا خرج ثلاثة في سفر فليأمروا أحدهم\u200F\"\u200F حديث حسن، \u200F(\u200F\u200F(\u200Fرواه أبو داود بإسناد حسن\u200F)\u200F\u200F)\u200F\u200F.",
+                "The Messenger of Allah (ﷺ) said, \"When three persons set out on a journey, they should appoint one of them as their leader.\"",
+                "",
+                "",
+                "Source: Abu Dawud" +
+                        "Reference\t : Riyad as-Salihin 960\n" +
+                        "In-book reference\t : Book 7, Hadith 5\n",
+                Category.TRAVEL_ETIQUETTE);
+        duaRepository.save(Leader);
+
+        Dua threeAccepted = new Dua("The three that have supplications accepted", " ثَلاَثُ دَعَوَاتٍ مُسْتَجَابَاتٌ لاَ شَكَّ فِيهِنَّ دَعْوَةُ الْمَظْلُومِ وَدَعْوَةُ الْمُسَافِرِ وَدَعْوَةُ الْوَالِدِ عَلَى وَلَدِهِ", "Three supplications are accepted , there is no doubt in them (about them being accepted): The supplication of the oppressed, the supplication of the traveler, and the supplication of his father against his son.", "",
+                "Abu Hurairah [may Allah be pleased with him] narrated :\n" +
+                        "that the Messenger of Allah said: “Three supplications are responded to: The supplication of the oppressed, the supplication of the traveler, and the supplication of the parent against his child.” Ali bin Hujr narrated to us (he said): Ismail bin Ibrahim reported to us from Hisham Ad-Dastawa’i, from Yahya bin Abu Kathir with this chain, narrating similar to it, but he added to it: “responded to, there is no doubt in them.” ","Grade:\t Hasan (Darussalam)\t\t\n" +
+                "Reference\t : Jami` at-Tirmidhi 1905\n" +
+                "In-book reference\t : Book 27, Hadith 11", Category.TRAVEL_VIRTUES);
+
+        duaRepository.save(threeAccepted);
+
         //Asia Continent
         Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "", "China");
         Country india = new Country(Region.SOUTH_ASIA, Continent.ASIA, "", "India");

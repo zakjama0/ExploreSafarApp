@@ -5,6 +5,8 @@ import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import Country from "../components/Country";
 import LandingPageContainer from "./LandingPageContainer";
+import DuasContainer from "./DuasContainer";
+import SafarAnimation from "../components/SafarAnimation";
 
 const apiUrl = "localhost:8080";
 
@@ -15,6 +17,7 @@ const MainContainer = () => {
     const [countries, setCountries] = useState([]);
     const [duas, setDuas] = useState([]);
     const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] =useState(false)
 
     const fetchAttractions = async () => {
         const response = await fetch(`http://${apiUrl}/attractions`);
@@ -155,6 +158,10 @@ const MainContainer = () => {
                 sessionStorage.removeItem("access_token");
             }
         }
+        setLoading(true)
+        setTimeout(() =>{
+            setLoading(false)
+        },5500)
     }, []);
 
     const countryLoader = ({ params }) => {
@@ -179,15 +186,26 @@ const MainContainer = () => {
                 {
                     path: "/countries/:countryId",
                     loader: countryLoader,
-                    element: <Country cities={cities} />
-                }
+
+                    element: <Country cities={cities}/>
+                },
+                {
+                    path: "/duas",
+                    element: <DuasContainer duas={duas} />
+                },
             ]
         }
     ]);
 
     return (
         <>
+        {
+            loading ?
+            <SafarAnimation />
+            :
             <RouterProvider router={router} />
+        }
+            
         </>
     );
 }
