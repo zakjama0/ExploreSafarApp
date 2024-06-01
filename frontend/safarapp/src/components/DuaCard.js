@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ArrowBigDown, ArrowDown, ArrowUp } from 'lucide-react';
 
 const DuaCard = ({ duas }) => {
   // Initialize the open state array with all values set to false
@@ -18,7 +19,7 @@ const DuaCard = ({ duas }) => {
               onClick={() => toggleContent(index)}
               className="bg-blue-500 text-white px-2 py-1 rounded-lg focus:outline-none"
             >
-              {isOpenArray[index] ? 'Hide' : 'Show'}
+              {isOpenArray[index] ? <ArrowUp/> : <ArrowDown/>}
             </button>
           </div>
           {isOpenArray[index] && (

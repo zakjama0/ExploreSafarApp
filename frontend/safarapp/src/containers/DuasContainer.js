@@ -73,12 +73,12 @@ const travelEtiquette = [
         category:""
       }, 
       {
-        name: "",
+        name: "Those who have accepted supplication",
         arabic:"عن أبي هريرة رضي الله عنه قال : رسول الله صلى الله عليه وسلم : ثلاث دعوات مستجابات لا شك فيهن: دعوة المظلوم، ودعوة المسافر، ودعوة الوالد على ولده",
         translation:"Abu Hurairah (May Allah be pleased with him) reported:The Messenger of Allah (ﷺ) said, 'Three supplications are answered without doubt. The supplication of the oppressed, the supplication of the traveller, and the supplication of the parent for his son.'",
         transliteration:"",
         explanation:"",
-        source:"",
+        source:"At-Tirmidhi and Abu Dawud,  Reference: Riyad as-Salihin 980, In-book reference	 : Book 7, Hadith 25",
         category:""
       }, 
     
@@ -160,8 +160,6 @@ const [value, setValue] = useState(0);
   const valueToCategory = {
     0: "TRAVEL_DUA",
     1: "TRAVEL_ETIQUETTE",
-    2: "MORNING",
-    3: "EVENING",
   }
 
   const handleTabChange = (event, newValue) => {
@@ -170,30 +168,19 @@ const [value, setValue] = useState(0);
   };
 
   return (
-    <div className=' h-full dark:bg-slate-800 dark:text-white w-full'>
+    <div className='h-full pb-40 dark:bg-slate-800 dark:text-white w-full'>
     <div className='flex-row justify-center items-center'>
     <h1 className="py-5  mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Duas & Dhikr</h1>
     {/* <h1 className='mb-5 mx-5 md:mx-20 text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'> قُلْ سِيرُوا۟ فِى ٱلْأَرْضِ فَٱنظُرُوا۟ كَيْفَ بَدَأَ ٱلْخَلْقَ ۚ ثُمَّ ٱللَّهُ يُنشِئُ ٱلنَّشْأَةَ ٱلْـَٔاخِرَةَ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ </h1> */}
     <h1 className='mb-5 mx-5 md:mx-20 md:text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'> Say (O Muhammad): ‘Travel throughout the land and see how He originated the creation, then Allah will bring it into being one more time. Surely Allah is Most Capable of everything.’</h1>
     <h1 className='mb-5 text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'>(Surah Al-Ankabut, 29:20)</h1>
     <Box sx={{ width: '100%' }}>
-      <div className='flex justify-center pt-5'>
-      <TextField className="mx-auto"
-        id="outlined-basic"
-        label="Search Duas"
-        variant="outlined"
-        onChange={e => {
-          setSearchQuery(e.target.value);
-        }} />
-        </div>
       {searchQuery.trim() === "" ?
-        <div>
+        <div className='h-full'>
           <Box>
             <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleTabChange} variant='fullWidth' aria-label="basic tabs example">
-              <CustomTab label="Travel Duas" {...a11yProps(0)} className='dark:text-white' />
-              <CustomTab label="Travel Etiquette" {...a11yProps(1)} className='dark:text-white' />
-              <CustomTab label="Morning Duas" {...a11yProps(2)} className='dark:text-white' />
-              <CustomTab label="Evening" {...a11yProps(3)} className='dark:text-white' />
+              <CustomTab label="Duas" {...a11yProps(0)} className='dark:text-white' />
+              <CustomTab label="Etiquette" {...a11yProps(1)} className='dark:text-white' />
               
             </Tabs>
           </Box>
@@ -202,12 +189,6 @@ const [value, setValue] = useState(0);
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
           <DuaCard duas={travelEtiquette}/>
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={2} >
-          <h2>Test 3</h2>
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={3}>
-          <h2>Test 4</h2>
           </CustomTabPanel>
         </div>
         :
