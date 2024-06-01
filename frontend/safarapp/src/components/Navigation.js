@@ -65,47 +65,49 @@ const NavBar = ({ postUser, login, logout }) => {
                             <li> <a href={'/'}>Test 3</a> </li>
                         </ul>
                         <div className="hidden lg:flex justify-center space-x-12 items-center" >
-                            <Popup trigger=
-                                {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button>}
-                                modal nested>
-                                {
-                                    close => (
-                                        <div className='modal'>
-                                            <div className='review-form'>
-                                                <RegistrationForm postUser={postUser} />
-                                            </div>
-                                            <div className='flex justify-center items-center'>
-                                                <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
-                                                    onClick=
-                                                    {() => close()} >
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )
-                                }
-                            </Popup>
                             {!isLoggedIn ?
-                                <Popup trigger=
-                                    {<button className='py-2 px-3 border rounded-md dark:text-white'>Sign in</button>}
-                                    modal nested>
-                                    {
-                                        close => (
-                                            <div className='modal'>
-                                                <div className='review-form'>
-                                                    <LoginForm login={handleLogin} />
+                                <div className="hidden lg:flex justify-center space-x-12 items-center">
+                                    <Popup trigger=
+                                        {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button>}
+                                        modal nested>
+                                        {
+                                            close => (
+                                                <div className='modal'>
+                                                    <div className='review-form'>
+                                                        <RegistrationForm postUser={postUser} />
+                                                    </div>
+                                                    <div className='flex justify-center items-center'>
+                                                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
+                                                            onClick=
+                                                            {() => close()} >
+                                                            Close
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <div className='flex justify-center items-center'>
-                                                    <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
-                                                        onClick=
-                                                        {() => close()} >
-                                                        Close
-                                                    </button>
+                                            )
+                                        }
+                                    </Popup>
+                                    <Popup trigger=
+                                        {<button className='py-2 px-3 border rounded-md dark:text-white'>Sign in</button>}
+                                        modal nested>
+                                        {
+                                            close => (
+                                                <div className='modal'>
+                                                    <div className='review-form'>
+                                                        <LoginForm login={handleLogin} />
+                                                    </div>
+                                                    <div className='flex justify-center items-center'>
+                                                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
+                                                            onClick=
+                                                            {() => close()} >
+                                                            Close
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    }
-                                </Popup>
+                                            )
+                                        }
+                                    </Popup>
+                                </div>
                                 :
                                 <button className='py-2 px-3 border rounded-md dark:text-white' onClick={handleLogout}>Log Out</button>
                             }

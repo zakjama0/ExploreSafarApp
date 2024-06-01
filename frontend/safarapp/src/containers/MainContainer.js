@@ -63,31 +63,11 @@ const MainContainer = () => {
             }
 
             alert("User has signed up.");
-
-            const data = await response.json();
-            const { access_token, refresh_token } = data;
-
-            sessionStorage.setItem("access_token", access_token);
-            sessionStorage.setItem("refresh_token", refresh_token);
-
-            return data;
         } catch (error) {
             console.error(error);
             throw error;
         }
     };
-
-    // const getUser = async (email) => {
-    //     const access_token = sessionStorage.getItem("access_token");
-    //     const response = await fetch(`http://${apiUrl}/users/${email}`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Authorization": `Bearer ${access_token}`,
-    //         },
-    //     });
-    //     const data = await response.json();
-    // }
 
     const login = async (userCredentials) => {
         try {
