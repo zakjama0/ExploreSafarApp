@@ -11,7 +11,9 @@ const NavBar = ({ postUser, login, logout }) => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
+        return sessionStorage.getItem("access_token") !== null;
+    });
 
     const toggleNavBar = () => {
         setMobileDrawerOpen(!mobileDrawerOpen);
@@ -33,14 +35,19 @@ const NavBar = ({ postUser, login, logout }) => {
         }
     }, [darkMode]);
 
-    useEffect(() => {
-        if (sessionStorage.getItem("access_token")) {
+    const handleLogin = async (userCredentials) => {
+        try {
+            await login(userCredentials);
             setIsLoggedIn(true);
+        } catch (error) {
+
         }
-        else {
-            setIsLoggedIn(false);
-        }
-    }, [sessionStorage]);
+    };
+
+    const handleLogout = () => {
+        logout();
+        setIsLoggedIn(false);
+    };
 
     return (
         <>
@@ -58,49 +65,51 @@ const NavBar = ({ postUser, login, logout }) => {
                             <li className=' text-black dark:text-white'> <Link to='/'>Maps</Link>  </li>
                         </ul>
                         <div className="hidden lg:flex justify-center space-x-12 items-center" >
-                            <Popup trigger=
-                                {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button>}
-                                modal nested>
-                                {
-                                    close => (
-                                        <div className='modal'>
-                                            <div className='review-form'>
-                                                <RegistrationForm postUser={postUser} />
-                                            </div>
-                                            <div className='flex justify-center items-center'>
-                                                <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
-                                                    onClick=
-                                                    {() => close()} >
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )
-                                }
-                            </Popup>
-                            { !isLoggedIn ?
-                                <Popup trigger=
-                                    {<button className='py-2 px-3 border rounded-md'>Sign in</button>}
-                                    modal nested>
-                                    {
-                                        close => (
-                                            <div className='modal'>
-                                                <div className='review-form'>
-                                                    <LoginForm login={login} />
+                            {!isLoggedIn ?
+                                <div className="hidden lg:flex justify-center space-x-12 items-center">
+                                    <Popup trigger=
+                                        {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button>}
+                                        modal nested>
+                                        {
+                                            close => (
+                                                <div className='modal'>
+                                                    <div className='review-form'>
+                                                        <RegistrationForm postUser={postUser} />
+                                                    </div>
+                                                    <div className='flex justify-center items-center'>
+                                                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
+                                                            onClick=
+                                                            {() => close()} >
+                                                            Close
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <div className='flex justify-center items-center'>
-                                                    <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
-                                                        onClick=
-                                                        {() => close()} >
-                                                        Close
-                                                    </button>
+                                            )
+                                        }
+                                    </Popup>
+                                    <Popup trigger=
+                                        {<button className='py-2 px-3 border rounded-md dark:text-white'>Sign in</button>}
+                                        modal nested>
+                                        {
+                                            close => (
+                                                <div className='modal'>
+                                                    <div className='review-form'>
+                                                        <LoginForm login={handleLogin} />
+                                                    </div>
+                                                    <div className='flex justify-center items-center'>
+                                                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
+                                                            onClick=
+                                                            {() => close()} >
+                                                            Close
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    }
-                                </Popup>
+                                            )
+                                        }
+                                    </Popup>
+                                </div>
                                 :
-                                <button className='py-2 px-3 border rounded-md' onClick={logout}>Log Out</button>
+                                <button className='py-2 px-3 border rounded-md dark:text-white' onClick={handleLogout}>Log Out</button>
                             }
                             {darkMode ? <Moon onClick={toggleDark} className='cursor-pointer text-white' /> : <Sun onClick={toggleDark} className='cursor-pointer' />}
                         </div>
