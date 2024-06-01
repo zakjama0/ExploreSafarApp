@@ -11,22 +11,22 @@ public class Dua {
     @Column
     private long id;
 
-    @Column
+    @Column(length = 65536)
     private String name;
 
-    @Column
+    @Column(length = 65536)
     private String arabic;
 
-    @Column
+    @Column(length = 65536)
     private String translation;
 
-    @Column
+    @Column(length = 65536)
     private String transliteration;
 
-    @Column
+    @Column(length = 65536)
     private String explanation;
 
-    @Column
+    @Column(length = 65536)
     private String source;
 
     @Column

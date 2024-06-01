@@ -4,10 +4,10 @@ package com.example.demo.services;
 import com.example.demo.models.ChangePasswordDTO;
 import com.example.demo.models.User;
 import com.example.demo.models.UserDTO;
+import com.example.demo.repositories.TokenRepository;
 import com.example.demo.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +20,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
 
 

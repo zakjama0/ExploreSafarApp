@@ -4,16 +4,17 @@ import com.example.demo.auth.AuthenticationRequest;
 import com.example.demo.auth.AuthenticationResponse;
 import com.example.demo.auth.RegisterRequest;
 import com.example.demo.services.AuthenticationService;
+import com.example.demo.services.LogoutService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -21,6 +22,7 @@ import java.io.IOException;
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
+    private final LogoutService logoutService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
@@ -34,6 +36,14 @@ public class AuthenticationController {
             @RequestBody AuthenticationRequest request
     ) {
         return ResponseEntity.ok(authenticationService.authenticate(request));
+    }
+
+
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        logoutService.logout(request, response, authentication);
+        return ResponseEntity.ok("Logged out successfully");
     }
 
     @PostMapping("/refresh-token")
