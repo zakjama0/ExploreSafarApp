@@ -55,9 +55,9 @@ const MainContainer = () => {
             });
 
             if (!response.ok) {
-                if (response.status === 403) {
+                if (response.status === 409) {
                     alert("A user with this email address already exists.");
-                    throw new Error()
+                    throw new Error("A user with this email address already exists.");
                 } else {
                     throw new Error("An unexpected error occurred.");
                 }
@@ -65,10 +65,9 @@ const MainContainer = () => {
 
             alert("User has signed up.");
         } catch (error) {
-            console.error(error);
             throw error;
         }
-    };
+    }
 
     const login = async (userCredentials) => {
         try {
@@ -94,7 +93,6 @@ const MainContainer = () => {
             sessionStorage.setItem("access_token", access_token);
             sessionStorage.setItem("refresh_token", refresh_token);
 
-            // getUser(userCredentials.email);
             return data;
         } catch (error) {
             throw error;
@@ -148,7 +146,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Navigation postUser={postUser} login={login} logout={logout}/>,
+            element: <Navigation postUser={postUser} login={login} logout={logout} />,
             children: [
                 {
                     path: "/",
