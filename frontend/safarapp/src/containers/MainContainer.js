@@ -57,6 +57,7 @@ const MainContainer = () => {
             if (!response.ok) {
                 if (response.status === 403) {
                     alert("A user with this email address already exists.");
+                    throw new Error()
                 } else {
                     throw new Error("An unexpected error occurred.");
                 }
