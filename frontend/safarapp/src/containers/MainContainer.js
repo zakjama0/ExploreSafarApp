@@ -7,6 +7,7 @@ import Country from "../components/Country";
 import LandingPageContainer from "./LandingPageContainer";
 import DuasContainer from "./DuasContainer";
 import SafarAnimation from "../components/SafarAnimation";
+import MapsContainer from "./MapsContainer";
 
 const apiUrl = "localhost:8080";
 
@@ -192,6 +193,10 @@ const MainContainer = () => {
                 {
                     path: "/duas",
                     element: <DuasContainer duas={duas} />
+                },
+                {
+                    path: "/maps",
+                    element: <MapsContainer />
                 },
             ]
         }
