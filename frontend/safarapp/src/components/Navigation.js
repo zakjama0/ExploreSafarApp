@@ -45,7 +45,7 @@ const NavBar = ({ postUser }) => {
                         <ul className='hidden lg:flex ml-14 space-x-12'>
                             <li><Link className='text-black dark:text-white' to="/itineraries">Itineraries</Link></li>
                             <li className=' text-black dark:text-white'> <Link to='/duas'>Duas</Link> </li>
-                            <li className=' text-black dark:text-white'> <Link to='/'>Maps</Link>  </li>
+                            <li className=' text-black dark:text-white'> <Link to='/maps'>Maps</Link>  </li>
                         </ul>
                         <div className="hidden lg:flex justify-center space-x-12 items-center" >
                         <Popup trigger=
