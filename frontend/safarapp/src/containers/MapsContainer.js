@@ -18,10 +18,10 @@ const MapsContainer = () => {
 
     useEffect(() => {
       console.log(coordinates)
-      // getPlacesData().then((data) => {
-      //   // console.log('Returned data:', data.results);
-      //   setPlaces(data);
-      // });
+      getPlacesData({coordinates}).then((data) => {
+        console.log('Returned data:', data.results);
+        setPlaces(data.results)
+      });
     }, [coordinates]);
 
 
@@ -34,7 +34,7 @@ const MapsContainer = () => {
        
         <Grid container spacing={3} style={{width:'100%'}}>
           <Grid item xs={12} md={4}>
-          <List />
+          <List places ={places} />
           </Grid>
           <Grid item xs={12} md={8}>
           <Map 

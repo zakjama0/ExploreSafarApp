@@ -19,9 +19,20 @@ const options = {
   
  
   
-export const getPlacesData = async () => {
+export const getPlacesData = async ({coordinates}) => {
       try {
-        const {data: data} = await axios.get(URL, options);
+        const {data: data} = await axios.get(URL, {
+            params: {
+              location: `${coordinates.lat},${coordinates.lng}`,
+              radius: '1500',
+              keyword: 'halal',
+              type: 'restaurant'
+            },
+            headers: {
+              'x-rapidapi-key': "312917582fmsh44ae633e94bb69ap18d3fajsn8617488ed8c7", // Ensure your key is set in the environment variables
+              'x-rapidapi-host': 'map-places.p.rapidapi.com'
+            }
+          });
 
         // console.log('Full response:', response); // Log the full response to see its structure
         // const { data } = response;

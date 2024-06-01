@@ -2,25 +2,12 @@ import React, { useState, useEffect, createRef } from 'react';
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core'
 import useStyles from './styles.js';
 import PlaceDetails from '../PlaceDetails/PlaceDetails.js'
-const List = () => {
+const List = ({places}) => {
   const classes = useStyles();
   const [type, setType] =useState('restaurants');
   const [rating, setRating] =useState('');
 
-  const places = [
-    {name : "Kebab Spot"},
-    {name: "Good hub"},
-    {name: "Dixies"},
-    {name : "Kebab Spot"},
-    {name: "Good hub"},
-    {name: "Dixies"},
-    {name : "Kebab Spot"},
-    {name: "Good hub"},
-    {name: "Dixies"},
-    {name : "Kebab Spot"},
-    {name: "Good hub"},
-    {name: "Dixies"},
-  ]
+  
   return (
     <div className={classes.container}>
       <Typography >Halal Food near by you</Typography>
