@@ -21,10 +21,11 @@ const options = {
   
 export const getPlacesData = async () => {
       try {
-        const response = await axios.get(URL, options);
-        console.log('Full response:', response); // Log the full response to see its structure
-        const { data } = response;
-        console.log('Data:', data); // Log the data to see if it contains the expected properties
+        const {data: data} = await axios.get(URL, options);
+
+        // console.log('Full response:', response); // Log the full response to see its structure
+        // const { data } = response;
+        // console.log('Data:', data); // Log the data to see if it contains the expected properties
         return data; // Adjust based on the actual structure of the response
       } catch (error) {
         console.error('Error fetching data:', error);

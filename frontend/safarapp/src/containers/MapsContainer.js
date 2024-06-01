@@ -6,14 +6,23 @@ import Map from '../components/SafarMap/Maps/Map'
 import { getPlacesData } from '../components/SafarMap/apiIndex'
 const MapsContainer = () => {
     const [places, setPlaces] = useState([])
+    const [coordinates, setCoordinates] = useState([])
+
 
 
     useEffect(() => {
-      getPlacesData().then((data) => {
-        console.log('Returned data:', data);
-        setPlaces(data);
+      navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+        setCoordinates({ lat: latitude, lng: longitude });
       });
     }, []);
+
+    useEffect(() => {
+      console.log(coordinates)
+      // getPlacesData().then((data) => {
+      //   // console.log('Returned data:', data.results);
+      //   setPlaces(data);
+      // });
+    }, [coordinates]);
 
 
   return (
@@ -28,7 +37,9 @@ const MapsContainer = () => {
           <List />
           </Grid>
           <Grid item xs={12} md={8}>
-          <Map />
+          <Map 
+          setCoordinates={setCoordinates}
+          coordinates={coordinates}/>
           </Grid>
         </Grid>
     </div>
