@@ -59,39 +59,19 @@ const MainContainer = () => {
             });
 
             if (!response.ok) {
-                if (response.status === 403) {
+                if (response.status === 409) {
                     alert("A user with this email address already exists.");
+                    throw new Error("A user with this email address already exists.");
                 } else {
                     throw new Error("An unexpected error occurred.");
                 }
             }
 
             alert("User has signed up.");
-
-            const data = await response.json();
-            const { access_token, refresh_token } = data;
-
-            sessionStorage.setItem("access_token", access_token);
-            sessionStorage.setItem("refresh_token", refresh_token);
-
-            return data;
         } catch (error) {
-            console.error(error);
             throw error;
         }
-    };
-
-    // const getUser = async (email) => {
-    //     const access_token = sessionStorage.getItem("access_token");
-    //     const response = await fetch(`http://${apiUrl}/users/${email}`, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Authorization": `Bearer ${access_token}`,
-    //         },
-    //     });
-    //     const data = await response.json();
-    // }
+    }
 
     const login = async (userCredentials) => {
         try {
@@ -104,6 +84,7 @@ const MainContainer = () => {
             if (!response.ok) {
                 if (response.status === 401) {
                     alert("Email address or password is incorrect.");
+                    throw new Error("Email address or password is incorrect.");
                 } else {
                     throw new Error("An unexpected error occurred.");
                 }
@@ -116,7 +97,6 @@ const MainContainer = () => {
             sessionStorage.setItem("access_token", access_token);
             sessionStorage.setItem("refresh_token", refresh_token);
 
-            // getUser(userCredentials.email);
             return data;
         } catch (error) {
             throw error;
@@ -174,7 +154,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Navigation postUser={postUser} login={login} logout={logout}/>,
+            element: <Navigation postUser={postUser} login={login} logout={logout} />,
             children: [
                 {
                     path: "/",

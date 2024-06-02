@@ -6,7 +6,7 @@ const RegistrationForm = ({ postUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (handleValidation()) {
 
@@ -16,8 +16,11 @@ const RegistrationForm = ({ postUser }) => {
         password
       }
 
-      postUser(newUser);
-    }
+      try {
+        await postUser(newUser);
+      } catch (error) {
+      }
+  }
   }
 
   const handleValidation = () => {
