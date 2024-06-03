@@ -23,11 +23,17 @@ const Country = ({ cities }) => {
 
     return (
         <>
-            <Box sx={{ width: '100%' }}>
-                <div className="flex justify-center">
-                    <Card name={country.name} image={country.image} />
-                </div>
-            </Box>
+            <div
+      className="block w-full bg-white bg-cover p-20 shadow-lg dark:bg-neutral-700"
+      style={{
+        backgroundImage: `url(${country.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <h1 className="font-bold italic text-6xl text-slate-200  text-center">{country.name}</h1>
+
+            </div>
             <Box>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pl-10">Top Things To Do:</h5>
                 <FeaturedAttractionList attractions={attractions.slice(0, 3)} />
