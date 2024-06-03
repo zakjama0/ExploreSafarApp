@@ -26,7 +26,7 @@ export default function LabelBottomNavigation() {
         label="Home"
         value="home"
         icon={<Home className='text-white' 
-        href='/itineraries'/>}
+        />}
       />
       <BottomNavigationAction
         label="Duas"

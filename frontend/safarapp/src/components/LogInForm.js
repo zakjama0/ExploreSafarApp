@@ -30,8 +30,8 @@ const LoginForm = ({ login }) => {
 
 
   return (
-    <div className="flex flex-col justify-evenly items-center mx-5">
-      <div className="main-login flex flex-col items-center">
+    <div className="bg-transparent flex flex-col justify-evenly items-center mx-5">
+      <div className="bg-transparent main-login flex flex-col items-center">
         <div className="wrapper">
           <div className="registration w-[500px] bg-gradient-to-b from-blue-500 via-blue-600 to-violet-800 border-2 border-yellow-400 backdrop-blur-sm shadow-lg text-white rounded-lg p-8">
             <form onSubmit={handleSubmit}>

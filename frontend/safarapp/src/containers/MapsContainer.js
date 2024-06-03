@@ -16,17 +16,17 @@ const MapsContainer = () => {
       });
     }, []);
 
-    useEffect(() => {
-      console.log(coordinates)
-      getPlacesData({coordinates}).then((data) => {
-        console.log('Returned data:', data.results);
-        setPlaces(data.results)
-      });
-    }, [coordinates]);
+    // useEffect(() => {
+    //   console.log(coordinates)
+    //   getPlacesData({coordinates}).then((data) => {
+    //     console.log('Returned data:', data.results);
+    //     setPlaces(data.results)
+    //   });
+    // }, [coordinates]);
 
 
   return (
-    <div className='h-screen dark:bg-slate-800 dark:text-white w-full'>
+    <div className='h-screen  dark:bg-slate-800 dark:text-white w-full'>
         <CssBaseline/>
         <div>
           <Search />

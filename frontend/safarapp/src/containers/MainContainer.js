@@ -4,10 +4,12 @@ import { jwtDecode } from 'jwt-decode';
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
 import Country from "../components/Country";
+import Attraction from "../components/Attraction"
 import LandingPageContainer from "./LandingPageContainer";
 import DuasContainer from "./DuasContainer";
 import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
+
 
 const apiUrl = "localhost:8080";
 
@@ -150,6 +152,11 @@ const MainContainer = () => {
             return country.id === parseInt(params.countryId);
         });
     }
+    const attractionLoader = ({ params }) => {
+        return attractions.find(attraction => {
+            return attraction.id === parseInt(params.attractionId);
+        });
+    }
 
     const router = createBrowserRouter([
         {
@@ -169,6 +176,12 @@ const MainContainer = () => {
                     loader: countryLoader,
 
                     element: <Country cities={cities}/>
+                },
+                {
+                    path: "/attractions/:attractionId",
+                    loader: attractionLoader,
+
+                    element: <Attraction cities={cities}/>
                 },
                 {
                     path: "/duas",

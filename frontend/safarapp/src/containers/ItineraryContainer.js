@@ -93,7 +93,7 @@ const ItineraryContainer = ({ countries }) => {
     setValue(newValue);
     setContinent(valueToContinent[newValue]);
   };
-  return (<div className=' h-full dark:bg-slate-800 dark:text-white w-full'>
+  return (<div className='h-full dark:bg-slate-800 dark:text-white w-full'>
     <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Itineraries</h1>
     <Box sx={{ width: '100%' }}>
       <div className='flex justify-center pt-5'>
