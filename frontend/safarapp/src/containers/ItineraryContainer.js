@@ -97,21 +97,21 @@ const ItineraryContainer = ({ countries }) => {
     <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Itineraries</h1>
     <Box sx={{ width: '100%' }}>
       <div className='flex justify-center pt-5'>
-      <TextField className="mx-auto"
-        id="outlined-basic"
-        label="Search Countries"
-        variant="outlined"
-        onChange={e => {
-          setSearchQuery(e.target.value);
-        }} />
-        </div>
+        <TextField className="mx-auto"
+          id="outlined-basic"
+          label="Search Countries"
+          variant="outlined"
+          onChange={e => {
+            setSearchQuery(e.target.value);
+          }} />
+      </div>
       {searchQuery.trim() === "" ?
         <div>
           <Box>
             <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleTabChange} variant='fullWidth' aria-label="basic tabs example">
               <CustomTab label="Europe" {...a11yProps(0)} className='dark:text-white' />
               <CustomTab label="Asia" {...a11yProps(1)} className='dark:text-white' />
-              
+
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0} >
