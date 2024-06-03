@@ -22,7 +22,7 @@ const Country = ({ cities }) => {
     }, []);
 
     return (
-        <>
+        <div className="h-full pb-40 dark:bg-slate-800 dark:text-white w-full">
             <div
       className="block w-full bg-white bg-cover p-20 shadow-lg dark:bg-neutral-700"
       style={{
@@ -35,13 +35,13 @@ const Country = ({ cities }) => {
 
             </div>
             <Box>
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pl-10">Top Things To Do:</h5>
+                <h5 class=" text-center my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pl-10">Top Things To Do:</h5>
                 <FeaturedAttractionList attractions={attractions.slice(0, 3)} />
             </Box>
             <Box>
                 <AttractionList cities={filteredCities}/>
             </Box>
-        </>
+        </div>
     );
 }
 

@@ -16,13 +16,13 @@ const MapsContainer = () => {
       });
     }, []);
 
-    // useEffect(() => {
-    //   console.log(coordinates)
-    //   getPlacesData({coordinates}).then((data) => {
-    //     console.log('Returned data:', data.results);
-    //     setPlaces(data.results)
-    //   });
-    // }, [coordinates]);
+    useEffect(() => {
+      console.log(coordinates)
+      getPlacesData({coordinates}).then((data) => {
+        console.log('Returned data:', data.results);
+        setPlaces(data.results)
+      });
+    }, [coordinates]);
 
 
   return (
@@ -39,7 +39,8 @@ const MapsContainer = () => {
           <Grid item xs={12} md={8}>
           <Map 
           setCoordinates={setCoordinates}
-          coordinates={coordinates}/>
+          coordinates={coordinates}
+          places={places}/>
           </Grid>
         </Grid>
     </div>

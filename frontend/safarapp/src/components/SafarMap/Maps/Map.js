@@ -6,7 +6,7 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles.js';
 
-const Map = ({setCoordinates, coordinates}) => {
+const Map = ({setCoordinates, coordinates, places}) => {
   const classes = useStyles();
   const isMobile = useMediaQuery('(min-width:600px)');
   // const coordinates = {lat:0, lng:0}
@@ -24,7 +24,15 @@ const Map = ({setCoordinates, coordinates}) => {
       }}
       onChildClick={""}
       >
+        {places?.map((place) =>(
+          <div
+          className={classes.markerContainer}
+          lat={Number(place.latitude)}
+          lng={Number(place.longitude)}
+          >
 
+          </div>
+        ))}
       </GoogleMapReact>
     </div>
   )
