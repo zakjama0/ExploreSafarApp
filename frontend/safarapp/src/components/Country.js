@@ -28,11 +28,11 @@ const Country = ({ cities }) => {
                     <Card name={country.name} image={country.image} />
                 </div>
             </Box>
-            <Box>
+            <Box sx={{ p: 3 }}>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pl-10">Top Things To Do:</h5>
                 <FeaturedAttractionList attractions={attractions.slice(0, 3)} />
             </Box>
-            <Box>
+            <Box sx={{ p: 3 }}>
                 <AttractionList cities={filteredCities}/>
             </Box>
         </>
