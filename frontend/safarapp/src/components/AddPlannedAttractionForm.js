@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
-const LoginForm = ({ login }) => {
+const AddPlannedAttractionForm = ({  }) => {
 
-  const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (event) => {
@@ -76,4 +76,4 @@ const LoginForm = ({ login }) => {
   );
 };
 
-export default LoginForm;
+export default AddPlannedAttractionForm;

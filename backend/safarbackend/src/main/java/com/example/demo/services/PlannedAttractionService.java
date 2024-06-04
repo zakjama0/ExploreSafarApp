@@ -8,6 +8,7 @@ import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,17 +24,6 @@ public class PlannedAttractionService {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    public PlannedAttractionService(PlannedAttractionRepository plannedAttractionRepository,
-                                    ItineraryRepository itineraryRepository,
-                                    AttractionRepository attractionRepository,
-                                    UserRepository userRepository) {
-        this.plannedAttractionRepository = plannedAttractionRepository;
-        this.itineraryRepository = itineraryRepository;
-        this.attractionRepository = attractionRepository;
-        this.userRepository = userRepository;
-    }
-
 
     public List<PlannedAttraction> getAllPlannedAttractions(){
         return plannedAttractionRepository.findAll();
@@ -47,7 +37,7 @@ public class PlannedAttractionService {
         return plannedAttractionRepository.findByItineraryId(itinerary);
     }
 
-    public PlannedAttraction savePlannedAttraction(PlannedAttractionDTO plannedAttractionDTO){
+    public PlannedAttraction savePlannedAttraction(PlannedAttractionDTO plannedAttractionDTO, Principal connectedUser){
 
         if(plannedAttractionDTO.getItineraryId() == null){
 

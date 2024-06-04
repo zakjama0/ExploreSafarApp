@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,8 +42,11 @@ public class PlannedAttractionController {
         return new ResponseEntity<>(plannedAttractions, HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<PlannedAttraction> addPlannedAttraction(@RequestBody PlannedAttractionDTO plannedAttractionDTO){
-        PlannedAttraction newPlannedAttraction = plannedAttractionService.savePlannedAttraction(plannedAttractionDTO);
+    public ResponseEntity<PlannedAttraction> addPlannedAttraction(
+            @RequestBody PlannedAttractionDTO plannedAttractionDTO,
+            Principal connectedUser
+            ) {
+        PlannedAttraction newPlannedAttraction = plannedAttractionService.savePlannedAttraction(plannedAttractionDTO, connectedUser);
         if(newPlannedAttraction == null){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
