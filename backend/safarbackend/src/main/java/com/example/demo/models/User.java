@@ -59,6 +59,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Review> reviews;
 
+
+
     // UserDetails methods
 
     @Override
@@ -96,6 +98,11 @@ public class User implements UserDetails {
         return password;
     }
 
+    public User(String name, String email, String password) {
+        this.name=name;
+        this.email=email;
+        this.password=password;
+    }
     // Model Methods
 
     @Override

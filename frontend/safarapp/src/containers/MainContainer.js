@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import React, { createContext, useEffect, useState } from "react";
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode';
 import ItineraryContainer from "./ItineraryContainer";
 import Navigation from "../components/Navigation";
@@ -12,6 +12,7 @@ import MapsContainer from "./MapsContainer";
 
 
 const apiUrl = "localhost:8080";
+export const userState = React.createContext();
 
 const MainContainer = () => {
 
@@ -20,7 +21,8 @@ const MainContainer = () => {
     const [countries, setCountries] = useState([]);
     const [duas, setDuas] = useState([]);
     const [reviews, setReviews] = useState([]);
-    const [loading, setLoading] =useState(false)
+    const [loading, setLoading] =useState(false);
+    const [activeCustomer, setActiveCustomer] = useState({});
 
     const fetchAttractions = async () => {
         const response = await fetch(`http://${apiUrl}/attractions`);
@@ -233,7 +235,9 @@ const MainContainer = () => {
             loading ?
             <SafarAnimation />
             :
+            <userState.Provider value={{ activeCustomer: activeCustomer, setActiveCustomer: setActiveCustomer }}>
             <RouterProvider router={router} />
+            </userState.Provider>
         }
             
         </>
