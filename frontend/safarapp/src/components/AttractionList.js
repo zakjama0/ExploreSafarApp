@@ -3,7 +3,7 @@ import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 
-const AttractionList = ({ cities }) => {
+const AttractionList = ({ cities, postPlannedAttraction }) => {
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 

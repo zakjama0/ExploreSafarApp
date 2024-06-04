@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "plannedAttractions")
+@RequestMapping(value = "/planned-attractions")
 public class PlannedAttractionController {
     @Autowired
     PlannedAttractionService plannedAttractionService;

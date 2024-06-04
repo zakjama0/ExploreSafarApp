@@ -6,7 +6,7 @@ import Popup from "reactjs-popup";
 import LoginForm from "./LogInForm";
 import AddPlannedAttractionForm from "./AddPlannedAttractionForm";
 
-const FeaturedAttractionList = ({ attractions }) => {
+const FeaturedAttractionList = ({ attractions, postPlannedAttraction }) => {
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 

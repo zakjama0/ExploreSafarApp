@@ -18,7 +18,7 @@ const MainContainer = () => {
     const [countries, setCountries] = useState([]);
     const [duas, setDuas] = useState([]);
     const [reviews, setReviews] = useState([]);
-    const [loading, setLoading] =useState(false)
+    const [loading, setLoading] = useState(false)
 
     const fetchAttractions = async () => {
         const response = await fetch(`http://${apiUrl}/attractions`);
@@ -125,6 +125,27 @@ const MainContainer = () => {
         }
     }
 
+    const postPlannedAttraction = async (plannedAttraction) => {
+        try {
+            const response = await fetch(`http://${apiUrl}/planned-attractions`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+                }
+            });
+
+            if (!response.ok) {
+                alert("An unexpected error has occured");
+                throw new Error();
+            }
+
+            alert("Planned Attraction added");
+        } catch (error) {
+            throw error;
+        }
+    }
+
     useEffect(() => {
         fetchAttractions();
         fetchCities();
@@ -140,9 +161,9 @@ const MainContainer = () => {
             }
         }
         setLoading(true)
-        setTimeout(() =>{
+        setTimeout(() => {
             setLoading(false)
-        },5500)
+        }, 5500)
     }, []);
 
     const countryLoader = ({ params }) => {
@@ -168,7 +189,7 @@ const MainContainer = () => {
                     path: "/countries/:countryId",
                     loader: countryLoader,
 
-                    element: <Country cities={cities}/>
+                    element: <Country cities={cities} postPlannedAttraction={postPlannedAttraction} />
                 },
                 {
                     path: "/duas",
@@ -184,13 +205,13 @@ const MainContainer = () => {
 
     return (
         <>
-        {
-            loading ?
-            <SafarAnimation />
-            :
-            <RouterProvider router={router} />
-        }
-            
+            {
+                loading ?
+                    <SafarAnimation />
+                    :
+                    <RouterProvider router={router} />
+            }
+
         </>
     );
 }

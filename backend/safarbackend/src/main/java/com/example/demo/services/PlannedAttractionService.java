@@ -6,6 +6,7 @@ import com.example.demo.repositories.ItineraryRepository;
 import com.example.demo.repositories.PlannedAttractionRepository;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
@@ -41,12 +42,12 @@ public class PlannedAttractionService {
 
         if(plannedAttractionDTO.getItineraryId() == null){
 
-            Optional<User> user = userRepository.findById(plannedAttractionDTO.getUserId());
+            User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
             Optional<Attraction> attraction = attractionRepository.findById(plannedAttractionDTO.getAttractionId());
-            if(user.isEmpty() || attraction.isEmpty()){
+            if(user == null || attraction.isEmpty()){
                 return null;
             }
-            Itinerary newItinerary = new Itinerary(user.get(), plannedAttractionDTO.getItineraryName(), attraction.get().getImage());
+            Itinerary newItinerary = new Itinerary(user, plannedAttractionDTO.getItineraryName(), attraction.get().getImage());
             Itinerary savedItinerary = itineraryRepository.save(newItinerary);
 
             PlannedAttraction plannedAttraction = new PlannedAttraction(savedItinerary, attraction.get(), plannedAttractionDTO.getStartDate(), plannedAttractionDTO.getEndDate());

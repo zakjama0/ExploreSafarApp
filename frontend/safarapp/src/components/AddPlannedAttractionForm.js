@@ -1,9 +1,19 @@
 import { useState } from "react";
 
-const AddPlannedAttractionForm = ({  }) => {
+const AddPlannedAttractionForm = ({ postPlannedAttraction }) => {
 
-    const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    // private Long itineraryId;
+    // private Long attractionId;
+    // private LocalDate startTime;
+    // private LocalDate endTime;
+    // private Long userId;
+    // private String itineraryName;
+    const [itineraryId, setItineraryId] = useState(null);
+    const [itineraryId, setItineraryId] = useState(null);
+    const [itineraryId, setItineraryId] = useState(null);
+    const [itineraryId, setItineraryId] = useState(null);
+    const [itineraryId, setItineraryId] = useState(null);
+    const [itineraryId, setItineraryId] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,7 +24,7 @@ const AddPlannedAttractionForm = ({  }) => {
         password
       }
 
-      login(user);
+      postPlannedAttraction(user);
     }
   }
 

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import FeaturedAttractionList from "./FeaturedAttractionList";
 import AttractionList from "./AttractionList";
 
-const Country = ({ cities }) => {
+const Country = ({ cities, postPlannedAttraction }) => {
 
     const [attractions, setAttractions] = useState([]);
     const country = useLoaderData();
@@ -30,10 +30,10 @@ const Country = ({ cities }) => {
             </Box>
             <Box sx={{ p: 3 }}>
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pl-10">Top Things To Do:</h5>
-                <FeaturedAttractionList attractions={attractions.slice(0, 3)} />
+                <FeaturedAttractionList attractions={attractions.slice(0, 3)} postPlannedAttraction={postPlannedAttraction} />
             </Box>
             <Box sx={{ p: 3 }}>
-                <AttractionList cities={filteredCities}/>
+                <AttractionList cities={filteredCities} postPlannedAttraction={postPlannedAttraction} />
             </Box>
         </>
     );
