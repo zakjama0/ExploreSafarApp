@@ -1,40 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
 
-const LoginForm = ({ login }) => {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (handleValidation()) {
-
-      const user = {
-        email,
-        password
-      }
-
-      login(user);
-    }
-  }
-
-  const handleValidation = () => {
-
-    if (email === "" || password === "") {
-      alert("Please fill in all fields")
-      return false;
-    }
-    return true;
-  }
-
-
+const AddPlan = () => {
   return (
     <div className="bg-transparent flex flex-col justify-evenly items-center mx-5">
       <div className="bg-transparent main-login flex flex-col items-center">
         <div className="wrapper">
           <div className="registration w-[500px] bg-gradient-to-b from-blue-500 via-blue-600 to-violet-800 border-2 border-yellow-400 backdrop-blur-sm shadow-lg text-white rounded-lg p-8">
-            <form onSubmit={handleSubmit}>
+            <form >
               <h1 className="text-4xl text-center mb-6">Log in!</h1>
               <h1 className="text-xl text-center mb-1">Welcome back to Safar!</h1>
               <div className="input-box relative w-11/12 mb-6">
@@ -44,8 +16,8 @@ const LoginForm = ({ login }) => {
                   type="email"
                   name="email"
                   placeholder="Enter email address"
-                  value={email}
-                  onChange={event => setEmail(event.target.value)}
+                  
+                  
                 />
               </div>
               <div className="input-box relative w-11/12 mb-6">
@@ -55,8 +27,7 @@ const LoginForm = ({ login }) => {
                   type="password"
                   name="password"
                   placeholder="Enter password"
-                  value={password}
-                  onChange={event => setPassword(event.target.value)}
+                  
                 />
               </div>
               <div className="register-link text-center mb-4">
@@ -74,7 +45,7 @@ const LoginForm = ({ login }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default AddPlan
