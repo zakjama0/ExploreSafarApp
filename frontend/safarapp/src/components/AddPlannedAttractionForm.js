@@ -1,41 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const AddPlannedAttractionForm = ({ postPlannedAttraction }) => {
+const apiUrl = "localhost:8080";
+const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
 
-    // private Long itineraryId;
-    // private Long attractionId;
-    // private LocalDate startTime;
-    // private LocalDate endTime;
-    // private Long userId;
-    // private String itineraryName;
-    const [itineraryId, setItineraryId] = useState(null);
-    const [attractionId, setAttractionId] = useState(null);
-    const [startTime, setStartTime] = useState(null);
-    const [endTime, setEndTime] = useState(null);
-    const [itineraryId, setItineraryId] = useState(null);
-    const [itineraryId, setItineraryId] = useState(null);
+  const [itineraries, setItineraries] = useState([]);
+  const [itineraryId, setItineraryId] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [newItineraryName, setNewItineraryName] = useState("");
+
+  const fetchItinerariesByUser = async () => {
+    const response = await fetch(`http://${apiUrl}/planned-attractions`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+        }
+    });
+    const data = await response.json();
+    setItineraries(data);
+}
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (handleValidation()) {
 
-    //   const user = {
-    //     email,
-    //     password
-    //   }
+      const plannedAttraction = {
+        itineraryId,
+        attractionId,
+        startTime,
+        endTime,
+        newItineraryName
+      }
 
-      postPlannedAttraction();
+      postPlannedAttraction(plannedAttraction);
     }
   }
 
   const handleValidation = () => {
 
-    if (email === "" || password === "") {
-      alert("Please fill in all fields")
-      return false;
-    }
+    // if (email === "" || password === "") {
+    //   alert("Please fill in all fields")
+    //   return false;
+    // }
     return true;
   }
+
+  const handleItineraryChange = (event) => {
+    setItineraryId(event.target.value.id);
+  }
+
+  useEffect(() => {
+    fetchItinerariesByUser();
+  }, []);
 
 
   return (
@@ -47,26 +64,31 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction }) => {
               <h1 className="text-4xl text-center mb-6">Log in!</h1>
               <h1 className="text-xl text-center mb-1">Welcome back to Safar!</h1>
               <div className="input-box relative w-11/12 mb-6">
-                <label htmlFor="email" className="block mb-2">Email:</label>
+                <label className="block mb-2">Itinerary:</label>
+                <select
+                  value={itineraryId}
+                  onChange={handleItineraryChange}
+                >
+                  <option value="New">Create New Itinerary</option>
+                  {itineraries.map(itinerary => (
+                    <option key={itinerary.id} value={itinerary}>{itinerary.name}</option>
+                  ))}
+                </select>
+
+              </div>
+              <div className="input-box relative w-11/12 mb-6">
+                <label className="block mb-2">New Itinerary Name:</label>
                 <input
-                  className="email w-full p-2 rounded text-black"
-                  type="email"
-                  name="email"
-                  placeholder="Enter email address"
-                  value={email}
-                  onChange={event => setEmail(event.target.value)}
+                  className="w-full p-2 rounded text-black"
+                  name="itinerary-name"
+                  placeholder="Enter name of new itinerary"
+                  value={newItineraryName}
+                  onChange={event => setNewItineraryName(event.target.value)}
                 />
               </div>
               <div className="input-box relative w-11/12 mb-6">
-                <label htmlFor="password" className="block mb-2">Password:</label>
-                <input
-                  className="password w-full p-2 rounded text-black"
-                  type="password"
-                  name="password"
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={event => setPassword(event.target.value)}
-                />
+                <label className="block mb-2">Start Date</label>
+                <DatePicker />
               </div>
               <div className="register-link text-center mb-4">
                 <p>Dont have an account? <a to="" className="text-blue-500">Sign Up!</a></p>
