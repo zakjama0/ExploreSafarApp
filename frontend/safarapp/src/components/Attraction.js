@@ -7,11 +7,12 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import EditIcon from '@mui/icons-material/Edit';
 import Popup from 'reactjs-popup';
 import AddPlan from "./AddPlan";
+import ReviewList from "./ReviewList";
 
 
 
 
-const Attraction = () => {
+const Attraction = ({ patchReview, deleteReview, editReview }) => {
     const attraction = useLoaderData();
     const [expanded, setExpanded] = useState(false);
   
@@ -36,7 +37,7 @@ const Attraction = () => {
     <div className="max-w-sm mx-auto my-4 shadow-lg rounded-lg overflow-hidden">
       <div className="px-6 py-4">
         <h2 className="text-2xl font-bold mb-2">About</h2>
-        <p className={`text-gray-700 text-base ${expanded ? '' : 'line-clamp-3'}`}>
+        <p className={`text-gray-700 dark:text-white text-base ${expanded ? '' : 'line-clamp-3'}`}>
         {attraction.description}
         </p>
         <Button
@@ -77,8 +78,9 @@ const Attraction = () => {
           
           </Grid>
         <Grid item xs={12} md={8}>
-        <h2 className="text-2xl font-bold my-2 text-center">About</h2>
-        
+        <h2 className="text-2xl font-bold my-2 text-center">Reviews</h2>
+        <p className="text-gray-900 dark:text-white text-lg font-bold">Average Rating:</p>
+        <ReviewList reviews={attraction.reviews} deleteReview={deleteReview} editReview={editReview}/>
         </Grid>
         </Grid>
 
