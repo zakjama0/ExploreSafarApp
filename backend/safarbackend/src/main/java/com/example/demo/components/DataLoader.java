@@ -3,14 +3,13 @@ package com.example.demo.components;
 import com.example.demo.enums.Category;
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
-import com.example.demo.models.Attraction;
-import com.example.demo.models.City;
-import com.example.demo.models.Country;
-import com.example.demo.models.Dua;
+import com.example.demo.enums.Role;
+import com.example.demo.models.*;
 import com.example.demo.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -35,9 +34,21 @@ public class DataLoader implements ApplicationRunner {
     UserRepository userRepository;
     @Autowired
     AttractionRepository attractionRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
+
+        User user = User.builder()
+                .name("John")
+                .email("john@john.com")
+                .password(passwordEncoder.encode("password"))
+                .role(Role.USER)
+                .build();
+
+        userRepository.save(user);
+
 //        Dua
         Dua startJourney = new Dua("Starting the journey","بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ","In the name of Allah, I trust in Allah; there is no might and no power but in Allah" ,"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah", "For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him.”" ,"Grade: Sahih (Al-Albani)\n" +
                 "Reference: Sunan Abi Dawud 5095\n" +
