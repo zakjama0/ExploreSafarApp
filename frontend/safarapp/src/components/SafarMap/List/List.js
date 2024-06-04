@@ -10,14 +10,6 @@ const List = ({places}) => {
   
   return (
     <div className={classes.container}>
-      <Typography >Halal Food near by you</Typography>
-      <FormControl className={classes.formControl}>
-            <InputLabel id="type">Type</InputLabel>
-            <Select value={type} onChange={(e)=> setType(e.target.value)}>
-              <MenuItem value="restaurants">Restaurants</MenuItem>
-              <MenuItem value="masjids">Masjids</MenuItem>
-            </Select>
-      </FormControl>
       <FormControl className={classes.formControl}>
             <InputLabel id="rating">Rating</InputLabel>
             <Select value={rating} onChange={(e)=> setRating(e.target.value)}>

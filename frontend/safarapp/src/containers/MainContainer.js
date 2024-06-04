@@ -127,6 +127,34 @@ const MainContainer = () => {
         }
     }
 
+    const postReview = async (newReview) => {
+        const response = await fetch("http://localhost:8080/reviews", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newReview)
+        });
+        fetchAttractions();
+    }
+
+    const patchReview = async (amendedReview, reviewId) => {
+        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(amendedReview)
+        });
+        fetchReviews();
+        fetchAttractions();
+    }
+
+    const deleteReview = async (reviewId) => {
+        const response = await fetch(`http://localhost:8080/reviews/${reviewId}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(reviewId)
+        });
+        fetchAttractions();
+    }
+
     useEffect(() => {
         fetchAttractions();
         fetchCities();
@@ -181,7 +209,11 @@ const MainContainer = () => {
                     path: "/attractions/:attractionId",
                     loader: attractionLoader,
 
-                    element: <Attraction cities={cities}/>
+                    element: <Attraction cities={cities}
+                    postReview={postReview}
+                    deleteReview={deleteReview}
+                    editReview={patchReview}
+                    />
                 },
                 {
                     path: "/duas",

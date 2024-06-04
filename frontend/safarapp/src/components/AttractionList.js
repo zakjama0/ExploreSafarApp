@@ -35,7 +35,9 @@ const AttractionList = ({ cities }) => {
                 <h2 className="text-center my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pl-10">{city.name}</h2>
                 <Carousel responsive={responsive}>{city.attractions.map(attraction => {
                     return (
-                        <Card name={attraction.name} image={attraction.image} />
+                        <Link to={`/attractions/${attraction.id}`}>
+                            <Card name={attraction.name} image={attraction.image} />
+                        </Link>
                     );
                 })}
                 </Carousel>

@@ -26,7 +26,7 @@ const LandingPageContainer = () => {
   }, [isInView])
   
   return (
-    <div   className=' dark:bg-slate-800 w-full h-full'>
+    <div   className=' bg-[#d2dbd8] dark:bg-slate-800 w-full h-full'>
         <div className=' flex-row items-center justify-center mb-20'>
           <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-800 "
           >Welcome to the future of travelling</h1>
@@ -55,8 +55,8 @@ const LandingPageContainer = () => {
         >
         <BentoGrid />
         </motion.div>
-        <div className="min-h-screen bg-white dark:bg-slate-800 w-full px-4 py-5 text-zinc-50">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-8">
+  <div className="min-h-screen dark:bg-slate-800 w-full px-4 pb-5 text-zinc-50">
+  <div className=" max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-8">
     <div className="flex flex-col items-center">
       <h1 className="py-2 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800">Our Story</h1>
       <div className='md:flex md:items-center md:justify-center'>
