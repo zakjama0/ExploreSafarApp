@@ -9,9 +9,9 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction }) => {
     // private Long userId;
     // private String itineraryName;
     const [itineraryId, setItineraryId] = useState(null);
-    const [itineraryId, setItineraryId] = useState(null);
-    const [itineraryId, setItineraryId] = useState(null);
-    const [itineraryId, setItineraryId] = useState(null);
+    const [attractionId, setAttractionId] = useState(null);
+    const [startTime, setStartTime] = useState(null);
+    const [endTime, setEndTime] = useState(null);
     const [itineraryId, setItineraryId] = useState(null);
     const [itineraryId, setItineraryId] = useState(null);
 
@@ -19,12 +19,12 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction }) => {
     event.preventDefault();
     if (handleValidation()) {
 
-      const user = {
-        email,
-        password
-      }
+    //   const user = {
+    //     email,
+    //     password
+    //   }
 
-      postPlannedAttraction(user);
+      postPlannedAttraction();
     }
   }
 

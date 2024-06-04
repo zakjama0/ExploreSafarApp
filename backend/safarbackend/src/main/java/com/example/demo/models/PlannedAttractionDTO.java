@@ -8,7 +8,6 @@ public class PlannedAttractionDTO {
     private Long attractionId;
     private LocalDate startTime;
     private LocalDate endTime;
-    private Long userId;
     private String itineraryName;
 
     public PlannedAttractionDTO(){
@@ -20,7 +19,6 @@ public class PlannedAttractionDTO {
         this.attractionId = attractionId;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.userId = userId;
         this.itineraryName = itineraryName;
     }
 
@@ -29,7 +27,6 @@ public class PlannedAttractionDTO {
         this.attractionId = attractionId;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.userId = userId;
     }
 
     public Long getItineraryId() {
@@ -64,19 +61,11 @@ public class PlannedAttractionDTO {
         this.endTime = endTime;
     }
 
-    public Long getUserId() {
-        return this.userId;
-    }
-
     public String getItineraryName() {
         return itineraryName;
     }
 
     public void setItineraryName(String itineraryName) {
         this.itineraryName = itineraryName;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 }
