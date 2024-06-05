@@ -3,6 +3,7 @@ package com.example.demo.components;
 import com.example.demo.enums.Category;
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
+import com.example.demo.enums.Role;
 import com.example.demo.models.*;
 import com.example.demo.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,12 @@ public class DataLoader implements ApplicationRunner {
     public void run(ApplicationArguments arguments) throws Exception {
 
 //  User
-    User zak = new User("zak", "zak@safar.com","password");
-
+        User user = User.builder()
+                .name("Zakaria")
+                .email("zak@gmail.com")
+                .password(passwordEncoder.encode("password"))
+                .role(Role.USER)
+                .build();
 //        Dua
         Dua startJourney = new Dua("Starting the journey","بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ","In the name of Allah, I trust in Allah; there is no might and no power but in Allah" ,"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah", "For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him.”" ,"Grade: Sahih (Al-Albani)\n" +
                 "Reference: Sunan Abi Dawud 5095\n" +
