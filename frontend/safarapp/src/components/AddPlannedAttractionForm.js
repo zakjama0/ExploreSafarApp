@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const apiUrl = "localhost:8080";
 const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
@@ -11,15 +13,15 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
 
   const fetchItinerariesByUser = async () => {
     const response = await fetch(`http://${apiUrl}/planned-attractions`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
-        }
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+      }
     });
     const data = await response.json();
     setItineraries(data);
-}
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,12 +30,14 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
       const plannedAttraction = {
         itineraryId,
         attractionId,
-        startTime,
+        startTime: startTime.$d,
         endTime,
         newItineraryName
       }
 
-      postPlannedAttraction(plannedAttraction);
+      console.log(plannedAttraction);
+
+      // postPlannedAttraction(plannedAttraction);
     }
   }
 
@@ -61,8 +65,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
         <div className="wrapper">
           <div className="registration w-[500px] bg-gradient-to-b from-blue-500 via-blue-600 to-violet-800 border-2 border-yellow-400 backdrop-blur-sm shadow-lg text-white rounded-lg p-8">
             <form onSubmit={handleSubmit}>
-              <h1 className="text-4xl text-center mb-6">Log in!</h1>
-              <h1 className="text-xl text-center mb-1">Welcome back to Safar!</h1>
+              <h1 className="text-4xl text-center mb-6">Add Attraction to Itinerary!</h1>
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">Itinerary:</label>
                 <select
@@ -88,16 +91,21 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
               </div>
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">Start Date</label>
-                <DatePicker />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker value={startTime} onChange={value => setStartTime(value)} />
+                </LocalizationProvider>
               </div>
-              <div className="register-link text-center mb-4">
-                <p>Dont have an account? <a to="" className="text-blue-500">Sign Up!</a></p>
+              <div className="input-box relative w-11/12 mb-6">
+                <label className="block mb-2">End Date</label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker value={endTime} onChange={value => setEndTime(value)} />
+                </LocalizationProvider>
               </div>
               <div className="register-button flex justify-center">
                 <input
                   className="register-btn w-40 h-12 bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-lg text-orange-500 font-semibold text-center"
                   type="submit"
-                  value="Login"
+                  value="Add"
                 />
               </div>
             </form>
