@@ -25,17 +25,28 @@ const ReviewCard = ({review, deleteReview, editReview}) => {
 
   return (
     <div>
-        <div>
-                <h3>{review.user.name}</h3>
-                <p>Rating: {review.rating}</p>
-                {expandStatus && <p>Comment: {review.comment}</p>}
-                <button onClick={toggleExpandStatus}>
-                    {toggleButtonLabel()}
-                </button>
-                {activeCustomer.id === review.user.id ?
-                    <button onClick={handleDeleteButton}>Delete</button> :
-                    <></>}
-        </div>
+        <div className="border border-gray-200 p-4 rounded-md shadow-md">
+    <h3 className="text-lg font-semibold">{review.user.name}</h3>
+    <p className="text-gray-600">Rating: {review.rating}</p>
+    {expandStatus && <p className="text-gray-600">Comment: {review.comment}</p>}
+    <button
+        onClick={toggleExpandStatus}
+        className="mt-2 inline-block bg-blue-500 text-white py-1 px-4 rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-400"
+    >
+        {toggleButtonLabel()}
+    </button>
+    {activeCustomer.id === review.user.id ? (
+        <button
+            onClick={handleDeleteButton}
+            className="mt-2 ml-2 inline-block bg-red-500 text-white py-1 px-4 rounded-md shadow-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-400"
+        >
+            Delete
+        </button>
+    ) : (
+        <></>
+    )}
+</div>
+
     </div>
   )
 }

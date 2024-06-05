@@ -30,7 +30,14 @@ const ReviewList = ({ reviews, deleteReview, editReview }) => {
 
     return (
         <div className="">
-            <Carousel responsive={responsive} >{reviewComponents}</Carousel>
+            <Carousel responsive={responsive} >{reviews?.map(review => (
+        <ReviewCard
+            key={review.id}
+            review={review}
+            deleteReview={deleteReview}
+            editReview={editReview}
+        />
+    ))}</Carousel>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -18,6 +19,7 @@ public class Review {
     @Column(name = "comment")
     private String comment;
 
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

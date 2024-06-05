@@ -19,6 +19,8 @@ const Country = ({ cities }) => {
 
     useEffect(() => {
         fetchAttractionsByCountry(country.id);
+        console.log(country);
+        console.log(attractions);
     }, []);
 
     return (

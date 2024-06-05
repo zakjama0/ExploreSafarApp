@@ -7,6 +7,7 @@ import { duration } from '@mui/material';
 import Cappadocia from '../assests/Cappadocia.jpeg'
 import Hike from '../assests/Hike.png'
 import MuslimCouple from '../assests/MuslimCouple.png'
+import { Link} from 'react-router-dom';
 
 const LandingPageContainer = () => {
   const [isBouncing, setIsBouncing] = useState(true);

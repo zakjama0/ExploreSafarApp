@@ -10,9 +10,6 @@ import AddPlan from "./AddPlan";
 import ReviewList from "./ReviewList";
 import ReviewForm from "./ReviewForm";
 
-
-
-
 const Attraction = ({ postReview, deleteReview, editReview }) => {
     const attraction = useLoaderData();
     const [expanded, setExpanded] = useState(false);
@@ -38,10 +35,10 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
     </div>
 
     <Grid container spacing={3} style={{width:'100%'}}>
-          <Grid item xs={12} md={4}>
-    <div className="max-w-sm mx-auto my-4 shadow-lg rounded-lg overflow-hidden">
-      <div className="px-6 py-4">
-        <h2 className="text-2xl font-bold mb-2">About</h2>
+    <Grid item xs={12} md={4} style={{ marginTop:'20px'}}>
+    <div className="ml-6 max-w-sm mx-auto my-4 shadow-lg rounded-lg overflow-hidden">
+      <div className="px-6 py-4 ">
+        <h2 className="text-2xl font-bold mb-2 text-center">About</h2>
         <p className={`text-gray-700 dark:text-white text-base ${expanded ? '' : 'line-clamp-3'}`}>
         {attraction.description}
         </p>
@@ -83,10 +80,11 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
           
           </Grid>
         <Grid item xs={12} md={8}>
-        <h2 className="text-2xl font-bold my-2 text-center">Reviews</h2>
-        <p className="text-gray-900 dark:text-white text-lg font-bold">Average Rating:</p>
+          <div className="ml-4">
+        <h2 className="text-2xl font-bold my-2 text-center mb-5">Reviews</h2>
+        <p className="text-gray-900 dark:text-white text-lg font-bold mb-3">Average Rating:</p>
         <Popup trigger=
-                                        {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create a review</button>}
+                                        {<button className='py-2 px-3 mb-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create a review</button>}
                                         modal nested>
                                         {
                                             close => (
@@ -107,6 +105,7 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
                                     </Popup>
         
         <ReviewList reviews={attraction.reviews} deleteReview={deleteReview} editReview={editReview}/>
+        </div>
         </Grid>
         </Grid>
 
