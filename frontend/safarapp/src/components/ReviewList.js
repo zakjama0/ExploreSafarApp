@@ -4,7 +4,7 @@ import ReviewCard from './ReviewCard';
 
 
 const ReviewList = ({ reviews, deleteReview, editReview }) => {
-    const reviewComponents = reviews.map(review => (
+    const reviewComponents = reviews?.map(review => (
         <ReviewCard
             key={review.id}
             review={review}

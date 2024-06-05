@@ -32,7 +32,7 @@ const ReviewCard = ({review, deleteReview, editReview}) => {
                 <button onClick={toggleExpandStatus}>
                     {toggleButtonLabel()}
                 </button>
-                {activeCustomer.id === review.customer.id ?
+                {activeCustomer.id === review.user.id ?
                     <button onClick={handleDeleteButton}>Delete</button> :
                     <></>}
         </div>

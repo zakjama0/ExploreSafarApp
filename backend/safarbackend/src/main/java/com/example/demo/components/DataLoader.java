@@ -1644,5 +1644,8 @@ public class DataLoader implements ApplicationRunner {
 
             Review review1 = new Review(3,"Good stuff", zak,eiffelTower);
             reviewRepository.save(review1);
+
+        Review review2 = new Review(3,"Good stuff", zak,nerja);
+        reviewRepository.save(review2);
     }
 }

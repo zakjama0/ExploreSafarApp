@@ -20,6 +20,10 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
     const handleExpandClick = () => {
       setExpanded(!expanded);
     };
+
+    useEffect(() =>{
+        console.log(attraction)
+    },[])
   return (
     <div className="h-full pb-60 bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full">
             <div
