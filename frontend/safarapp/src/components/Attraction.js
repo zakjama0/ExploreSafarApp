@@ -8,11 +8,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import Popup from 'reactjs-popup';
 import AddPlan from "./AddPlan";
 import ReviewList from "./ReviewList";
+import ReviewForm from "./ReviewForm";
 
 
 
 
-const Attraction = ({ patchReview, deleteReview, editReview }) => {
+const Attraction = ({ postReview, deleteReview, editReview }) => {
     const attraction = useLoaderData();
     const [expanded, setExpanded] = useState(false);
   
@@ -80,6 +81,27 @@ const Attraction = ({ patchReview, deleteReview, editReview }) => {
         <Grid item xs={12} md={8}>
         <h2 className="text-2xl font-bold my-2 text-center">Reviews</h2>
         <p className="text-gray-900 dark:text-white text-lg font-bold">Average Rating:</p>
+        <Popup trigger=
+                                        {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create a review</button>}
+                                        modal nested>
+                                        {
+                                            close => (
+                                                <div className='modal'>
+                                                    <div className='review-form'>
+                                                    <ReviewForm attractionId ={attraction.id} postReview={postReview}/>
+                                                    </div>
+                                                    <div className='flex justify-center items-center'>
+                                                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
+                                                            onClick=
+                                                            {() => close()} >
+                                                            Close
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                    </Popup>
+        
         <ReviewList reviews={attraction.reviews} deleteReview={deleteReview} editReview={editReview}/>
         </Grid>
         </Grid>
