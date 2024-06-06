@@ -15,7 +15,7 @@ public class Itinerary {
     @Column
     private long id;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
     @JoinColumn(name = "user_id")
@@ -27,7 +27,7 @@ public class Itinerary {
     private String image;
 
     @OneToMany(mappedBy = "itinerary")
-    @JsonIgnoreProperties({"itinerary", "attraction"})
+    @JsonIgnoreProperties({"itinerary"})
     private List<PlannedAttraction> plannedAttractions;
 
     public Itinerary(){

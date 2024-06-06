@@ -4,6 +4,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itineraries }) => {
 
+  const [selectedItinerary, setSelectedItinerary] = useState({});
+  const [selectedItineraryName, setSelectedItineraryName] = useState("");
   const [itineraryId, setItineraryId] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -14,10 +16,10 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
     if (handleValidation()) {
 
       const plannedAttraction = {
-        itineraryId,
+        itineraryId: selectedItinerary.id,
         attractionId,
         startTime: startTime.$d,
-        endTime,
+        endTime: endTime.$d,
         newItineraryName
       }
 
@@ -37,7 +39,8 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
   }
 
   const handleItineraryChange = (event) => {
-    setItineraryId(event.target.value.id);
+    setSelectedItineraryName(event.target.value);
+    setSelectedItinerary(itineraries.find(itinerary => itinerary.name == event.target.value));
   }
 
   return (
@@ -50,12 +53,12 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">Itinerary:</label>
                 <select
-                  value={itineraryId}
+                  value={selectedItineraryName}
                   onChange={handleItineraryChange}
                 >
-                  <option value="New">Create New Itinerary</option>
+                  <option value="Create new itinerary">Create New Itinerary</option>
                   {itineraries.map(itinerary => (
-                    <option key={itinerary.id} value={itinerary}>{itinerary.name}</option>
+                    <option key={itinerary.id} value={itinerary.name}>{itinerary.name}</option>
                   ))}
                 </select>
 
