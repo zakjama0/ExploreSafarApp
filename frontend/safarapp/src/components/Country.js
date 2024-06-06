@@ -37,7 +37,6 @@ const Country = ({ cities, postPlannedAttraction }) => {
             }
 
             const data = await response.json();
-            console.log(data);
             setItineraries(data);
         } catch (error) {
 

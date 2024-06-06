@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
@@ -16,16 +16,15 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
     if (handleValidation()) {
 
       const plannedAttraction = {
-        itineraryId: selectedItinerary.id,
+        itineraryId: selectedItinerary ? selectedItinerary.id : null,
         attractionId,
-        startTime: startTime.$d,
-        endTime: endTime.$d,
-        newItineraryName
+        startTime: startTime.format('DD/MM/YYYY'),
+        endTime: endTime.format('DD/MM/YYYY'),
+        itineraryName: newItineraryName
       }
+      // console.log(plannedAttraction);
 
-      console.log(plannedAttraction);
-
-      // postPlannedAttraction(plannedAttraction);
+      postPlannedAttraction(plannedAttraction);
     }
   }
 
@@ -56,7 +55,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                   value={selectedItineraryName}
                   onChange={handleItineraryChange}
                 >
-                  <option value="Create new itinerary">Create New Itinerary</option>
+                  <option value="">Create New Itinerary</option>
                   {itineraries.map(itinerary => (
                     <option key={itinerary.id} value={itinerary.name}>{itinerary.name}</option>
                   ))}

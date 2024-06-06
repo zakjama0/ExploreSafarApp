@@ -17,6 +17,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(value = "/planned-attractions")
 public class PlannedAttractionController {
+
     @Autowired
     PlannedAttractionService plannedAttractionService;
 
@@ -50,7 +51,7 @@ public class PlannedAttractionController {
         if(newPlannedAttraction == null){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(newPlannedAttraction,HttpStatus.CREATED);
+        return new ResponseEntity<>(newPlannedAttraction, HttpStatus.CREATED);
     }
     @PatchMapping(value = "/{id}")
     public ResponseEntity<PlannedAttraction> updatePlannedAttraction(@PathVariable Long id, @RequestBody UpdatePlannedAttractionDTO updatePlannedAttractionDTO){

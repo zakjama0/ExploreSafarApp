@@ -10,7 +10,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -24,6 +27,9 @@ public class PlannedAttractionService {
     AttractionRepository attractionRepository;
     @Autowired
     UserRepository userRepository;
+
+    private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            .withLocale(Locale.UK);
 
 
     public List<PlannedAttraction> getAllPlannedAttractions(){
@@ -50,7 +56,7 @@ public class PlannedAttractionService {
             Itinerary newItinerary = new Itinerary(user, plannedAttractionDTO.getItineraryName(), attraction.get().getImage());
             Itinerary savedItinerary = itineraryRepository.save(newItinerary);
 
-            PlannedAttraction plannedAttraction = new PlannedAttraction(savedItinerary, attraction.get(), plannedAttractionDTO.getStartDate(), plannedAttractionDTO.getEndDate());
+            PlannedAttraction plannedAttraction = new PlannedAttraction(savedItinerary, attraction.get(), format(plannedAttractionDTO.getStartTime()), format(plannedAttractionDTO.getEndTime()));
             PlannedAttraction savedPlannedAttraction = plannedAttractionRepository.save(plannedAttraction);
 
             savedItinerary.addPlannedAttraction(savedPlannedAttraction);
@@ -69,7 +75,7 @@ public class PlannedAttractionService {
            return null;
        }
 
-       PlannedAttraction newPlannedAttraction = new PlannedAttraction(itinerary.get(), attraction.get(), plannedAttractionDTO.getStartDate(),plannedAttractionDTO.getEndDate());
+       PlannedAttraction newPlannedAttraction = new PlannedAttraction(itinerary.get(), attraction.get(), format(plannedAttractionDTO.getStartTime()), format(plannedAttractionDTO.getEndTime()));
        itinerary.get().addPlannedAttraction(newPlannedAttraction);
        itineraryRepository.save(itinerary.get());
        return plannedAttractionRepository.save(newPlannedAttraction);
@@ -87,5 +93,9 @@ public class PlannedAttractionService {
 
     public void deletePlannedAttraction(Long id){
         plannedAttractionRepository.deleteById(id);
+    }
+
+    private LocalDate format(String date) {
+        return LocalDate.parse(date, FORMATTER);
     }
 }

@@ -126,16 +126,19 @@ const MainContainer = () => {
     }
 
     const postPlannedAttraction = async (plannedAttraction) => {
+        console.log(JSON.stringify(plannedAttraction));
         try {
             const response = await fetch(`http://${apiUrl}/planned-attractions`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
-                }
+                },
+                body: JSON.stringify(plannedAttraction)
             });
+            console.log(response);
 
-            if (!response.ok) {
+            if (!response.status === 201) {
                 alert("An unexpected error has occured");
                 throw new Error();
             }
