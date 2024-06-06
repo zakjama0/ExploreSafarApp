@@ -47,6 +47,7 @@ public class ItineraryService {
 
     public List<Itinerary> getItinerariesByUser(Principal connectedUser) {
         User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
-        return itineraryRepository.findByUserId(user.getId());
+        List<Itinerary> itineraries = itineraryRepository.findByUserId(user.getId());
+        return itineraries;
     }
 }

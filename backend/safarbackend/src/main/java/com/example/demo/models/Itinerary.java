@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -18,12 +20,14 @@ public class Itinerary {
 
     @JoinColumn(name = "user_id")
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     @Column
     private String image;
 
     @OneToMany(mappedBy = "itinerary")
+    @JsonIgnoreProperties({"itinerary", "attraction"})
     private List<PlannedAttraction> plannedAttractions;
 
     public Itinerary(){

@@ -22,20 +22,22 @@ const Country = ({ cities, postPlannedAttraction }) => {
 
     const fetchItinerariesByUser = async () => {
         try {
-            const response = await fetch(`http://${apiUrl}/planned-attractions`, {
+            const response = await fetch(`http://${apiUrl}/itineraries/user`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
                 }
             });
+            
             if (!response.ok) {
                 if (response.status === 403) {
-                    alert("Must be signed in");
                     throw new Error("Must be signed in");
                 }
             }
+
             const data = await response.json();
+            console.log(data);
             setItineraries(data);
         } catch (error) {
 

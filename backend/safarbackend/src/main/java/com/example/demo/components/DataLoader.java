@@ -6,6 +6,7 @@ import com.example.demo.enums.Region;
 import com.example.demo.enums.Role;
 import com.example.demo.models.*;
 import com.example.demo.repositories.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,27 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class DataLoader implements ApplicationRunner {
 
-    public DataLoader() {
-    }
 
-    @Autowired
-    ItineraryRepository itineraryRepository;
-    @Autowired
-    CityRepository cityRepository;
-    @Autowired
-    CountryRepository countryRepository;
-    @Autowired
-    DuaRepository duaRepository;
-    @Autowired
-    PlannedAttractionRepository plannedAttractionRepository;
-    @Autowired
-    ReviewRepository reviewRepository;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    AttractionRepository attractionRepository;
+    private final ItineraryRepository itineraryRepository;
+    private final CityRepository cityRepository;
+    private final CountryRepository countryRepository;
+    private final DuaRepository duaRepository;
+    private final PlannedAttractionRepository plannedAttractionRepository;
+    private final ReviewRepository reviewRepository;
+    private final UserRepository userRepository;
+    private final AttractionRepository attractionRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
@@ -45,7 +38,7 @@ public class DataLoader implements ApplicationRunner {
                 .role(Role.USER)
                 .email("tadiwadzvoti@hotmail.co.uk")
                 .name("Tadiwanashe Dzvoti")
-                .password("password")
+                .password(passwordEncoder.encode("password"))
                 .build();
 
         userRepository.save(user);
