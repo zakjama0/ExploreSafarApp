@@ -10,8 +10,7 @@ import DuasContainer from "./DuasContainer";
 import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
 
-
-const apiUrl = "localhost:8080";
+export const apiUrl = "localhost:8080";
 
 const MainContainer = () => {
 
@@ -20,7 +19,7 @@ const MainContainer = () => {
     const [countries, setCountries] = useState([]);
     const [duas, setDuas] = useState([]);
     const [reviews, setReviews] = useState([]);
-    const [loading, setLoading] =useState(false)
+    const [loading, setLoading] = useState(false)
 
     const fetchAttractions = async () => {
         const response = await fetch(`http://${apiUrl}/attractions`);
@@ -153,91 +152,114 @@ const MainContainer = () => {
             body: JSON.stringify(reviewId)
         });
         fetchAttractions();
-    }
+        const postPlannedAttraction = async (plannedAttraction) => {
+            console.log(JSON.stringify(plannedAttraction));
+            try {
+                const response = await fetch(`http://${apiUrl}/planned-attractions`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+                    },
+                    body: JSON.stringify(plannedAttraction)
+                });
+                console.log(response);
 
-    useEffect(() => {
-        fetchAttractions();
-        fetchCities();
-        fetchCountries();
-        fetchDuas();
-        fetchReviews();
-        const token = sessionStorage.getItem("access_token");
-        if (token) {
-            const decoded = jwtDecode(token);
-            const expiry = decoded.exp;
-            if (expiry < Date.now() / 1000) {
-                sessionStorage.removeItem("access_token");
+                if (!response.status === 201) {
+                    alert("An unexpected error has occured");
+                    throw new Error();
+                }
+
+                alert("Planned Attraction added");
+            } catch (error) {
+                throw error;
             }
         }
-        setLoading(true)
-        setTimeout(() =>{
-            setLoading(false)
-        },5500)
-    }, []);
 
-    const countryLoader = ({ params }) => {
-        return countries.find(country => {
-            return country.id === parseInt(params.countryId);
-        });
-    }
-    const attractionLoader = ({ params }) => {
-        return attractions.find(attraction => {
-            return attraction.id === parseInt(params.attractionId);
-        });
-    }
+        useEffect(() => {
+            fetchAttractions();
+            fetchCities();
+            fetchCountries();
+            fetchDuas();
+            fetchReviews();
+            const token = sessionStorage.getItem("access_token");
+            if (token) {
+                const decoded = jwtDecode(token);
+                const expiry = decoded.exp;
+                if (expiry < Date.now() / 1000) {
+                    sessionStorage.removeItem("access_token");
+                }
+            }
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+            }, 5500)
+        }, []);
 
-    const router = createBrowserRouter([
-        {
-            path: "/",
-            element: <Navigation postUser={postUser} login={login} logout={logout} />,
-            children: [
-                {
-                    path: "/",
-                    element: <LandingPageContainer />
-                },
-                {
-                    path: "/itineraries",
-                    element: <ItineraryContainer countries={countries} />
-                },
-                {
-                    path: "/countries/:countryId",
-                    loader: countryLoader,
-
-                    element: <Country cities={cities}/>
-                },
-                {
-                    path: "/attractions/:attractionId",
-                    loader: attractionLoader,
-
-                    element: <Attraction cities={cities}
-                    postReview={postReview}
-                    deleteReview={deleteReview}
-                    editReview={patchReview}
-                    />
-                },
-                {
-                    path: "/duas",
-                    element: <DuasContainer duas={duas} />
-                },
-                {
-                    path: "/maps",
-                    element: <MapsContainer />
-                },
-            ]
+        const countryLoader = ({ params }) => {
+            return countries.find(country => {
+                return country.id === parseInt(params.countryId);
+            });
         }
-    ]);
-
-    return (
-        <>
-        {
-            loading ?
-            <SafarAnimation />
-            :
-            <RouterProvider router={router} />
+        const attractionLoader = ({ params }) => {
+            return attractions.find(attraction => {
+                return attraction.id === parseInt(params.attractionId);
+            });
         }
-            
-        </>
-    );
+
+        const router = createBrowserRouter([
+            {
+                path: "/",
+                element: <Navigation postUser={postUser} login={login} logout={logout} />,
+                children: [
+                    {
+                        path: "/",
+                        element: <LandingPageContainer />
+                    },
+                    {
+                        path: "/itineraries",
+                        element: <ItineraryContainer countries={countries} />
+                    },
+                    {
+                        path: "/countries/:countryId",
+                        loader: countryLoader,
+
+                        element: <Country cities={cities} postPlannedAttraction={postPlannedAttraction} />
+                    },
+                    {
+                        path: "/attractions/:attractionId",
+                        loader: attractionLoader,
+
+                        element: <Attraction cities={cities}
+                            postReview={postReview}
+                            deleteReview={deleteReview}
+                            editReview={patchReview}
+                        />
+                    },
+                    {
+                        path: "/duas",
+                        element: <DuasContainer duas={duas} />
+                    },
+                    {
+                        path: "/maps",
+                        element: <MapsContainer />
+                    },
+                ]
+            }
+        ]);
+
+        return (
+            <>
+                {
+                    loading ?
+                        <SafarAnimation />
+                        :
+                        <RouterProvider router={router} />
+                }
+
+            </>
+        );
+    }
 }
 
 export default MainContainer;

@@ -2,10 +2,13 @@ package com.example.demo.services;
 
 import com.example.demo.models.Itinerary;
 import com.example.demo.models.UpdateItineraryDTO;
+import com.example.demo.models.User;
 import com.example.demo.repositories.ItineraryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +31,7 @@ public class ItineraryService {
     }
 
 
+
     public Optional<Itinerary> updateItinerary(Long id, UpdateItineraryDTO updateItineraryDTO){
         Optional<Itinerary> itineraryToUpdate = itineraryRepository.findById(id);
         if(itineraryToUpdate.isPresent()){
@@ -37,8 +41,13 @@ public class ItineraryService {
         return itineraryToUpdate;
     }
 
-
     public void deleteItinerary(Long id){
          itineraryRepository.deleteById(id);
+    }
+
+    public List<Itinerary> getItinerariesByUser(Principal connectedUser) {
+        User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
+        List<Itinerary> itineraries = itineraryRepository.findByUserId(user.getId());
+        return itineraries;
     }
 }

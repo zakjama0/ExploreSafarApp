@@ -10,12 +10,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "plannedAttractions")
+@RequestMapping(value = "/planned-attractions")
 public class PlannedAttractionController {
+
     @Autowired
     PlannedAttractionService plannedAttractionService;
 
@@ -41,12 +43,15 @@ public class PlannedAttractionController {
         return new ResponseEntity<>(plannedAttractions, HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<PlannedAttraction> addPlannedAttraction(@RequestBody PlannedAttractionDTO plannedAttractionDTO){
-        PlannedAttraction newPlannedAttraction = plannedAttractionService.savePlannedAttraction(plannedAttractionDTO);
+    public ResponseEntity<PlannedAttraction> addPlannedAttraction(
+            @RequestBody PlannedAttractionDTO plannedAttractionDTO,
+            Principal connectedUser
+            ) {
+        PlannedAttraction newPlannedAttraction = plannedAttractionService.savePlannedAttraction(plannedAttractionDTO, connectedUser);
         if(newPlannedAttraction == null){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(newPlannedAttraction,HttpStatus.CREATED);
+        return new ResponseEntity<>(newPlannedAttraction, HttpStatus.CREATED);
     }
     @PatchMapping(value = "/{id}")
     public ResponseEntity<PlannedAttraction> updatePlannedAttraction(@PathVariable Long id, @RequestBody UpdatePlannedAttractionDTO updatePlannedAttractionDTO){

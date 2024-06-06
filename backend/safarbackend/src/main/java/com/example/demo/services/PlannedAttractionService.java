@@ -6,9 +6,14 @@ import com.example.demo.repositories.ItineraryRepository;
 import com.example.demo.repositories.PlannedAttractionRepository;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -23,16 +28,8 @@ public class PlannedAttractionService {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    public PlannedAttractionService(PlannedAttractionRepository plannedAttractionRepository,
-                                    ItineraryRepository itineraryRepository,
-                                    AttractionRepository attractionRepository,
-                                    UserRepository userRepository) {
-        this.plannedAttractionRepository = plannedAttractionRepository;
-        this.itineraryRepository = itineraryRepository;
-        this.attractionRepository = attractionRepository;
-        this.userRepository = userRepository;
-    }
+    private final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+            .withLocale(Locale.UK);
 
 
     public List<PlannedAttraction> getAllPlannedAttractions(){
@@ -47,19 +44,19 @@ public class PlannedAttractionService {
         return plannedAttractionRepository.findByItineraryId(itinerary);
     }
 
-    public PlannedAttraction savePlannedAttraction(PlannedAttractionDTO plannedAttractionDTO){
+    public PlannedAttraction savePlannedAttraction(PlannedAttractionDTO plannedAttractionDTO, Principal connectedUser){
 
         if(plannedAttractionDTO.getItineraryId() == null){
 
-            Optional<User> user = userRepository.findById(plannedAttractionDTO.getUserId());
+            User user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
             Optional<Attraction> attraction = attractionRepository.findById(plannedAttractionDTO.getAttractionId());
-            if(user.isEmpty() || attraction.isEmpty()){
+            if(user == null || attraction.isEmpty()){
                 return null;
             }
-            Itinerary newItinerary = new Itinerary(user.get(), plannedAttractionDTO.getItineraryName(), attraction.get().getImage());
+            Itinerary newItinerary = new Itinerary(user, plannedAttractionDTO.getItineraryName(), attraction.get().getImage());
             Itinerary savedItinerary = itineraryRepository.save(newItinerary);
 
-            PlannedAttraction plannedAttraction = new PlannedAttraction(savedItinerary, attraction.get(), plannedAttractionDTO.getStartDate(), plannedAttractionDTO.getEndDate());
+            PlannedAttraction plannedAttraction = new PlannedAttraction(savedItinerary, attraction.get(), format(plannedAttractionDTO.getStartTime()), format(plannedAttractionDTO.getEndTime()));
             PlannedAttraction savedPlannedAttraction = plannedAttractionRepository.save(plannedAttraction);
 
             savedItinerary.addPlannedAttraction(savedPlannedAttraction);
@@ -78,7 +75,7 @@ public class PlannedAttractionService {
            return null;
        }
 
-       PlannedAttraction newPlannedAttraction = new PlannedAttraction(itinerary.get(), attraction.get(), plannedAttractionDTO.getStartDate(),plannedAttractionDTO.getEndDate());
+       PlannedAttraction newPlannedAttraction = new PlannedAttraction(itinerary.get(), attraction.get(), format(plannedAttractionDTO.getStartTime()), format(plannedAttractionDTO.getEndTime()));
        itinerary.get().addPlannedAttraction(newPlannedAttraction);
        itineraryRepository.save(itinerary.get());
        return plannedAttractionRepository.save(newPlannedAttraction);
@@ -96,5 +93,9 @@ public class PlannedAttractionService {
 
     public void deletePlannedAttraction(Long id){
         plannedAttractionRepository.deleteById(id);
+    }
+
+    private LocalDate format(String date) {
+        return LocalDate.parse(date, FORMATTER);
     }
 }
