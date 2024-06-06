@@ -6,7 +6,6 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
 
   const [selectedItinerary, setSelectedItinerary] = useState({});
   const [selectedItineraryName, setSelectedItineraryName] = useState("");
-  const [itineraryId, setItineraryId] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [newItineraryName, setNewItineraryName] = useState("");
@@ -30,10 +29,21 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
 
   const handleValidation = () => {
 
-    // if (email === "" || password === "") {
-    //   alert("Please fill in all fields")
-    //   return false;
-    // }
+    if (startTime === null || endTime === null) {
+      alert("Please set dates.")
+      return false;
+    }
+
+    if (selectedItinerary.id === null && newItineraryName === "") {
+      alert("Please select existing itinerary or enter name for new itinerary")
+      return false;
+    }
+
+    if (startTime.isAfter(endTime)) {
+      alert("Selected start date is after selected end date.");
+      return false;
+    }
+
     return true;
   }
 
@@ -53,14 +63,13 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                 <label className="block mb-2">Itinerary:</label>
                 <select
                   value={selectedItineraryName}
-                  onChange={handleItineraryChange}
+                  onChange={(event) => handleItineraryChange(event)}
                 >
                   <option value="">Create New Itinerary</option>
                   {itineraries.map(itinerary => (
                     <option key={itinerary.id} value={itinerary.name}>{itinerary.name}</option>
                   ))}
                 </select>
-
               </div>
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">New Itinerary Name:</label>
