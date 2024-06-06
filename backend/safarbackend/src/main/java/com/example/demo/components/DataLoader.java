@@ -41,6 +41,23 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
 
+        User user = User.builder()
+                .role(Role.USER)
+                .email("tadiwadzvoti@hotmail.co.uk")
+                .name("Tadiwanashe Dzvoti")
+                .password("password")
+                .build();
+
+        userRepository.save(user);
+
+        Itinerary itinerary1 = new Itinerary(user, "Test 1", "");
+        Itinerary itinerary2 = new Itinerary(user, "Test 2", "");
+        Itinerary itinerary3 = new Itinerary(user, "Test 3", "");
+
+        itineraryRepository.save(itinerary1);
+        itineraryRepository.save(itinerary2);
+        itineraryRepository.save(itinerary3);
+
 //        Dua
         Dua startJourney = new Dua("Starting the journey","بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ","In the name of Allah, I trust in Allah; there is no might and no power but in Allah" ,"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah", "For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him.”" ,"Grade: Sahih (Al-Albani)\n" +
                 "Reference: Sunan Abi Dawud 5095\n" +

@@ -9,7 +9,7 @@ import DuasContainer from "./DuasContainer";
 import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
 
-const apiUrl = "localhost:8080";
+export const apiUrl = "localhost:8080";
 
 const MainContainer = () => {
 

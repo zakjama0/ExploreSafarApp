@@ -6,7 +6,7 @@ import Popup from "reactjs-popup";
 import LoginForm from "./LogInForm";
 import AddPlannedAttractionForm from "./AddPlannedAttractionForm";
 
-const FeaturedAttractionList = ({ attractions, postPlannedAttraction }) => {
+const FeaturedAttractionList = ({ attractions, postPlannedAttraction, itineraries }) => {
 
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -32,7 +32,7 @@ const FeaturedAttractionList = ({ attractions, postPlannedAttraction }) => {
                         close => (
                             <div className='modal'>
                                 <div className='review-form'>
-                                    <AddPlannedAttractionForm attractionId={attraction.id}/>
+                                    <AddPlannedAttractionForm attractionId={attraction.id} itineraries={itineraries}/>
                                 </div>
                                 <div className='flex justify-center items-center'>
                                     <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"

@@ -2,26 +2,12 @@ import { useEffect, useState } from "react";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
-const apiUrl = "localhost:8080";
-const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
+const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itineraries }) => {
 
-  const [itineraries, setItineraries] = useState([]);
   const [itineraryId, setItineraryId] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [newItineraryName, setNewItineraryName] = useState("");
-
-  const fetchItinerariesByUser = async () => {
-    const response = await fetch(`http://${apiUrl}/planned-attractions`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
-      }
-    });
-    const data = await response.json();
-    setItineraries(data);
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -53,11 +39,6 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId }) => {
   const handleItineraryChange = (event) => {
     setItineraryId(event.target.value.id);
   }
-
-  useEffect(() => {
-    fetchItinerariesByUser();
-  }, []);
-
 
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
