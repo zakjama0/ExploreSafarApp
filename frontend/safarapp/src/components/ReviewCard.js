@@ -25,7 +25,7 @@ const ReviewCard = ({review, deleteReview, editReview}) => {
 
   return (
     <div>
-        <div className="border border-gray-200 p-4 rounded-md shadow-md">
+        <div className="m-3 border border-gray-200 p-4 rounded-md shadow-md">
     <h3 className="text-lg font-semibold">{review.user.name}</h3>
     <p className="text-gray-600">Rating: {review.rating}</p>
     {expandStatus && <p className="text-gray-600">Comment: {review.comment}</p>}

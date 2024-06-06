@@ -10,6 +10,7 @@ import AddPlan from "./AddPlan";
 import ReviewList from "./ReviewList";
 import ReviewForm from "./ReviewForm";
 
+
 const Attraction = ({ postReview, deleteReview, editReview }) => {
     const attraction = useLoaderData();
     const [expanded, setExpanded] = useState(false);
@@ -56,7 +57,7 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
           <p className="text-gray-600 text-sm">Add this to your plan by a simple click</p>
         </div>
         <Popup trigger=
-                                        {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Add to your itinerary</button>}
+                                        {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 text-white'>Add to your itinerary</button>}
                                         modal nested>
                                         {
                                             close => (

@@ -20,7 +20,7 @@ const ReviewForm = ({attractionId, postReview}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="reviews-form bg-gradient-to-b from-teal-500 via-indigo-600 to-brown-900 border-2 border-yellow-600 backdrop-filter bg-blur shadow-md text-white rounded-lg p-4 sm:p-8">
+    <form onSubmit={handleSubmit} className="m-2 bg-gradient-to-b from-teal-500 via-teal-600 to-teal-900 border-2 backdrop-filter bg-blur shadow-md text-white rounded-lg p-4 sm:p-8">
     <div className="mb-4">
         <label htmlFor="rating" className="block text-white">Rating:</label>
         <input
@@ -45,7 +45,13 @@ const ReviewForm = ({attractionId, postReview}) => {
             className="bg-white border-2 border-green-600 rounded-lg py-2 px-4 text-green-600 font-bold text-center focus:outline-none focus:border-green-900 w-full"
         ></textarea>
     </div>
-    <button type="submit" className="review-btn w-full">Submit Review</button>
+    <div className="register-button flex justify-center">
+                <input
+                  className="register-btn w-40 h-12 bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-lg text-teal-500 font-semibold text-center"
+                  type="submit"
+                  value="Submit Form"
+                />
+     </div>
 </form>
 
   )

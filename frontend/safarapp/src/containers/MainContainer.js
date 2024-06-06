@@ -24,6 +24,7 @@ const MainContainer = () => {
     const [loading, setLoading] =useState(false);
     const [activeCustomer, setActiveCustomer] = useState({});
 
+
     const fetchAttractions = async () => {
         const response = await fetch(`http://${apiUrl}/attractions`);
         const data = await response.json();
