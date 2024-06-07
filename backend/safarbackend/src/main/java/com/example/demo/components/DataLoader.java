@@ -34,6 +34,14 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments arguments) throws Exception {
 
+//  User
+        User zak = User.builder()
+                .role(Role.USER)
+                .name("Zakaria")
+                .email("zak@gmail.com")
+                .password(passwordEncoder.encode("password"))
+                .build();
+
         User user = User.builder()
                 .role(Role.USER)
                 .email("tadiwadzvoti@hotmail.co.uk")
@@ -41,6 +49,7 @@ public class DataLoader implements ApplicationRunner {
                 .password(passwordEncoder.encode("password"))
                 .build();
 
+        userRepository.save(zak);
         userRepository.save(user);
 
         Itinerary itinerary1 = new Itinerary(user, "Test 1", "");
@@ -50,6 +59,7 @@ public class DataLoader implements ApplicationRunner {
         itineraryRepository.save(itinerary1);
         itineraryRepository.save(itinerary2);
         itineraryRepository.save(itinerary3);
+
 
 //        Dua
         Dua startJourney = new Dua("Starting the journey","بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ","In the name of Allah, I trust in Allah; there is no might and no power but in Allah" ,"Bismillahi tawakkaltu alallahi la hawla wala quwwata illa billah", "For the following verse, Anas bin Malik (RA) narrates that Prophet Muhammad (PBUH) said that: “Whoever says upon leaving his house (recites the below-mentioned verses) it will be said to him: ‘You are guided, defended and protected.’ The devil will go far away from him.”" ,"Grade: Sahih (Al-Albani)\n" +
@@ -1643,5 +1653,23 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(daejeonHanbatArboretum);
         attractionRepository.save(daejeonSkyroad);
         attractionRepository.save(daejeonNationalScienceMuseum);
+
+
+//        Reviews
+
+        Review review2 = new Review(3,"Good stuff", zak,nerja);
+        reviewRepository.save(review2);
+
+        Review review3 = new Review(3,"Okay", zak,eiffelTower);
+        reviewRepository.save(review3);
+        Review review4 = new Review(4,"Good stuff", zak,eiffelTower);
+        reviewRepository.save(review4);
+        Review review5 = new Review(2,"Meh", zak,eiffelTower);
+        reviewRepository.save(review5);
+        Review review6 = new Review(1,"Horror", zak,eiffelTower);
+        reviewRepository.save(review6);
+        Review review7 = new Review(3,"Wow", zak,eiffelTower);
+        reviewRepository.save(review7);
+
     }
 }

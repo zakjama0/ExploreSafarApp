@@ -7,6 +7,7 @@ import { duration } from '@mui/material';
 import Cappadocia from '../assests/Cappadocia.jpeg'
 import Hike from '../assests/Hike.png'
 import MuslimCouple from '../assests/MuslimCouple.png'
+import { Link} from 'react-router-dom';
 
 const LandingPageContainer = () => {
   const [isBouncing, setIsBouncing] = useState(true);
@@ -32,14 +33,14 @@ const LandingPageContainer = () => {
           >Welcome to the future of travelling</h1>
           <h2 className='mb-10 text-sm md:text-base lg:text-lg text-black dark:text-white mx-4 md:mx-10 text-left leading-relaxed'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, in which we make journeys both enjoyable and spiritually fulfilling</h2>
           <div className="flex items-center justify-center mt-3">
-          <a href='/' className='text-lg bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Get started {" "}<motion.button
+          <Link to='/itineraries' className='text-lg bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Get started {" "}<motion.button
           className='text-sm'
         animate={isBouncing ? { y: [0, -5, 0] } : { y: 0 }}
         transition={isBouncing ? { repeat: 4, duration: 1 } : {}}
         onClick={toggleBounce}
       >
         <HiArrowNarrowRight className="" />
-      </motion.button></a>
+      </motion.button></Link>
             </div>
         </div > 
         <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Our App</h1>

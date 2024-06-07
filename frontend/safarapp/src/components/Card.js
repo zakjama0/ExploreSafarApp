@@ -1,7 +1,7 @@
 const Card = ({ name, image }) => {
     return (
     <>
-        <div class="bg-[#d2dbd8] max-w-sm m-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="bg-[#d2dbd8] max-w-sm m-4 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <img class="rounded-t-lg w-full h-60" src={image} alt="" />
             </a>

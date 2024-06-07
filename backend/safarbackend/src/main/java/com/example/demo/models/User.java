@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
 import com.example.demo.enums.Role;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -57,7 +59,10 @@ public class User implements UserDetails {
     @Getter
     @Setter
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     private List<Review> reviews;
+
+
 
     // UserDetails methods
 
@@ -96,6 +101,11 @@ public class User implements UserDetails {
         return password;
     }
 
+    public User(String name, String email, String password) {
+        this.name=name;
+        this.email=email;
+        this.password=password;
+    }
     // Model Methods
 
     @Override

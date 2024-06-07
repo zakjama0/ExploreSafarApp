@@ -58,12 +58,12 @@ const CountryList = ({ countries }) => {
 
   return (
     <>
-      <div>
+      <div className='w-full'>
         {isMobile ? (
-          <div>
+          <div className='w-full'>
             {Object.keys(regions).map((region) => (
               <div key={region}>
-                <h2>{region}</h2>
+                <h2 className="text-center my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{region}</h2>
                 <div>{listCountries(region)}</div>
               </div>
             ))}
@@ -71,10 +71,10 @@ const CountryList = ({ countries }) => {
         )
           :
           (
-            <div className="w-5/6">
+            <div className="w-full">
               {Object.keys(regions).map((region) => (
                 <div key={region}>
-                  <h2>{region}</h2>
+                  <h2 className="text-center my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{region}</h2>
                   <Carousel responsive={responsive}>{listCountries(region)}</Carousel>
                 </div>
               ))}
