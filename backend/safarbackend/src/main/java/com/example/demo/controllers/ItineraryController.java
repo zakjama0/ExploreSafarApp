@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,12 @@ public class ItineraryController {
     @GetMapping
     public ResponseEntity<List<Itinerary>> getAllItineraries() {
         List<Itinerary> itineraries = itineraryService.getAllItineraries();
+        return new ResponseEntity<>(itineraries, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/user")
+    public ResponseEntity<List<Itinerary>> getItineraryByUser(Principal connectedUser) {
+        List<Itinerary> itineraries = itineraryService.getItinerariesByUser(connectedUser);
         return new ResponseEntity<>(itineraries, HttpStatus.OK);
     }
 
