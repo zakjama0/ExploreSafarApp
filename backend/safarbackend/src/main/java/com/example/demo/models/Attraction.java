@@ -26,7 +26,7 @@ public class Attraction {
     @Column(length = 65535)
     private String description;
 
-    @Column
+    @Column(length = 65536)
     private String image;
 
     @JsonIgnoreProperties({"attraction"})
