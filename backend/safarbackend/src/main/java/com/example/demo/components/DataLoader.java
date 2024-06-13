@@ -176,7 +176,7 @@ public class DataLoader implements ApplicationRunner {
         Country australia = new Country(Region.OCEANIA, Continent.ASIA, "https://ymt-vacations-website.s3.amazonaws.com/uploads/2023/01/reef.jpg", "Australia");
         Country saudi = new Country(Region.MIDDLE_EAST, Continent.ASIA, "https://www.spectator.co.uk/wp-content/uploads/2023/06/GettyImages-52004477.jpg?w=1024", "Saudi Arabia");
         Country southKorea = new Country(Region.EAST_ASIA, Continent.ASIA, "https://149990825.v2.pressablecdn.com/wp-content/uploads/2023/09/Seoul1.jpg", "South Korea");
-        Country thailand = new Country(Region.EAST_ASIA, Continent.ASIA, "https://feelgoodandtravel.com/wp-content/uploads/baby-elephant-two-adult-elephants-thailand.jpg", "Thailand");
+        Country thailand = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "https://feelgoodandtravel.com/wp-content/uploads/baby-elephant-two-adult-elephants-thailand.jpg", "Thailand");
         Country malaysia = new Country(Region.EAST_ASIA, Continent.ASIA, "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/473000/473015-Kuala-Lumpur.jpg", "Malaysia");
         Country oman = new Country(Region.MIDDLE_EAST, Continent.ASIA, "https://thetravelescape.com/wp-content/uploads/2018/03/Adventuring-in-Wadi-Shab-Oman-The-Travel-Escape-1.jpg", "Oman");
         Country qatar = new Country(Region.MIDDLE_EAST, Continent.ASIA, "https://m.thepeninsulaqatar.com/get/maximage/20221212_1670821215-945.jpg?1670821357", "Qatar");
