@@ -380,7 +380,7 @@ public class DataLoader implements ApplicationRunner {
 //        City haiPhong = new City("Hai Phong", vietnam);
 //        City canTho = new City("Can Tho", vietnam);
         City hoiAn = new City("Hoi An", vietnam);
-        City nhaTrang = new City("nhaTrang", vietnam);
+        City nhaTrang = new City("Nha Tranga", vietnam);
 
 // Top 5 cities in Indonesia
         City jakarta = new City("Jakarta", indonesia);
