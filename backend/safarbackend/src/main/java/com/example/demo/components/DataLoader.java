@@ -456,10 +456,10 @@ public class DataLoader implements ApplicationRunner {
 
 // Save cities for Vietnam
         cityRepository.save(hanoi);
-        cityRepository.save(hoChiMinhCity);
+//        cityRepository.save(hoChiMinhCity);
         cityRepository.save(daNang);
-        cityRepository.save(haiPhong);
-        cityRepository.save(canTho);
+//        cityRepository.save(haiPhong);
+//        cityRepository.save(canTho);
         cityRepository.save(hoiAn);
         cityRepository.save(nhaTrang);
 
