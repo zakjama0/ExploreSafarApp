@@ -164,42 +164,40 @@ public class DataLoader implements ApplicationRunner {
 
         duaRepository.save(threeAccepted);
 
-        //Asia Continent
-        Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "", "China");
-        Country india = new Country(Region.SOUTH_ASIA, Continent.ASIA, "", "India");
-        Country japan = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Japan");
-        Country indonesia = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "", "Indonesia");
-        Country pakistan = new Country(Region.SOUTH_ASIA, Continent.ASIA, "", "Pakistan");
-        Country bangladesh = new Country(Region.SOUTH_ASIA, Continent.ASIA, "", "Bangladesh");
-        Country philippines = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "", "Philippines");
-        Country vietnam = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "", "Vietnam");
-        Country kyrgyzstan = new Country(Region.CENTRAL_ASIA, Continent.ASIA, "", "Kyrgyzstan");
-        Country australia = new Country(Region.OCEANIA, Continent.ASIA, "", "Australia");
-        Country saudi = new Country(Region.MIDDLE_EAST, Continent.ASIA, "", "Saudi Arabia");
-        Country southKorea = new Country(Region.EAST_ASIA, Continent.ASIA, "", "South Korea");
-        Country thailand = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Thailand");
-        Country phillipinnes = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Phillipinnes");
-        Country malaysia = new Country(Region.EAST_ASIA, Continent.ASIA, "", "Malaysia");
-        Country oman = new Country(Region.MIDDLE_EAST, Continent.ASIA, "", "Oman");
-        Country qatar = new Country(Region.MIDDLE_EAST, Continent.ASIA, "", "Qatar");
+        Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "https://cdn.kimkim.com/files/a/content_articles/featured_photos/d3e5c6d3636278dc1e489c6f9feb1f603581e0c5/big-b1717a87c8b279ddbb0601ac3d3e673b.jpg", "China");
+        Country india = new Country(Region.SOUTH_ASIA, Continent.ASIA, "https://www.global-gallivanting.com/wp-content/uploads/2015/08/taj-mahal-india-960x534.jpg", "India");
+        Country japan = new Country(Region.EAST_ASIA, Continent.ASIA, "https://res.klook.com/image/upload/q_85/c_fill,w_750/v1674030135/blog/bnbtltnp5nqbdevfcbmn.jpg", "Japan");
+        Country indonesia = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "https://www.tripsavvy.com/thmb/QezCUEaQwF96o606XGU8DOn_TyI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/where-is-bali-5936c3e73df78c08abe9eb45.jpg", "Indonesia");
+        Country pakistan = new Country(Region.SOUTH_ASIA, Continent.ASIA, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Fairy_Meadows_and_the_view_of_Nanga_Parbat.jpg/1200px-Fairy_Meadows_and_the_view_of_Nanga_Parbat.jpg", "Pakistan");
+        Country bangladesh = new Country(Region.SOUTH_ASIA, Continent.ASIA, "https://cdn.eventegg.com/images/travel/2/238/ahsan-manzil-bangladesh.jpg", "Bangladesh");
+        Country philippines = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "https://deih43ym53wif.cloudfront.net/large_coron-palawan-philippines-shutterstock_329793749_e5794636b7.jpeg", "the Philippines");
+        Country vietnam = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Terraced_fields_Sa_Pa_Vietnam.JPG/800px-Terraced_fields_Sa_Pa_Vietnam.JPG", "Vietnam");
+        Country kyrgyzstan = new Country(Region.CENTRAL_ASIA, Continent.ASIA, "https://www.steppestravel.com/app/uploads/2019/07/kyrgyzstan.jpg", "Kyrgyzstan");
+        Country australia = new Country(Region.OCEANIA, Continent.ASIA, "https://ymt-vacations-website.s3.amazonaws.com/uploads/2023/01/reef.jpg", "Australia");
+        Country saudi = new Country(Region.MIDDLE_EAST, Continent.ASIA, "https://www.spectator.co.uk/wp-content/uploads/2023/06/GettyImages-52004477.jpg?w=1024", "Saudi Arabia");
+        Country southKorea = new Country(Region.EAST_ASIA, Continent.ASIA, "https://149990825.v2.pressablecdn.com/wp-content/uploads/2023/09/Seoul1.jpg", "South Korea");
+        Country thailand = new Country(Region.EAST_ASIA, Continent.ASIA, "https://feelgoodandtravel.com/wp-content/uploads/baby-elephant-two-adult-elephants-thailand.jpg", "Thailand");
+        Country malaysia = new Country(Region.EAST_ASIA, Continent.ASIA, "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/473000/473015-Kuala-Lumpur.jpg", "Malaysia");
+        Country oman = new Country(Region.MIDDLE_EAST, Continent.ASIA, "https://thetravelescape.com/wp-content/uploads/2018/03/Adventuring-in-Wadi-Shab-Oman-The-Travel-Escape-1.jpg", "Oman");
+        Country qatar = new Country(Region.MIDDLE_EAST, Continent.ASIA, "https://m.thepeninsulaqatar.com/get/maximage/20221212_1670821215-945.jpg?1670821357", "Qatar");
 
         //FEATURED ASIA COUNTRY: Vietnam, Indoneisa, Japan, China, Kygryzstan, Austalia, South Korea, Thailand, Phillipinnes, Malaysia, Oman, Qatar, Saudi
 //        Europe
-        Country france = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://s.abcnews.com/images/Travel/gty_eiffel_tower_kb_150612_16x9_992.jpg?w=1600", "France");
-        Country spain = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://static.independent.co.uk/2023/02/20/12/iStock-1016528726.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp", "Spain");
-        Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://static.independent.co.uk/2023/02/20/12/iStock-1016528726.jpg?quality=75&width=1250&crop=3%3A2%2Csmart&auto=webp", "Italy");
+        Country france = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://c.files.bbci.co.uk/15C01/production/_119398098_x1200france-gettyimages-847408280.jpg", "France");
+        Country spain = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.myglobalviewpoint.com/wp-content/uploads/2023/06/Costa-del-Sol.jpg", "Spain");
+        Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.ontheluce.com/wp-content/uploads/2022/06/Amalfi-Coast-1440x900.jpg.webp", "Italy");
         Country germany = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.planetware.com/photos-large/D/germany-brandenburg-gate.jpg", "Germany");
         Country unitedKingdom = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg", "United Kingdom");
-        Country turkey = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Turkey");
-        Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "", "Austria");
-        Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "", "Greece");
-        Country russia = new Country(Region.EASTERN_EUROPE, Continent.EUROPE, "", "Russia");
-        Country portugal = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Portugal");
-        Country switzerland = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Switzerland");
-        Country netherlands = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Netherlands");
-        Country belgium = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "", "Belgium");
-        Country iceland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "", "Iceland");
-        Country finland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "", "Finland");
+        Country turkey = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "https://imagedelivery.net/0LMYosKeo5o-LXOCjdKUuA/tourscanner.com/2022/07/things-to-do-in-Cappadocia-Turkey.jpg/w=1200", "Turkey");
+        Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "https://www.interrail.eu/content/dam/blogazine/austria-hallstatt-lake-panorama-church-during-twilight.adaptive.767.1627562140844.png", "Austria");
+        Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "https://www.tripsavvy.com/thmb/b-tdvS6sqaSCJjKtIwBrRqvh-J4=/2121x1413/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-510967662-5c4ddd8846e0fb00018dea73.jpg", "Greece");
+        Country russia = new Country(Region.EASTERN_EUROPE, Continent.EUROPE, "https://www.justgorussia.co.uk/userfiles/images/gallery/altai/Depositphotos_1593654_m-2015.jpg", "Russia");
+        Country portugal = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://media-server.clubmed.com/image/jpeg/1024/auto/crop/center/70/https%3A%2F%2Fns.clubmed.com%2Fnmea%2F2021%2FB2C%2F341%2FWEB%2FLANDING%2FPORTUGALBLOGS%2FLagos.jpg", "Portugal");
+        Country switzerland = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.smartertravel.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2017/09/shutterstock_252539665.jpg.webp", "Switzerland");
+        Country netherlands = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://i.natgeofe.com/k/4a509698-ab53-4581-af61-4c4808a81a76/netherlands-tulip-fields_16x9.jpg?w=1200", "the Netherlands");
+        Country belgium = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.leboat.co.uk/sites/default/files/images/country/ghent_city_belgium_leboat_card.jpg", "Belgium");
+        Country iceland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "https://cdn.britannica.com/06/171306-050-C88DD752/Aurora-borealis-peninsula-Snaefellsnes-Iceland-March-2013.jpg", "Iceland");
+        Country finland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "https://londonsouthendairport.com/wp-content/uploads/2023/08/magical-lapland.png", "Finland");
         // Featured Europe Countries: Turkey, Switzerland, Austria, Italy, Spain, France, Greece, Portuga
 
         countryRepository.save(china);
@@ -219,7 +217,7 @@ public class DataLoader implements ApplicationRunner {
         countryRepository.save(malaysia);
         countryRepository.save(oman);
         countryRepository.save(qatar);
-        countryRepository.save(phillipinnes);
+        countryRepository.save(philippines);
 
 
         countryRepository.save(france);
@@ -381,7 +379,7 @@ public class DataLoader implements ApplicationRunner {
         City daNang = new City("Da Nang", vietnam);
         City haiPhong = new City("Hai Phong", vietnam);
         City canTho = new City("Can Tho", vietnam);
-        City hoiAn = new City("HoiAn", vietnam);
+        City hoiAn = new City("Hoi An", vietnam);
         City nhaTrang = new City("nhaTrang", vietnam);
 
 // Top 5 cities in Indonesia
@@ -1048,10 +1046,10 @@ public class DataLoader implements ApplicationRunner {
 
         // Top Attractions for Hanoi
         Attraction islamicArtMuseum = new Attraction("Islamic Art Museum", hanoi, "The Islamic Art Museum in Hanoi is dedicated to showcasing the rich artistic heritage of the Islamic world, with exhibits on calligraphy, ceramics, textiles, and other forms of Islamic art and culture. It features a diverse collection of artifacts from various Muslim civilizations, spanning centuries of history and spanning from the Middle East to Southeast Asia. Visitors can explore the museum's galleries, admire its displays, and learn about the beauty and diversity of Islamic art and craftsmanship.", "");
-        Attraction hanoiOldQuarter = new Attraction("Hanoi Old Quarter", hanoi, "The Hanoi Old Quarter is the historic heart of Hanoi, characterized by its narrow streets, ancient buildings, and bustling markets. It is one of the oldest and most vibrant parts of the city, with a history dating back over a thousand years. Visitors can wander through its maze-like alleyways, discover traditional shops and street vendors, and experience the sights, sounds, and flavors of authentic Vietnamese culture.", "");
-        Attraction ninhBinhAttraction = new Attraction("Ninh Binh", hanoi, "Ninh Binh is a province in northern Vietnam, known for its stunning natural landscapes, rich cultural heritage, and historical sites. It is often referred to as the 'Halong Bay on land' due to its karst limestone mountains, lush rice paddies, and winding waterways. Ninh Binh is home to attractions such as Tam Coc, Trang An Landscape Complex, and Mua Caves, offering visitors opportunities for boat tours, cave exploration, and cultural immersion.", "");
-        Attraction sapaAttraction = new Attraction("Sapa", hanoi, "Sapa is a town in Lao Cai Province, located in the northwest region of Vietnam. It is renowned for its stunning mountain landscapes, terraced rice fields, and vibrant ethnic minority culture. Sapa is a popular destination for trekking, hiking, and cultural tourism, with attractions such as Fansipan Peak, Cat Cat Village, and the Love Waterfall. Visitors can explore the town's markets, interact with local ethnic communities, and enjoy breathtaking views of the Hoang Lien Son mountain range.", "");
-        Attraction hoChiMinhMausoleum = new Attraction("Ho Chi Minh Mausoleum", hanoi, "The Ho Chi Minh Mausoleum is a monumental building located in Ba Dinh Square, Hanoi, dedicated to the memory of Vietnamese revolutionary leader Ho Chi Minh. It serves as the final resting place of Ho Chi Minh's embalmed body, which is preserved in a glass sarcophagus within the mausoleum. Visitors can pay their respects to Ho Chi Minh, view his embalmed remains, and learn about his life and legacy through exhibits and displays within the mausoleum.", "");
+        Attraction hanoiOldQuarter = new Attraction("Hanoi Old Quarter", hanoi, "The Hanoi Old Quarter is the historic heart of Hanoi, characterized by its narrow streets, ancient buildings, and bustling markets. It is one of the oldest and most vibrant parts of the city, with a history dating back over a thousand years. Visitors can wander through its maze-like alleyways, discover traditional shops and street vendors, and experience the sights, sounds, and flavors of authentic Vietnamese culture.", "https://duongsrestaurant.com/wp-content/uploads/2019/07/hanoi-old-quarter-ancient-streets-of-hanoi.jpg");
+        Attraction ninhBinhAttraction = new Attraction("Ninh Binh", hanoi, "Ninh Binh is a province in northern Vietnam, known for its stunning natural landscapes, rich cultural heritage, and historical sites. It is often referred to as the 'Halong Bay on land' due to its karst limestone mountains, lush rice paddies, and winding waterways. Ninh Binh is home to attractions such as Tam Coc, Trang An Landscape Complex, and Mua Caves, offering visitors opportunities for boat tours, cave exploration, and cultural immersion.", "https://statics.vinpearl.com/trang-an-ninh-binh-1_1681236200.jpg");
+        Attraction sapaAttraction = new Attraction("Sapa", hanoi, "Sapa is a town in Lao Cai Province, located in the northwest region of Vietnam. It is renowned for its stunning mountain landscapes, terraced rice fields, and vibrant ethnic minority culture. Sapa is a popular destination for trekking, hiking, and cultural tourism, with attractions such as Fansipan Peak, Cat Cat Village, and the Love Waterfall. Visitors can explore the town's markets, interact with local ethnic communities, and enjoy breathtaking views of the Hoang Lien Son mountain range.", "https://i0.wp.com/touristjourney.com/wp-content/uploads/2020/05/Sapa-scaled.jpg?fit=2560%2C1108&ssl=1");
+        Attraction hoChiMinhMausoleum = new Attraction("Ho Chi Minh Mausoleum", hanoi, "The Ho Chi Minh Mausoleum is a monumental building located in Ba Dinh Square, Hanoi, dedicated to the memory of Vietnamese revolutionary leader Ho Chi Minh. It serves as the final resting place of Ho Chi Minh's embalmed body, which is preserved in a glass sarcophagus within the mausoleum. Visitors can pay their respects to Ho Chi Minh, view his embalmed remains, and learn about his life and legacy through exhibits and displays within the mausoleum.", "https://statics.vinpearl.com/ho-chi-minh-mausoleum-thumb_1662726979.jpeg");
 
 
         attractionRepository.save(hoChiMinhMausoleum);
@@ -1060,10 +1058,10 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(islamicArtMuseum);
         attractionRepository.save(hanoiOldQuarter);
         // Da Nang Attractions
-        Attraction baNaHills = new Attraction("Ba Na Hills", daNang, "Ba Na Hills is a hill station and resort located in the Truong Son Mountains near Da Nang, Vietnam. It is known for its scenic beauty, French colonial architecture, and attractions such as the Golden Bridge and Fantasy Park. Visitors can ride the world's longest cable car to reach Ba Na Hills, enjoy panoramic views of the surrounding landscapes, explore gardens, and pagodas, and experience thrilling rides and entertainment.", "");
-        Attraction marbleMountains = new Attraction("Marble Mountains", daNang, "The Marble Mountains are a cluster of five limestone hills located just south of Da Nang, Vietnam. They are known for their stunning natural beauty, sacred caves. Visitors can climb to the summits of the mountains, explore caves filled with religious statues and carvings, and enjoy panoramic views of the coastline and surrounding countryside.", "");
-        Attraction dragonBridge = new Attraction("Dragon Bridge", daNang, "Dragon Bridge is a bridge over the Han River in Da Nang, Vietnam, known for its unique design and nightly dragon-shaped fire and water shows. It is one of the city's most iconic landmarks, symbolizing prosperity and good fortune. Visitors can watch the dragon breathe fire and spout water, walk along the bridge's pedestrian walkways, and enjoy views of the river and city skyline.", "");
-        Attraction myKheBeach = new Attraction("My Khe Beach", daNang, "My Khe Beach is a popular beach located in Da Nang, Vietnam. It is known for its soft white sand, clear blue waters, and gentle waves, making it an ideal destination for swimming, sunbathing, and water sports. Visitors can relax on the beach, take a dip in the ocean, or enjoy activities such as surfing, jet skiing, and parasailing.", "");
+        Attraction baNaHills = new Attraction("Ba Na Hills", daNang, "Ba Na Hills is a hill station and resort located in the Truong Son Mountains near Da Nang, Vietnam. It is known for its scenic beauty, French colonial architecture, and attractions such as the Golden Bridge and Fantasy Park. Visitors can ride the world's longest cable car to reach Ba Na Hills, enjoy panoramic views of the surrounding landscapes, explore gardens, and pagodas, and experience thrilling rides and entertainment.", "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/86/2023/08/30021548/Kh%C3%A1nh-Phan.jpg");
+        Attraction marbleMountains = new Attraction("Marble Mountains", daNang, "The Marble Mountains are a cluster of five limestone hills located just south of Da Nang, Vietnam. They are known for their stunning natural beauty, sacred caves. Visitors can climb to the summits of the mountains, explore caves filled with religious statues and carvings, and enjoy panoramic views of the coastline and surrounding countryside.", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/53/f3/76/caption.jpg?w=1200&h=-1&s=1");
+        Attraction dragonBridge = new Attraction("Dragon Bridge", daNang, "Dragon Bridge is a bridge over the Han River in Da Nang, Vietnam, known for its unique design and nightly dragon-shaped fire and water shows. It is one of the city's most iconic landmarks, symbolizing prosperity and good fortune. Visitors can watch the dragon breathe fire and spout water, walk along the bridge's pedestrian walkways, and enjoy views of the river and city skyline.", "https://statics.vinpearl.com/dragon-bridge-2_1664459711.jpeg");
+        Attraction myKheBeach = new Attraction("My Khe Beach", daNang, "My Khe Beach is a popular beach located in Da Nang, Vietnam. It is known for its soft white sand, clear blue waters, and gentle waves, making it an ideal destination for swimming, sunbathing, and water sports. Visitors can relax on the beach, take a dip in the ocean, or enjoy activities such as surfing, jet skiing, and parasailing.", "https://statics.vinpearl.com/my-khe-beach-2_1692016028.jpg");
 
 // Save attractions in Da Nang
         attractionRepository.save(baNaHills);
@@ -1072,11 +1070,11 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(myKheBeach);
 
         // Hoi An Attractions
-        Attraction hoiAnAncientTown = new Attraction("Hoi An Ancient Town", hoiAn, "Hoi An Ancient Town is a UNESCO World Heritage Site located in Quang Nam Province, central Vietnam. It is known for its well-preserved historic architecture, charming streets, and cultural heritage. Visitors can explore its ancient buildings, and assembly halls, stroll along the picturesque Thu Bon River, and shop for handicrafts, lanterns, and tailor-made clothing.", "");
-        Attraction japaneseCoveredBridge = new Attraction("Japanese Covered Bridge", hoiAn, "Japanese Covered Bridge is a historic bridge located in Hoi An Ancient Town, Vietnam. It is one of the town's most iconic landmarks, known for its elegant design, wooden structure, and ornate decorations. Visitors can walk across the bridge, admire its architecture and carvings, and enjoy views of the surrounding canals and traditional houses.", "");
-        Attraction hoiAnNightMarket = new Attraction("Hoi An Night Market", hoiAn, "Hoi An Night Market is a bustling market located in the center of Hoi An Ancient Town, Vietnam. It is known for its vibrant atmosphere, colorful lanterns, and wide variety of goods for sale. Visitors can shop for souvenirs, handicrafts, clothing, and accessories, sample local street food and snacks, and enjoy live music and performances.", "");
-        Attraction traQueHerbVillage = new Attraction("Tra Que Herb Village", hoiAn, "Tra Que Herb Village is a traditional farming village located near Hoi An, Vietnam. It is known for its organic herb gardens, lush green fields, and peaceful rural scenery. Visitors can take guided tours of the village, learn about organic farming practices, participate in gardening activities, and enjoy cooking classes using fresh herbs and vegetables.", "");
-        Attraction camThanhCoconutVillage = new Attraction("Cam Thanh Coconut Village", hoiAn, "Cam Thanh Coconut Village is a scenic village located near Hoi An, Vietnam. It is known for its lush coconut groves, tranquil waterways, and traditional way of life. Visitors can take boat tours of the village's water coconut forest, learn about traditional fishing and farming techniques, and enjoy activities such as basket boat rowing and crab fishing.", "");
+        Attraction hoiAnAncientTown = new Attraction("Hoi An Ancient Town", hoiAn, "Hoi An Ancient Town is a UNESCO World Heritage Site located in Quang Nam Province, central Vietnam. It is known for its well-preserved historic architecture, charming streets, and cultural heritage. Visitors can explore its ancient buildings, and assembly halls, stroll along the picturesque Thu Bon River, and shop for handicrafts, lanterns, and tailor-made clothing.", "https://vietnam.travel/sites/default/files/inline-images/11125-Qu%E1%BA%A3ng%20Nam-huybank%40gmail.com-hoi%20an%20ve%20dem%20.jpg");
+        Attraction japaneseCoveredBridge = new Attraction("Japanese Covered Bridge", hoiAn, "Japanese Covered Bridge is a historic bridge located in Hoi An Ancient Town, Vietnam. It is one of the town's most iconic landmarks, known for its elegant design, wooden structure, and ornate decorations. Visitors can walk across the bridge, admire its architecture and carvings, and enjoy views of the surrounding canals and traditional houses.", "https://vietnam.travel/sites/default/files/inline-images/shutterstock_1506184586_resize.jpg");
+        Attraction hoiAnNightMarket = new Attraction("Hoi An Night Market", hoiAn, "Hoi An Night Market is a bustling market located in the center of Hoi An Ancient Town, Vietnam. It is known for its vibrant atmosphere, colorful lanterns, and wide variety of goods for sale. Visitors can shop for souvenirs, handicrafts, clothing, and accessories, sample local street food and snacks, and enjoy live music and performances.", "https://statics.vinpearl.com/hoi-an-night-market-1_1701571361.jpg");
+        Attraction traQueHerbVillage = new Attraction("Tra Que Herb Village", hoiAn, "Tra Que Herb Village is a traditional farming village located near Hoi An, Vietnam. It is known for its organic herb gardens, lush green fields, and peaceful rural scenery. Visitors can take guided tours of the village, learn about organic farming practices, participate in gardening activities, and enjoy cooking classes using fresh herbs and vegetables.", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/ab/4b/37/photo1jpg.jpg?w=1200&h=1200&s=1");
+        Attraction camThanhCoconutVillage = new Attraction("Cam Thanh Coconut Village", hoiAn, "Cam Thanh Coconut Village is a scenic village located near Hoi An, Vietnam. It is known for its lush coconut groves, tranquil waterways, and traditional way of life. Visitors can take boat tours of the village's water coconut forest, learn about traditional fishing and farming techniques, and enjoy activities such as basket boat rowing and crab fishing.", "https://hoianprivatetaxi.com/wp-content/uploads/2021/08/Cam-Thanh-Coconut-Village-Hoi-An-Private-Taxi.jpg");
 
 // Save attractions in Hoi An
         attractionRepository.save(hoiAnAncientTown);
@@ -1086,9 +1084,9 @@ public class DataLoader implements ApplicationRunner {
         attractionRepository.save(camThanhCoconutVillage);
 
         // Nha Trang Attractions
-        Attraction vinpearlLand = new Attraction("Vinpearl Land", nhaTrang, "Vinpearl Land is a theme park located on Hon Tre Island, just off the coast of Nha Trang, Vietnam. It is known for its thrilling rides, water park, aquarium, and entertainment attractions. Visitors can take a cable car ride to the island, enjoy panoramic views of the bay, and spend the day exploring the park's attractions, including roller coasters, water slides, and dolphin shows.", "");
-        Attraction nhaTrangBeach = new Attraction("Nha Trang Beach", nhaTrang, "Nha Trang Beach is a beautiful sandy beach located along the coastline of Nha Trang, Vietnam. It is known for its crystal-clear waters, gentle waves, and golden sands, making it a popular destination for swimming, sunbathing, and water sports. Visitors can relax on the beach, rent sun loungers and umbrellas, and enjoy activities such as snorkeling, diving, and jet skiing.", "");
-        Attraction honChongPromontory = new Attraction("Hon Chong Promontory", nhaTrang, "Hon Chong Promontory is a scenic coastal area located in Nha Trang, Vietnam. It is known for its unique rock formations, tide pools, and panoramic views of the South China Sea. Visitors can climb the rocky promontory, explore the natural sculptures and caves, and enjoy breathtaking sunsets over the ocean.", "");
+        Attraction vinpearlLand = new Attraction("Vinpearl Land", nhaTrang, "Vinpearl Land is a theme park located on Hon Tre Island, just off the coast of Nha Trang, Vietnam. It is known for its thrilling rides, water park, aquarium, and entertainment attractions. Visitors can take a cable car ride to the island, enjoy panoramic views of the bay, and spend the day exploring the park's attractions, including roller coasters, water slides, and dolphin shows.", "https://www.vietnamonline.com/media/uploads/froala_editor/images/vno_VPNT1.jpg");
+        Attraction nhaTrangBeach = new Attraction("Nha Trang Beach", nhaTrang, "Nha Trang Beach is a beautiful sandy beach located along the coastline of Nha Trang, Vietnam. It is known for its crystal-clear waters, gentle waves, and golden sands, making it a popular destination for swimming, sunbathing, and water sports. Visitors can relax on the beach, rent sun loungers and umbrellas, and enjoy activities such as snorkeling, diving, and jet skiing.", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/58/26/62/photo0jpg.jpg?w=1200&h=-1&s=1");
+        Attraction honChongPromontory = new Attraction("Hon Chong Promontory", nhaTrang, "Hon Chong Promontory is a scenic coastal area located in Nha Trang, Vietnam. It is known for its unique rock formations, tide pools, and panoramic views of the South China Sea. Visitors can climb the rocky promontory, explore the natural sculptures and caves, and enjoy breathtaking sunsets over the ocean.", "https://statics.vinpearl.com/hon-chong-promontory-1_1699201109.jpg");
 
 
 // Save attractions in Nha Trang
