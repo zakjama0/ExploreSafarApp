@@ -1052,9 +1052,9 @@ public class DataLoader implements ApplicationRunner {
         Attraction haLongBay = new Attraction("Ha Long Bay", hanoi, "Ha Long Bay is a UNESCO World Heritage site located in Quang Ninh Province, famous for its emerald waters and thousands of towering limestone islands topped with rainforests. Visitors can take boat tours to explore the bay's stunning seascape, kayak through its serene waters, visit floating fishing villages, and explore the numerous caves and grottoes scattered throughout the bay. Popular activities include cruising on traditional junk boats, swimming, and diving in the clear waters, as well as hiking on the islands to enjoy panoramic views of the bay.","https://media.tacdn.com/media/attractions-splice-spp-674x446/12/3f/40/63.jpg");
 
         attractionRepository.save(haLongBay);
-        attractionRepository.save(hoChiMinhMausoleum);
-        attractionRepository.save(sapaAttraction);
         attractionRepository.save(ninhBinhAttraction);
+        attractionRepository.save(sapaAttraction);
+        attractionRepository.save(hoChiMinhMausoleum);
         attractionRepository.save(hanoiOldQuarter);
 
         // Da Nang Attractions
