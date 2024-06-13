@@ -375,10 +375,10 @@ public class DataLoader implements ApplicationRunner {
 
 // Top 5 cities in Vietnam
         City hanoi = new City("Hanoi", vietnam);
-        City hoChiMinhCity = new City("Ho Chi Minh City", vietnam);
+//        City hoChiMinhCity = new City("Ho Chi Minh City", vietnam);
         City daNang = new City("Da Nang", vietnam);
-        City haiPhong = new City("Hai Phong", vietnam);
-        City canTho = new City("Can Tho", vietnam);
+//        City haiPhong = new City("Hai Phong", vietnam);
+//        City canTho = new City("Can Tho", vietnam);
         City hoiAn = new City("Hoi An", vietnam);
         City nhaTrang = new City("nhaTrang", vietnam);
 
