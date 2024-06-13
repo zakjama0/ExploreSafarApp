@@ -86,13 +86,13 @@ const MapsContainer = () => {
       });
     }, []);
 
-    // useEffect(() => {
-    //   console.log(coordinates)
-    //   getPlacesData({coordinates}).then((data) => {
-    //     console.log('Returned data:', data.results);
-    //     setPlaces(data.results)
-    //   });
-    // }, [coordinates]);
+    useEffect(() => {
+      console.log(coordinates)
+      getPlacesData({coordinates}).then((data) => {
+        console.log('Returned data:', data.results);
+        setPlaces(data.results)
+      });
+    }, [coordinates]);
    
     const valueToCategory = {
       0: "TRAVEL_DUA",

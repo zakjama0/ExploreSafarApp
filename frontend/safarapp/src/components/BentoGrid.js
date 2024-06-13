@@ -29,7 +29,6 @@ const BentoGrid = () => {
         <div className='mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4'>
             <BentoItem className='col-span-12 row-span-2 md:col-span-6 relative p-4' >
                 <h2 className='mb-12 text-lg font-medium leading-tight text-black dark:text-white'>We're thrilled to introduce the beta version of our app, offering exclusive early access to key features, so you can help us shape and perfect the ultimate faith-aligned travel companion!</h2>
-                <img src={GlobeLanding} className='absolute bottom-0 right-0 w-32 h-32'/>
             
             </BentoItem>
             <BentoItem whileHover={{scale:1.1,}}className="col-span-6 bg-gradient-to-r from-pink-500 to-blue-500 md:col-span-3 ">
