@@ -6,8 +6,11 @@ const getPhotoUrl = (photoReference) => {
     return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=3264&maxheight=1837&photoreference=${photoReference}&key=AIzaSyD5OAaC5LrjisDtQOlgnXAoaWvbvGguVIc`;
   };
 
-  const PlaceDetails = ({ place }) => {
-  
+  const PlaceDetails = ({ place, selected, refProp }) => {
+    
+    if(selected) refProp?.current?.scrollIntoView({behaviour:"smooth", block:"start"})
+
+
     return (
       <div>
         <div className="max-w-sm rounded overflow-hidden shadow-lg m-4 transition-transform transform hover:-translate-y-2">

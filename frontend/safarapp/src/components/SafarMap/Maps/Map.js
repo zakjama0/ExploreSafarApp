@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import { Paper, Typography, useMediaQuery } from '@material-ui/core';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
@@ -13,10 +13,11 @@ const getPhotoUrl = (photoReference) => {
   return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=3264&maxheight=1837&photoreference=${photoReference}&key=AIzaSyD5OAaC5LrjisDtQOlgnXAoaWvbvGguVIc`;
 };
 
-const Map = ({setCoordinates, coordinates, places}) => {
+const Map = ({setCoordinates, coordinates, places, setChildClicked}) => {
   const classes = useStyles();
   const isDesktop = useMediaQuery('(min-width:600px)');
   // const coordinates = {lat:0, lng:0}
+  
   
   return (
     <div className={classes.mapContainer}>
@@ -30,7 +31,7 @@ const Map = ({setCoordinates, coordinates, places}) => {
       onChange={(e) =>{
         setCoordinates({lat:e.center.lat, lng: e.center.lng})
       }}
-      onChildClick={""}
+      onChildClick={(child) => {setChildClicked(child)}}
       >
         {places?.map((place, i) =>(
           <div

@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { TextField } from '@mui/material';
 import DuaCard from '../components/DuaCard';
+import PrayerTime from '../components/SafarPrayer/PrayerTime'
 
 
 const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
@@ -75,10 +76,13 @@ function a11yProps(index) {
 const MapsContainer = () => {
   const [value, setValue] = useState(0);
     const [places, setPlaces] = useState([])
+
+    const [childClicked, setChildClicked] = useState(null);
+
     const [coordinates, setCoordinates] = useState([])
     const [category, setCategory] = useState("TRAVEL_DUA");
 
-
+    const [isLoading, setisLoading] = useState(false);
 
     useEffect(() => {
       navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
@@ -87,10 +91,12 @@ const MapsContainer = () => {
     }, []);
 
     useEffect(() => {
+      setisLoading(true)
       console.log(coordinates)
       getPlacesData({coordinates}).then((data) => {
         console.log('Returned data:', data.results);
         setPlaces(data.results)
+        setisLoading(false);
       });
     }, [coordinates]);
    
@@ -122,10 +128,14 @@ const MapsContainer = () => {
           </Box>
           <CustomTabPanel value={value} index={0} >
           <h1 className='text-center text-xl'>Halal food in Hanoi, Vietnam</h1>
-          <List places ={places} />
+          <List 
+          places ={places} 
+          childClicked={childClicked}
+          isLoading ={isLoading}
+          />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-          <h1> Not available in Beta</h1>
+          <PrayerTime/>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
           <h1> Not available in Beta</h1>
@@ -150,7 +160,8 @@ const MapsContainer = () => {
       <Map 
           setCoordinates={setCoordinates}
           coordinates={coordinates}
-          places={places}/>
+          places={places}
+          setChildClicked={setChildClicked}/>
     </Box>
           
           </Grid>
