@@ -135,10 +135,10 @@ const MapsContainer = () => {
           />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
-          <PrayerTime/>
+          <h1> Not available in Beta</h1>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={2}>
-          <h1> Not available in Beta</h1>
+          <PrayerTime/>
           </CustomTabPanel>
         </div>
           
