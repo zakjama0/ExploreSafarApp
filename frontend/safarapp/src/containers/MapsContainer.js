@@ -110,7 +110,7 @@ const MapsContainer = () => {
       setCategory(valueToCategory[newValue]);
     };
   return (
-    <div className='h-screen bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full'>
+    <div className='h-full bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full'>
         <CssBaseline/>
         <div>
           <Search />

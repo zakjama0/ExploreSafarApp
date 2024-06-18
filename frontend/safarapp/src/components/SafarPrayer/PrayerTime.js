@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getPrayerData } from '../SafarPrayer/prayerApiIndex';
+import { TextField } from '@mui/material';
 
 function PrayerTime() {
     const [times, setTimes] = useState({});
     const [city, setCity] = useState('Brisbane');
     const [country, setCountry] = useState('Australia');
-    const [searchParams, setSearchParams] = useState({ city: 'Brisbane', country: 'Australia' });
+    const [searchParams, setSearchParams] = useState({ city: 'London', country: 'England' });
 
     useEffect(() => {
         getPrayerData(searchParams.city, searchParams.country).then((data) => {
@@ -24,33 +25,60 @@ function PrayerTime() {
 
     return (
         <>
-            <h1 className='mb-3 text-xl text-bold'>Prayer Times for {searchParams.city}, {searchParams.country}:</h1>
+            
             <div className='flex flex-col items-center '>
-                <label className='my-2'>
-                    City:
-                    <input 
-                        type="text" 
-                        value={city} 
-                        onChange={(e) => setCity(e.target.value)} 
-                    />
-                </label>
-                <label className='mb-2 '>
-                    Country:
-                    <input 
-                        type="text" 
-                        value={country} 
-                        onChange={(e) => setCountry(e.target.value)} 
-                    />
-                </label>
+                <div className='my-2'>
+                <TextField className="my-2"
+                    id="outlined-basic"
+                    label="Enter City"
+                    variant="outlined"
+                    onChange={(e) => setCity(e.target.value)} 
+                 />
+                </div>
+            
+               
+                <div className='my-2'>
+                <TextField className="my-2"
+                    id="outlined-basic"
+                    label="Enter Country"
+                    variant="outlined"
+                    onChange={(e) => setCountry(e.target.value)} 
+                 />
+                </div>
                 
                 <button className='py-2 px-3 border text-white rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white' onClick={handleSearch}>Get Prayer Times</button>
             </div>
-
-            <h3>Fajr: {times.Fajr}</h3>
-            <h3>Dhuhr: {times.Dhuhr}</h3>
-            <h3>Asr: {times.Asr}</h3>
-            <h3>Maghrib: {times.Maghrib}</h3>
-            <h3>Last third of the night: {times.Lastthird}</h3>
+            <h1 className='mb-3 text-xl text-bold text-center '>Prayer Times for {searchParams.city}, {searchParams.country}:</h1>
+            <div className="overflow-y-auto max-h-96 grid grid-cols-1 gap-4 text-center">
+                {Object.keys(times).length > 0 && (
+                    <>
+                        <div className="p-4 bg-white rounded-md shadow-md">
+                            <h3 className="text-xl font-semibold text-gray-700">Fajr</h3>
+                            <p className="text-lg text-gray-600">{times.Fajr}</p>
+                        </div>
+                        <div className="p-4 bg-white rounded-md shadow-md">
+                            <h3 className="text-xl font-semibold text-gray-700">Dhuhr</h3>
+                            <p className="text-lg text-gray-600">{times.Dhuhr}</p>
+                        </div>
+                        <div className="p-4 bg-white rounded-md shadow-md">
+                            <h3 className="text-xl font-semibold text-gray-700">Asr</h3>
+                            <p className="text-lg text-gray-600">{times.Asr}</p>
+                        </div>
+                        <div className="p-4 bg-white rounded-md shadow-md">
+                            <h3 className="text-xl font-semibold text-gray-700">Maghrib</h3>
+                            <p className="text-lg text-gray-600">{times.Maghrib}</p>
+                        </div>
+                        <div className="p-4 bg-white rounded-md shadow-md">
+                            <h3 className="text-xl font-semibold text-gray-700">Isha</h3>
+                            <p className="text-lg text-gray-600">{times.Isha}</p>
+                        </div>
+                        <div className="p-4 bg-white rounded-md shadow-md">
+                            <h3 className="text-xl font-semibold text-gray-700">Last third of the night</h3>
+                            <p className="text-lg text-gray-600">{times.Lastthird}</p>
+                        </div>
+                    </>
+                )}
+            </div>
         </>
     );
 }
