@@ -104,7 +104,7 @@ const MapsContainer = () => {
       setCategory(valueToCategory[newValue]);
     };
   return (
-    <div className='h-screen  dark:bg-slate-800 dark:text-white w-full'>
+    <div className='h-screen bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full'>
         <CssBaseline/>
         <div>
           <Search />
@@ -121,6 +121,7 @@ const MapsContainer = () => {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0} >
+          <h1 className='text-center text-xl'>Halal food in Hanoi, Vietnam</h1>
           <List places ={places} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>

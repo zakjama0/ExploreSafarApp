@@ -51,6 +51,7 @@ const Map = ({setCoordinates, coordinates, places}) => {
                   src={place.photos && place.photos.length > 0 ? getPhotoUrl(place.photos[0].photo_reference) : {Logo} } 
                   alt={place.name}
                   />
+                  <Rating size="small" value={Number(place.rating)} readOnly />
                 </Paper>
               )
             }
