@@ -9,7 +9,7 @@ import LandingPageContainer from "./LandingPageContainer";
 import DuasContainer from "./DuasContainer";
 import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
-
+import SafetyContainer from "./SafetyContainer";
 
 
 export const apiUrl = "localhost:8080";
@@ -251,6 +251,10 @@ const MainContainer = () => {
                 {
                     path: "/maps",
                     element: <MapsContainer />
+                },
+                {
+                    path: "/safety",
+                    element: <SafetyContainer />
                 },
             ]
         }
