@@ -242,6 +242,7 @@ const MainContainer = () => {
                         postReview={postReview}
                         deleteReview={deleteReview}
                         editReview={patchReview}
+                        postPlannedAttraction={postPlannedAttraction}
                     />
                 },
                 {

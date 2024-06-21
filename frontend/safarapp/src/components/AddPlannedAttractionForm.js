@@ -21,7 +21,6 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
         endTime: endTime.format('DD/MM/YYYY'),
         itineraryName: newItineraryName
       }
-      // console.log(plannedAttraction);
 
       postPlannedAttraction(plannedAttraction);
     }
