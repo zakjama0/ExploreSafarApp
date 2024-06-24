@@ -6,13 +6,13 @@ import { Link, Outlet } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import LoginForm from './LogInForm';
 import RegistrationForm from './RegistrationForm';
-import { Avatar, Divider, IconButton, ListItemIcon, MenuItem } from '@mui/material';
+import AccountMenu from './AccountMenu';
 
 const NavBar = ({ postUser, login, logout }) => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return sessionStorage.getItem("access_token") !== null;
     });
@@ -119,18 +119,7 @@ const NavBar = ({ postUser, login, logout }) => {
                                 </div>
                                 :
                                 <div>
-                                    <IconButton
-                                        onClick={handleClick}
-                                        size="small"
-                                        sx={{ ml: 2 }}
-                                        aria-controls={open ? 'account-menu' : undefined}
-                                        aria-haspopup="true"
-                                        aria-expanded={open ? 'true' : undefined}
-                                    >
-                                        <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-                                    </IconButton>
-
-                                    {/* <button className='py-2 px-3 border rounded-md dark:text-white' onClick={handleLogout}>Log Out</button> */}
+                                    <AccountMenu handleLogout={handleLogout}/>
                                 </div>
                             }
                             {darkMode ? <Moon onClick={toggleDark} className='cursor-pointer text-white' /> : <Sun onClick={toggleDark} className='cursor-pointer' />}
@@ -195,51 +184,9 @@ const NavBar = ({ postUser, login, logout }) => {
                     </div>
                 </div>
             </nav>
-            <Menu
-                anchorEl={anchorEl}
-                id="account-menu"
-                open={open}
-                onClose={handleClose}
-                onClick={handleClose}
-                PaperProps={{
-                    elevation: 0,
-                    sx: {
-                        overflow: 'visible',
-                        filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                        mt: 1.5,
-                        '& .MuiAvatar-root': {
-                            width: 32,
-                            height: 32,
-                            ml: -0.5,
-                            mr: 1,
-                        },
-                        '&::before': {
-                            content: '""',
-                            display: 'block',
-                            position: 'absolute',
-                            top: 0,
-                            right: 14,
-                            width: 10,
-                            height: 10,
-                            bgcolor: 'background.paper',
-                            transform: 'translateY(-50%) rotate(45deg)',
-                            zIndex: 0,
-                        },
-                    },
-                }}
-                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-            >
-                <MenuItem onClick={handleClose}>
-                    <Avatar /> My account
-                </MenuItem>
-                <MenuItem onClick={handleLogout}>
-                    Logout
-                </MenuItem>
-            </Menu>
             <Outlet />
         </>
     )
 }
 
-export default NavBar
+export default NavBar;
