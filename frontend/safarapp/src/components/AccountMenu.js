@@ -2,6 +2,7 @@ import { Avatar, Box, Divider, IconButton, ListItemIcon, Menu, MenuItem, Tooltip
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AccountMenu = ({ handleLogout }) => {
 
@@ -70,7 +71,10 @@ const AccountMenu = ({ handleLogout }) => {
                 <MenuItem onClick={handleClose}>
                     <Avatar /> Profile
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem
+                    component={Link}
+                    to="/itineraries"
+                >
                     <Avatar /> My Itineraries
                 </MenuItem>
                 <Divider />

@@ -247,6 +247,10 @@ const MainContainer = () => {
                     />
                 },
                 {
+                    path:"/my-itineraries",
+                    element: <MyItineraryList />
+                },
+                {
                     path: "/duas",
                     element: <DuasContainer duas={duas} />
                 },
