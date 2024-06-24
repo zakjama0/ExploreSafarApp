@@ -55,9 +55,10 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
         </Button>
         
       </div>
-    <GetYourGuideButton source={`https://www.getyourguide.co.uk/s/?q=${attraction.name}&searchSource=3`}/>
+      <div className="flex space-between my-3">
     <YouTubeButton source={`https://www.youtube.com/results?search_query=${attraction.name}`}/>
     <TikTokButton source={`https://www.tiktok.com/search?q=${attraction.name}`}/>
+    </div>
       <div className="bg-gray-100 px-6 py-4 flex-row justify-between items-center border-t border-gray-200">
         <div>
           <p className="text-gray-900 text-lg font-bold">Interested?</p>
@@ -83,8 +84,9 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
                                             )
                                         }
                                     </Popup>
-                                    
-                                    
+        <p className="text-gray-900 text-lg font-bold">Interested?</p>
+        <p className="text-gray-600 text-sm">Safar will be adding Guided tours soon, in the mean time book here with GetYourGuide</p>
+        <GetYourGuideButton source={`https://www.getyourguide.co.uk/s/?q=${attraction.name}&searchSource=3`}/>                      
       </div>
          </div>
           
