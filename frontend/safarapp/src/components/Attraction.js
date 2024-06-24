@@ -9,6 +9,9 @@ import Popup from 'reactjs-popup';
 import AddPlan from "./AddPlan";
 import ReviewList from "./ReviewList";
 import ReviewForm from "./ReviewForm";
+import YouTubeButton from "./YoutubeIcon";
+import GetYourGuideButton from "./GetYourGuideButton";
+import TikTokButton from "./TikTokButton";
 
 
 const Attraction = ({ postReview, deleteReview, editReview }) => {
@@ -50,7 +53,11 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
         >
           {expanded ? 'Read less' : 'Read more'}
         </Button>
+        
       </div>
+    <GetYourGuideButton source={`https://www.getyourguide.co.uk/s/?q=${attraction.name}&searchSource=3`}/>
+    <YouTubeButton source={`https://www.youtube.com/results?search_query=${attraction.name}`}/>
+    <TikTokButton source={`https://www.tiktok.com/search?q=${attraction.name}`}/>
       <div className="bg-gray-100 px-6 py-4 flex-row justify-between items-center border-t border-gray-200">
         <div>
           <p className="text-gray-900 text-lg font-bold">Interested?</p>
@@ -76,6 +83,8 @@ const Attraction = ({ postReview, deleteReview, editReview }) => {
                                             )
                                         }
                                     </Popup>
+                                    
+                                    
       </div>
          </div>
           
