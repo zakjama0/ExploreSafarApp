@@ -1,5 +1,5 @@
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import React from 'react'
 import Logo from '../assests/logoname.png'
 import { Link, Outlet } from 'react-router-dom';
@@ -7,15 +7,16 @@ import Popup from 'reactjs-popup';
 import LoginForm from './LogInForm';
 import RegistrationForm from './RegistrationForm';
 import AccountMenu from './AccountMenu';
+import { Context } from './../containers/MainContainer';
 
 const NavBar = ({ postUser, login, logout }) => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-        return sessionStorage.getItem("access_token") !== null;
-    });
+    
+    const { isLoggedIn, setIsLoggedIn } = useContext(Context)
+
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

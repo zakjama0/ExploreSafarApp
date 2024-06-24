@@ -11,7 +11,9 @@ import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
 import SafetyContainer from "./SafetyContainer";
 import BlogContainer from "./BlogContainer";
+import MyItineraryList from "./../components/MyItineraryList";
 
+export const Context = createContext(null);
 
 export const apiUrl = "localhost:8080";
 export const userState = React.createContext();
@@ -25,6 +27,9 @@ const MainContainer = () => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
     const [activeCustomer, setActiveCustomer] = useState({});
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
+        return sessionStorage.getItem("access_token") !== null;
+    });
 
 
     const fetchAttractions = async () => {
@@ -247,7 +252,7 @@ const MainContainer = () => {
                     />
                 },
                 {
-                    path:"/my-itineraries",
+                    path: "/my-itineraries",
                     element: <MyItineraryList />
                 },
                 {
@@ -277,9 +282,9 @@ const MainContainer = () => {
                 loading ?
                     <SafarAnimation />
                     :
-                    <userState.Provider value={{ activeCustomer: activeCustomer, setActiveCustomer: setActiveCustomer }}>
+                    <Context.Provider value={{ isLoggedIn, setIsLoggedIn }}>
                         <RouterProvider router={router} />
-                    </userState.Provider>
+                    </Context.Provider>
             }
 
         </>

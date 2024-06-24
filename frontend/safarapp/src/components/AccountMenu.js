@@ -73,7 +73,7 @@ const AccountMenu = ({ handleLogout }) => {
                 </MenuItem>
                 <MenuItem
                     component={Link}
-                    to="/itineraries"
+                    to="/my-itineraries"
                 >
                     <Avatar /> My Itineraries
                 </MenuItem>
