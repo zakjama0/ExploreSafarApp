@@ -1059,13 +1059,11 @@ public class DataLoader implements ApplicationRunner {
 
         // Da Nang Attractions
         Attraction baNaHills = new Attraction("Ba Na Hills", daNang, "Ba Na Hills is a hill station and resort located in the Truong Son Mountains near Da Nang, Vietnam. It is known for its scenic beauty, French colonial architecture, and attractions such as the Golden Bridge and Fantasy Park. Visitors can ride the world's longest cable car to reach Ba Na Hills, enjoy panoramic views of the surrounding landscapes, explore gardens, and pagodas, and experience thrilling rides and entertainment.", "https://d2e5ushqwiltxm.cloudfront.net/wp-content/uploads/sites/86/2023/08/30021548/Kh%C3%A1nh-Phan.jpg");
-        Attraction marbleMountains = new Attraction("Marble Mountains", daNang, "The Marble Mountains are a cluster of five limestone hills located just south of Da Nang, Vietnam. They are known for their stunning natural beauty, sacred caves. Visitors can climb to the summits of the mountains, explore caves filled with religious statues and carvings, and enjoy panoramic views of the coastline and surrounding countryside.", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/53/f3/76/caption.jpg?w=1200&h=-1&s=1");
         Attraction dragonBridge = new Attraction("Dragon Bridge", daNang, "Dragon Bridge is a bridge over the Han River in Da Nang, Vietnam, known for its unique design and nightly dragon-shaped fire and water shows. It is one of the city's most iconic landmarks, symbolizing prosperity and good fortune. Visitors can watch the dragon breathe fire and spout water, walk along the bridge's pedestrian walkways, and enjoy views of the river and city skyline.", "https://statics.vinpearl.com/dragon-bridge-2_1664459711.jpeg");
         Attraction myKheBeach = new Attraction("My Khe Beach", daNang, "My Khe Beach is a popular beach located in Da Nang, Vietnam. It is known for its soft white sand, clear blue waters, and gentle waves, making it an ideal destination for swimming, sunbathing, and water sports. Visitors can relax on the beach, take a dip in the ocean, or enjoy activities such as surfing, jet skiing, and parasailing.", "https://statics.vinpearl.com/my-khe-beach-2_1692016028.jpg");
 
 // Save attractions in Da Nang
         attractionRepository.save(baNaHills);
-        attractionRepository.save(marbleMountains);
         attractionRepository.save(dragonBridge);
         attractionRepository.save(myKheBeach);
 

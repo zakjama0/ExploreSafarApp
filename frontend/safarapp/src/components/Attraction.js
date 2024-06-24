@@ -10,8 +10,12 @@ import AddPlan from "./AddPlan";
 import ReviewList from "./ReviewList";
 import ReviewForm from "./ReviewForm";
 import AddPlannedAttractionForm from "./AddPlannedAttractionForm";
+import YouTubeButton from "./YoutubeIcon";
+import GetYourGuideButton from "./GetYourGuideButton";
+import TikTokButton from "./TikTokButton";
 
 import { apiUrl } from "../containers/MainContainer";
+
 
 
 const Attraction = ({ postReview, deleteReview, editReview, postPlannedAttraction }) => {
@@ -25,26 +29,26 @@ const Attraction = ({ postReview, deleteReview, editReview, postPlannedAttractio
 
   const fetchItinerariesByUser = async () => {
     try {
-        const response = await fetch(`http://${apiUrl}/itineraries/user`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
-            }
-        });
-
-        if (!response.ok) {
-            if (response.status === 403) {
-                throw new Error("Must be signed in");
-            }
+      const response = await fetch(`http://${apiUrl}/itineraries/user`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
         }
+      });
 
-        const data = await response.json();
-        setItineraries(data);
+      if (!response.ok) {
+        if (response.status === 403) {
+          throw new Error("Must be signed in");
+        }
+      }
+
+      const data = await response.json();
+      setItineraries(data);
     } catch (error) {
 
     }
-}
+  }
 
   useEffect(() => {
     fetchItinerariesByUser();
@@ -77,38 +81,42 @@ const Attraction = ({ postReview, deleteReview, editReview, postPlannedAttractio
               >
                 {expanded ? 'Read less' : 'Read more'}
               </Button>
+
             </div>
+            <GetYourGuideButton source={`https://www.getyourguide.co.uk/s/?q=${attraction.name}&searchSource=3`} />
+            <YouTubeButton source={`https://www.youtube.com/results?search_query=${attraction.name}`} />
+            <TikTokButton source={`https://www.tiktok.com/search?q=${attraction.name}`} />
             <div className="bg-gray-100 px-6 py-4 flex-row justify-between items-center border-t border-gray-200">
               <div>
                 <p className="text-gray-900 text-lg font-bold">Interested?</p>
                 <p className="text-gray-600 text-sm">Add this to your plan by a simple click</p>
               </div>
-              {
-                <Popup trigger=
-                  {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 text-white'>Add to your itinerary</button>}
-                  modal nested>
-                  {
-                    close => (
-                      <div className='modal'>
-                        <div className='review-form'>
-                          <AddPlannedAttractionForm
-                            attractionId={attraction.id}
-                            itineraries={itineraries}
-                            postPlannedAttraction={postPlannedAttraction}
-                          />
-                        </div>
-                        <div className='flex justify-center items-center'>
-                          <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
-                            onClick=
-                            {() => close()} >
-                            Close
-                          </button>
-                        </div>
+              <Popup trigger=
+                {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 text-white'>Add to your itinerary</button>}
+                modal nested>
+                {
+                  close => (
+                    <div className='modal'>
+                      <div className='review-form'>
+                        <AddPlannedAttractionForm
+                          attractionId={attraction.id}
+                          itineraries={itineraries}
+                          postPlannedAttraction={postPlannedAttraction}
+                        />
                       </div>
-                    )
-                  }
-                </Popup>
-              }
+                      <div className='flex justify-center items-center'>
+                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
+                          onClick=
+                          {() => close()} >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  )
+                }
+              </Popup>
+
+
             </div>
           </div>
 
@@ -142,9 +150,6 @@ const Attraction = ({ postReview, deleteReview, editReview, postPlannedAttractio
           </div>
         </Grid>
       </Grid>
-
-
-
     </div>
   )
 }
