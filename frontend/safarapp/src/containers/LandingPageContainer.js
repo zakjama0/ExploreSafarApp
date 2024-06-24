@@ -9,6 +9,12 @@ import Hike from '../assests/Hike.png'
 import MuslimCouple from '../assests/MuslimCouple.png'
 import { Link} from 'react-router-dom';
 
+
+
+
+
+
+
 const LandingPageContainer = () => {
   const [isBouncing, setIsBouncing] = useState(true);
 
@@ -31,18 +37,21 @@ const LandingPageContainer = () => {
         <div className=' flex-row items-center justify-center mb-20'>
           <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-800 "
           >Welcome to the future of travelling</h1>
-          <h2 className='mb-10 text-sm md:text-base lg:text-lg text-black dark:text-white mx-4 md:mx-10 text-left leading-relaxed'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, in which we make journeys both enjoyable and spiritually fulfilling</h2>
+          <h2 className='mb-10 mx-5 text-sm md:text-base lg:text-lg text-black dark:text-white  md:mx-20 lg:mx-36 text-left leading-relaxed'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, in which we make journeys both enjoyable and spiritually fulfilling</h2>
           <div className="flex items-center justify-center mt-3">
-          <Link to='/itineraries' className='text-lg bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Get started {" "}<motion.button
+          <Link to='/blogs' className='text-lg text-white bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 mr-10 rounded-md dark:text-white'>Check Our Blogs {" "}<button
           className='text-sm'
-        animate={isBouncing ? { y: [0, -5, 0] } : { y: 0 }}
-        transition={isBouncing ? { repeat: 4, duration: 1 } : {}}
-        onClick={toggleBounce}
       >
         <HiArrowNarrowRight className="" />
-      </motion.button></Link>
+      </button></Link>
+      <Link to='/safety' className='text-lg text-white bg-gradient-to-r from-pink-500 to-pink-800 py-2 px-3 rounded-md dark:text-white'>Safar Safety{" "}<button
+          className='text-sm'
+      >
+        <HiArrowNarrowRight className="" />
+      </button></Link>
             </div>
         </div > 
+       
         <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Our App</h1>
         <motion.div
         ref={ref}
@@ -54,8 +63,10 @@ const LandingPageContainer = () => {
         animate={mainControls}
         transition={{duration:0.5, delay:0.5}}
         >
+        
         <BentoGrid />
         </motion.div>
+     
   <div className="min-h-screen dark:bg-slate-800 w-full px-4 pb-5 text-zinc-50">
   <div className=" max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-8">
     <div className="flex flex-col items-center">
@@ -71,6 +82,8 @@ const LandingPageContainer = () => {
       </div>
       
     </div>
+
+
     <div className="flex flex-col items-center">
       <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800">Our Mission</h1>
       <div className='md:flex md:items-center md:justify-center'>

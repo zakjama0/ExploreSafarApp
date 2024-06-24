@@ -168,7 +168,7 @@ const [value, setValue] = useState(0);
   };
 
   return (
-    <div className='bg-[#d2dbd8] h-full pb-40 dark:bg-slate-800 dark:text-white w-full'>
+    <div className='bg-[#d2dbd8] min-h-screen h-full pb-40 dark:bg-slate-800 dark:text-white w-full'>
     <div className='flex-row justify-center items-center'>
     <h1 className="py-5  mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Duas & Etiquette</h1>
     {/* <h1 className='mb-5 mx-5 md:mx-20 text-lg text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800'> قُلْ سِيرُوا۟ فِى ٱلْأَرْضِ فَٱنظُرُوا۟ كَيْفَ بَدَأَ ٱلْخَلْقَ ۚ ثُمَّ ٱللَّهُ يُنشِئُ ٱلنَّشْأَةَ ٱلْـَٔاخِرَةَ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ </h1> */}
