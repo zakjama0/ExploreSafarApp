@@ -11,38 +11,7 @@ import { Link} from 'react-router-dom';
 
 
 
-const tips = [
-  {
-    title: "Best places to discover Islamic History across the globe",
-    description: "Explore the rich Islamic heritage around the world, from the magnificent Alhambra in Spain to the grand mosques of the Middle East.",
-    image: "https://cdn.audleytravel.com/5595/3996/79/1342712-patio-de-los-leones-alhambra-granada.jpg"
-  },
-  {
-    title: "Essential items to have in your travel bag.",
-    description: "Ensure you have all the essentials for a hassle-free trip, including a travel pillow, portable charger, reusable water bottle, and more.",
-    image: "https://149358801.v2.pressablecdn.com/wp-content/uploads/2020/05/IMG_1593-1200x653.png" // Replace with actual path
-  },
-  {
-    title: "Everything you need for that Japan trip",
-    description: "Prepare for an unforgettable journey through Japan with our comprehensive packing list, travel tips, and must-visit destinations.",
-    image: "https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg" // Replace with actual path
-  },
-  {
-    title: "The Delicacy of Vietnamese Egg Coffee, You Must Try",
-    description: "Discover the unique and delicious Vietnamese egg coffee, a must-try beverage that combines rich coffee with creamy egg yolk.",
-    image: "https://www.thespruceeats.com/thmb/b2_OB5pw7FF6WmodM1l_jkOyu3c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/vietnamese-egg-coffee-3030347-hero-01-9897b12116fc4439b415c63110aa90e6.jpg" // Replace with actual path
-  },
-  {
-    title: "The gems of Africa",
-    description: "Uncover the hidden gems of Africa, from the stunning landscapes of Namibia to the vibrant cultures of West Africa.",
-    image: "https://www.safarisource.com/media/wysiwyg/Namibiaimage.jpg" // Replace with actual path
-  },
-  {
-    title: "Islam in South America: How did it grow?",
-    description: "Learn about the history and growth of Islam in South America, and explore the unique cultural influences it has had across the continent.",
-    image: "https://assets.evcdn.net/pim-assets-images/82503/5ea01cbfe83fb.jpeg" // Replace with actual path
-  }
-];
+
 
 
 
@@ -68,9 +37,9 @@ const LandingPageContainer = () => {
         <div className=' flex-row items-center justify-center mb-20'>
           <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-purple-800 "
           >Welcome to the future of travelling</h1>
-          <h2 className='mb-10 mx-5 text-sm md:text-base lg:text-lg text-black dark:text-white  md:mx-10 text-left leading-relaxed'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, in which we make journeys both enjoyable and spiritually fulfilling</h2>
+          <h2 className='mb-10 mx-5 text-sm md:text-base lg:text-lg text-black dark:text-white  md:mx-20 lg:mx-36 text-left leading-relaxed'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, in which we make journeys both enjoyable and spiritually fulfilling</h2>
           <div className="flex items-center justify-center mt-3">
-          <Link to='/itineraries' className='text-lg text-white bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 mr-10 rounded-md dark:text-white'>Get started {" "}<button
+          <Link to='/blogs' className='text-lg text-white bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 mr-10 rounded-md dark:text-white'>Check Our Blogs {" "}<button
           className='text-sm'
       >
         <HiArrowNarrowRight className="" />
@@ -82,6 +51,7 @@ const LandingPageContainer = () => {
       </button></Link>
             </div>
         </div > 
+       
         <h1 className="py-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Our App</h1>
         <motion.div
         ref={ref}
@@ -93,22 +63,10 @@ const LandingPageContainer = () => {
         animate={mainControls}
         transition={{duration:0.5, delay:0.5}}
         >
+        
         <BentoGrid />
         </motion.div>
-      <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl text-black dark:text-white font-bold text-center mb-8">Halal Travel Tips & Itineraries</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tips.map((tip, index) => (
-          <div key={index} className="bg-[#d2dbd8] rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
-            <img className="w-full h-48 object-cover" src={tip.image} alt={tip.title} />
-            <div className="p-4">
-              <h2 className="text-xl text-black font-semibold mb-2">{tip.title}</h2>
-              <p className="text-gray-700">{tip.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+     
   <div className="min-h-screen dark:bg-slate-800 w-full px-4 pb-5 text-zinc-50">
   <div className=" max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-8">
     <div className="flex flex-col items-center">

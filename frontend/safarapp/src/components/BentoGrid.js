@@ -62,7 +62,7 @@ const BentoGrid = () => {
             <img src={VectorWhite} className='hidden dark:block   dark:absolute dark:bottom-0 dark:right-0 dark:w-24 dark:h-24 z-10 '/>
             </BentoItem>
             <BentoItem className="md:col-span-3 col-span-12 row-span-10 relative p-4">
-            <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Duas and Dhikr. {" "}</h2>
+            <h2 className='mb-3 text-xl font-medium text-zinc-900 leading-tight dark:text-white'>Duas and Etiquette. {" "}</h2>
             <h3 className='dark:text-white text-black text-sm md:hidden w-60 mb-3'>Enhance your travels with blessings by remembering the Creator of the heavens and the earth. </h3>
             <Link to='/duas' className='md:hidden text-sm bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 rounded-md dark:text-white'>Learn more {" "}<button
                 className='text-sm'
