@@ -21,7 +21,6 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
         endTime: endTime.format('DD/MM/YYYY'),
         itineraryName: newItineraryName
       }
-      // console.log(plannedAttraction);
 
       postPlannedAttraction(plannedAttraction);
     }
@@ -61,7 +60,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
               <h1 className="text-4xl text-center mb-6">Add Attraction to Itinerary!</h1>
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">Itinerary:</label>
-                <select
+                <select className="text-black"
                   value={selectedItineraryName}
                   onChange={(event) => handleItineraryChange(event)}
                 >

@@ -45,8 +45,6 @@ const Country = ({ cities, postPlannedAttraction }) => {
 
     useEffect(() => {
         fetchAttractionsByCountry(country.id);
-        console.log(country);
-        console.log(attractions);
         fetchItinerariesByUser();
     }, []);
 
