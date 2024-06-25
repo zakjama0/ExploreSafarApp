@@ -13,6 +13,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,13 +53,8 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(zak);
         userRepository.save(user);
 
-        Itinerary itinerary1 = new Itinerary(user, "Test 1", "");
-        Itinerary itinerary2 = new Itinerary(user, "Test 2", "");
-        Itinerary itinerary3 = new Itinerary(user, "Test 3", "");
-
+        Itinerary itinerary1 = new Itinerary(user, "Rome Trip Test", "");
         itineraryRepository.save(itinerary1);
-        itineraryRepository.save(itinerary2);
-        itineraryRepository.save(itinerary3);
 
 
 //        Dua
@@ -1670,5 +1666,13 @@ public class DataLoader implements ApplicationRunner {
         Review review7 = new Review(3,"Wow", zak,eiffelTower);
         reviewRepository.save(review7);
 
+        PlannedAttraction plannedAttraction = new PlannedAttraction(
+                itinerary1,
+                colosseum,
+                LocalDate.now(),
+                LocalDate.now()
+        );
+
+        plannedAttractionRepository.save(plannedAttraction);
     }
 }
