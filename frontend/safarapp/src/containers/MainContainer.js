@@ -284,7 +284,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/my-itineraries",
-                    element: <MyItineraryList />
+                    element: <MyItineraryList fetchItinerariesByUser={fetchItinerariesByUser}/>
                 },
                 {
                     path: "my-itineraries/:itineraryId",

@@ -3,7 +3,9 @@ import { Context } from "./MainContainer";
 import ItineraryList from "../components/ItineraryList";
 import { Box } from "@mui/material";
 
-const MyItineraryListContainer = () => {
+const MyItineraryListContainer = ( { fetchItinerariesByUser } ) => {
+
+    fetchItinerariesByUser();
 
     const { isLoggedIn, itineraries } = useContext(Context);
 

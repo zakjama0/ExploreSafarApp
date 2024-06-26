@@ -1,6 +1,5 @@
 const PlannedAttractionList = ( { plannedAttractions } ) => {
 
-
     return (
         <>
         </>
