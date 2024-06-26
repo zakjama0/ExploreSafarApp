@@ -243,11 +243,12 @@ const MainContainer = () => {
                     path: "/attractions/:attractionId",
                     loader: attractionLoader,
 
-                    element: <Attraction cities={cities}
+                    element: <Attraction
+                        cities={cities}
+                        postPlannedAttraction={postPlannedAttraction}
                         postReview={postReview}
                         deleteReview={deleteReview}
                         editReview={patchReview}
-                        postPlannedAttraction={postPlannedAttraction}
                     />
                 },
                 {
