@@ -3,10 +3,18 @@ package com.example.demo.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "itineraries")
 public class Itinerary {
 
@@ -29,16 +37,6 @@ public class Itinerary {
     @OneToMany(mappedBy = "itinerary")
     @JsonIgnoreProperties({"itinerary"})
     private List<PlannedAttraction> plannedAttractions;
-
-    public Itinerary(){
-    }
-
-    public Itinerary(User user, String name, String image) {
-        this.user = user;
-        this.name = name;
-        this.image = image;
-        this.plannedAttractions = new ArrayList<>();
-    }
 
     // Methods
     public void addPlannedAttraction(PlannedAttraction plannedAttraction) {

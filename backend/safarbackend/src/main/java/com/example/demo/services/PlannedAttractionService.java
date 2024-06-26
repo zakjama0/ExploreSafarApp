@@ -53,7 +53,11 @@ public class PlannedAttractionService {
             if(user == null || attraction.isEmpty()){
                 return null;
             }
-            Itinerary newItinerary = new Itinerary(user, plannedAttractionDTO.getItineraryName(), attraction.get().getImage());
+            Itinerary newItinerary = Itinerary.builder()
+                    .user(user)
+                    .name(plannedAttractionDTO.getItineraryName())
+                    .image(attraction.get().getImage())
+                    .build();
             Itinerary savedItinerary = itineraryRepository.save(newItinerary);
 
             PlannedAttraction plannedAttraction = new PlannedAttraction(savedItinerary, attraction.get(), format(plannedAttractionDTO.getStartTime()), format(plannedAttractionDTO.getEndTime()));
