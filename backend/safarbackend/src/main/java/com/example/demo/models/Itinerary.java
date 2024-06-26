@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -33,6 +33,12 @@ public class Itinerary {
 
     @Column
     private String image;
+
+    @Column
+    private LocalDate startDate;
+
+    @Column
+    private LocalDate endDate;
 
     @OneToMany(mappedBy = "itinerary")
     @JsonIgnoreProperties({"itinerary"})
