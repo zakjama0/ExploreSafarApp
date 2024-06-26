@@ -1,6 +1,8 @@
 import ItineraryCard from "./ItineraryCard";
 
 const ItineraryList = ({ itineraries }) => {
+    
+    console.log(itineraries);
 
     const itineraryCards = itineraries.map(itinerary => {
         return (

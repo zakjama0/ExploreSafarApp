@@ -9,6 +9,7 @@ const ItineraryCard = ({ image, name, startDate, endDate }) => {
                 <div class="p-5">
                     <a href="#">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
+                        <p>{startDate} to {endDate}</p>
                     </a>
 
                 </div>

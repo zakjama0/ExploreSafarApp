@@ -56,6 +56,8 @@ public class PlannedAttractionService {
             Itinerary newItinerary = Itinerary.builder()
                     .user(user)
                     .name(plannedAttractionDTO.getItineraryName())
+                    .startDate(LocalDate.parse(plannedAttractionDTO.getStartTime(), FORMATTER))
+                    .endDate(LocalDate.parse(plannedAttractionDTO.getEndTime(), FORMATTER))
                     .image(attraction.get().getImage())
                     .build();
             Itinerary savedItinerary = itineraryRepository.save(newItinerary);

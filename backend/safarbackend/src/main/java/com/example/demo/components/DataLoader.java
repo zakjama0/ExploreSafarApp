@@ -1675,6 +1675,8 @@ public class DataLoader implements ApplicationRunner {
         );
 
         itinerary1.setImage(plannedAttraction.getAttraction().getImage());
+        itinerary1.setStartDate(plannedAttraction.getStartDate());
+        itinerary1.setEndDate(plannedAttraction.getEndDate());
         itineraryRepository.save(itinerary1);
         plannedAttractionRepository.save(plannedAttraction);
     }
