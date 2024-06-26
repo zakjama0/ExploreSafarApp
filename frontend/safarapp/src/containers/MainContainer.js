@@ -200,7 +200,6 @@ const MainContainer = () => {
                 },
                 body: JSON.stringify(plannedAttraction)
             });
-            console.log(response);
 
             if (!response.status === 201) {
                 alert("An unexpected error has occured");

@@ -7,6 +7,7 @@ const ItineraryList = ({ itineraries }) => {
         return (
             <Link to={`/my-itineraries/${itinerary.id}`}>
                 <ItineraryCard
+                    key={itinerary.id}
                     image={itinerary.image}
                     name={itinerary.name}
                     startDate={itinerary.startDate}

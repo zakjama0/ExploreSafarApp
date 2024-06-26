@@ -1,16 +1,16 @@
 import { Box } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import Card from "./Card";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import FeaturedAttractionList from "./FeaturedAttractionList";
 import AttractionList from "./AttractionList";
 
-import { apiUrl } from "../containers/MainContainer";
+import { Context, apiUrl } from "../containers/MainContainer";
 
 const Country = ({ cities, postPlannedAttraction }) => {
 
     const [attractions, setAttractions] = useState([]);
-    const [itineraries, setItineraries] = useState([]);
+    const { itineraries } = useContext(Context);
     const country = useLoaderData();
     const filteredCities = cities.filter(city => city.country.name === country.name);
 
@@ -20,32 +20,8 @@ const Country = ({ cities, postPlannedAttraction }) => {
         setAttractions(data);
     }
 
-    const fetchItinerariesByUser = async () => {
-        try {
-            const response = await fetch(`http://${apiUrl}/itineraries/user`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
-                }
-            });
-
-            if (!response.ok) {
-                if (response.status === 403) {
-                    throw new Error("Must be signed in");
-                }
-            }
-
-            const data = await response.json();
-            setItineraries(data);
-        } catch (error) {
-
-        }
-    }
-
     useEffect(() => {
         fetchAttractionsByCountry(country.id);
-        fetchItinerariesByUser();
     }, []);
 
     return (

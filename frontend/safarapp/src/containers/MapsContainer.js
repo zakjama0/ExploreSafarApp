@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { CssBaseline, Grid } from '@mui/material'
 import Search from '../components/SafarMap/Header/Search'
 import List from '../components/SafarMap/List/List'
@@ -70,102 +70,101 @@ function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
-  };}
+  };
+}
 
 
 const MapsContainer = () => {
   const [value, setValue] = useState(0);
-    const [places, setPlaces] = useState([])
+  const [places, setPlaces] = useState([])
 
-    const [childClicked, setChildClicked] = useState(null);
+  const [childClicked, setChildClicked] = useState(null);
 
-    const [coordinates, setCoordinates] = useState([])
-    const [category, setCategory] = useState("TRAVEL_DUA");
+  const [coordinates, setCoordinates] = useState([])
+  const [category, setCategory] = useState("TRAVEL_DUA");
 
-    const [isLoading, setisLoading] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
 
-    useEffect(() => {
-      navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
-        setCoordinates({ lat: latitude, lng: longitude });
-      });
-    }, []);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
+      setCoordinates({ lat: latitude, lng: longitude });
+    });
+  }, []);
 
-    useEffect(() => {
-      setisLoading(true)
-      console.log(coordinates)
-      getPlacesData({coordinates}).then((data) => {
-        console.log('Returned data:', data.results);
-        setPlaces(data.results)
-        setisLoading(false);
-      });
-    }, [coordinates]);
-   
-    const valueToCategory = {
-      0: "TRAVEL_DUA",
-      1: "TRAVEL_ETIQUETTE",
-    }
-  
-    const handleTabChange = (event, newValue) => {
-      setValue(newValue);
-      setCategory(valueToCategory[newValue]);
-    };
+  useEffect(() => {
+    setisLoading(true)
+    getPlacesData({ coordinates }).then((data) => {
+      setPlaces(data.results)
+      setisLoading(false);
+    });
+  }, [coordinates]);
+
+  const valueToCategory = {
+    0: "TRAVEL_DUA",
+    1: "TRAVEL_ETIQUETTE",
+  }
+
+  const handleTabChange = (event, newValue) => {
+    setValue(newValue);
+    setCategory(valueToCategory[newValue]);
+  };
   return (
     <div className='h-full min-h-screen bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full'>
-        <CssBaseline/>
-        <div>
-          <Search />
-        </div>
-       
-        <Grid container spacing={3} style={{width:'100%'}}>
-          <Grid item xs={12} md={4}>
+      <CssBaseline />
+      <div>
+        <Search />
+      </div>
+
+      <Grid container spacing={3} style={{ width: '100%' }}>
+        <Grid item xs={12} md={4}>
           <div className='h-full'>
-          <Box>
-            <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleTabChange} variant='fullWidth' aria-label="basic tabs example">
-              <CustomTab label="Food" {...a11yProps(0)} className='dark:text-white' />
-              <CustomTab label="Masjids" {...a11yProps(1)} className='dark:text-white' />
-              <CustomTab label="Prayer Time" {...a11yProps(2)} className='dark:text-white' />
-            </Tabs>
-          </Box>
-          <CustomTabPanel value={value} index={0} >
-          <h1 className='text-center text-xl'>Halal food in Hanoi, Vietnam</h1>
-          <List 
-          places ={places} 
-          childClicked={childClicked}
-          isLoading ={isLoading}
-          />
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={1}>
-          <h1> Not available in Beta</h1>
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={2}>
-          <PrayerTime/>
-          </CustomTabPanel>
-        </div>
-          
-          </Grid>
-          <Grid item xs={12} md={8}>
-          <Box
-      sx={{
-        width: '100%',
-        height: '500px', // Adjust height as needed
-        '@media (min-width: 600px)': {
-          height: '100%', // Height for larger screens
-        },
-        borderRadius: '10px',
-        overflow: 'hidden',
-        boxShadow: 3,
-        marginLeft: '10px',
-      }}
-    >
-      <Map 
-          setCoordinates={setCoordinates}
-          coordinates={coordinates}
-          places={places}
-          setChildClicked={setChildClicked}/>
-    </Box>
-          
-          </Grid>
+            <Box>
+              <Tabs className='mx-auto' sx={{ width: 4 / 5 }} value={value} onChange={handleTabChange} variant='fullWidth' aria-label="basic tabs example">
+                <CustomTab label="Food" {...a11yProps(0)} className='dark:text-white' />
+                <CustomTab label="Masjids" {...a11yProps(1)} className='dark:text-white' />
+                <CustomTab label="Prayer Time" {...a11yProps(2)} className='dark:text-white' />
+              </Tabs>
+            </Box>
+            <CustomTabPanel value={value} index={0} >
+              <h1 className='text-center text-xl'>Halal food in Hanoi, Vietnam</h1>
+              <List
+                places={places}
+                childClicked={childClicked}
+                isLoading={isLoading}
+              />
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={1}>
+              <h1> Not available in Beta</h1>
+            </CustomTabPanel>
+            <CustomTabPanel value={value} index={2}>
+              <PrayerTime />
+            </CustomTabPanel>
+          </div>
+
         </Grid>
+        <Grid item xs={12} md={8}>
+          <Box
+            sx={{
+              width: '100%',
+              height: '500px', // Adjust height as needed
+              '@media (min-width: 600px)': {
+                height: '100%', // Height for larger screens
+              },
+              borderRadius: '10px',
+              overflow: 'hidden',
+              boxShadow: 3,
+              marginLeft: '10px',
+            }}
+          >
+            <Map
+              setCoordinates={setCoordinates}
+              coordinates={coordinates}
+              places={places}
+              setChildClicked={setChildClicked} />
+          </Box>
+
+        </Grid>
+      </Grid>
     </div>
   )
 }
