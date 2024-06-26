@@ -1,19 +1,29 @@
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import React from 'react'
 import Logo from '../assests/logoname.png'
 import { Link, Outlet } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import LoginForm from './LogInForm';
 import RegistrationForm from './RegistrationForm';
+import AccountMenu from './AccountMenu';
+import { Context } from './../containers/MainContainer';
 
 const NavBar = ({ postUser, login, logout }) => {
     const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(() => {
-        return sessionStorage.getItem("access_token") !== null;
-    });
+    const [anchorEl, setAnchorEl] = useState(null);
+    
+    const { isLoggedIn, setIsLoggedIn } = useContext(Context)
+
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     const toggleNavBar = () => {
         setMobileDrawerOpen(!mobileDrawerOpen);
@@ -109,7 +119,9 @@ const NavBar = ({ postUser, login, logout }) => {
                                     </Popup>
                                 </div>
                                 :
-                                <button className='py-2 px-3 border rounded-md dark:text-white' onClick={handleLogout}>Log Out</button>
+                                <div>
+                                    <AccountMenu handleLogout={handleLogout}/>
+                                </div>
                             }
                             {darkMode ? <Moon onClick={toggleDark} className='cursor-pointer text-white' /> : <Sun onClick={toggleDark} className='cursor-pointer' />}
                         </div>
@@ -121,9 +133,9 @@ const NavBar = ({ postUser, login, logout }) => {
                         {mobileDrawerOpen && (
                             <div className='fixed right-0 z-50 bg-slate-200/80 w-full mt-96 p-12 py-16 flex flex-col justify-center items-center border-b rounded-lg border-neutral-700/80 dark:bg-gray-800/80 lg:hidden'>
                                 <ul className='flex-col items-center'>
-                                <li className='py-4 text-black dark:text-white text-center'><Link to="/itineraries">Itineraries</Link></li>
-                                <li className='py-4 text-black dark:text-white'> <Link to='/duas'>Duas</Link> </li>
-                                <li className='py-4 text-black dark:text-white'> <Link to='/'>Maps</Link>  </li>
+                                    <li className='py-4 text-black dark:text-white text-center'><Link to="/itineraries">Itineraries</Link></li>
+                                    <li className='py-4 text-black dark:text-white'> <Link to='/duas'>Duas</Link> </li>
+                                    <li className='py-4 text-black dark:text-white'> <Link to='/'>Maps</Link>  </li>
                                 </ul>
                                 <div className={isPopupOpen ? 'blurred-background flex space-x-6' : 'flex space-x-6'}>
                                     <Popup trigger=
@@ -178,4 +190,4 @@ const NavBar = ({ postUser, login, logout }) => {
     )
 }
 
-export default NavBar
+export default NavBar;

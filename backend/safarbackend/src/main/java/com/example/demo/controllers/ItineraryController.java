@@ -28,6 +28,9 @@ public class ItineraryController {
     @GetMapping(value = "/user")
     public ResponseEntity<List<Itinerary>> getItineraryByUser(Principal connectedUser) {
         List<Itinerary> itineraries = itineraryService.getItinerariesByUser(connectedUser);
+        if(itineraries.isEmpty()){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<>(itineraries, HttpStatus.OK);
     }
 
