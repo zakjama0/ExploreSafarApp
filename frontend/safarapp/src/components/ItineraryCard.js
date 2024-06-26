@@ -1,4 +1,4 @@
-const ItineraryCard = ({ image, startDate, endDate }) => {
+const ItineraryCard = ({ image, name, startDate, endDate }) => {
 
     return (
         <>
@@ -8,7 +8,7 @@ const ItineraryCard = ({ image, startDate, endDate }) => {
                 </a>
                 <div class="p-5">
                     <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">CHANGE HERE</h5>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name}</h5>
                     </a>
 
                 </div>
