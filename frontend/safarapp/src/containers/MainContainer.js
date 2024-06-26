@@ -11,7 +11,7 @@ import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
 import SafetyContainer from "./SafetyContainer";
 import BlogContainer from "./BlogContainer";
-import MyItineraryList from "./../components/MyItineraryList";
+import MyItineraryList from "./MyItineraryContainer";
 
 export const Context = createContext(null);
 

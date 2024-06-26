@@ -30,8 +30,6 @@ public class ItineraryService {
         return itineraryRepository.findById(id);
     }
 
-
-
     public Optional<Itinerary> updateItinerary(Long id, UpdateItineraryDTO updateItineraryDTO){
         Optional<Itinerary> itineraryToUpdate = itineraryRepository.findById(id);
         if(itineraryToUpdate.isPresent()){
