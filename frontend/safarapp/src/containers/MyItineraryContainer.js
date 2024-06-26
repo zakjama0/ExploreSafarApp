@@ -10,7 +10,15 @@ const MyItineraryContainer = () => {
 
     return (
         <>
-        <PlannedAttractionList plannedAttractions={itinerary.plannedAttractions} />
+        { isLoggedIn ?
+            <PlannedAttractionList
+                plannedAttractions={itinerary.plannedAttractions}
+                startDate={itinerary.startDate}
+                endDate={itinerary.endDate}
+            />
+            :
+            <h1>WE NOT HERE</h1>
+        }
         </>
     )
 

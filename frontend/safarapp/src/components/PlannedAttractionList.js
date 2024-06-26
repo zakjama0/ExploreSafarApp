@@ -1,4 +1,4 @@
-const PlannedAttractionList = ( { plannedAttractions } ) => {
+const PlannedAttractionList = ( { plannedAttractions, startDate, endDate } ) => {
 
     return (
         <>
