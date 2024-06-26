@@ -11,7 +11,8 @@ import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
 import SafetyContainer from "./SafetyContainer";
 import BlogContainer from "./BlogContainer";
-import MyItineraryList from "./MyItineraryContainer";
+import MyItineraryList from "./MyItineraryListContainer";
+import MyItineraryContainer from "./MyItineraryContainer";
 
 export const Context = createContext(null);
 
@@ -24,6 +25,7 @@ const MainContainer = () => {
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
     const [duas, setDuas] = useState([]);
+    const [itineraries, setItineraries] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
     const [activeCustomer, setActiveCustomer] = useState({});
@@ -60,6 +62,29 @@ const MainContainer = () => {
         const response = await fetch(`http://${apiUrl}/reviews`);
         const data = await response.json();
         setReviews(data);
+    }
+
+    const fetchItinerariesByUser = async () => {
+        try {
+            const response = await fetch(`http://${apiUrl}/itineraries/user`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+                }
+            });
+
+            if (!response.ok) {
+                if (response.status === 403) {
+                    throw new Error("Must be signed in");
+                }
+            }
+
+            const data = await response.json();
+            setItineraries(data);
+        } catch (error) {
+
+        }
     }
 
     const postUser = async (newUser) => {
@@ -194,6 +219,7 @@ const MainContainer = () => {
         fetchCountries();
         fetchDuas();
         fetchReviews();
+        fetchItinerariesByUser();
         const token = sessionStorage.getItem("access_token");
         if (token) {
             const decoded = jwtDecode(token);
@@ -218,6 +244,12 @@ const MainContainer = () => {
         return attractions.find(attraction => {
             return attraction.id === parseInt(params.attractionId);
         });
+    }
+
+    const myItineraryLoader = ({ params }) => {
+        return itineraries.find(itinerary => {
+            return itinerary.id === parseInt(params.itineraryId);
+        })
     }
 
     const router = createBrowserRouter([
@@ -256,6 +288,11 @@ const MainContainer = () => {
                     element: <MyItineraryList />
                 },
                 {
+                    path: "my-itineraries/:itineraryId",
+                    loader: myItineraryLoader,
+                    element: <MyItineraryContainer />
+                },
+                {
                     path: "/duas",
                     element: <DuasContainer duas={duas} />
                 },
@@ -275,14 +312,13 @@ const MainContainer = () => {
         }
     ]);
 
-
     return (
         <>
             {
                 loading ?
                     <SafarAnimation />
                     :
-                    <Context.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+                    <Context.Provider value={{ isLoggedIn, setIsLoggedIn, itineraries, setItineraries }}>
                         <RouterProvider router={router} />
                     </Context.Provider>
             }

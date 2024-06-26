@@ -1,17 +1,18 @@
+import { Link } from "react-router-dom";
 import ItineraryCard from "./ItineraryCard";
 
 const ItineraryList = ({ itineraries }) => {
-    
-    console.log(itineraries);
 
     const itineraryCards = itineraries.map(itinerary => {
         return (
-            <ItineraryCard
-                image={itinerary.image}
-                name={itinerary.name}
-                startDate={itinerary.startDate}
-                endDate={itinerary.endDate}
-            />
+            <Link to={`/my-itineraries/${itinerary.id}`}>
+                <ItineraryCard
+                    image={itinerary.image}
+                    name={itinerary.name}
+                    startDate={itinerary.startDate}
+                    endDate={itinerary.endDate}
+                />
+            </Link>
         )
     });
 
