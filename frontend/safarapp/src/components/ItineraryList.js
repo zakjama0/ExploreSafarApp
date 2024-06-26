@@ -2,10 +2,12 @@ import ItineraryCard from "./ItineraryCard";
 
 const ItineraryList = ({ itineraries }) => {
 
+    console.log(itineraries);
+
     const itineraryCards = itineraries.map(itinerary => {
         return (
             <ItineraryCard
-                img={itinerary.img}
+                image={itinerary.image}
                 startDate={itinerary.startDate}
                 endDate={itinerary.endDate}
             />

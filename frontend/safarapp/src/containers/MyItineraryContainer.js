@@ -19,8 +19,6 @@ const MyItineraryContainer = () => {
                 }
             });
 
-            console.log(sessionStorage.getItem("access_token"));
-
             if (!response.ok) {
                 if (response.status === 403) {
                     throw new Error("Must be signed in");
@@ -36,7 +34,7 @@ const MyItineraryContainer = () => {
 
     useEffect(() => {
         fetchItinerariesByUser();
-    }, []);
+    }, [sessionStorage]);
 
 
     return (
