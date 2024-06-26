@@ -1661,18 +1661,6 @@ public class DataLoader implements ApplicationRunner {
         reviewRepository.save(review6);
         Review review7 = new Review(3,"Wow", zak,eiffelTower);
         reviewRepository.save(review7);
-
-        Itinerary itinerary1 = new Itinerary(user, "Rome Trip Test", "");
-
-        PlannedAttraction plannedAttraction = new PlannedAttraction(
-                itinerary1,
-                colosseum,
-                LocalDate.now(),
-                LocalDate.now()
-        );
-
-        itinerary1.setImage(plannedAttraction.getAttraction().getImage());
-        itineraryRepository.save(itinerary1);
-        plannedAttractionRepository.save(plannedAttraction);
+        
     }
 }

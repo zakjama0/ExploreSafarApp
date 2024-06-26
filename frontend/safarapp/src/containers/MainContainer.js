@@ -166,7 +166,6 @@ const MainContainer = () => {
     }
 
     const postPlannedAttraction = async (plannedAttraction) => {
-        console.log(JSON.stringify(plannedAttraction));
         try {
             const response = await fetch(`http://${apiUrl}/planned-attractions`, {
                 method: "POST",
