@@ -1,25 +1,28 @@
 import { Grid } from "@mui/material";
 import PlannedAttractionCard from "./PlannedAttractionCard";
+import { Link } from "react-router-dom";
 
 const PlannedAttractionList = ({ plannedAttractions }) => {
 
-    console.log(plannedAttractions);
+    const sortedPlannedAttractions = plannedAttractions.sort((a, b) => b.startDate - a.startDate);
 
-    const plannedAttractionCards = plannedAttractions.map(plannedAttraction => {
+    const plannedAttractionCards = sortedPlannedAttractions.map(plannedAttraction => {
         return (
             <Grid key={plannedAttraction.id} item>
-                <PlannedAttractionCard
-                    name={plannedAttraction.attraction.name}
-                    image={plannedAttraction.attraction.image}
-                    startDate={plannedAttraction.startDate}
-                />
+                <Link to={`/attractions/${plannedAttraction.attraction.id}`}>
+                    <PlannedAttractionCard
+                        name={plannedAttraction.attraction.name}
+                        image={plannedAttraction.attraction.image}
+                        startDate={plannedAttraction.startDate}
+                    />
+                </Link>
             </Grid>
         )
     });
 
     return (
         <>
-            <Grid className="flex justify-center" container>
+            <Grid className="flex justify-center" columns={1} container>
                 {plannedAttractionCards}
             </Grid>
         </>
