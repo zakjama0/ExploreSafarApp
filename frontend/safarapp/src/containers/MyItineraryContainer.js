@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Context } from "./MainContainer";
 import { useLoaderData } from "react-router-dom";
 import PlannedAttractionList from "./../components/PlannedAttractionList";
+import { Box } from "@mui/material";
 
 const MyItineraryContainer = () => {
 
@@ -9,17 +10,20 @@ const MyItineraryContainer = () => {
     const itinerary = useLoaderData();
 
     return (
-        <>
-        { isLoggedIn ?
-            <PlannedAttractionList
-                plannedAttractions={itinerary.plannedAttractions}
-                startDate={itinerary.startDate}
-                endDate={itinerary.endDate}
-            />
-            :
-            <h1>WE NOT HERE</h1>
-        }
-        </>
+        <div className=' bg-[#d2dbd8] h-full min-h-screen dark:bg-slate-800 dark:text-white w-full'>
+            {isLoggedIn ?
+                <Box>
+                    <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">{itinerary.name}</h1>
+                    <PlannedAttractionList
+                        plannedAttractions={itinerary.plannedAttractions}
+                        startDate={itinerary.startDate}
+                        endDate={itinerary.endDate}
+                    />
+                </Box>
+                :
+                <h1>WE NOT HERE</h1>
+            }
+        </div>
     )
 
 }

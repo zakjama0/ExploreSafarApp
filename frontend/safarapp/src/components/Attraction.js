@@ -11,7 +11,7 @@ import GetYourGuideButton from "./GetYourGuideButton";
 import TikTokButton from "./TikTokButton";
 import AddPlannedAttractionForm from "./AddPlannedAttractionForm";
 
-import { Context, apiUrl } from "../containers/MainContainer";
+import { Context } from "../containers/MainContainer";
 
 const Attraction = ({ postPlannedAttraction, postReview, deleteReview, editReview }) => {
   const attraction = useLoaderData();
