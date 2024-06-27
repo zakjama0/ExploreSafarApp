@@ -3,6 +3,8 @@ import PlannedAttractionCard from "./PlannedAttractionCard";
 
 const PlannedAttractionList = ({ plannedAttractions }) => {
 
+    console.log(plannedAttractions);
+
     const plannedAttractionCards = plannedAttractions.map(plannedAttraction => {
         return (
             <Grid key={plannedAttraction.id} item>

@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -44,9 +45,11 @@ public class Itinerary {
     private String image;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "d/M/yy")
     private LocalDate startDate;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "d/M/yy")
     private LocalDate endDate;
 
     @Setter
@@ -59,7 +62,6 @@ public class Itinerary {
     public void addPlannedAttraction(PlannedAttraction plannedAttraction) {
         this.plannedAttractions.add(plannedAttraction);
         changeStartEndDate();
-        sortByStartDate();
     }
 
     private void changeStartEndDate() {
@@ -73,10 +75,6 @@ public class Itinerary {
                 setEndDate(plannedAttraction.getEndDate());
             }
         }
-    }
-
-    private void sortByStartDate() {
-        plannedAttractions.sort(Comparator.comparing(PlannedAttraction::getStartDate));
     }
 
 }
