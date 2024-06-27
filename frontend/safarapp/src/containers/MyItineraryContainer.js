@@ -14,10 +14,10 @@ const MyItineraryContainer = () => {
             {isLoggedIn ?
                 <Box>
                     <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">{itinerary.name}</h1>
+                    <h3 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">{itinerary.startDate} - {itinerary.endDate}</h3>
                     <PlannedAttractionList
                         plannedAttractions={itinerary.plannedAttractions}
-                        startDate={itinerary.startDate}
-                        endDate={itinerary.endDate}
+
                     />
                 </Box>
                 :

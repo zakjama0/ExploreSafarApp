@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Data
@@ -56,6 +59,7 @@ public class Itinerary {
     public void addPlannedAttraction(PlannedAttraction plannedAttraction) {
         this.plannedAttractions.add(plannedAttraction);
         changeStartEndDate();
+        sortByStartDate();
     }
 
     private void changeStartEndDate() {
@@ -69,6 +73,10 @@ public class Itinerary {
                 setEndDate(plannedAttraction.getEndDate());
             }
         }
+    }
+
+    private void sortByStartDate() {
+        plannedAttractions.sort(Comparator.comparing(PlannedAttraction::getStartDate));
     }
 
 }
