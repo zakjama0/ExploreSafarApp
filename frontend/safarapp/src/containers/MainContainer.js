@@ -1,18 +1,18 @@
-import React, { createContext, useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode';
-import ItineraryContainer from "./ItineraryContainer";
-import Navigation from "../components/Navigation";
+import React, { createContext, useEffect, useState } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Attraction from "../components/Attraction";
 import Country from "../components/Country";
-import Attraction from "../components/Attraction"
-import LandingPageContainer from "./LandingPageContainer";
-import DuasContainer from "./DuasContainer";
+import Navigation from "../components/Navigation";
 import SafarAnimation from "../components/SafarAnimation";
-import MapsContainer from "./MapsContainer";
-import SafetyContainer from "./SafetyContainer";
 import BlogContainer from "./BlogContainer";
-import MyItineraryList from "./MyItineraryListContainer";
+import DuasContainer from "./DuasContainer";
+import ItineraryContainer from "./ItineraryContainer";
+import LandingPageContainer from "./LandingPageContainer";
+import MapsContainer from "./MapsContainer";
 import MyItineraryContainer from "./MyItineraryContainer";
+import MyItineraryList from "./MyItineraryListContainer";
+import SafetyContainer from "./SafetyContainer";
 
 export const Context = createContext(null);
 
@@ -28,7 +28,6 @@ const MainContainer = () => {
     const [itineraries, setItineraries] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [activeCustomer, setActiveCustomer] = useState({});
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return sessionStorage.getItem("access_token") !== null;
     });
