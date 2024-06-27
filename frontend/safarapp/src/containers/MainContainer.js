@@ -254,6 +254,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
+            errorElement: <h1>NOT FOUND</h1>,
             element: <Navigation postUser={postUser} login={login} logout={logout} />,
             children: [
                 {
@@ -267,13 +268,13 @@ const MainContainer = () => {
                 {
                     path: "/countries/:countryId",
                     loader: countryLoader,
-
+                    errorElement: <h1>NOT FOUND</h1>,
                     element: <Country cities={cities} postPlannedAttraction={postPlannedAttraction} />
                 },
                 {
                     path: "/attractions/:attractionId",
                     loader: attractionLoader,
-
+                    errorElement: <h1>NOT FOUND</h1>,
                     element: <Attraction
                         cities={cities}
                         postPlannedAttraction={postPlannedAttraction}
@@ -289,6 +290,7 @@ const MainContainer = () => {
                 {
                     path: "my-itineraries/:itineraryId",
                     loader: myItineraryLoader,
+                    errorElement: <h1>NOT FOUND</h1>,
                     element: <MyItineraryContainer />
                 },
                 {
