@@ -4,11 +4,20 @@ import { Link } from "react-router-dom";
 
 const PlannedAttractionList = ({ plannedAttractions }) => {
 
-    const sortedPlannedAttractions = plannedAttractions.sort((a, b) => b.startDate - a.startDate);
+    const parseDate = (dateString) => {
+        const [day, month, year] = dateString.split('/');
+        return new Date(`20${year}`, month - 1, day);
+      };
+
+    const sortedPlannedAttractions = plannedAttractions.sort((a, b) => {
+        const dateA = parseDate(a.startDate);
+        const dateB = parseDate(b.startDate);
+        return dateA - dateB;
+    });
 
     const plannedAttractionCards = sortedPlannedAttractions.map(plannedAttraction => {
         return (
-            <Grid key={plannedAttraction.id} direction="row" columns={2} item>
+            <Grid key={plannedAttraction.id} xs={12} item>
                 <Link to={`/attractions/${plannedAttraction.attraction.id}`}>
                     <PlannedAttractionCard
                         name={plannedAttraction.attraction.name}
@@ -22,7 +31,7 @@ const PlannedAttractionList = ({ plannedAttractions }) => {
 
     return (
         <>
-            <Grid className="flex justify-center" direction="row" columns={1} container>
+            <Grid className="flex justify-center" spacing={2} container>
                 {plannedAttractionCards}
             </Grid>
         </>
