@@ -4,7 +4,16 @@ import { Link } from "react-router-dom";
 
 const PlannedAttractionList = ({ plannedAttractions }) => {
 
-    const sortedPlannedAttractions = plannedAttractions.sort((a, b) => b.startDate - a.startDate);
+    const parseDate = (dateString) => {
+        const [day, month, year] = dateString.split('/');
+        return new Date(`20${year}`, month - 1, day);
+      };
+
+    const sortedPlannedAttractions = plannedAttractions.sort((a, b) => {
+        const dateA = parseDate(a.startDate);
+        const dateB = parseDate(b.startDate);
+        return dateA - dateB;
+    });
 
     const plannedAttractionCards = sortedPlannedAttractions.map(plannedAttraction => {
         return (
