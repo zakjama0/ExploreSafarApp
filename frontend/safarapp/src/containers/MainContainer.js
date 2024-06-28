@@ -13,6 +13,7 @@ import MapsContainer from "./MapsContainer";
 import MyItineraryContainer from "./MyItineraryContainer";
 import MyItineraryList from "./MyItineraryListContainer";
 import SafetyContainer from "./SafetyContainer";
+import NotFoundContainer from './NotFoundContainer';
 
 export const Context = createContext(null);
 
@@ -253,7 +254,7 @@ const MainContainer = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            errorElement: <h1>NOT FOUND</h1>,
+            errorElement: <NotFoundContainer />,
             element: <Navigation postUser={postUser} login={login} logout={logout} />,
             children: [
                 {
