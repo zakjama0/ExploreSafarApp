@@ -8,7 +8,7 @@ const PlannedAttractionList = ({ plannedAttractions }) => {
 
     const plannedAttractionCards = sortedPlannedAttractions.map(plannedAttraction => {
         return (
-            <Grid key={plannedAttraction.id} columns={1} item>
+            <Grid key={plannedAttraction.id} xs={12} item>
                 <Link to={`/attractions/${plannedAttraction.attraction.id}`}>
                     <PlannedAttractionCard
                         name={plannedAttraction.attraction.name}
@@ -22,7 +22,7 @@ const PlannedAttractionList = ({ plannedAttractions }) => {
 
     return (
         <>
-            <Grid className="flex justify-center" direction="row" columns={1} container>
+            <Grid className="flex justify-center" spacing={2} container>
                 {plannedAttractionCards}
             </Grid>
         </>
