@@ -8,7 +8,7 @@ const PlannedAttractionList = ({ plannedAttractions }) => {
 
     const plannedAttractionCards = sortedPlannedAttractions.map(plannedAttraction => {
         return (
-            <Grid key={plannedAttraction.id} direction="row" columns={2} item>
+            <Grid key={plannedAttraction.id} columns={1} item>
                 <Link to={`/attractions/${plannedAttraction.attraction.id}`}>
                     <PlannedAttractionCard
                         name={plannedAttraction.attraction.name}

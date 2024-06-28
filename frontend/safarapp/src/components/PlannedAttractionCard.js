@@ -4,7 +4,7 @@ import Card from "./Card";
 const PlannedAttractionCard = ({ name, image, startDate }) => {
 
     return (
-        <Grid columns={2} container>
+        <Grid justifyContent={"center"} alignItems={"center"} columns={2} container>
             <Grid item>
                 <h1>{startDate}</h1>
             </Grid>
