@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -41,9 +42,11 @@ public class Itinerary {
     private String image;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "d/M/yy")
     private LocalDate startDate;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "d/M/yy")
     private LocalDate endDate;
 
     @Setter

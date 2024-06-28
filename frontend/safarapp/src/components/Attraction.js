@@ -1,53 +1,27 @@
-import { useLoaderData } from "react-router-dom";
-import React, { useEffect, useState } from 'react';
-import { Button } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Grid } from '@mui/material'
+import { Button, Grid } from '@mui/material';
+import { useContext, useState } from 'react';
+import { useLoaderData } from "react-router-dom";
 import Popup from 'reactjs-popup';
-import ReviewList from "./ReviewList";
-import ReviewForm from "./ReviewForm";
-import YouTubeButton from "./YoutubeIcon";
-import GetYourGuideButton from "./GetYourGuideButton";
-import TikTokButton from "./TikTokButton";
 import AddPlannedAttractionForm from "./AddPlannedAttractionForm";
+import GetYourGuideButton from "./GetYourGuideButton";
+import ReviewForm from "./ReviewForm";
+import ReviewList from "./ReviewList";
+import TikTokButton from "./TikTokButton";
+import YouTubeButton from "./YoutubeIcon";
 
-import { apiUrl } from "../containers/MainContainer";
+import { Context } from "../containers/MainContainer";
 
 const Attraction = ({ postPlannedAttraction, postReview, deleteReview, editReview }) => {
   const attraction = useLoaderData();
   const [expanded, setExpanded] = useState(false);
-  const [itineraries, setItineraries] = useState([]);
+  const { itineraries } = useContext(Context);
 
-  const fetchItinerariesByUser = async () => {
-    try {
-        const response = await fetch(`http://${apiUrl}/itineraries/user`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
-            }
-        });
-
-        if (!response.ok) {
-            if (response.status === 403) {
-                throw new Error("Must be signed in");
-            }
-        }
-
-        const data = await response.json();
-        setItineraries(data);
-    } catch (error) {
-
-    }
-}
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  useEffect(() => {
-    fetchItinerariesByUser();
-  }, [])
   return (
     <div className="h-full pb-60 bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full">
       <div

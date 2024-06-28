@@ -1,17 +1,19 @@
-import React, { createContext, useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
 import { jwtDecode } from 'jwt-decode';
-import ItineraryContainer from "./ItineraryContainer";
-import Navigation from "../components/Navigation";
+import React, { createContext, useEffect, useState } from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Attraction from "../components/Attraction";
 import Country from "../components/Country";
-import Attraction from "../components/Attraction"
-import LandingPageContainer from "./LandingPageContainer";
-import DuasContainer from "./DuasContainer";
+import Navigation from "../components/Navigation";
 import SafarAnimation from "../components/SafarAnimation";
-import MapsContainer from "./MapsContainer";
-import SafetyContainer from "./SafetyContainer";
 import BlogContainer from "./BlogContainer";
-import MyItineraryList from "./MyItineraryContainer";
+import DuasContainer from "./DuasContainer";
+import ItineraryContainer from "./ItineraryContainer";
+import LandingPageContainer from "./LandingPageContainer";
+import MapsContainer from "./MapsContainer";
+import MyItineraryContainer from "./MyItineraryContainer";
+import MyItineraryList from "./MyItineraryListContainer";
+import SafetyContainer from "./SafetyContainer";
+import NotFoundContainer from './NotFoundContainer';
 
 export const Context = createContext(null);
 
@@ -24,9 +26,9 @@ const MainContainer = () => {
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
     const [duas, setDuas] = useState([]);
+    const [itineraries, setItineraries] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [activeCustomer, setActiveCustomer] = useState({});
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return sessionStorage.getItem("access_token") !== null;
     });
@@ -60,6 +62,29 @@ const MainContainer = () => {
         const response = await fetch(`http://${apiUrl}/reviews`);
         const data = await response.json();
         setReviews(data);
+    }
+
+    const fetchItinerariesByUser = async () => {
+        try {
+            const response = await fetch(`http://${apiUrl}/itineraries/user`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+                }
+            });
+
+            if (!response.ok) {
+                if (response.status === 403) {
+                    throw new Error("Must be signed in");
+                }
+            }
+
+            const data = await response.json();
+            setItineraries(data);
+        } catch (error) {
+
+        }
     }
 
     const postUser = async (newUser) => {
@@ -175,7 +200,6 @@ const MainContainer = () => {
                 },
                 body: JSON.stringify(plannedAttraction)
             });
-            console.log(response);
 
             if (!response.status === 201) {
                 alert("An unexpected error has occured");
@@ -194,6 +218,7 @@ const MainContainer = () => {
         fetchCountries();
         fetchDuas();
         fetchReviews();
+        fetchItinerariesByUser();
         const token = sessionStorage.getItem("access_token");
         if (token) {
             const decoded = jwtDecode(token);
@@ -220,9 +245,16 @@ const MainContainer = () => {
         });
     }
 
+    const myItineraryLoader = ({ params }) => {
+        return itineraries.find(itinerary => {
+            return itinerary.id === parseInt(params.itineraryId);
+        })
+    }
+
     const router = createBrowserRouter([
         {
             path: "/",
+            errorElement: <NotFoundContainer />,
             element: <Navigation postUser={postUser} login={login} logout={logout} />,
             children: [
                 {
@@ -236,13 +268,11 @@ const MainContainer = () => {
                 {
                     path: "/countries/:countryId",
                     loader: countryLoader,
-
                     element: <Country cities={cities} postPlannedAttraction={postPlannedAttraction} />
                 },
                 {
                     path: "/attractions/:attractionId",
                     loader: attractionLoader,
-
                     element: <Attraction
                         cities={cities}
                         postPlannedAttraction={postPlannedAttraction}
@@ -253,7 +283,12 @@ const MainContainer = () => {
                 },
                 {
                     path: "/my-itineraries",
-                    element: <MyItineraryList />
+                    element: <MyItineraryList fetchItinerariesByUser={fetchItinerariesByUser}/>
+                },
+                {
+                    path: "my-itineraries/:itineraryId",
+                    loader: myItineraryLoader,
+                    element: <MyItineraryContainer />
                 },
                 {
                     path: "/duas",
@@ -275,14 +310,13 @@ const MainContainer = () => {
         }
     ]);
 
-
     return (
         <>
             {
                 loading ?
                     <SafarAnimation />
                     :
-                    <Context.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+                    <Context.Provider value={{ isLoggedIn, setIsLoggedIn, itineraries, setItineraries }}>
                         <RouterProvider router={router} />
                     </Context.Provider>
             }
