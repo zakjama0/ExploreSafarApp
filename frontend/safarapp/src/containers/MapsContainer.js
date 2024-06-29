@@ -135,7 +135,7 @@ const MapsContainer = () => {
               </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-              <h1 className='text-center text-xl'>Halal food in Hanoi, Vietnam</h1>
+             
               <List 
                 places={places} 
                 childClicked={childClicked}
