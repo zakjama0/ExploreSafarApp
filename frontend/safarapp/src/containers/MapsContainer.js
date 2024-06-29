@@ -71,6 +71,8 @@ function a11yProps(index) {
 const MapsContainer = () => {
   const [value, setValue] = useState(0);
   const [places, setPlaces] = useState([]);
+  const [bounds, setBounds] = useState(null);
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
   const [childClicked, setChildClicked] = useState(null);
   const [coordinates, setCoordinates] = useState([]);
   const [category, setCategory] = useState("TRAVEL_DUA");
@@ -93,6 +95,21 @@ const MapsContainer = () => {
       setIsLoading(false);
     });
   }, [coordinates]);
+  useEffect(() => {
+    // Fetch places data from an API or use static data
+    // Example: setPlaces(yourData);
+
+    // Update filtered places when bounds change
+    if (bounds) {
+      const filtered = places.filter((place) =>
+        place.geometry.location.lat >= bounds.sw.lat &&
+        place.geometry.location.lat <= bounds.ne.lat &&
+        place.geometry.location.lng >= bounds.sw.lng &&
+        place.geometry.location.lng <= bounds.ne.lng
+      );
+      setFilteredPlaces(filtered);
+    }
+  }, [bounds, places]);
 
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
@@ -121,7 +138,7 @@ const MapsContainer = () => {
     <div className='h-full min-h-screen bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full'>
       <CssBaseline />
       <div>
-        <Search />
+        <Search setCoordinates={setCoordinates} />
       </div>
 
       <Grid container spacing={3} style={{ width: '100%' }}>
@@ -167,8 +184,9 @@ const MapsContainer = () => {
             <Map 
               setCoordinates={setCoordinates}
               coordinates={coordinates}
-              places={places}
               setChildClicked={setChildClicked}
+              places={places}
+              setBounds={setBounds}
             />
           </Box>
         </Grid>
