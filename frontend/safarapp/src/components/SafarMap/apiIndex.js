@@ -14,7 +14,7 @@ export const getPlacesData = async ({coordinates}) => {
               type: 'restaurant'
             },
             headers: {
-              'x-rapidapi-key': "b12c3ae6c3msh51f7af4304e6c46p17ae41jsn4f6ae070f0a2", // Ensure your key is set in the environment variables
+              'x-rapidapi-key': "312917582fmsh44ae633e94bb69ap18d3fajsn8617488ed8c7", // Ensure your key is set in the environment variables
               'x-rapidapi-host': 'map-places.p.rapidapi.com'
             }
           });

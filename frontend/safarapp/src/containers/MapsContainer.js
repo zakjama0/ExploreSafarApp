@@ -143,17 +143,7 @@ const MapsContainer = () => {
               />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-            <div className="App flex items-center justify-center h-screen">
-      <div
-        className="bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer"
-        onClick={toggleModal}
-      >
-        <label className="block cursor-pointer">
-          Click and slide up to expand
-        </label>
-      </div>
-      <Modal isOpen={isModalOpen} onClose={toggleModal} />
-    </div>
+            <h1>Not available in Beta</h1>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
               <PrayerTime />
@@ -164,7 +154,7 @@ const MapsContainer = () => {
           <Box
             sx={{
               width: '100%',
-              height: '500px',
+              height: '100%',
               '@media (min-width: 600px)': {
                 height: '100%',
               },
@@ -197,7 +187,7 @@ const MapsContainer = () => {
         //   }}
         // >
           <div>
-         <div className="App flex items-center justify-center h-screen">
+         <div className="App flex items-center justify-center ">
       <div
         className={`fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 cursor-pointer p-2 bg-white text-black rounded-t-lg ${isModalOpen ? 'hidden' : 'block'}`}
         onClick={toggleModal}

@@ -11,6 +11,7 @@ import SafarAnimation from "../components/SafarAnimation";
 import MapsContainer from "./MapsContainer";
 import SafetyContainer from "./SafetyContainer";
 import BlogContainer from "./BlogContainer";
+import Log from "../components/Log";
 
 
 export const apiUrl = "localhost:8080";
@@ -261,6 +262,10 @@ const MainContainer = () => {
                 {
                     path: "/blogs",
                     element: <BlogContainer />
+                },
+                {
+                    path: "/login",
+                    element: <Log />
                 },
             ]
         }

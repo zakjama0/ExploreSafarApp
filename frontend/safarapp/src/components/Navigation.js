@@ -87,7 +87,7 @@ const NavBar = ({ postUser, login, logout }) => {
                                             )
                                         }
                                     </Popup>
-                                    <Popup trigger=
+                                    {/* <Popup trigger=
                                         {<button className='py-2 px-3 border rounded-md dark:text-white'>Sign in</button>}
                                         modal nested>
                                         {
@@ -106,7 +106,8 @@ const NavBar = ({ postUser, login, logout }) => {
                                                 </div>
                                             )
                                         }
-                                    </Popup>
+                                    </Popup> */}
+                                    <Link to={"/login"}><button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button></Link>
                                 </div>
                                 :
                                 <button className='py-2 px-3 border rounded-md dark:text-white' onClick={handleLogout}>Log Out</button>
@@ -126,7 +127,8 @@ const NavBar = ({ postUser, login, logout }) => {
                                 <li className='py-4 text-black dark:text-white'> <Link to='/'>Maps</Link>  </li>
                                 </ul>
                                 <div className={isPopupOpen ? 'blurred-background flex space-x-6' : 'flex space-x-6'}>
-                                    <Popup trigger=
+                                <Link to={"/login"}><button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button></Link>
+                                    {/* <Popup trigger=
                                         {<button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button>}
                                         modal nested>
                                         {
@@ -145,7 +147,7 @@ const NavBar = ({ postUser, login, logout }) => {
                                                 </div>
                                             )
                                         }
-                                    </Popup>
+                                    </Popup> */}
                                     <Popup trigger=
                                         {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button>}
                                         modal nested>
