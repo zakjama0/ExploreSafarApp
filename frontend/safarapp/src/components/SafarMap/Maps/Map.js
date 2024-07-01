@@ -36,21 +36,7 @@ const Map = ({ setCoordinates, coordinates, places, setBounds, setChildClicked }
             lng={Number(place.geometry.location.lng)}
             key={i}
           >
-            {!isDesktop ? (
-              <LocationOnOutlinedIcon color="primary" fontSize="large" />
-            ) : (
-              <Paper elevation={3} className={classes.paper}>
-                <Typography className={classes.typography} variant="subtitle2" gutterBottom>
-                  {place.name}
-                </Typography>
-                <img
-                  className={classes.pointer}
-                  src={place.photos && place.photos.length > 0 ? getPhotoUrl(place.photos[0].photo_reference) : Logo}
-                  alt={place.name}
-                />
-                <Rating size="small" value={Number(place.rating)} readOnly />
-              </Paper>
-            )}
+            <LocationOnOutlinedIcon color="black" fontSize="large" />
           </div>
         ))}
       </GoogleMapReact>
