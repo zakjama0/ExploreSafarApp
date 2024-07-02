@@ -14,6 +14,6 @@ export default makeStyles((theme) => ({
     marginBottom: '30px',
   },
   list: {
-    height: '60vh', overflow: 'auto',
+    height: '70vh', overflow: 'auto',
   },
 }));

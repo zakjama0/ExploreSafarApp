@@ -12,6 +12,7 @@ import MapsContainer from "./MapsContainer";
 import SafetyContainer from "./SafetyContainer";
 import BlogContainer from "./BlogContainer";
 import Log from "../components/Log";
+import IslamicHistoryBlog from "../components/Blogs/Blog1";
 
 
 export const apiUrl = "localhost:8080";
@@ -266,6 +267,10 @@ const MainContainer = () => {
                 {
                     path: "/login",
                     element: <Log />
+                },
+                {
+                    path: "/blog0",
+                    element: <IslamicHistoryBlog />
                 },
             ]
         }

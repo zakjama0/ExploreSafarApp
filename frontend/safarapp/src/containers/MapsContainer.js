@@ -78,6 +78,7 @@ const MapsContainer = () => {
   const [category, setCategory] = useState("TRAVEL_DUA");
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  const [rating, setRating] = useState('');
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -92,24 +93,31 @@ const MapsContainer = () => {
     setIsLoading(true);
     getPlacesData({ coordinates }).then((data) => {
       setPlaces(data.results);
+      setFilteredPlaces([])
       setIsLoading(false);
     });
   }, [coordinates]);
-  useEffect(() => {
-    // Fetch places data from an API or use static data
-    // Example: setPlaces(yourData);
+  // useEffect(() => {
+  //   // Fetch places data from an API or use static data
+  //   // Example: setPlaces(yourData);
 
-    // Update filtered places when bounds change
-    if (bounds) {
-      const filtered = places.filter((place) =>
-        place.geometry.location.lat >= bounds.sw.lat &&
-        place.geometry.location.lat <= bounds.ne.lat &&
-        place.geometry.location.lng >= bounds.sw.lng &&
-        place.geometry.location.lng <= bounds.ne.lng
-      );
-      setFilteredPlaces(filtered);
-    }
-  }, [bounds, places]);
+  //   // Update filtered places when bounds change
+  //   if (bounds) {
+  //     const filtered = places.filter((place) =>
+  //       place.geometry.location.lat >= bounds.sw.lat &&
+  //       place.geometry.location.lat <= bounds.ne.lat &&
+  //       place.geometry.location.lng >= bounds.sw.lng &&
+  //       place.geometry.location.lng <= bounds.ne.lng
+  //     );
+  //     setFilteredPlaces(filtered);
+  //   }
+  // }, [bounds, places]);
+
+
+  useEffect (() => {
+    const filteredPlaces = places.filter(place => place.rating> rating)
+    setFilteredPlaces(filteredPlaces)
+  }, [rating])
 
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
@@ -138,7 +146,7 @@ const MapsContainer = () => {
     <div className='h-full min-h-screen bg-[#d2dbd8] dark:bg-slate-800 dark:text-white w-full'>
       <CssBaseline />
       <div>
-        <Search setCoordinates={setCoordinates} />
+        
       </div>
 
       <Grid container spacing={3} style={{ width: '100%' }}>
@@ -152,9 +160,9 @@ const MapsContainer = () => {
               </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-             
+            <Search setCoordinates={setCoordinates} />
               <List 
-                places={places} 
+                places={filteredPlaces.length ? filteredPlaces: places} 
                 childClicked={childClicked}
                 isLoading={isLoading}
               />
@@ -168,6 +176,9 @@ const MapsContainer = () => {
           </div>
         </Grid>
         <Grid item xs={12} md={8}>
+          <div className='mt-6'>
+
+         
           <Box
             sx={{
               width: '100%',
@@ -185,32 +196,24 @@ const MapsContainer = () => {
               setCoordinates={setCoordinates}
               coordinates={coordinates}
               setChildClicked={setChildClicked}
-              places={places}
+              places={filteredPlaces.length ? filteredPlaces: places}
               setBounds={setBounds}
             />
           </Box>
+          </div>
         </Grid>
       </Grid>
 
       {/* Drawer for mobile view */}
       {isMobile && (
-        // <Drawer
-        //   anchor="bottom"
-        //   open={open}
-        //   onClose={handleClose}
-        //   sx={{
-        //     '& .MuiDrawer-paper': {
-        //       height: '90%',
-        //     },
-        //   }}
-        // >
+        
           <div>
          <div className="App flex items-center justify-center ">
       <div
-        className={`fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 cursor-pointer p-2 bg-white text-black rounded-t-lg ${isModalOpen ? 'hidden' : 'block'}`}
+        className={`fixed bottom-0 left-1/2 transform -translate-x-1/2 z-50 cursor-pointer px-10 bg-white text-black rounded-t-lg ${isModalOpen ? 'hidden' : 'block'}`}
         onClick={toggleModal}
       >
-        <span className="text-lg font-bold">▲</span>
+        <span className="text-4xl font-bold">▲</span>
       </div>
      
       <div
@@ -232,15 +235,15 @@ const MapsContainer = () => {
               </Tabs>
             </Box>
             <CustomTabPanel value={value} index={0}>
-              <h1 className='text-center text-xl'>Halal food in Hanoi, Vietnam</h1>
+            <Search setCoordinates={setCoordinates} />
               <List 
-                places={places} 
+                places={filteredPlaces.length ? filteredPlaces: places} 
                 childClicked={childClicked}
                 isLoading={isLoading}
               />
             </CustomTabPanel>
             <CustomTabPanel value={value} index={1}>
-            
+            <div className='py-72 text-center'>Not Available In Beta</div>
             </CustomTabPanel>
             <CustomTabPanel value={value} index={2}>
               <PrayerTime />

@@ -36,10 +36,10 @@ const BlogContainer = () => {
   return (
     <div className='h-full min-h-screen w-full bg-[#d2dbd8]'>
     <div className=" bg-[#d2dbd8] container mx-auto px-4 py-8">
-    <h1 className="text-3xl text-black dark:text-white font-bold text-center mb-8">Halal Travel Tips & Itineraries</h1>
+    <h1 className="text-3xl text-black dark:text-white font-bold text-center mb-8">Latest Blogs</h1>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {tips.map((tip, index) => (
-        <Link to={`/${tip.title}`}>
+        <Link to={`/blog${index}`}>
         <div key={index} className=" rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
           <img className="w-full h-48 object-cover" src={tip.image} alt={tip.title} />
           <div className="p-4">
