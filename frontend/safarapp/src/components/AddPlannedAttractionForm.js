@@ -4,7 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itineraries }) => {
 
-  const [selectedItinerary, setSelectedItinerary] = useState({});
+  const [selectedItinerary, setSelectedItinerary] = useState(null);
   const [selectedItineraryName, setSelectedItineraryName] = useState("");
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -15,7 +15,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
     if (handleValidation()) {
 
       const plannedAttraction = {
-        itineraryId: selectedItinerary ? selectedItinerary.id : null,
+        itineraryId: selectedItinerary || selectedItinerary !== undefined ? selectedItinerary.id : null,
         attractionId,
         startTime: startTime.format('DD/MM/YYYY'),
         endTime: endTime.format('DD/MM/YYYY'),
@@ -33,7 +33,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
       return false;
     }
 
-    if (selectedItinerary.id === null && newItineraryName === "") {
+    if (selectedItinerary !== undefined && selectedItinerary.id === null && newItineraryName === "") {
       alert("Please select existing itinerary or enter name for new itinerary")
       return false;
     }
@@ -48,7 +48,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
 
   const handleItineraryChange = (event) => {
     setSelectedItineraryName(event.target.value);
-    setSelectedItinerary(itineraries.find(itinerary => itinerary.name == event.target.value));
+    setSelectedItinerary(itineraries.find(itinerary => itinerary.name === event.target.value));
   }
 
   return (
@@ -70,16 +70,20 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                   ))}
                 </select>
               </div>
-              <div className="input-box relative w-11/12 mb-6">
-                <label className="block mb-2">New Itinerary Name:</label>
-                <input
-                  className="w-full p-2 rounded text-black"
-                  name="itinerary-name"
-                  placeholder="Enter name of new itinerary"
-                  value={newItineraryName}
-                  onChange={event => setNewItineraryName(event.target.value)}
-                />
-              </div>
+              { !selectedItinerary ?
+                <div className="input-box relative w-11/12 mb-6">
+                  <label className="block mb-2">New Itinerary Name:</label>
+                  <input
+                    className="w-full p-2 rounded text-black"
+                    name="itinerary-name"
+                    placeholder="Enter name of new itinerary"
+                    value={newItineraryName}
+                    onChange={event => setNewItineraryName(event.target.value)}
+                  />
+                </div>
+                :
+                <></>
+              }
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">Start Date</label>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
