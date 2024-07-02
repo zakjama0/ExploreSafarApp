@@ -4,7 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itineraries }) => {
 
-  const [selectedItinerary, setSelectedItinerary] = useState({});
+  const [selectedItinerary, setSelectedItinerary] = useState(null);
   const [selectedItineraryName, setSelectedItineraryName] = useState("");
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
@@ -70,7 +70,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                   ))}
                 </select>
               </div>
-              { 
+              { !selectedItinerary ?
                 <div className="input-box relative w-11/12 mb-6">
                   <label className="block mb-2">New Itinerary Name:</label>
                   <input
@@ -81,6 +81,8 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                     onChange={event => setNewItineraryName(event.target.value)}
                   />
                 </div>
+                :
+                <></>
               }
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">Start Date</label>
