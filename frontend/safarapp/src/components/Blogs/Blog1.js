@@ -1,5 +1,7 @@
 // src/IslamicHistoryPage.js
-import React from 'react';
+import React, { useEffect, useState }from 'react';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Button} from '@mui/material';
 import 'tailwindcss/tailwind.css';
 
 const islamicHistoryData = [
@@ -11,22 +13,22 @@ const islamicHistoryData = [
     {
         title: 'Quba Mosque, Madinah, Saudi Arabia',
         description: 'Quba Mosque, located in the Quba area of Madinah, is the first mosque built by the Prophet Muhammad upon his migration from Makkah to Madinah in 622 CE. The mosque is significant as it symbolizes the establishment of the Muslim community and the beginning of the Islamic calendar. Pilgrims visiting Madinah often visit the Quba Mosque to pray, emulating the Prophet’s practice of visiting the mosque every Saturday. The mosque has been expanded and renovated multiple times over the centuries and remains a revered site for Muslims worldwide.',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Quba_Mosque_1.jpg',
+        imageUrl: 'https://i0.wp.com/www.amuslima.com/wp-content/uploads/2014/09/2.QUBA-MOSQUE.jpg?fit=888%2C592&ssl=1',
     },
     {
         title: 'Masjid al-Qiblatain, Madinah, Saudi Arabia',
         description: 'Masjid al-Qiblatain, also known as the Mosque of the Two Qiblas, is a historic mosque in Madinah where the Prophet Muhammad received the divine command to change the direction of prayer (Qibla) from Jerusalem to Makkah. This event, known as the "Qibla Change," took place in 624 CE and marked a significant moment in Islamic history. The mosque is unique for having two prayer niches (mihrabs) – one facing Jerusalem and the other facing Makkah. It has been expanded and renovated over the years and stands as a symbol of the early developments of Islamic practice.',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Al-Qiblatain_Mosque.jpg',
+        imageUrl: 'https://alfozanaward.org/wp-content/uploads/2020/05/27-1024x683.png',
     },
     {
         title: 'Trench of Khandaq, Madinah, Saudi Arabia',
         description: 'The Trench of Khandaq is the site of the Battle of the Trench, also known as the Battle of the Confederates, which took place in 627 CE. The battle was a defensive effort by the Muslims of Madinah against a confederation of tribes led by the Quraish of Makkah. Under the suggestion of Salman the Persian, the Muslims dug a trench around the city to thwart the enemy’s advance. The trench proved to be an innovative and effective defense strategy, resulting in a significant victory for the Muslims. The site remains an important landmark, symbolizing the resilience and strategic acumen of the early Muslim community.',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Khandaq_Valley.jpg',
+        imageUrl: 'https://live.staticflickr.com/65535/51282613798_00a730dcd9_b.jpg',
     },
     {
         title: 'Jabal al-Nur, Makkah, Saudi Arabia',
         description: 'Jabal al-Nur, a mountain near Makkah, is renowned for the Cave of Hira, where the Prophet Muhammad received his first revelation from the Angel Gabriel in 610 CE. This event marks the beginning of the Prophet’s mission and the revelation of the Quran. The mountain is a popular site for pilgrims and holds great spiritual significance. Visitors often climb Jabal al-Nur to visit the cave and reflect on the transformative moment that laid the foundation for the spread of Islam.',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Jabal_al-Nour.jpg',
+        imageUrl: '',
     },
     {
         title: 'Mina, Saudi Arabia',
@@ -51,6 +53,12 @@ const islamicHistoryData = [
 ];
 
 const IslamicHistoryPage = () => {
+    const [expanded, setExpanded] = useState(false);
+  
+    const handleExpandClick = () => {
+      setExpanded(!expanded);
+    };
+
   return (
     <div className="min-h-screen bg-gray-100">
       <header className="bg-green-800 text-white p-6 text-center">
@@ -61,7 +69,16 @@ const IslamicHistoryPage = () => {
           <section key={index} className="bg-white p-6 rounded-lg shadow-lg">
             <img src={place.imageUrl} alt={place.title} className="w-full h-64 object-cover rounded-lg mb-6" />
             <h2 className="text-2xl font-bold mb-4">{place.title}</h2>
-            <p className="text-gray-700 text-lg whitespace-pre-line">{place.description}</p>
+            <p className={`text-gray-700 dark:text-white text-base ${expanded ? '' : 'line-clamp-3 md:line-clamp-2'}`}>
+            {place.description}
+        </p>
+        <Button
+          size="small"
+          endIcon={<ExpandMoreIcon />}
+          onClick={handleExpandClick}
+        >
+          {expanded ? 'Read less' : 'Read more'}
+        </Button>
           </section>
         ))}
       </main>
