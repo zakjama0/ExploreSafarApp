@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import CountryList from '../components/CountryList';
-
+import React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -73,6 +73,7 @@ const ItineraryContainer = ({ countries }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchedCountries, setSearchedCountries] = useState([]);
 
+  
   const filteredCountries = countries.filter(country => continent === country.continent);
 
   const search = (searchQuery => {
@@ -96,15 +97,14 @@ const ItineraryContainer = ({ countries }) => {
   return (<div className=' bg-[#d2dbd8] h-full min-h-screen dark:bg-slate-800 dark:text-white w-full'>
     <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-800 ">Itineraries</h1>
     <Box sx={{ width: '100%' }}>
-      <div className='flex justify-center pt-5'>
-        <TextField className="mx-auto"
-          id="outlined-basic"
-          label="Search Countries"
-          variant="outlined"
-          onChange={e => {
-            setSearchQuery(e.target.value);
-          }} />
-      </div>
+    <div className='flex justify-center pt-5'>
+          <input
+            type="text"
+            className={`mx-auto p-2 rounded border dark:bg-gray-800 dark:text-white dark:border-white  bg-white text-black border-black'}`}
+            placeholder="Search Countries"
+            onChange={e => setSearchQuery(e.target.value)}
+          />
+        </div>
       {searchQuery.trim() === "" ?
         <div>
           <Box>

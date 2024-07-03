@@ -39,11 +39,6 @@ const LandingPageContainer = () => {
           >Welcome to the future of travelling</h1>
           <h2 className='mb-10 mx-5 text-sm md:text-base lg:text-lg text-black dark:text-white  md:mx-20 lg:mx-36 text-left leading-relaxed'>The app that simplifies Muslim travel by providing tailored itineraries, halal food recommendations, nearby mosques, and authentic duas and dhikr for various occasions. Designed to ensure a seamless, faith-aligned experience, in which we make journeys both enjoyable and spiritually fulfilling</h2>
           <div className="flex items-center justify-center mt-3">
-          <Link to='/blogs' className='text-lg text-white bg-gradient-to-r from-blue-500 to-blue-800 py-2 px-3 mr-10 rounded-md dark:text-white'>Check Our Blogs {" "}<button
-          className='text-sm'
-      >
-        <HiArrowNarrowRight className="" />
-      </button></Link>
       <Link to='/safety' className='text-lg text-white bg-gradient-to-r from-pink-500 to-pink-800 py-2 px-3 rounded-md dark:text-white'>Safar Safety{" "}<button
           className='text-sm'
       >

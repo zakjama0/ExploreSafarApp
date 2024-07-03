@@ -165,12 +165,8 @@ public class DataLoader implements ApplicationRunner {
         duaRepository.save(threeAccepted);
 
         Country china = new Country(Region.EAST_ASIA, Continent.ASIA, "https://cdn.kimkim.com/files/a/content_articles/featured_photos/d3e5c6d3636278dc1e489c6f9feb1f603581e0c5/big-b1717a87c8b279ddbb0601ac3d3e673b.jpg", "China");
-        Country india = new Country(Region.SOUTH_ASIA, Continent.ASIA, "https://res.cloudinary.com/lastminute-contenthub/s--vilqQLMx--/c_limit,h_999999,w_1920/f_auto/q_auto:eco/v1/DAM/Photos/Destinations/Asia/India/eyeem-23764952-85249318", "India");
         Country japan = new Country(Region.EAST_ASIA, Continent.ASIA, "https://res.klook.com/image/upload/q_85/c_fill,w_750/v1674030135/blog/bnbtltnp5nqbdevfcbmn.jpg", "Japan");
         Country indonesia = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "https://www.tripsavvy.com/thmb/QezCUEaQwF96o606XGU8DOn_TyI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/where-is-bali-5936c3e73df78c08abe9eb45.jpg", "Indonesia");
-        Country pakistan = new Country(Region.SOUTH_ASIA, Continent.ASIA, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Fairy_Meadows_and_the_view_of_Nanga_Parbat.jpg/1200px-Fairy_Meadows_and_the_view_of_Nanga_Parbat.jpg", "Pakistan");
-        Country bangladesh = new Country(Region.SOUTH_ASIA, Continent.ASIA, "https://cdn.eventegg.com/images/travel/2/238/ahsan-manzil-bangladesh.jpg", "Bangladesh");
-        Country philippines = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "https://deih43ym53wif.cloudfront.net/large_coron-palawan-philippines-shutterstock_329793749_e5794636b7.jpeg", "the Philippines");
         Country vietnam = new Country(Region.SOUTH_EAST_ASIA, Continent.ASIA, "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Terraced_fields_Sa_Pa_Vietnam.JPG/800px-Terraced_fields_Sa_Pa_Vietnam.JPG", "Vietnam");
         Country kyrgyzstan = new Country(Region.CENTRAL_ASIA, Continent.ASIA, "https://www.steppestravel.com/app/uploads/2019/07/kyrgyzstan.jpg", "Kyrgyzstan");
         Country australia = new Country(Region.OCEANIA, Continent.ASIA, "https://ymt-vacations-website.s3.amazonaws.com/uploads/2023/01/reef.jpg", "Australia");
@@ -187,26 +183,19 @@ public class DataLoader implements ApplicationRunner {
         Country spain = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.myglobalviewpoint.com/wp-content/uploads/2023/06/Costa-del-Sol.jpg", "Spain");
         Country italy = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.ontheluce.com/wp-content/uploads/2022/06/Amalfi-Coast-1440x900.jpg.webp", "Italy");
         Country germany = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.planetware.com/photos-large/D/germany-brandenburg-gate.jpg", "Germany");
-        Country unitedKingdom = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://adm.dookinternational.com/dook/images/country/XYwKYrjh1656324286.jpg", "United Kingdom");
         Country turkey = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "https://imagedelivery.net/0LMYosKeo5o-LXOCjdKUuA/tourscanner.com/2022/07/things-to-do-in-Cappadocia-Turkey.jpg/w=1200", "Turkey");
         Country austria = new Country(Region.CENTRAL_EUROPE, Continent.EUROPE, "https://www.interrail.eu/content/dam/blogazine/austria-hallstatt-lake-panorama-church-during-twilight.adaptive.767.1627562140844.png", "Austria");
-        Country greece = new Country(Region.MEDITERRANEAN, Continent.EUROPE, "https://www.tripsavvy.com/thmb/b-tdvS6sqaSCJjKtIwBrRqvh-J4=/2121x1413/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-510967662-5c4ddd8846e0fb00018dea73.jpg", "Greece");
         Country russia = new Country(Region.EASTERN_EUROPE, Continent.EUROPE, "https://www.justgorussia.co.uk/userfiles/images/gallery/altai/Depositphotos_1593654_m-2015.jpg", "Russia");
         Country portugal = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://media-server.clubmed.com/image/jpeg/1024/auto/crop/center/70/https%3A%2F%2Fns.clubmed.com%2Fnmea%2F2021%2FB2C%2F341%2FWEB%2FLANDING%2FPORTUGALBLOGS%2FLagos.jpg", "Portugal");
         Country switzerland = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.smartertravel.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2017/09/shutterstock_252539665.jpg.webp", "Switzerland");
         Country netherlands = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://i.natgeofe.com/k/4a509698-ab53-4581-af61-4c4808a81a76/netherlands-tulip-fields_16x9.jpg?w=1200", "the Netherlands");
         Country belgium = new Country(Region.WESTERN_EUROPE, Continent.EUROPE, "https://www.leboat.co.uk/sites/default/files/images/country/ghent_city_belgium_leboat_card.jpg", "Belgium");
         Country iceland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "https://cdn.britannica.com/06/171306-050-C88DD752/Aurora-borealis-peninsula-Snaefellsnes-Iceland-March-2013.jpg", "Iceland");
-        Country finland = new Country(Region.SCANDINAVIA, Continent.EUROPE, "https://londonsouthendairport.com/wp-content/uploads/2023/08/magical-lapland.png", "Finland");
         // Featured Europe Countries: Turkey, Switzerland, Austria, Italy, Spain, France, Greece, Portuga
 
         countryRepository.save(china);
-        countryRepository.save(india);
         countryRepository.save(japan);
         countryRepository.save(indonesia);
-        countryRepository.save(pakistan);
-        countryRepository.save(bangladesh);
-        countryRepository.save(philippines);
         countryRepository.save(vietnam);
         countryRepository.save(turkey);
         countryRepository.save(kyrgyzstan);
@@ -217,24 +206,20 @@ public class DataLoader implements ApplicationRunner {
         countryRepository.save(malaysia);
         countryRepository.save(oman);
         countryRepository.save(qatar);
-        countryRepository.save(philippines);
 
 
         countryRepository.save(france);
         countryRepository.save(spain);
         countryRepository.save(italy);
         countryRepository.save(germany);
-        countryRepository.save(unitedKingdom);
         countryRepository.save(turkey);
         countryRepository.save(austria);
-        countryRepository.save(greece);
         countryRepository.save(russia);
         countryRepository.save(portugal);
         countryRepository.save(switzerland);
         countryRepository.save(netherlands);
         countryRepository.save(belgium);
         countryRepository.save(iceland);
-        countryRepository.save(finland);
 
 // CITIES
 //        Europe
@@ -275,36 +260,21 @@ public class DataLoader implements ApplicationRunner {
 // Top 5 cities in Spain
         City madrid = new City("Madrid", spain);
         City barcelona = new City("Barcelona", spain);
-        City valencia = new City("Valencia", spain);
         City malaga = new City("Malaga", spain);
 
 // Save cities in Spain
         cityRepository.save(madrid);
         cityRepository.save(barcelona);
-        cityRepository.save(valencia);
         cityRepository.save(malaga);
 // Top 5 cities in Germany
         City berlin = new City("Berlin", germany);
         City munich = new City("Munich", germany);
-        City cologne = new City("Cologne", germany);
+
 
 // Save cities in Germany
         cityRepository.save(berlin);
         cityRepository.save(munich);
-        cityRepository.save(cologne);
-// Top 5 cities in the United Kingdom
-        City london = new City("London", unitedKingdom);
-        City manchester = new City("Manchester", unitedKingdom);
-        City birmingham = new City("Birmingham", unitedKingdom);
-        City liverpool = new City("Liverpool", unitedKingdom);
-        City bristol = new City("Bristol", unitedKingdom);
 
-// Save cities in the United Kingdom
-        cityRepository.save(london);
-        cityRepository.save(manchester);
-        cityRepository.save(birmingham);
-        cityRepository.save(liverpool);
-        cityRepository.save(bristol);
 // Top 5 cities in Turkey
         City istanbul = new City("Istanbul", turkey);
         City cappadocia = new City("Cappadocia", turkey);
@@ -316,12 +286,10 @@ public class DataLoader implements ApplicationRunner {
         cityRepository.save(antalya);
 // Top 5 cities in Austria
         City vienna = new City("Vienna", austria);
-        City salzburg = new City("Salzburg", austria);
         City innsbruck = new City("Innsbruck", austria);
 
 // Save cities in Austria
         cityRepository.save(vienna);
-        cityRepository.save(salzburg);
         cityRepository.save(innsbruck);
 
 
