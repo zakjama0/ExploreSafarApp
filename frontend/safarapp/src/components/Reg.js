@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link} from 'react-router-dom';
 import mountain from '../assests/loginImg.jpg';
-import Logo from '../assests/SafarLog.jpg';
+import Logo from '../assests/safarLogo.png'
 
 const Register = ({ register }) => {
   const [email, setEmail] = useState('');
@@ -32,8 +32,8 @@ const Register = ({ register }) => {
   };
 
   return (
-    <section className="bg-[#d2dbd8] min-h-screen flex flex-col items-center pb-10 px-3">
-      <img src={Logo} alt="Safar Logo" className="w-[100px] mt-8 mb-8" />
+    <section className="bg-[#d2dbd8] pb-3 px-3 dark:bg-slate-800 min-h-screen flex flex-col items-center">
+      <img src={Logo} alt="Safar Logo" className="w-[100px] mt-8 " />
 
       <div className="bg-gray-100 mx-3 flex rounded-2xl shadow-lg max-w-3xl w-full h-auto">
         <div className="w-full sm:w-1/2 p-12 flex flex-col justify-center">

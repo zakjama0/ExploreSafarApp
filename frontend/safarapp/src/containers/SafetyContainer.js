@@ -8,7 +8,7 @@ const SafetyContainer = () => {
         </div>
         <h1 className="py-5 mb-5 text-5xl text-center text-gradient font-bold bg-gradient-to-r from-pink-400 via-pink-500 to-pink-800 ">Safar Safety</h1>
         <div class="container mx-auto p-4">
-        <h1 class="text-center text-2xl font-bold mb-6">ٱلْمُهَينُْمِ - The Preserver of Safety & Overseeing Protector</h1>
+        <h1 class="text-center text-2xl font-bold mb-6 dark:text-white">ٱلْمُهَينُْمِ - The Preserver of Safety & Overseeing Protector</h1>
         <p class="mb-10 text-sm md:text-base lg:text-lg text-black dark:text-white mx-4 md:mx-0 text-left leading-relaxed">
                     Allah is Al-Muhaymin, the Preserver of Safety and the Overseeing Protector. 
                     As you travel, place your trust in Allah ﷻ. Remember to make du'a, using Safar Dua, for safety and well-being before you embark on your journey. 
@@ -17,7 +17,7 @@ const SafetyContainer = () => {
         </div>
 
         <div class="container mx-auto p-4">
-        <h1 class="text-center text-2xl font-bold mb-6">Do your research on the location</h1>
+        <h1 class="text-center text-2xl font-bold mb-6 dark:text-white">Do your research on the location</h1>
         <p class="mb-10 mt-3 text-md md:text-base lg:text-lg text-black dark:text-white mx-4 md:mx-0 text-left leading-relaxed">
             Understanding the location you're going to is amongst the most important things you need to do in order to protect yourself.
             Read reviews from Safar on attractions and read blogs on other Muslims' experiences in the city.
@@ -29,7 +29,7 @@ const SafetyContainer = () => {
         </p>
         </div>
         <div class="container mx-auto p-4">
-        <h1 class="text-center text-2xl font-bold mb-6">Keeping loved ones updated</h1>
+        <h1 class="text-center text-2xl font-bold mb-6 dark:text-white">Keeping loved ones updated</h1>
         <p class="mb-10 text-sm md:text-base lg:text-lg text-black dark:text-white mx-4 md:mx-0 text-left leading-relaxed">
                 Keeping loved ones updated on your travel plans and daily activities is essential for your safety. 
                 Share your itinerary with family or friends before you leave, including details of your flights, accommodation, and key contact numbers.
@@ -37,15 +37,15 @@ const SafetyContainer = () => {
          </p>
         </div>
         <div class="container mx-auto p-4">
-        <h1 class="text-center text-2xl font-bold mb-6">Awareness of Surroundings</h1>
+        <h1 class="text-center text-2xl font-bold mb-6 dark:text-white">Awareness of Surroundings</h1>
             <p class="mb-10 text-sm md:text-base lg:text-lg text-black dark:text-white mx-4 md:mx-0 text-left leading-relaxed">
                 Always be mindful of your surroundings, especially in unfamiliar areas. Avoid using headphones or other distractions that can reduce your awareness. Stick to well-lit and populated areas, especially at night. Be cautious of anyone acting suspiciously or following you. If you feel uncomfortable, move to a safer location and seek help. Trust your instincts; if something feels off, it's better to be cautious and alert someone.
                  Inform someone you trust about your whereabouts and schedule, especially if traveling alone. Use a map or GPS discreetly to avoid looking lost or vulnerable. Avoid sharing your location or travel plans on social media in real-time. Be aware of common scams in the area and how to avoid them.
             </p>
         </div>
         <div class="container mx-auto p-4">
-        <h1 class="text-center text-2xl font-bold mb-6">How to Safeguard Your Hotel Room</h1>
-        <div class=" dark:bg-gray-800 p-6 rounded-lg">
+        <h1 class="text-center text-2xl font-bold mb-6 dark:text-white">How to Safeguard Your Hotel Room</h1>
+        <div class=" dark:bg-gray-800 p-6 rounded-lg dark:text-white">
             <h2 class="text-xl font-semibold mb-4">Before You Travel</h2>
             <ul class="list-disc list-inside mb-6">
                 <li>Choose reputable hotels with good reviews regarding safety and security.</li>

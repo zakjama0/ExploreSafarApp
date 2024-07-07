@@ -20,78 +20,102 @@ import Logo from '../assests/logoname.png'
 
 const SafarAnimation = () => {
   return (
-    <div className="h-screen w-screen flex items-center justify-around space-between  ">
-    <motion.div
-          className="m-1 md:m-4 flex-row items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.7, delay: 2  }}
-        variants={iconVariants}
+    <div className="h-screen w-screen flex flex-wrap items-center justify-center md:justify-around space-between p-2">
+  <motion.div
+    className="flex flex-col items-center m-2"
+    initial="hidden"
+    animate="visible"
+    transition={{ duration: 0.7, delay: 2 }}
+    variants={iconVariants}
+  >
+    <MdOutlineReviews className="text-2xl md:text-6xl text-blue-500" />
+    <motion.h2 
+      className="text-black text-sm md:text-xl mt-2"
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.7, delay: 2.5 }}
+      variants={textVariants}
     >
-        <MdOutlineReviews className="mx-2 text-2xl md:text-6xl text-blue-500" />
-        <motion.h2 className='text-black text-sm md:text-xl'
-         initial="hidden"
-         animate="visible"
-         transition={{ duration: 0.7, delay: 2.5  }}
-         variants={textVariants}>Reviews</motion.h2>
-    </motion.div>
+      Reviews
+    </motion.h2>
+  </motion.div>
 
-    <motion.div
-        className="m-1 md:m-4 flex-row items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.7, delay: 1.2  }}
-        variants={iconVariants}
+  <motion.div
+    className="flex flex-col items-center m-2"
+    initial="hidden"
+    animate="visible"
+    transition={{ duration: 0.7, delay: 1.2 }}
+    variants={iconVariants}
+  >
+    <MdOutlineMosque className="text-2xl md:text-6xl text-blue-500" />
+    <motion.h2 
+      className="text-black text-sm md:text-xl mt-2"
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.7, delay: 2.5 }}
+      variants={textVariants}
     >
-        <MdOutlineMosque className="mx-2 text-2xl md:text-6xl text-blue-500" />
-        <motion.h2  initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.7, delay: 2.5  }}
-        variants={textVariants} className='text-black text-sm md:text-xl'>Masjids</motion.h2>
-    </motion.div>
-    <motion.div
-        className="m-1 md:m-4 flex-row items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        variants={iconVariants}
+      Masjids
+    </motion.h2>
+  </motion.div>
+
+  <motion.div
+    className="flex flex-col items-center m-2"
+    initial="hidden"
+    animate="visible"
+    variants={iconVariants}
+  >
+    <SlGlobe className="text-3xl md:text-7xl text-blue-500" />
+    <motion.img 
+      className="w-20 md:w-40 mt-2"
+      alt="Safar Logo"
+      src={Logo}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.7, delay: 3.5 }}
+      variants={iconVariants}
+    />
+  </motion.div>
+
+  <motion.div
+    className="flex flex-col items-center m-2"
+    initial="hidden"
+    animate="visible"
+    transition={{ duration: 0.7, delay: 1.2 }}
+    variants={iconVariants}
+  >
+    <LuHelpingHand className="text-2xl md:text-6xl text-blue-500" />
+    <motion.h2 
+      className="text-black text-sm md:text-xl mt-2"
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.7, delay: 2.5 }}
+      variants={textVariants}
     >
-        <SlGlobe className="ml-4 md:mx-10 text-3xl md:text-7xl text-blue-500" />
-        <motion.img 
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.7, delay: 3.5  }}
-        variants={iconVariants}
-        className='w-20 md:w-40' alt='Safar Logo' src={Logo}/>
-    </motion.div>
-    <motion.div
-        className="m-1 md:m-4 flex-row items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.7, delay: 1.2  }}
-        variants={iconVariants}
+      Dhikr
+    </motion.h2>
+  </motion.div>
+
+  <motion.div
+    className="flex flex-col items-center m-2"
+    initial="hidden"
+    animate="visible"
+    transition={{ duration: 0.7, delay: 2 }}
+    variants={iconVariants}
+  >
+    <PiForkKnifeBold className="text-2xl md:text-6xl text-blue-500" />
+    <motion.h2 
+      className="text-black text-sm md:text-xl mt-2"
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.7, delay: 2.5 }}
+      variants={textVariants}
     >
-        <LuHelpingHand className="text-2xl md:text-6xl text-blue-500" />
-        <motion.h2 className='text-black text-sm md:text-xl'
-         initial="hidden"
-         animate="visible"
-         transition={{ duration: 0.7, delay: 2.5  }}
-         variants={textVariants}>Dhikr</motion.h2>
-    </motion.div>
-    <motion.div
-        className="m-1 md:m-4 flex-row items-center justify-center"
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.7, delay: 2  }}
-        variants={iconVariants}
-    >
-        <PiForkKnifeBold className=" text-2xl md:text-6xl text-blue-500" />
-        <motion.h2 className=' text-black text-sm md:text-xl'
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.7, delay: 2.5  }}
-        variants={textVariants}>Food</motion.h2>
-    </motion.div>
+      Food
+    </motion.h2>
+  </motion.div>
 </div>
+
   )
 }
 

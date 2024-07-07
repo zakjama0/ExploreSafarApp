@@ -28,22 +28,32 @@ function PrayerTime() {
             
             <div className='flex flex-col items-center '>
                 <div className='my-2'>
-                <TextField className="my-2"
-                    id="outlined-basic"
-                    label="Enter City"
-                    variant="outlined"
-                    onChange={(e) => setCity(e.target.value)} 
-                 />
+                <label className="block dark:text-white text-gray-700 text-sm font-bold mb-2" htmlFor="city">
+          Enter City
+        </label>
+        <input
+          className="my-2 p-2 border dark:text-black rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          id="city"
+          type="text"
+          placeholder="Enter City"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
                 </div>
             
                
                 <div className='my-2'>
-                <TextField className="my-2"
-                    id="outlined-basic"
-                    label="Enter Country"
-                    variant="outlined"
-                    onChange={(e) => setCountry(e.target.value)} 
-                 />
+                <label className="block text-gray-700 dark:text-white text-sm font-bold mb-2" htmlFor="country">
+          Enter Country
+        </label>
+        <input
+          className="my-2 p-2 border dark:text-black rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          id="country"
+          type="text"
+          placeholder="Enter Country"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+        />
                 </div>
                 
                 <button className='py-2 px-3 border text-white rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white' onClick={handleSearch}>Get Prayer Times</button>

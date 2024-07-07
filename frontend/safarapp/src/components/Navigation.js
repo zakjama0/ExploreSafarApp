@@ -92,27 +92,8 @@ const NavBar = ({ postUser, login, logout }) => {
                                 <Link to={"/login"}><button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button></Link>
                                 <Link to={"/registration"}><button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button></Link>
                                     
-                                    {/* <Popup trigger=
-                                        {<button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button>}
-                                        modal nested>
-                                        {
-                                            close => (
-                                                <div className='modal'>
-                                                    <div className='review-form'>
-                                                        <RegistrationForm postUser={postUser} />
-                                                    </div>
-                                                    <div className='flex justify-center items-center'>
-                                                        <button className="w-[150px] h-[45px] m-[10px] bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-[16px] text-[#5c67c5] font-semibold text-center"
-                                                            onClick=
-                                                            {() => close()} >
-                                                            Close
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            )
-                                        }
-                                    </Popup> */}
-                                    {darkMode ? <Moon onClick={toggleDark} className='cursor-pointer ' /> : <Sun onClick={toggleDark} className='cursor-pointer' />}
+                            
+                                    {darkMode ? <Moon onClick={toggleDark} className='cursor-pointer text-white' /> : <Sun onClick={toggleDark} className='cursor-pointer' />}
                                 </div>
                             </div>
                         )}
