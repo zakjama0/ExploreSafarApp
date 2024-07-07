@@ -14,6 +14,7 @@ import BlogContainer from "./BlogContainer";
 import Log from "../components/Log";
 import IslamicHistoryBlog from "../components/Blogs/Blog1";
 import EssentialBlogs from "../components/Blogs/Blog2";
+import Register from "../components/Reg";
 
 
 export const apiUrl = "localhost:8080";
@@ -276,6 +277,10 @@ const MainContainer = () => {
                 {
                     path: "/blog1",
                     element: <EssentialBlogs />
+                },
+                {
+                    path: "/registration",
+                    element: <Register />
                 },
             ]
         }
