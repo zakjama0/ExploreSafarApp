@@ -313,7 +313,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/login",
-                    element: <Log />
+                    element: <Log login={login}/>
                 },
                 {
                     path: "/blog0",
