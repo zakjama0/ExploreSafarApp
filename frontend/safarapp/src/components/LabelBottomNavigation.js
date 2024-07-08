@@ -13,7 +13,7 @@ import { Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function LabelBottomNavigation() {
-  const [value, setValue] = React.useState('recents');
+  const [value, setValue] = React.useState('home');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -27,6 +27,7 @@ export default function LabelBottomNavigation() {
         value="home"
         icon={<Home className='text-white' 
         />}
+        to="/"
       />
       <BottomNavigationAction
         label="Duas"

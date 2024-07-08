@@ -14,6 +14,11 @@ import MyItineraryContainer from "./MyItineraryContainer";
 import MyItineraryList from "./MyItineraryListContainer";
 import SafetyContainer from "./SafetyContainer";
 import NotFoundContainer from './NotFoundContainer';
+import Log from "../components/Log";
+import IslamicHistoryBlog from "../components/Blogs/Blog1";
+import EssentialBlogs from "../components/Blogs/Blog2";
+import Register from "../components/Reg";
+
 
 export const Context = createContext(null);
 
@@ -305,6 +310,22 @@ const MainContainer = () => {
                 {
                     path: "/blogs",
                     element: <BlogContainer />
+                },
+                {
+                    path: "/login",
+                    element: <Log />
+                },
+                {
+                    path: "/blog0",
+                    element: <IslamicHistoryBlog />
+                },
+                {
+                    path: "/blog1",
+                    element: <EssentialBlogs />
+                },
+                {
+                    path: "/registration",
+                    element: <Register />
                 },
             ]
         }

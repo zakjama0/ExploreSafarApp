@@ -2,14 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 const tips = [
     {
-      title: "Best places to discover Islamic History across the globe",
-      description: "Explore the rich Islamic heritage around the world, from the magnificent Alhambra in Spain to the grand mosques of the Middle East.",
+      title: "Must see things to do within the haramain",
+      description: "Explore the rich Islamic heritage in the haramain and around the world.",
       image: "https://cdn.audleytravel.com/5595/3996/79/1342712-patio-de-los-leones-alhambra-granada.jpg"
     },
     {
       title: "Essential items to have in your travel bag.",
       description: "Ensure you have all the essentials for a hassle-free trip, including a travel pillow, portable charger, reusable water bottle, and more.",
-      image: "https://149358801.v2.pressablecdn.com/wp-content/uploads/2020/05/IMG_1593-1200x653.png" // Replace with actual path
+      image: "https://149358801.v2.pressablecdn.com/wp-content/uploads/2020/05/IMG_1593-1200x653.png" 
     },
     {
       title: "Everything you need for that Japan trip",
@@ -36,10 +36,10 @@ const BlogContainer = () => {
   return (
     <div className='h-full min-h-screen w-full bg-[#d2dbd8]'>
     <div className=" bg-[#d2dbd8] container mx-auto px-4 py-8">
-    <h1 className="text-3xl text-black dark:text-white font-bold text-center mb-8">Halal Travel Tips & Itineraries</h1>
+    <h1 className="text-3xl text-black dark:text-white font-bold text-center mb-8">Latest Blogs</h1>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {tips.map((tip, index) => (
-        <Link to={`/${tip.title}`}>
+        <Link to={`/blog${index}`}>
         <div key={index} className=" rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
           <img className="w-full h-48 object-cover" src={tip.image} alt={tip.title} />
           <div className="p-4">
