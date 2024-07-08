@@ -41,7 +41,7 @@ const AttractionList = ({ cities, postPlannedAttraction, itineraries }) => {
         return (
             <div className="m-4 md:m-8" key={city.id}>
                 <h2 className="text-center my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white pl-10">{city.name}</h2>
-                <Carousel responsive={responsive}>{city.attractions.map(attraction => {
+                <Carousel key={city.id} responsive={responsive}>{city.attractions.map(attraction => {
                     return (
                         <div>
                             <Link to={`/attractions/${attraction.id}`}>

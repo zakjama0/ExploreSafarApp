@@ -145,6 +145,8 @@ const MainContainer = () => {
         }
     }
 
+    console.log(isLoggedIn);
+
     const logout = async () => {
         try {
             const response = await fetch(`http://${apiUrl}/api/v1/auth/logout`, {
