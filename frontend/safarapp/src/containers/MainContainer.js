@@ -139,13 +139,13 @@ const MainContainer = () => {
             sessionStorage.setItem("access_token", access_token);
             sessionStorage.setItem("refresh_token", refresh_token);
 
+            setIsLoggedIn(true);
+
             return data;
         } catch (error) {
             throw error;
         }
     }
-
-    console.log(isLoggedIn);
 
     const logout = async () => {
         try {
@@ -164,6 +164,8 @@ const MainContainer = () => {
 
             alert("Log out successful.");
             sessionStorage.clear();
+            
+            setIsLoggedIn(false);
         } catch (error) {
             throw error;
         }
