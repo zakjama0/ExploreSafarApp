@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import mountain from '../assests/loginImg.jpg';
 import Logo from '../assests/safarLogo.png'
 
 const Register = ({ register }) => {
+
+  const [name, setName] = useState("");
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -12,6 +14,7 @@ const Register = ({ register }) => {
     event.preventDefault();
     if (handleValidation()) {
       const newUser = {
+        name,
         email,
         password,
       };
@@ -20,7 +23,7 @@ const Register = ({ register }) => {
   };
 
   const handleValidation = () => {
-    if (email === '' || password === '' || confirmPassword === '') {
+    if (name === '' || email === '' || password === '' || confirmPassword === '') {
       alert('Please fill in all fields');
       return false;
     }
@@ -41,6 +44,17 @@ const Register = ({ register }) => {
           <p className="text-sm mt-4 text-indigo-400">Create a new account</p>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
+            <div className="input-box relative w-full mb-4">
+              <label htmlFor="name" className="block mb-2">Name:</label>
+              <input
+                className="name w-full p-2 rounded text-black"
+                type="text"
+                name="name"
+                placeholder="Enter name"
+                value={name}
+                onChange={event => setName(event.target.value)}
+              />
+            </div>
             <div className="input-box relative w-full mb-4">
               <label htmlFor="email" className="block mb-1">Email:</label>
               <input
