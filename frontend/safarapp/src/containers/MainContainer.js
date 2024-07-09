@@ -111,7 +111,6 @@ const MainContainer = () => {
 
             alert("User has signed up.");
         } catch (error) {
-            throw error;
         }
     }
 
@@ -143,7 +142,6 @@ const MainContainer = () => {
 
             return data;
         } catch (error) {
-            throw error;
         }
     }
 
@@ -167,7 +165,6 @@ const MainContainer = () => {
 
             setIsLoggedIn(false);
         } catch (error) {
-            throw error;
         }
     }
 
@@ -227,7 +224,9 @@ const MainContainer = () => {
         fetchCountries();
         fetchDuas();
         fetchReviews();
-        fetchItinerariesByUser();
+        if (isLoggedIn) {
+            fetchItinerariesByUser();
+        }
         const token = sessionStorage.getItem("access_token");
         if (token) {
             const decoded = jwtDecode(token);
@@ -292,7 +291,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/my-itineraries",
-                    element: <MyItineraryList fetchItinerariesByUser={fetchItinerariesByUser}/>
+                    element: <MyItineraryList fetchItinerariesByUser={fetchItinerariesByUser} />
                 },
                 {
                     path: "my-itineraries/:itineraryId",
@@ -317,7 +316,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/login",
-                    element: <Log login={login}/>
+                    element: <Log login={login} />
                 },
                 {
                     path: "/blog0",
@@ -329,7 +328,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/registration",
-                    element: <Register register={postUser}/>
+                    element: <Register register={postUser} />
                 },
             ]
         }

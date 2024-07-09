@@ -36,7 +36,7 @@ const Map = ({ setCoordinates, coordinates, places, setBounds, setChildClicked }
             lng={Number(place.geometry.location.lng)}
             key={i}
           >
-            
+
           </div>
         ))}
       </GoogleMapReact>

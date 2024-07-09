@@ -18,6 +18,7 @@ const Register = ({ register }) => {
         email,
         password,
       };
+
       register(newUser);
     }
   };
