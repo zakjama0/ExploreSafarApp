@@ -1,11 +1,8 @@
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { createContext, useContext, useEffect, useState } from 'react';
+import {  useContext, useEffect, useState } from 'react';
 import React from 'react'
 import Logo from '../assests/logoname.png'
 import { Link, Outlet } from 'react-router-dom';
-import Popup from 'reactjs-popup';
-import LoginForm from './LogInForm';
-import RegistrationForm from './RegistrationForm';
 import AccountMenu from './AccountMenu';
 import { Context } from './../containers/MainContainer';
 
@@ -33,9 +30,6 @@ const NavBar = ({ postUser, login, logout }) => {
         setDarkMode(!darkMode);
     }
 
-    const openPopup = () => setIsPopupOpen(true);
-    const closePopup = () => setIsPopupOpen(false);
-
     useEffect(() => {
         if (darkMode) {
             document.documentElement.classList.add("dark")
@@ -44,15 +38,6 @@ const NavBar = ({ postUser, login, logout }) => {
             document.documentElement.classList.remove("dark")
         }
     }, [darkMode]);
-
-    const handleLogin = async (userCredentials) => {
-        try {
-            await login(userCredentials);
-            setIsLoggedIn(true);
-        } catch (error) {
-
-        }
-    };
 
     const handleLogout = () => {
         logout();

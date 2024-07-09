@@ -7,7 +7,6 @@ import { getPlacesData } from '../components/SafarMap/apiIndex';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import PrayerTime from '../components/SafarPrayer/PrayerTime';
-import Modal from '../components/Modal';
 
 const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
   textTransform: 'none',

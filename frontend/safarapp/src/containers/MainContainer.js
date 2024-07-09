@@ -1,6 +1,6 @@
 import { jwtDecode } from 'jwt-decode';
 import React, { createContext, useEffect, useState } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import Attraction from "../components/Attraction";
 import Country from "../components/Country";
 import Navigation from "../components/Navigation";
@@ -14,10 +14,10 @@ import MyItineraryContainer from "./MyItineraryContainer";
 import MyItineraryList from "./MyItineraryListContainer";
 import SafetyContainer from "./SafetyContainer";
 import NotFoundContainer from './NotFoundContainer';
-import Log from "../components/Log";
+import Log from "../components/Login";
 import IslamicHistoryBlog from "../components/Blogs/Blog1";
 import EssentialBlogs from "../components/Blogs/Blog2";
-import Register from "../components/Reg";
+import Register from "../components/Register";
 
 
 export const Context = createContext(null);
@@ -111,7 +111,6 @@ const MainContainer = () => {
 
             alert("User has signed up.");
         } catch (error) {
-            throw error;
         }
     }
 
@@ -139,9 +138,10 @@ const MainContainer = () => {
             sessionStorage.setItem("access_token", access_token);
             sessionStorage.setItem("refresh_token", refresh_token);
 
+            setIsLoggedIn(true);
+
             return data;
         } catch (error) {
-            throw error;
         }
     }
 
@@ -162,8 +162,9 @@ const MainContainer = () => {
 
             alert("Log out successful.");
             sessionStorage.clear();
+
+            setIsLoggedIn(false);
         } catch (error) {
-            throw error;
         }
     }
 
@@ -223,7 +224,9 @@ const MainContainer = () => {
         fetchCountries();
         fetchDuas();
         fetchReviews();
-        fetchItinerariesByUser();
+        if (isLoggedIn) {
+            fetchItinerariesByUser();
+        }
         const token = sessionStorage.getItem("access_token");
         if (token) {
             const decoded = jwtDecode(token);
@@ -288,7 +291,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/my-itineraries",
-                    element: <MyItineraryList fetchItinerariesByUser={fetchItinerariesByUser}/>
+                    element: <MyItineraryList fetchItinerariesByUser={fetchItinerariesByUser} />
                 },
                 {
                     path: "my-itineraries/:itineraryId",
@@ -313,7 +316,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/login",
-                    element: <Log />
+                    element: <Log login={login} />
                 },
                 {
                     path: "/blog0",
@@ -325,7 +328,7 @@ const MainContainer = () => {
                 },
                 {
                     path: "/registration",
-                    element: <Register />
+                    element: <Register register={postUser} />
                 },
             ]
         }
