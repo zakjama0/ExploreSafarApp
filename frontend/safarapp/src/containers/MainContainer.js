@@ -1,6 +1,6 @@
 import { jwtDecode } from 'jwt-decode';
 import React, { createContext, useEffect, useState } from "react";
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Attraction from "../components/Attraction";
 import Country from "../components/Country";
 import Navigation from "../components/Navigation";
@@ -33,6 +33,7 @@ const MainContainer = () => {
     const [duas, setDuas] = useState([]);
     const [itineraries, setItineraries] = useState([]);
     const [reviews, setReviews] = useState([]);
+    const [loggedUserReviews, setLoggedUserReviews] = useState([]);
     const [loading, setLoading] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
         return sessionStorage.getItem("access_token") !== null;
@@ -67,6 +68,29 @@ const MainContainer = () => {
         const response = await fetch(`http://${apiUrl}/reviews`);
         const data = await response.json();
         setReviews(data);
+    }
+
+    const fetchReviewsByUser = async () => {
+        try {
+            const response = await fetch(`http://${apiUrl}/reviews/user`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+                }
+            });
+
+            if (!response.ok) {
+                if (response.status === 403) {
+                    throw new Error("Must be signed in");
+                }
+            }
+
+            const data = await response.json();
+            setLoggedUserReviews(data);
+        } catch (error) {
+
+        }
     }
 
     const fetchItinerariesByUser = async () => {
@@ -171,7 +195,10 @@ const MainContainer = () => {
     const postReview = async (newReview) => {
         const response = await fetch("http://localhost:8080/reviews", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${sessionStorage.getItem("access_token")}`
+            },
             body: JSON.stringify(newReview)
         });
         fetchAttractions();
@@ -226,6 +253,7 @@ const MainContainer = () => {
         fetchReviews();
         if (isLoggedIn) {
             fetchItinerariesByUser();
+            fetchReviewsByUser();
         }
         const token = sessionStorage.getItem("access_token");
         if (token) {

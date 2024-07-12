@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.enums.Category;
 import com.example.demo.enums.Continent;
 import com.example.demo.enums.Region;
+import com.example.demo.enums.Role;
 import com.example.demo.enums.RoleEnum;
 import com.example.demo.models.*;
 import com.example.demo.repositories.*;
@@ -31,14 +32,13 @@ public class LogicTest {
     private final CountryRepository countryRepository;
     private final CityRepository cityRepository;
     private final DuaRepository duaRepository;
-    private final RoleRepository roleRepository;
 
     @Autowired
     public LogicTest(PlannedAttractionService plannedAttractionService, ItineraryService itineraryService,
                      ReviewService reviewService, UserRepository userRepository,
                      AttractionRepository attractionRepository, CountryRepository countryRepository,
                      CityRepository cityRepository, DuaService duaService,
-                     DuaRepository duaRepository, RoleRepository roleRepository) {
+                     DuaRepository duaRepository) {
         this.plannedAttractionService = plannedAttractionService;
         this.itineraryService = itineraryService;
         this.reviewService = reviewService;
@@ -48,7 +48,6 @@ public class LogicTest {
         this.cityRepository = cityRepository;
         this.duaService = duaService;
         this.duaRepository = duaRepository;
-        this.roleRepository = roleRepository;
     }
 
 
@@ -66,7 +65,7 @@ public class LogicTest {
     @BeforeEach
     public void setUp(){
 
-        user = new User(NAME, EMAIL, PASSWORD, roleRepository.findByName(RoleEnum.USER).get());
+        user = new User(NAME, EMAIL, PASSWORD);
         userRepository.save(user);
 
         country = new Country(Region.NORTHERN_AFRICA, Continent.AFRICA, "empty", "Egypt");
@@ -115,7 +114,7 @@ public class LogicTest {
     @Test
     public void testAddReview() {
         int reviewCountBeforeAdding = reviewService.getAllReviews().size();
-        NewReviewDTO newReviewDTO = new NewReviewDTO(attraction.getId(), user.getId(), 5, "Warra attraction!");
+        NewReviewDTO newReviewDTO = new NewReviewDTO(attraction.getId(), 5, "Warra attraction!");
         Review review = reviewService.saveReview(newReviewDTO);
         int reviewCountAfterAdding = reviewService.getAllReviews().size();
 
@@ -127,7 +126,7 @@ public class LogicTest {
 
     @Test
     public void testEditReview() {
-        NewReviewDTO newReviewDTO = new NewReviewDTO(attraction.getId(), user.getId(), 5, "Warra attraction!");
+        NewReviewDTO newReviewDTO = new NewReviewDTO(attraction.getId(), 5, "Warra attraction!");
         Review review = reviewService.saveReview(newReviewDTO);
 
         UpdateReviewDTO updateReviewDTO = new UpdateReviewDTO(4, "Not as good as I though!");
