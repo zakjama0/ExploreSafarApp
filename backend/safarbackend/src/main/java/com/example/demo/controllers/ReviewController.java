@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 @RestController
@@ -36,12 +37,9 @@ public class ReviewController {
         List<Review> reviews = reviewService.getReviewsByAttractionId(id);
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Review>> getReviewsByUserId(@PathVariable Long customerId) {
-        List<Review> reviews = reviewService.getReviewsByUserId(customerId);
-        if (reviews.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    @GetMapping("/user")
+    public ResponseEntity<List<Review>> getReviewsByUser(Principal connectedUser) {
+        List<Review> reviews = reviewService.getReviewsByUser(connectedUser);
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
     @GetMapping("/avgRatingByAttraction/{attractionId}")
@@ -55,8 +53,8 @@ public class ReviewController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     @PostMapping
-    public ResponseEntity<Review> addReview (@RequestBody NewReviewDTO newReviewDTO){
-        Review newReview = reviewService.saveReview(newReviewDTO);
+    public ResponseEntity<Review> addReview (@RequestBody NewReviewDTO newReviewDTO, Principal connectedUser){
+        Review newReview = reviewService.saveReview(newReviewDTO, connectedUser);
         if(newReview == null){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }

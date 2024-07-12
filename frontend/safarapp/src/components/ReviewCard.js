@@ -5,7 +5,6 @@ import { userState } from "../containers/MainContainer";
 const ReviewCard = ({review, deleteReview, editReview}) => {
 
     const [expandStatus, setExpandStatus] = useState(false);
-    const { activeCustomer } = useContext(userState);
 
     const handleDeleteButton = () => {
         deleteReview(review.id);
@@ -35,7 +34,7 @@ const ReviewCard = ({review, deleteReview, editReview}) => {
     >
         {toggleButtonLabel()}
     </button>
-    {activeCustomer.id === review.user.id ? (
+    {/* {activeCustomer.id === review.user.id ? (
         <button
             onClick={handleDeleteButton}
             className="mt-2 ml-2 inline-block bg-red-500 text-white py-1 px-4 rounded-md shadow-md hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-400"
@@ -44,7 +43,7 @@ const ReviewCard = ({review, deleteReview, editReview}) => {
         </button>
     ) : (
         <></>
-    )}
+    )} */}
 </div>
 
     </div>

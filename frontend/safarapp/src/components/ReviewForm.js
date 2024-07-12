@@ -5,14 +5,12 @@ import { userState } from '../containers/MainContainer'
 const ReviewForm = ({ attractionId, postReview }) => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
-  const { activeCustomer } = useContext(userState);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     postReview({
       attractionId: attractionId,
-      customerId: activeCustomer.id,
       rating: rating,
       comment: comment
     });
