@@ -12,7 +12,7 @@ import YouTubeButton from "./YoutubeIcon";
 
 import { Context } from "../containers/MainContainer";
 
-const Attraction = ({ postPlannedAttraction, postReview, deleteReview, editReview }) => {
+const Attraction = ({ postPlannedAttraction, postReview, deleteReview, editReview, loggedUserReviews }) => {
   const attraction = useLoaderData();
   const [expanded, setExpanded] = useState(false);
   const { itineraries } = useContext(Context);
@@ -117,7 +117,7 @@ const Attraction = ({ postPlannedAttraction, postReview, deleteReview, editRevie
               }
             </Popup>
 
-            <ReviewList reviews={attraction.reviews} deleteReview={deleteReview} editReview={editReview} />
+            <ReviewList reviews={attraction.reviews} deleteReview={deleteReview} editReview={editReview} loggedUserReviews={loggedUserReviews} />
           </div>
         </Grid>
       </Grid>
