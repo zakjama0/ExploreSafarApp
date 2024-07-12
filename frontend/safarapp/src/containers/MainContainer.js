@@ -201,6 +201,7 @@ const MainContainer = () => {
             },
             body: JSON.stringify(newReview)
         });
+        fetchReviewsByUser();
         fetchAttractions();
     }
 
@@ -269,6 +270,11 @@ const MainContainer = () => {
         }, 5500)
     }, []);
 
+    useEffect(() => {
+        fetchItinerariesByUser();
+        fetchReviewsByUser();
+    }, [isLoggedIn])
+
     const countryLoader = ({ params }) => {
         return countries.find(country => {
             return country.id === parseInt(params.countryId);
@@ -315,6 +321,7 @@ const MainContainer = () => {
                         postReview={postReview}
                         deleteReview={deleteReview}
                         editReview={patchReview}
+                        loggedUserReviews={loggedUserReviews}
                     />
                 },
                 {
