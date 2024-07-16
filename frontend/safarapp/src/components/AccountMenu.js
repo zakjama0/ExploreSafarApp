@@ -68,9 +68,9 @@ const AccountMenu = ({ handleLogout }) => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={handleClose}>
+                {/* <MenuItem onClick={handleClose}>
                     <Avatar /> Profile
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem
                     component={Link}
                     to="/my-itineraries"
@@ -78,12 +78,12 @@ const AccountMenu = ({ handleLogout }) => {
                     <Avatar /> My Itineraries
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClose}>
+                {/* <MenuItem onClick={handleClose}>
                     <ListItemIcon>
                         <Settings fontSize="small" />
                     </ListItemIcon>
                     Settings
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={handleLogout}>
                     <ListItemIcon>
                         <Logout fontSize="small" />

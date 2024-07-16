@@ -107,7 +107,7 @@ public class DataLoader implements ApplicationRunner {
                 Category.TRAVEL_ETIQUETTE);
         duaRepository.save(travelPrayer);
 
-        Dua returnPrayer = new Dua("",
+        Dua returnPrayer = new Dua("Returning from a journey",
                 "عن كعب بن مالك رضي الله عنه أن رسول الله صلى الله عليه وسلم كان إذا قدم من سفر بدأ بالمسجد فركع فيه ركعتين ",
                 "\n" +
                         "Whenever the Messenger of Allah (ﷺ) returned from a journey, he would proceed straight to the mosque and perform two Rak'ah of (optional) prayer.",

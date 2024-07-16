@@ -244,6 +244,7 @@ const MainContainer = () => {
         } catch (error) {
             throw error;
         }
+        fetchItinerariesByUser();
     }
 
     useEffect(() => {
