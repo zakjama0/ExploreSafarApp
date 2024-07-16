@@ -68,6 +68,7 @@ const FeaturedAttractionList = ({ attractions, postPlannedAttraction, itinerarie
                                 <div className='review-form'>
                                     <AddPlannedAttractionForm
                                         attractionId={attraction.id}
+                                        attractionName={attraction.name}
                                         itineraries={itineraries}
                                         postPlannedAttraction={postPlannedAttraction}
                                     />

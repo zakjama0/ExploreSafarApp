@@ -18,7 +18,7 @@ const AttractionList = ({ cities, postPlannedAttraction, itineraries }) => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
+    
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -45,8 +45,7 @@ const AttractionList = ({ cities, postPlannedAttraction, itineraries }) => {
                     key={city.id}
                     responsive={responsive}
                     swipeable={true}
-                    draggable={true}
-                    // removeArrowOnDeviceType={["tablet", "mobile"]}
+                    removeArrowOnDeviceType={"mobile"}
                 >
                     {city.attractions.map(attraction => {
                         return (
@@ -63,6 +62,7 @@ const AttractionList = ({ cities, postPlannedAttraction, itineraries }) => {
                                                 <div className='review-form'>
                                                     <AddPlannedAttractionForm
                                                         attractionId={attraction.id}
+                                                        attractionName={attraction.name}
                                                         itineraries={itineraries}
                                                         postPlannedAttraction={postPlannedAttraction}
                                                     />

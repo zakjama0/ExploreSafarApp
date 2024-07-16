@@ -70,6 +70,7 @@ const Attraction = ({ postPlannedAttraction, postReview, deleteReview, editRevie
                       <div className='review-form'>
                         <AddPlannedAttractionForm
                           attractionId={attraction.id}
+                          attractionName={attraction.name}
                           itineraries={itineraries}
                           postPlannedAttraction={postPlannedAttraction}
                         />
