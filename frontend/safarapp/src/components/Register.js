@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import mountain from '../assests/loginImg.jpg';
 import Logo from '../assests/safarLogo.png'
 
@@ -9,6 +9,7 @@ const Register = ({ register }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,8 +19,8 @@ const Register = ({ register }) => {
         email,
         password,
       };
-
       register(newUser);
+      navigate("/login")
     }
   };
 

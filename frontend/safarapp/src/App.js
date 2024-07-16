@@ -1,5 +1,3 @@
-import LabelBottomNavigation from "./components/LabelBottomNavigation";
-import NavBar from './components/Navigation';
 import MainContainer from './containers/MainContainer';
 
 

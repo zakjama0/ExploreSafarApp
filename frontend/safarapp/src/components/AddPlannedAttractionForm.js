@@ -2,7 +2,7 @@ import { useState } from "react";
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
-const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itineraries }) => {
+const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itineraries, attractionName }) => {
 
   const [selectedItinerary, setSelectedItinerary] = useState(null);
   const [selectedItineraryName, setSelectedItineraryName] = useState("");
@@ -51,15 +51,13 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
     setSelectedItinerary(itineraries.find(itinerary => itinerary.name === event.target.value));
   }
 
-  console.log(selectedItinerary);
-
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
       <div className="main-login flex flex-col items-center">
-        <div className="wrapper">
-          <div className="registration w-[500px] bg-gradient-to-b from-blue-500 via-blue-600 to-violet-800 border-2 border-yellow-400 backdrop-blur-sm shadow-lg text-white rounded-lg p-8">
+        <div className="wrapper flex justify-center items-center">
+          <div className="registration w-3/4 bg-gradient-to-b from-blue-500 via-blue-600 to-violet-800 border-2 border-yellow-400 backdrop-blur-sm shadow-lg text-white rounded-lg p-8">
             <form onSubmit={handleSubmit}>
-              <h1 className="text-4xl text-center mb-6">Add Attraction to Itinerary!</h1>
+              <h1 className="text-4xl text-center mb-6">Add {attractionName} to Itinerary!</h1>
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">Itinerary:</label>
                 <select className="text-black"
@@ -72,7 +70,7 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                   ))}
                 </select>
               </div>
-              { !selectedItinerary ?
+              {!selectedItinerary ?
                 <div className="input-box relative w-11/12 mb-6">
                   <label className="block mb-2">New Itinerary Name:</label>
                   <input
@@ -92,16 +90,16 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                   <DatePicker value={startTime} onChange={value => setStartTime(value)} />
                 </LocalizationProvider>
               </div>
-              { startTime !== null ?
-              <div className="input-box relative w-11/12 mb-6">
-                <label className="block mb-2">End Date</label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker value={endTime === null ? startTime : endTime} onChange={value => setEndTime(value)} />
-                </LocalizationProvider>
-              </div>
-              :
-              <></>
-}
+              {startTime !== null ?
+                <div className="input-box relative w-11/12 mb-6">
+                  <label className="block mb-2">End Date</label>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker value={endTime === null ? startTime : endTime} onChange={value => setEndTime(value)} />
+                  </LocalizationProvider>
+                </div>
+                :
+                <></>
+              }
               <div className="register-button flex justify-center">
                 <input
                   className="register-btn w-40 h-12 bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-lg text-orange-500 font-semibold text-center"

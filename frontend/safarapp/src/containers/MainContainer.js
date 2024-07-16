@@ -39,7 +39,6 @@ const MainContainer = () => {
         return sessionStorage.getItem("access_token") !== null;
     });
 
-
     const fetchAttractions = async () => {
         const response = await fetch(`http://${apiUrl}/attractions`);
         const data = await response.json();
@@ -163,7 +162,6 @@ const MainContainer = () => {
             sessionStorage.setItem("refresh_token", refresh_token);
 
             setIsLoggedIn(true);
-
             return data;
         } catch (error) {
         }
@@ -235,14 +233,13 @@ const MainContainer = () => {
                 body: JSON.stringify(plannedAttraction)
             });
 
-            if (!response.status === 201) {
+            if (response.status !== 201) {
                 alert("An unexpected error has occured");
                 throw new Error();
             }
 
             alert("Planned Attraction added");
         } catch (error) {
-            throw error;
         }
         fetchItinerariesByUser();
     }
