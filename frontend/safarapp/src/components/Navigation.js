@@ -1,5 +1,5 @@
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import {  useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import React from 'react'
 import Logo from '../assests/logoname.png'
 import { Link, Outlet } from 'react-router-dom';
@@ -11,7 +11,7 @@ const NavBar = ({ postUser, login, logout }) => {
     const [darkMode, setDarkMode] = useState(false);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
-    
+
     const { isLoggedIn, setIsLoggedIn } = useContext(Context)
 
     const open = Boolean(anchorEl);
@@ -63,13 +63,11 @@ const NavBar = ({ postUser, login, logout }) => {
                             {!isLoggedIn ?
                                 <div className="hidden lg:flex justify-center space-x-12 items-center">
                                     <Link to={"/registration"}><button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button></Link>
-                                   
+
                                     <Link to={"/login"}><button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button></Link>
                                 </div>
                                 :
-                                <div>
-                                    <AccountMenu handleLogout={handleLogout}/>
-                                </div>
+                                    <AccountMenu handleLogout={handleLogout} />
                             }
                             {darkMode ? <Moon onClick={toggleDark} className='cursor-pointer text-white' /> : <Sun onClick={toggleDark} className='cursor-pointer' />}
                         </div>
@@ -81,15 +79,21 @@ const NavBar = ({ postUser, login, logout }) => {
                         {mobileDrawerOpen && (
                             <div className='fixed right-0 z-50 bg-[#d2dbd8] w-full mt-96 p-12 py-16 flex flex-col justify-center items-center border-b  border-neutral-700/80 dark:bg-gray-800 lg:hidden'>
                                 <ul className='flex-col items-center'>
-                                <li className='py-4 text-black dark:text-white text-center'><Link to="/itineraries">Itineraries</Link></li>
-                                <li className='py-4 text-black dark:text-white'> <Link to='/duas'>Duas</Link> </li>
-                                <li className='py-4 text-black dark:text-white'> <Link to='/maps'>Maps</Link>  </li>
+                                    <li className='py-4 text-black dark:text-white text-center'><Link to="/itineraries">Itineraries</Link></li>
+                                    <li className='py-4 text-black dark:text-white'> <Link to='/duas'>Duas</Link> </li>
+                                    <li className='py-4 text-black dark:text-white'> <Link to='/maps'>Maps</Link>  </li>
                                 </ul>
                                 <div className={isPopupOpen ? 'blurred-background flex space-x-6' : 'flex space-x-6'}>
-                                <Link to={"/login"}><button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button></Link>
-                                <Link to={"/registration"}><button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button></Link>
-                                    
-                            
+                                    {!isLoggedIn ?
+                                        <div>
+                                            <Link to={"/login"}><button className='py-2 px-3 text-black dark:text-white border border-black dark:border-white rounded-md'>Sign in</button></Link>
+                                            <Link to={"/registration"}><button className='py-2 px-3 border rounded-md bg-gradient-to-r from-blue-500 to-blue-800 dark:text-white'>Create account</button></Link>
+                                        </div>
+                                        :
+                                        <AccountMenu handleLogout={handleLogout} />
+                                    }
+
+
                                     {darkMode ? <Moon onClick={toggleDark} className='cursor-pointer text-white' /> : <Sun onClick={toggleDark} className='cursor-pointer' />}
                                 </div>
                             </div>

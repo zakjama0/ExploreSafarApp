@@ -15,10 +15,10 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
     if (handleValidation()) {
 
       const plannedAttraction = {
-        itineraryId: selectedItinerary || selectedItinerary !== undefined ? selectedItinerary.id : null,
+        itineraryId: selectedItinerary ? selectedItinerary.id : null,
         attractionId,
         startTime: startTime.format('DD/MM/YYYY'),
-        endTime: endTime.format('DD/MM/YYYY'),
+        endTime: endTime ? endTime.format('DD/MM/YYYY') : startTime.format('DD/MM/YYYY'),
         itineraryName: newItineraryName
       }
 
@@ -28,13 +28,13 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
 
   const handleValidation = () => {
 
-    if (startTime === null || endTime === null) {
-      alert("Please set dates.")
+    if (!selectedItinerary && newItineraryName.trim() === "") {
+      alert("Please select existing itinerary or enter name for new itinerary")
       return false;
     }
 
-    if (selectedItinerary !== undefined && selectedItinerary.id === null && newItineraryName === "") {
-      alert("Please select existing itinerary or enter name for new itinerary")
+    if (startTime === null) {
+      alert("Please set dates.")
       return false;
     }
 
@@ -50,6 +50,8 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
     setSelectedItineraryName(event.target.value);
     setSelectedItinerary(itineraries.find(itinerary => itinerary.name === event.target.value));
   }
+
+  console.log(selectedItinerary);
 
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
@@ -90,12 +92,16 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
                   <DatePicker value={startTime} onChange={value => setStartTime(value)} />
                 </LocalizationProvider>
               </div>
+              { startTime !== null ?
               <div className="input-box relative w-11/12 mb-6">
                 <label className="block mb-2">End Date</label>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker value={endTime} onChange={value => setEndTime(value)} />
+                  <DatePicker value={endTime === null ? startTime : endTime} onChange={value => setEndTime(value)} />
                 </LocalizationProvider>
               </div>
+              :
+              <></>
+}
               <div className="register-button flex justify-center">
                 <input
                   className="register-btn w-40 h-12 bg-white border-none outline-none rounded-full shadow-md cursor-pointer text-lg text-orange-500 font-semibold text-center"
