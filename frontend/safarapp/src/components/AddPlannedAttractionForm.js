@@ -51,8 +51,6 @@ const AddPlannedAttractionForm = ({ postPlannedAttraction, attractionId, itinera
     setSelectedItinerary(itineraries.find(itinerary => itinerary.name === event.target.value));
   }
 
-  console.log(selectedItinerary);
-
   return (
     <div className="flex flex-col justify-evenly items-center mx-5">
       <div className="main-login flex flex-col items-center">
