@@ -21,10 +21,10 @@ const getPhotoUrl = (photoReference) => {
       />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{place.name}</div>
-        <p className="text-gray-200 text-base">{place.vicinity}</p>
+        <p className="text-gray-800 dark:text-gray-200 text-base">{place.vicinity}</p>
         <div className="mt-4">
-          <span className="text-gray-200  font-semibold">Rating: {place.rating}</span>
-          <span className="text-gray-300 font-semibold ml-4">Price Level: {'$'.repeat(place.price_level || 0)}</span>
+          <span className="text-gray-800 dark:text-gray-200  font-semibold">Rating: {place.rating}</span>
+          <span className="text-gray-700 dark:text-gray-300 font-semibold ml-4">Price Level: {'$'.repeat(place.price_level || 0)}</span>
         </div>
       </div>
     </div>
